@@ -77,11 +77,11 @@ describe("数据质量", () => {
 
 describe("链接构造", () => {
   it("站内链接带 base 前缀", () => {
-    expect(url("/gallery/")).toBe("/website/gallery/")
-    expect(url("thumbs/art/naiwa_01.webp")).toBe("/website/thumbs/art/naiwa_01.webp")
+    expect(url("/gallery/")).toBe("/NaiLong-Universe/gallery/")
+    expect(url("thumbs/art/naiwa_01.webp")).toBe("/NaiLong-Universe/thumbs/art/naiwa_01.webp")
   })
 
   it("根路径不加多余斜杠", () => {
-    expect(url("/")).toBe("/website/")
+    expect(url("/")).toBe("/NaiLong-Universe/")
   })
 })
