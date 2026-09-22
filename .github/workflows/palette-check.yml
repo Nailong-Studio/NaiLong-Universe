@@ -21,4 +21,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Verify themes match palette.json
-        run: python3 scripts/generate.py --check
+        run: |
+          python3 scripts/generate.py --check
+          python3 themes/vscode/scripts/generate.py --check

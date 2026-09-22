@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | Windows Terminal | `windows-terminal.json` | 把里面的方案加到 settings.json |
 | iTerm2 | `nailong.itermcolors` | 双击导入，零门槛 |
-| VS Code 终端 | `nailong-vscode.json` | 合并进你的 settings.json |
+| VS Code 终端 | `nailong-vscode-terminal.json` | 合并进你的 settings.json |
 | GNOME Terminal | `nailong.dconf` | dconf 导入（待做，画饼中） |
 
 ## 安装
@@ -26,13 +26,13 @@
 
 ### VS Code
 
-把 `nailong-vscode.json` 中的 `workbench.colorCustomizations` 合并进你的 `settings.json`，关掉重开终端生效。
+把 `nailong-vscode-terminal.json` 中的 `workbench.colorCustomizations` 合并进你的 `settings.json`，关掉重开终端生效。
 
 ## 配色参考
 
 - 背景/前景：暖黑 `#121212` + 奶白 `#E8F5E9`，选区暖棕 `#2E2511`
 - 主色：奶黄 `#FFD54F` / `#F9A825`，眼睛绿 `#66BB6A` / `#2E7D32` 点睛（光标/远程/括号匹配）
-- 遵循 16 色 ANSI 标准，与 `nailong-vscode-theme` 1.0.0 对齐，兼容大部分终端
+- 遵循 16 色 ANSI 标准，与 `themes/vscode/` 的 Nailong Dark/Light 对齐，兼容大部分终端
 
 ## 贡献
 

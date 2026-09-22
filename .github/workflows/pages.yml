@@ -18,19 +18,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: pip install Pillow
-      - run: python scripts/build-gallery.py
-      - run: npm --prefix site ci
-      - run: npm --prefix site run build
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: 安装依赖
+        run: npm --prefix site ci
+      - name: 内容校验 + 单元测试
+        run: |
+          npm --prefix site run content:verify
+          npm --prefix site run test
+      - name: 构建静态站点
+        run: npm --prefix site run build
       - uses: actions/configure-pages@v5
         with:
           enablement: true

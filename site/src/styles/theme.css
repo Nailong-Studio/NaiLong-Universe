@@ -1,4 +1,0 @@
-:root{--bg:#121212;--nailong-bg:#121212;--accent:#FFD54F;--nailong-yellow:#FFD54F;--accent2:#F9A825;--text:#E8F5E9}
-body{background:var(--bg);color:var(--text);font-family:system-ui}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.card{border-radius:12px;overflow:hidden;background:#1e1e1e}

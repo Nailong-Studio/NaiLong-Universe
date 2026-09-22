@@ -12,7 +12,7 @@
 gh repo create Nailong-Studio/<port-name> --public --description "奶龙主题 · <工具名>"
 ```
 
-仓库结构（参考 `nailong-vscode-theme`）：
+仓库结构（参考 `themes/vscode/`）：
 
 ```
 <port-name>/
@@ -39,4 +39,4 @@ gh repo create Nailong-Studio/<port-name> --public --description "奶龙主题 �
 
 ## 模板
 
-可直接 `gh repo create --template Nailong-Studio/nailong-vscode-theme` 克隆模板仓。
+可直接参考主仓 `themes/vscode/` 的目录结构。

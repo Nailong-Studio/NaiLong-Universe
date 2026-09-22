@@ -59,7 +59,7 @@ def render_terminal():
             "terminal.ansiBrightWhite": dark["text"]["hex"],
         },
     }
-    rendered["themes/terminal/nailong-vscode.json"] = (
+    rendered["themes/terminal/nailong-vscode-terminal.json"] = (
         json.dumps(vscode, indent=2, ensure_ascii=False) + "\n"
     )
 

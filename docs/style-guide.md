@@ -34,7 +34,7 @@ python3 scripts/generate.py --check
 `scripts/generate.py` 读取 `palette.json` 输出到：
 - `themes/terminal/*.json` / `*.itermcolors`
 - `themes/windows/NaiLong.theme`
-- 也可为独立仓 `Nailong-Studio/nailong-vscode-theme` 生成 `themes/*.json`
+- 也可为 `themes/vscode/` 生成 VS Code 主题 `themes/*.json`
 
 ## Port 规范
 

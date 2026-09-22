@@ -1,19 +1,36 @@
 {
   "name": "nailong-gallery",
   "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "奶龙艺术宇宙 · 数字美术馆 (Nailong Gallery v2)",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest run"
+    "dev": "astro dev",
+    "build": "npm run content:build && npm run content:verify && astro build && node scripts/check-links.mjs",
+    "build:site": "astro build",
+    "preview": "astro preview",
+    "content:build": "node scripts/build-artworks.mjs",
+    "content:verify": "node scripts/verify-content.mjs",
+    "test": "vitest run",
+    "check": "npm run content:verify && npm run test && npm run lint",
+    "lint": "tsc --noEmit",
+    "links": "node scripts/check-links.mjs",
+    "demo:wall": "node scripts/make-wall-demo.mjs",
+    "demo:scroll": "node scripts/make-scroll-demo.mjs"
+  },
+  "engines": {
+    "node": ">=20.3.0"
   },
   "dependencies": {
-    "glightbox": "^3.3.0"
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "astro": "^7.3.2",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "jsdom": "^24.0.0",
-    "typescript": "^5.5.0",
-    "vite": "^5.0.0",
-    "vitest": "^1.4.0"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
   }
 }

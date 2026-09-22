@@ -6,14 +6,14 @@ ports:
     name: "Wallpaper"
     category: "wallpaper"
     repo: "Nailong-Studio/wallpaper"
-    description: "奶龙壁纸库 60 张 · 全家桶已独立"
+    description: "奶龙素材库 134 张壁纸 + 表情包 + 品牌素材"
     maintained: true
 
   vscode-theme:
     name: "VS Code Theme"
     category: "editor"
-    repo: "Nailong-Studio/nailong-vscode-theme"
-    description: "奶黄主色 + 绿眼睛，暖黑底 VS Code 主题"
+    repo: "NaiLong-Universe/themes/vscode"
+    description: "奶黄主色 + 绿眼睛，暖黑底 VS Code 主题（已并入主仓）"
     maintained: true
 
   terminal:
@@ -25,7 +25,7 @@ ports:
     files:
       - windows-terminal.json
       - nailong.itermcolors
-      - nailong-vscode.json
+      - nailong-vscode-terminal.json
 
   windows:
     name: "Windows Theme"

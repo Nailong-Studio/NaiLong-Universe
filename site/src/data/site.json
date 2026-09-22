@@ -1,0 +1,12 @@
+{
+  "title": "奶龙艺术宇宙 · 数字美术馆",
+  "shortTitle": "NaiLong Gallery",
+  "description": "奶龙艺术宇宙数字美术馆：134 件奶龙主题艺术作品的展厅式浏览体验，五大厅室、原图下载与沉浸式策展导览。",
+  "site": "https://nailong-studio.github.io",
+  "base": "/NaiLong-Universe/",
+  "lang": "zh-CN",
+  "author": "Nailong-Studio",
+  "repo": "https://github.com/Nailong-Studio/NaiLong-Universe",
+  "wallpaperRepo": "https://github.com/Nailong-Studio/wallpaper",
+  "cdnHost": "wsrv.nl"
+}

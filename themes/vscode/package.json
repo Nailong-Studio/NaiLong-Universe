@@ -1,0 +1,48 @@
+{
+  "name": "nailong-vscode-theme",
+  "displayName": "Nailong Theme",
+  "description": "奶龙主题 · 奶黄主色 + 奶龙绿眼睛，深色护眼，一键把 VS Code 变成奶龙的窝（并入 NaiLong-Universe themes/vscode）",
+  "version": "1.0.0",
+  "publisher": "Nailong-Studio",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "nailong",
+    "theme",
+    "dark",
+    "yellow",
+    "cute"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nailong-Studio/NaiLong-Universe"
+  },
+  "homepage": "https://github.com/Nailong-Studio/NaiLong-Universe/tree/main/themes/vscode",
+  "bugs": {
+    "url": "https://github.com/Nailong-Studio/NaiLong-Universe/issues"
+  },
+  "galleryBanner": {
+    "color": "#0E1510",
+    "theme": "dark"
+  },
+  "icon": "assets/nailong-icon.png",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nailong Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nailong-Dark.json"
+      },
+      {
+        "label": "Nailong Light",
+        "uiTheme": "vs",
+        "path": "./themes/Nailong-Light.json"
+      }
+    ]
+  }
+}
