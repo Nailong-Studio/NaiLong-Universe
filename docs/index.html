@@ -300,6 +300,11 @@ body::before{
 }
 .hall__head{display:flex;align-items:baseline;gap:clamp(14px,2.4vw,28px);flex-wrap:wrap}
 .hall__desc{color:var(--ivory-dim);font-size:.9rem;letter-spacing:.08em;margin-bottom:0}
+/* 展厅页码：当前件 / 总数 */
+.hall__count{margin-left:auto;font-variant-numeric:tabular-nums;font-family:var(--serif);color:var(--ivory-dim);letter-spacing:.12em;font-size:.78rem;white-space:nowrap;opacity:.85;border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:rgba(11,8,6,.5)}
+.hall__count b{color:var(--gold);font-size:1rem;font-weight:600;font-variant-numeric:tabular-nums}
+.hall__count i{font-style:normal;opacity:.45;margin:0 .3em}
+.hall__count .c-total{color:var(--ivory-dim);font-size:.8rem}
 .swipehint{text-align:center;color:var(--ivory-dim);font-size:.78rem;letter-spacing:.34em;text-indent:.34em;margin-top:clamp(26px,4vw,44px)}
 /* 展厅横向长廊：左右滑动沉浸 */
 .hall__track{
@@ -522,6 +527,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 }
 .lightbox__cap .t{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em;color:var(--ivory)}
 .lightbox__cap .s{margin-top:6px;color:var(--ivory-dim);font-size:.78rem;letter-spacing:.24em}
+.lightbox__cap .lb-count{margin-top:10px;display:inline-block;font-variant-numeric:tabular-nums;font-size:.78rem;letter-spacing:.3em;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:4px 14px;background:rgba(11,8,6,.55)}
 .lightbox__close{
   display:grid;place-items:center;
   position:absolute;top:0;right:0;
@@ -604,6 +610,17 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 .music[aria-pressed="true"] .ic-on{display:none}
 .music[aria-pressed="true"] .ic-off{display:block}
 @media (max-width:640px){.music{left:14px;bottom:14px;width:46px;height:46px}}
+/* 待播放时的轻触奏响提示 */
+.music.hint{border-color:rgba(217,180,91,.6);animation:musicPulse 2.6s var(--ease) infinite}
+.music.hint::after{
+  content:"轻触奏响";position:absolute;left:50%;bottom:calc(100% + 10px);
+  transform:translateX(-50%);font-size:.68rem;letter-spacing:.24em;text-indent:.24em;
+  color:var(--gold);background:rgba(11,8,6,.9);border:1px solid var(--line);
+  padding:5px 12px;white-space:nowrap;pointer-events:none;opacity:0;
+  animation:musicHint 2.6s var(--ease) infinite;
+}
+@keyframes musicPulse{0%,60%{transform:scale(1)}72%{transform:scale(1.14)}86%{transform:scale(1)}100%{transform:scale(1)}}
+@keyframes musicHint{0%,55%{opacity:0}68%,88%{opacity:1}100%{opacity:0}}
 
 /* ============ 全站噪点 ============ */
 .grain{
@@ -1515,20 +1532,20 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
     <div class="paths reveal">
-      <a class="path stagger" href="https://nailong-studio.github.io/NaiLong-Universe/gallery/" target="_blank" rel="noopener">
-        <span class="path__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21 L4 12 Q4 2 12 2 Q20 2 20 12 L20 21" stroke="currentColor" stroke-width="1.4"/><path d="M9 21 L9 14 Q9 9 12 9 Q15 9 15 14 L15 21" stroke="currentColor" stroke-width="1.2"/></svg></span>
-        <p class="path__title">线上画廊</p>
-        <p class="path__desc">步入全殿，沉浸浏览全部一百五十六件圣像，下载原图。</p>
+      <a class="path stagger" href="#halls">
+        <span class="path__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21 L3 10 Q3 2 12 2 Q21 2 21 10 L21 21" stroke="currentColor" stroke-width="1.4"/><path d="M7 21 L7 12 Q7 7 12 7 Q17 7 17 12 L17 21" stroke="currentColor" stroke-width="1.2"/><path d="M8 17 L16 17" stroke="currentColor" stroke-width="1.2"/></svg></span>
+        <p class="path__title">全殿馆藏</p>
+        <p class="path__desc">回到圣殿，七厅一百五十八件全部圣像，沉浸浏览、放大细看。</p>
       </a>
       <a class="path stagger" href="https://github.com/Nailong-Studio/wallpaper" target="_blank" rel="noopener">
         <span class="path__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" stroke="currentColor" stroke-width="1.4" rx="1"/><path d="M8 10 L12 14 L16 10" stroke="currentColor" stroke-width="1.4"/></svg></span>
         <p class="path__title">壁纸素材库</p>
-        <p class="path__desc">领取圣物：五馆壁纸、表情包、logo 与宣传影像的独立素材仓。</p>
+        <p class="path__desc">领取圣物：五馆壁纸、表情包、logo 与宣传影像的原图素材仓，下载即带走。</p>
       </a>
       <a class="path stagger" href="https://github.com/Nailong-Studio/NaiLong-Universe" target="_blank" rel="noopener">
         <span class="path__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 C7 6 4 10 4 15 a8 8 0 0 0 16 0 C20 10 17 6 12 3 Z" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="14" r="2.4" fill="currentColor"/></svg></span>
-        <p class="path__title">主题主仓</p>
-        <p class="path__desc">全家桶源码：Windows / macOS / 终端 / VS Code 主题与调色板单源。</p>
+        <p class="path__title">主题全家桶</p>
+        <p class="path__desc">电脑桌面主题与调色板源码：Windows / macOS / 终端 / VS Code，一键搬进你的桌面。</p>
       </a>
     </div>
   </div>
@@ -1559,6 +1576,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     <div class="lightbox__cap">
       <p class="t" id="lbTitle"></p>
       <p class="s" id="lbHall"></p>
+      <p class="lb-count" id="lbCount"></p>
       <p class="story" id="lbStory"></p>
       <a class="lightbox__full" id="lbFull" href="#" target="_blank" rel="noopener">查看仓库原图</a>
     </div>
@@ -1581,7 +1599,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 </div>
 
 
-<audio id="bgm" src="assets/temple-choir.mp3" loop preload="none"></audio>
+<audio id="bgm" src="assets/temple-choir.mp3" loop preload="auto"></audio>
 <button class="music" id="musicBtn" aria-pressed="false" aria-label="奏响圣殿琴音" title="奏响圣殿琴音">
   <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18 V5 L20 3 V15"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="15" r="2.5"/></svg>
   <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L12 20"/><path d="M6 9 L3 12 L6 15"/><path d="M18 9 L21 12 L18 15"/><path d="M9 6 L15 18"/></svg>
@@ -1632,6 +1650,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     var lbTitle = doc.getElementById("lbTitle");
     var lbHall = doc.getElementById("lbHall");
     var lbStory = doc.getElementById("lbStory");
+    var lbCount = doc.getElementById("lbCount");
     var lbFull = doc.getElementById("lbFull");
     var lbClose = doc.getElementById("lbClose");
     var lbPrev = doc.getElementById("lbPrev");
@@ -1696,6 +1715,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       lbImg.setAttribute("alt", it.alt);
       lbTitle.textContent = it.title;
       lbHall.textContent = it.hall;
+      if (lbCount) lbCount.textContent = (cur + 1) + " / " + items.length;
       lbStory.textContent = it.story;
       lbFull.setAttribute("href", it.original);
       if (!box.open){
@@ -1732,7 +1752,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     if (musicOn || !bgm) return;
     bgm.volume = 0.45;
     var pp = bgm.play();
-    var done = function(){ musicOn = true; setBtn(true); };
+    var done = function(){ musicOn = true; setBtn(true); if (musicBtn) musicBtn.classList.remove("hint"); };
     if (pp && pp.then){
       pp.then(done).catch(function(){ /* 被浏览器拦截：保持待播，等待手势重试 */ });
     } else {
@@ -1747,7 +1767,9 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   }
   if (bgm){
     bgm.volume = 0.45;
-    tryPlay(); /* 默认即有圣殿琴音（浏览器允许时） */
+    if (musicBtn) musicBtn.classList.add("hint");
+    bgm.load();
+    tryPlay(); /* 默认即有圣殿琴音（浏览器允许时）；被拦则首次轻触/滑动即响 */
   }
   if (musicBtn) musicBtn.addEventListener("click", function(){
     if (musicOn) tryPause(); else tryPlay();
@@ -1761,6 +1783,33 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   };
   ["pointerdown","keydown","touchstart","scroll"].forEach(function(ev){
     doc.addEventListener(ev, firstTap, {passive:true});
+  });
+  });
+  safe(function(){
+  /* ---- 展厅页码：当前件 / 总数，随横滑实时更新 ---- */
+  Array.prototype.forEach.call(doc.querySelectorAll(".hall"), function(hall){
+    var track = hall.querySelector(".hall__track");
+    var head = hall.querySelector(".hall__head");
+    if (!track || !head) return;
+    var works = track.querySelectorAll(".work");
+    var total = works.length;
+    if (!total) return;
+    var cnt = doc.createElement("span");
+    cnt.className = "hall__count";
+    cnt.innerHTML = "<b class=\"c-cur\">01</b><i>/</i><b class=\"c-total\">" + total + "</b>";
+    head.appendChild(cnt);
+    var curEl = cnt.querySelector(".c-cur");
+    function upd(){
+      var gap = 0;
+      try{ gap = parseFloat(getComputedStyle(track).gap) || 0; }catch(e){}
+      var w = (works[0] ? works[0].offsetWidth : 0) + gap;
+      var idx = w > 0 ? Math.round(track.scrollLeft / w) : 0;
+      idx = Math.max(0, Math.min(total - 1, idx));
+      curEl.textContent = (idx + 1).toString().padStart(2, "0");
+    }
+    track.addEventListener("scroll", upd, {passive:true});
+    track.addEventListener("touchend", upd, {passive:true});
+    upd();
   });
   });
   safe(function(){
