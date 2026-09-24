@@ -208,6 +208,26 @@ body::before{
 .t3d__cta{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);letter-spacing:.3em;text-indent:.3em;font-size:.86rem;color:#FFE9B0;background:linear-gradient(120deg,rgba(217,180,91,.5),rgba(217,180,91,.18));border:1px solid rgba(217,180,91,.85);border-radius:999px;padding:11px 30px;text-decoration:none;box-shadow:0 0 26px rgba(255,213,79,.28);animation:t3dCtaIn .7s var(--ease) both;z-index:2;cursor:pointer}
 @keyframes t3dCtaIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 .t3d__stage.t3d__open ~ .t3d__hint{display:none}
+/* ===================== 多视图：主界面=目录入口，其余分界面 ===================== */
+.view{display:none}
+.view.active{display:block;animation:viewIn .5s var(--ease) both}
+@keyframes viewIn{from{opacity:0}to{opacity:1}}
+.view__bar{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:clamp(92px,12vw,120px) clamp(20px,4vw,32px) 0;max-width:1160px;margin:0 auto}
+.view__back{color:var(--gold);text-decoration:none;letter-spacing:.14em;font-size:.84rem;border:1px solid rgba(217,180,91,.5);border-radius:999px;padding:8px 18px;transition:.25s;display:inline-flex;align-items:center;gap:7px}
+.view__back:hover{background:rgba(217,180,91,.16);border-color:var(--gold);color:var(--gold-bright)}
+.view__title{font-family:var(--serif);font-size:1.12rem;color:var(--ivory);letter-spacing:.24em}
+.view__count{margin-left:auto;font-size:.78rem;letter-spacing:.22em;color:rgba(238,232,215,.6)}
+/* 圣殿目录 */
+.portals{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px);max-width:1160px;margin:clamp(56px,8vw,90px) auto 0;padding:0 clamp(20px,4vw,32px)}
+.portal{position:relative;display:flex;flex-direction:column;gap:10px;padding:clamp(20px,3vw,28px);border:1px solid rgba(217,180,91,.34);border-radius:12px;background:linear-gradient(160deg,rgba(217,180,91,.1),rgba(11,8,6,.35));color:var(--ivory);text-decoration:none;transition:transform .3s var(--ease),border-color .3s,background .3s;overflow:hidden}
+.portal::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 0,rgba(255,213,79,.12),transparent 60%);opacity:0;transition:opacity .3s}
+.portal:hover,.portal:focus-visible{transform:translateY(-4px);border-color:rgba(217,180,91,.8);background:linear-gradient(160deg,rgba(217,180,91,.18),rgba(11,8,6,.5))}
+.portal:hover::before{opacity:1}
+.portal__num{font-family:var(--serif);color:var(--gold);font-size:.82rem;letter-spacing:.3em}
+.portal__title{font-family:var(--serif);font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--gold-bright);letter-spacing:.12em}
+.portal__desc{font-size:.82rem;line-height:1.7;color:rgba(238,232,215,.72)}
+@media (max-width:900px){.portals{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.portals{grid-template-columns:1fr}}
 .t3d__fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;color:rgba(238,232,215,.55);padding:20px}
 .t3d__fallback svg{width:min(300px,58%);height:auto;opacity:.9}
 .t3d__ready .t3d__fallback{display:none}
@@ -641,13 +661,13 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 
 <!-- ===================== 导航 ===================== -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#top" aria-label="回到圣殿之门">
+  <a class="nav__brand" href="#home" aria-label="回到圣殿之门">
     <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 58 L12 30 Q12 8 32 8 Q52 8 52 30 L52 58 Z" stroke="#D9B45B" stroke-width="4"/><circle cx="32" cy="30" r="8" fill="#FFD54F"/></svg>
     <span class="nav__brand-text">奶龙艺术宇宙</span>
   </a>
   <nav aria-label="章节导航">
     <ul class="nav__links">
-      <li><a href="#creed">序言</a></li>
+      <li><a href="#home">目录</a></li>
       <li><a href="#halls">展厅</a></li>
       <li><a href="#visit">朝圣</a></li>
     </ul>
@@ -655,6 +675,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 </header>
 
 <main id="top">
+<section id="view-home" class="view active" aria-label="圣殿主界面">
 <!-- ===================== 圣殿之门 ===================== -->
 <section class="hero" aria-label="圣殿之门">
   <div class="hero__media">
@@ -726,13 +747,43 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   </div>
 </section>
 
+<!-- ===================== 圣殿目录 ===================== -->
+<nav class="portals reveal" aria-label="圣殿目录">
+  <a class="portal stagger" href="#halls">
+    <span class="portal__num">壹</span>
+    <span class="portal__title">七 间 展 厅</span>
+    <span class="portal__desc">一百五十八件圣像，分厅陈列，步入沉浸巡展</span>
+  </a>
+  <a class="portal stagger" href="#chronicle">
+    <span class="portal__num">贰</span>
+    <span class="portal__title">企 划 纪 年</span>
+    <span class="portal__desc">奶龙艺术宇宙的大事件时间轴，一殿一宇宙</span>
+  </a>
+  <a class="portal stagger" href="#visit">
+    <span class="portal__num">叁</span>
+    <span class="portal__title">朝 圣 之 路</span>
+    <span class="portal__desc">领取圣物：壁纸素材库与主题全家桶</span>
+  </a>
+  <a class="portal stagger" href="#temple3d">
+    <span class="portal__num">肆</span>
+    <span class="portal__title">圣 殿 之 门</span>
+    <span class="portal__desc">回到上方，推开三维圣门，步入展厅</span>
+  </a>
+</nav>
+</section>
 
 <!-- ===================== 展厅 ===================== -->
+<section id="view-halls" class="view" aria-label="展厅界面">
+  <div class="view__bar">
+    <a class="view__back" href="#home">返回目录</a>
+    <span class="view__title">七 间 展 厅</span>
+    <span class="view__count">158 件圣像 · 分厅陈列</span>
+  </div>
 <section class="section" id="halls" aria-label="圣殿展厅" style="padding-top:0">
   <div class="wrap">
     <header class="section__head reveal">
       <p class="section__kicker">圣殿展厅</p>
-      <h2 class="section__title">六 间 圣 殿 · <em>一 种 快 乐</em></h2>
+      <h2 class="section__title">七 间 圣 殿 · <em>一 种 快 乐</em></h2>
     <nav class="halls-nav" aria-label="馆区导览">
       <a href="#hall-1">壹 · 圣典</a><a href="#hall-2">贰 · 圣迹</a><a href="#hall-3">叁 · 欢颂</a><a href="#hall-4">肆 · 艺廊</a><a href="#hall-5">伍 · 咏颂</a><a href="#hall-6">陆 · 竖屏</a><a href="#hall-7">柒 · 影音</a>
     </nav>
@@ -1443,9 +1494,38 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
     </section>
 
+
+    <section class="hall reveal" id="hall-7" aria-label="影音展厅" style="margin-top:clamp(56px,8vw,96px)">
+      <div class="hall__head">
+        <h3 class="hall__name">柒 · 影 音</h3>
+        <p class="hall__desc">官方圣影——把奶龙的快乐卷进胶片，静音观览，圣殿配乐常伴。</p>
+      <button class="hall__enter" data-hall="7" aria-label="步入柒 · 影 音展厅沉浸展厅">步入展厅</button></div>
+      <div class="hall__track">
+<figure class="work">
+          <div class="stagger work__frame"><video src="assets/promo-hero.mp4" poster="assets/promo-hero-poster.jpg" preload="metadata" muted loop playsinline data-narrative="官方圣影 · 一：奶龙的主场预告——四百年的美术史，在一卷胶片里被它重新加冕。" aria-label="《奶龙 · 官方圣影》" data-title="奶龙 · 官方圣影 · 一" data-hall="影音 · 官方圣影" data-original="#"></video></div>
+          <figcaption class="work__cap"><cite>奶龙 · 官方圣影 · 一</cite><span>影音</span></figcaption>
+        </figure>
+<figure class="work">
+          <div class="stagger work__frame"><video src="assets/promo-tunnel.mp4" poster="assets/promo-tunnel-poster.jpg" preload="metadata" muted loop playsinline data-narrative="官方圣影 · 二：穿过奶龙壁纸的隧道，每一步都踩在快乐上。" aria-label="《奶龙 · 壁纸隧道》" data-title="奶龙 · 壁纸隧道 · 二" data-hall="影音 · 官方圣影" data-original="#"></video></div>
+          <figcaption class="work__cap"><cite>奶龙 · 壁纸隧道 · 二</cite><span>影音</span></figcaption>
+        </figure>
+      </div>
+      <div class="hall__ctl">
+        <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">2</b></span>
+        <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
+      </div>
+    </section>
   </div>
 </section>
+</section>
 <!-- ===================== 企划纪年 ===================== -->
+<section id="view-chronicle" class="view" aria-label="企划纪年界面">
+  <div class="view__bar">
+    <a class="view__back" href="#home">返回目录</a>
+    <span class="view__title">企 划 纪 年</span>
+    <span class="view__count">殿堂大事记</span>
+  </div>
 <section class="section" id="chronicle" aria-label="企划纪年">
   <div class="wrap">
     <header class="section__head reveal">
@@ -1509,31 +1589,16 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     </div>
   </div>
 </section>
+</section>
 
 
 <!-- ===================== 朝圣之路 ===================== -->
-
-    <section class="hall reveal" id="hall-7" aria-label="影音展厅" style="margin-top:clamp(56px,8vw,96px)">
-      <div class="hall__head">
-        <h3 class="hall__name">柒 · 影 音</h3>
-        <p class="hall__desc">官方圣影——把奶龙的快乐卷进胶片，静音观览，圣殿配乐常伴。</p>
-      <button class="hall__enter" data-hall="7" aria-label="步入柒 · 影 音展厅沉浸展厅">步入展厅</button></div>
-      <div class="hall__track">
-<figure class="work">
-          <div class="stagger work__frame"><video src="assets/promo-hero.mp4" poster="assets/promo-hero-poster.jpg" preload="metadata" muted loop playsinline data-narrative="官方圣影 · 一：奶龙的主场预告——四百年的美术史，在一卷胶片里被它重新加冕。" aria-label="《奶龙 · 官方圣影》" data-title="奶龙 · 官方圣影 · 一" data-hall="影音 · 官方圣影" data-original="#"></video></div>
-          <figcaption class="work__cap"><cite>奶龙 · 官方圣影 · 一</cite><span>影音</span></figcaption>
-        </figure>
-<figure class="work">
-          <div class="stagger work__frame"><video src="assets/promo-tunnel.mp4" poster="assets/promo-tunnel-poster.jpg" preload="metadata" muted loop playsinline data-narrative="官方圣影 · 二：穿过奶龙壁纸的隧道，每一步都踩在快乐上。" aria-label="《奶龙 · 壁纸隧道》" data-title="奶龙 · 壁纸隧道 · 二" data-hall="影音 · 官方圣影" data-original="#"></video></div>
-          <figcaption class="work__cap"><cite>奶龙 · 壁纸隧道 · 二</cite><span>影音</span></figcaption>
-        </figure>
-      </div>
-      <div class="hall__ctl">
-        <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">2</b></span>
-        <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
-      </div>
-    </section>
+<section id="view-visit" class="view" aria-label="朝圣之路界面">
+  <div class="view__bar">
+    <a class="view__back" href="#home">返回目录</a>
+    <span class="view__title">朝 圣 之 路</span>
+    <span class="view__count">领取圣物</span>
+  </div>
 <section class="section" id="visit" aria-label="朝圣之路">
   <div class="wrap">
     <header class="section__head reveal">
@@ -1559,6 +1624,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </a>
     </div>
   </div>
+</section>
 </section>
 
 </main>
@@ -1627,6 +1693,49 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     try { fn(); }
     catch(e){ if (window.console && window.console.warn) window.console.warn("[圣殿]", e && e.message ? e.message : e); }
   }
+  safe(function(){
+  /* ---- 多视图路由：hash 驱动，主界面=目录入口，其余分界面 ---- */
+  var VIEWS = ["home", "halls", "chronicle", "visit"];
+  var viewEls = {};
+  VIEWS.forEach(function(v){ viewEls[v] = doc.getElementById("view-" + v); });
+  function closeOverlays(){
+    var ch = doc.getElementById("chamber");
+    if (ch && !ch.hidden){
+      ch.hidden = true;
+      var v = doc.getElementById("chamberVid");
+      if (v && v.pause) v.pause();
+    }
+    var box = doc.getElementById("lightbox");
+    if (box && typeof box.close === "function" && box.open){ try{ box.close(); }catch(e){} }
+  }
+  function smoothTo(el){
+    if (!el) return;
+    setTimeout(function(){
+      el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+    }, 70);
+  }
+  function navigate(){
+    var h = (location.hash || "").replace(/^#/, "").replace(/%20/g, " ");
+    var cur = doc.querySelector(".view.active");
+    var v = cur ? cur.id.replace("view-", "") : "home";
+    if (VIEWS.indexOf(h) >= 0) v = h;
+    VIEWS.forEach(function(k){
+      if (viewEls[k]) viewEls[k].classList.toggle("active", k === v);
+    });
+    closeOverlays();
+    if (h && h !== v && h !== "top"){
+      var t = doc.getElementById(h);
+      if (t){
+        if (h === "temple3d" && v === "home"){ smoothTo(t); return; }
+        if (viewEls[v] && viewEls[v].contains(t)){ smoothTo(t); return; }
+      }
+    }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", navigate);
+  if (!location.hash){ try{ history.replaceState(null, "", "#home"); }catch(e){} }
+  navigate();
+  });
   safe(function(){
   /* ---- 导航滚动状态 ---- */
   var nav = doc.getElementById("nav");
