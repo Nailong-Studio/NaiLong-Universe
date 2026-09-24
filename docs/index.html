@@ -658,13 +658,17 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 .relic__title{font-family:var(--serif);font-size:clamp(17px,2vw,21px);letter-spacing:.18em;color:var(--gold)}
 .relic__sub{margin-top:3px;font-size:12px;letter-spacing:.12em;color:var(--ivory-dim)}
 .relic__grid{display:grid;gap:8px}
-.relic__grid.walls{grid-template-columns:repeat(4,1fr)}
-.relic__grid.walls .wall{position:relative;display:block;overflow:hidden;border:1px solid rgba(212,175,55,.25);aspect-ratio:9/16}
-.relic__grid.walls img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.relic__grid .wall:hover img{transform:scale(1.06)}
-.relic__grid.emotes{grid-template-columns:repeat(8,1fr)}
-.relic__grid.emotes img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid rgba(212,175,55,.22);cursor:default;transition:transform .3s}
-.relic__grid.emotes img:hover{transform:scale(1.15);border-color:var(--gold)}
+.relic__grid.walls{grid-template-columns:repeat(3,1fr)}
+.relic__grid .wall,.relic__grid .emo{position:relative;display:block;overflow:hidden;border:1px solid rgba(212,175,55,.28);background:#0b0b0e;transition:border-color .3s,transform .3s}
+.relic__grid .wall:hover,.relic__grid .emo:hover{border-color:var(--gold-bright);transform:translateY(-2px)}
+.relic__grid.walls .wall{aspect-ratio:16/9}
+.relic__grid.walls img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.relic__grid .wall:hover img{transform:scale(1.05)}
+.relic__grid.walls figcaption,.relic__grid.emotes figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 8px;font-size:11px;letter-spacing:.08em;color:var(--ivory);background:linear-gradient(to top,rgba(11,8,6,.92),rgba(11,8,6,.25) 70%,transparent);text-align:left}
+.relic__grid.emotes{grid-template-columns:repeat(4,1fr)}
+.relic__grid.emotes .emo{aspect-ratio:1}
+.relic__grid.emotes img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.relic__grid.emotes .emo:hover img{transform:scale(1.08)}
 .relic__term{background:#0b0b0e;border:1px solid rgba(212,175,55,.28);border-radius:6px;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .term__bar{display:flex;align-items:center;gap:7px;padding:8px 12px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(212,175,55,.2)}
 .term__bar span{width:10px;height:10px;border-radius:50%;background:#E57373}
@@ -699,7 +703,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 .relic__joins{display:flex;gap:12px;flex-wrap:wrap}
 .relic__joins .join{padding:11px 22px;border:1px solid rgba(255,215,0,.5);color:var(--gold);letter-spacing:.14em;font-size:13px;transition:background .3s,color .3s}
 .relic__joins .join:hover{background:var(--gold);color:#0a0a0c}
-@media(max-width:760px){.relics{grid-template-columns:1fr}.relic__grid.walls{grid-template-columns:repeat(2,1fr)}.relic__grid.emotes{grid-template-columns:repeat(4,1fr)}.relic__vids{grid-template-columns:1fr}.relic--join{grid-column:auto}}
+@media(max-width:760px){.relics{grid-template-columns:1fr}.relic__grid.walls{grid-template-columns:repeat(2,1fr)}.relic__grid.emotes{grid-template-columns:repeat(3,1fr)}.relic__vids{grid-template-columns:1fr}.relic--join{grid-column:auto}}
 }
 
 /* ============ 页脚 ============ */
@@ -2070,10 +2074,12 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
           <div><p class="relic__title">高清壁纸</p><p class="relic__sub">44 件 · 桌面圣像</p></div>
         </header>
         <div class="relic__grid walls">
-          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener" title="壁纸 01"><img src="assets/fullhd-nailong-01.jpg" alt="奶蛙壁纸 01" loading="eager"></a>
-          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener" title="壁纸 02"><img src="assets/fullhd-nailong-02.jpg" alt="奶蛙壁纸 02" loading="eager"></a>
-          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener" title="壁纸 13"><img src="assets/fullhd-nailong-13.jpg" alt="奶蛙壁纸 13" loading="eager"></a>
-          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener" title="壁纸 28"><img src="assets/fullhd-nailong-28.jpg" alt="奶蛙壁纸 28" loading="eager"></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-01.jpg" alt="奶蛙壁纸·圣光一"><figcaption>奶蛙壁纸·壹</figcaption></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-02.jpg" alt="奶蛙壁纸·圣光二"><figcaption>奶蛙壁纸·贰</figcaption></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-03.jpg" alt="奶蛙壁纸·圣光三"><figcaption>奶蛙壁纸·叁</figcaption></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-04.jpg" alt="奶蛙壁纸·圣光四"><figcaption>奶蛙壁纸·肆</figcaption></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-05.jpg" alt="奶蛙壁纸·圣光五"><figcaption>奶蛙壁纸·伍</figcaption></a>
+          <a class="wall" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener"><img src="assets/hd-06.jpg" alt="奶蛙壁纸·圣光六"><figcaption>奶蛙壁纸·陆</figcaption></a>
         </div>
         <a class="relic__cta" href="https://github.com/Nailong-Studio/wallpaper/tree/main/hd" target="_blank" rel="noopener">进入壁纸库 · 下载全部</a>
       </article>
@@ -2084,7 +2090,18 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
           <div><p class="relic__title">表情圣器</p><p class="relic__sub">33 件 · 斗图加持</p></div>
         </header>
         <div class="relic__grid emotes">
-          <img src="assets/e-01.webp" alt="表情 01" loading="eager"><img src="assets/e-02.webp" alt="表情 02" loading="eager"><img src="assets/e-03.webp" alt="表情 03" loading="eager"><img src="assets/e-04.webp" alt="表情 04" loading="eager"><img src="assets/e-05.webp" alt="表情 05" loading="eager"><img src="assets/e-06.webp" alt="表情 06" loading="eager"><img src="assets/e-07.webp" alt="表情 07" loading="eager"><img src="assets/e-08.webp" alt="表情 08" loading="eager">
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-01.webp" alt="捂嘴偷乐"><figcaption>捂嘴偷乐</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-02.webp" alt="粉色换色"><figcaption>粉色换色</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-03.webp" alt="抱臂淡定"><figcaption>抱臂淡定</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-04.webp" alt="托腮思考"><figcaption>托腮思考</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-05.webp" alt="叉腰指路"><figcaption>叉腰指路</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-06.webp" alt="抱头惊讶"><figcaption>抱头惊讶</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-07.webp" alt="躺笑·圣诞"><figcaption>躺笑·圣诞</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-08.webp" alt="抱头大笑·圣诞"><figcaption>抱头大笑</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-10.webp" alt="弯腰捧腹·圣诞"><figcaption>弯腰捧腹</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-11.webp" alt="交叠置腹·圣诞"><figcaption>交叠置腹</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-12.webp" alt="弯腰捧腹·圣诞"><figcaption>弯腰捧腹</figcaption></a>
+          <a class="emo" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener"><img src="assets/e-20.webp" alt="气鼓鼓"><figcaption>气鼓鼓</figcaption></a>
         </div>
         <a class="relic__cta" href="https://github.com/Nailong-Studio/wallpaper/tree/main/emotes" target="_blank" rel="noopener">领取表情包 · 全套带走</a>
       </article>
