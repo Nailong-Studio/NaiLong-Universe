@@ -301,7 +301,7 @@ body::before{
 .hall__head{display:flex;align-items:baseline;gap:clamp(14px,2.4vw,28px);flex-wrap:wrap}
 .hall__desc{color:var(--ivory-dim);font-size:.9rem;letter-spacing:.08em;margin-bottom:0}
 /* 展厅页码：当前件 / 总数 */
-.hall__count{margin-left:auto;font-variant-numeric:tabular-nums;font-family:var(--serif);color:var(--ivory-dim);letter-spacing:.12em;font-size:.78rem;white-space:nowrap;opacity:.85;border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:rgba(11,8,6,.5)}
+.hall__count{font-variant-numeric:tabular-nums;font-family:var(--serif);color:var(--ivory-dim);letter-spacing:.12em;font-size:.78rem;white-space:nowrap;opacity:.85;border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:rgba(11,8,6,.5);align-self:center}
 .hall__count b{color:var(--gold);font-size:1rem;font-weight:600;font-variant-numeric:tabular-nums}
 .hall__count i{font-style:normal;opacity:.45;margin:0 .3em}
 .hall__count .c-total{color:var(--ivory-dim);font-size:.8rem}
@@ -896,7 +896,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/38">0 / 38</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">38</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -945,7 +945,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/9">0 / 9</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">9</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -1046,7 +1046,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/22">0 / 22</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">22</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -1203,7 +1203,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/36">0 / 36</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">36</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -1304,7 +1304,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/22">0 / 22</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">22</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -1433,7 +1433,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       </div>
       <div class="hall__ctl">
         <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
-        <span class="hall__count" data-count="0/29">0 / 29</span>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">29</b></span>
         <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
@@ -1522,6 +1522,11 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
           <div class="stagger work__frame"><video src="assets/promo-tunnel.mp4" poster="assets/promo-tunnel-poster.jpg" preload="metadata" muted loop playsinline data-narrative="官方圣影 · 二：穿过奶龙壁纸的隧道，每一步都踩在快乐上。" aria-label="《奶龙 · 壁纸隧道》" data-title="奶龙 · 壁纸隧道 · 二" data-hall="影音 · 官方圣影" data-original="#"></video></div>
           <figcaption class="work__cap"><cite>奶龙 · 壁纸隧道 · 二</cite><span>影音</span></figcaption>
         </figure>
+      </div>
+      <div class="hall__ctl">
+        <button class="hall__arrow" data-prev aria-label="上一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
+        <span class="hall__count"><b class="c-cur">01</b><i>/</i><b class="c-total">2</b></span>
+        <button class="hall__arrow" data-next aria-label="下一件"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
       </div>
     </section>
 <section class="section" id="visit" aria-label="朝圣之路">
@@ -1786,19 +1791,17 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   });
   });
   safe(function(){
-  /* ---- 展厅页码：当前件 / 总数，随横滑实时更新 ---- */
-  Array.prototype.forEach.call(doc.querySelectorAll(".hall"), function(hall){
-    var track = hall.querySelector(".hall__track");
-    var head = hall.querySelector(".hall__head");
-    if (!track || !head) return;
+  /* ---- 展厅页码：当前件 / 总数，随横滑实时更新（绑定原有 .hall__ctl 页码） ---- */
+  Array.prototype.forEach.call(doc.querySelectorAll(".hall__ctl"), function(ctl){
+    var track = ctl.parentElement.querySelector(".hall__track");
+    var cnt = ctl.querySelector(".hall__count");
+    if (!track || !cnt) return;
     var works = track.querySelectorAll(".work");
     var total = works.length;
-    if (!total) return;
-    var cnt = doc.createElement("span");
-    cnt.className = "hall__count";
-    cnt.innerHTML = "<b class=\"c-cur\">01</b><i>/</i><b class=\"c-total\">" + total + "</b>";
-    head.appendChild(cnt);
     var curEl = cnt.querySelector(".c-cur");
+    var totEl = cnt.querySelector(".c-total");
+    if (!total || !curEl) return;
+    if (totEl) totEl.textContent = total;
     function upd(){
       var gap = 0;
       try{ gap = parseFloat(getComputedStyle(track).gap) || 0; }catch(e){}
