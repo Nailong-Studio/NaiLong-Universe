@@ -201,13 +201,40 @@ body::before{
   .fact__num,.epoch__dot,.hall__track::after,.chamber__stage::after,.work__frame img.live{animation:none}
 }
 
-/* ============ 三维圣殿 ============ */
-.t3d__stage{position:relative;margin-top:clamp(28px,4vw,44px);border:1px solid rgba(217,180,91,.22);border-radius:14px;overflow:hidden;background:radial-gradient(120% 130% at 50% -10%,rgba(217,180,91,.10) 0%,rgba(11,8,6,0) 55%),#0D0A07}
-.t3d__canvas{position:relative;width:100%;height:clamp(300px,46vw,500px);display:block}
-.t3d__hint{text-align:center;padding:14px 0 16px;font-size:.76rem;letter-spacing:.32em;color:rgba(238,232,215,.62);text-indent:.32em}
-.t3d__cta{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);letter-spacing:.3em;text-indent:.3em;font-size:.86rem;color:#FFE9B0;background:linear-gradient(120deg,rgba(217,180,91,.5),rgba(217,180,91,.18));border:1px solid rgba(217,180,91,.85);border-radius:999px;padding:11px 30px;text-decoration:none;box-shadow:0 0 26px rgba(255,213,79,.28);animation:t3dCtaIn .7s var(--ease) both;z-index:2;cursor:pointer}
-@keyframes t3dCtaIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.t3d__stage.t3d__open ~ .t3d__hint{display:none}
+/* ============ 画廊之门（替代三维圣殿：纯 CSS 3D 视差画廊 + 双开圣门） ============ */
+.gal__stage{position:relative;margin-top:clamp(28px,4vw,44px);border:1px solid rgba(217,180,91,.22);border-radius:14px;overflow:hidden;background:radial-gradient(120% 130% at 50% -10%,rgba(217,180,91,.10) 0%,rgba(11,8,6,0) 55%),#0D0A07;perspective:1000px}
+.gal__scene{position:relative;height:clamp(300px,44vw,470px);transform-style:preserve-3d;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.gal__wall{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,34px);transform-style:preserve-3d;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.gal__wall--back{transform:translateZ(-260px);opacity:.5}
+.gal__wall--mid{transform:translateZ(-110px);opacity:.82}
+.gal__wall--near{transform:translateZ(60px)}
+.gal__img{width:clamp(104px,17%,150px);height:auto;border:1px solid rgba(217,180,91,.45);border-radius:7px;box-shadow:0 22px 46px rgba(0,0,0,.55);background:#16100A;object-fit:cover;transition:transform .5s var(--ease),border-color .3s;display:block}
+.gal__img:hover{transform:scale(1.07) translateY(-3px);border-color:var(--gold)}
+.gal__arch{position:absolute;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.gal__arch svg{width:min(430px,74%);height:100%;opacity:.5}
+.gal__floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(to top,rgba(217,180,91,.16),transparent);z-index:1;pointer-events:none}
+.gal__door{position:absolute;left:50%;top:50%;width:clamp(118px,21%,176px);height:clamp(200px,34%,284px);transform:translate(-50%,-50%);z-index:3;pointer-events:none}
+.gal__door-l,.gal__door-r{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(120deg,#C9A24B,#7a5a1f 55%,#C9A24B);border:1px solid rgba(255,213,79,.55);box-shadow:inset 0 0 22px rgba(0,0,0,.4);transition:transform 1.15s cubic-bezier(.6,.05,.28,.99)}
+.gal__door-l{left:0;border-radius:4px 0 0 4px;transform-origin:left center}
+.gal__door-r{right:0;border-radius:0 4px 4px 0;transform-origin:right center}
+.gal__door-l::before,.gal__door-r::before{content:"";position:absolute;inset:12% 16%;border:1px solid rgba(255,213,79,.4);border-radius:3px;opacity:.6}
+.gal__door-glow{position:absolute;left:50%;top:50%;width:8px;height:calc(100% - 30px);transform:translate(-50%,-50%);background:linear-gradient(to bottom,transparent,#FFDCA0 30%,#FFF3C4 50%,#FFDCA0 70%,transparent);box-shadow:0 0 26px 6px rgba(255,213,79,.55);opacity:.9;animation:galGlow 3.4s ease-in-out infinite}
+@keyframes galGlow{0%,100%{opacity:.5}50%{opacity:1}}
+.gal__cta{position:absolute;left:50%;bottom:clamp(14px,4%,26px);transform:translateX(-50%);z-index:4;font-family:var(--serif);letter-spacing:.3em;text-indent:.3em;font-size:.86rem;color:#FFE9B0;background:linear-gradient(120deg,rgba(217,180,91,.5),rgba(217,180,91,.18));border:1px solid rgba(217,180,91,.85);border-radius:999px;padding:11px 30px;text-decoration:none;box-shadow:0 0 26px rgba(255,213,79,.28);cursor:pointer;transition:.3s;animation:galCtaIn .8s var(--ease) .15s both}
+.gal__cta:hover,.gal__cta:focus-visible{background:linear-gradient(120deg,rgba(255,213,79,.62),rgba(217,180,91,.3));box-shadow:0 0 38px rgba(255,213,79,.5);transform:translateX(-50%) translateY(-2px);outline:none}
+@keyframes galCtaIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.gal__hint{text-align:center;padding:14px 0 16px;font-size:.76rem;letter-spacing:.32em;color:rgba(238,232,215,.62);text-indent:.32em}
+.gal__open .gal__door-l{transform:translateX(-36%) rotateY(-80deg)}
+.gal__open .gal__door-r{transform:translateX(36%) rotateY(80deg)}
+.gal__open .gal__door-glow{opacity:0;transition:opacity .4s}
+.gal__open .gal__cta{opacity:0;pointer-events:none;transition:.3s}
+.gal__drift .gal__wall--back{animation:galDriftB 26s ease-in-out infinite alternate}
+.gal__drift .gal__wall--mid{animation:galDriftM 20s ease-in-out infinite alternate}
+.gal__drift .gal__wall--near{animation:galDriftN 14s ease-in-out infinite alternate}
+@keyframes galDriftB{from{transform:translateZ(-260px) translateX(-7px)}to{transform:translateZ(-260px) translateX(7px)}}
+@keyframes galDriftM{from{transform:translateZ(-110px) translateX(5px)}to{transform:translateZ(-110px) translateX(-5px)}}
+@keyframes galDriftN{from{transform:translateZ(60px) translateX(-3px)}to{transform:translateZ(60px) translateX(3px)}}
+@media (prefers-reduced-motion:reduce){.gal__drift .gal__wall{animation:none}}
 /* ===================== 多视图：主界面=目录入口，其余分界面 ===================== */
 .view{display:none}
 .view.active{display:block;animation:viewIn .5s var(--ease) both}
@@ -228,9 +255,7 @@ body::before{
 .portal__desc{font-size:.82rem;line-height:1.7;color:rgba(238,232,215,.72)}
 @media (max-width:900px){.portals{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.portals{grid-template-columns:1fr}}
-.t3d__fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;color:rgba(238,232,215,.55);padding:20px}
-.t3d__fallback svg{width:min(300px,58%);height:auto;opacity:.9}
-.t3d__ready .t3d__fallback{display:none}
+
 
 /* 循环微光：数字 / 时间线 / 长廊光带 / 圣光扫描 / 朝圣卡片 */
 @keyframes factPulse{0%,100%{text-shadow:0 0 0 rgba(255,213,79,0)}50%{text-shadow:0 0 24px rgba(255,213,79,.38)}}
@@ -653,6 +678,80 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
   mix-blend-mode:overlay;
 }
+
+/* ============ 入口与按钮 · 沉浸样式增强 ============ */
+/* 目录卡片 → 门扉匾额：金线扫光 + 双层描边 + 编号点亮 */
+.portal{border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.4),inset 0 0 0 1px rgba(217,180,91,.1)}
+.portal::after{content:"";position:absolute;top:0;left:-90%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,220,160,.13),transparent);transform:skewX(-18deg);transition:left .75s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.portal:hover::after{left:135%}
+.portal:hover .portal__num{letter-spacing:.4em;color:var(--gold-bright);text-shadow:0 0 18px rgba(255,213,79,.55);transition:.35s}
+.portal:hover .portal__title{text-shadow:0 0 22px rgba(255,213,79,.35);transition:.35s}
+/* 步入展厅 → 浮雕金印：流光 + 金色涟漪 */
+.hall__enter{position:relative;overflow:hidden}
+.hall__enter::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,220,160,.22) 50%,transparent 70%);transform:translateX(-130%);transition:transform .8s var(--ease);pointer-events:none}
+.hall__enter:hover::before{transform:translateX(130%)}
+.hall__enter::after{content:"";position:absolute;left:50%;top:50%;width:0;height:0;border-radius:50%;background:radial-gradient(circle,rgba(255,213,79,.32),transparent 62%);transform:translate(-50%,-50%);opacity:0;pointer-events:none}
+.hall__enter:hover::after{animation:hallRipple .85s ease-out}
+@keyframes hallRipple{0%{width:0;height:0;opacity:.9}100%{width:240px;height:240px;opacity:0}}
+/* 顶部导航：hover 微光 */
+.nav__links a:hover{text-shadow:0 0 14px rgba(255,213,79,.5)}
+/* 展厅切页箭头：环形脉冲 */
+.hall__arrow{position:relative}
+.hall__arrow::after{content:"";position:absolute;inset:-5px;border:1px solid rgba(255,213,79,.55);border-radius:50%;opacity:0;transform:scale(.75);pointer-events:none}
+.hall__arrow:hover::after{animation:arrowPulse .7s ease-out}
+@keyframes arrowPulse{from{opacity:.9;transform:scale(.75)}to{opacity:0;transform:scale(1.3)}}
+/* 朝圣卡片：图标浮动 + 金线扫光 */
+.path{position:relative;overflow:hidden}
+.path::after{content:"";position:absolute;top:0;left:-90%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,220,160,.12),transparent);transform:skewX(-18deg);transition:left .75s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.path:hover::after{left:135%}
+.path:hover .path__icon{transform:translateY(-3px) scale(1.06);color:var(--gold-bright);transition:.4s}
+.path__icon{transition:.4s}
+/* 画廊之门 CTA：星芒扫过 */
+.gal__cta::before{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(120deg,transparent 32%,rgba(255,240,200,.35) 50%,transparent 68%);transform:translateX(-130%);transition:transform .8s var(--ease);pointer-events:none}
+.gal__cta:hover::before{transform:translateX(130%)}
+.gal__cta{overflow:hidden}
+
+
+/* ============ 艺术史长河 · 沉浸纵向纪元 ============ */
+.artwalk{position:relative;max-width:1080px;margin:clamp(40px,6vw,64px) auto 0;padding:0 clamp(14px,3vw,26px)}
+.artwalk__intro{color:rgba(238,232,215,.68);font-size:.9rem;line-height:2;letter-spacing:.05em;max-width:760px;margin:0 auto clamp(56px,8vw,84px);text-align:center}
+.artwalk__axis{position:absolute;left:clamp(10px,3vw,34px);top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,transparent,rgba(217,180,91,.75) 12%,rgba(217,180,91,.75) 88%,transparent);z-index:0}
+.artwalk__axis::after{content:"";position:absolute;left:-2px;top:0;width:5px;height:5px;border-radius:50%;background:#FFD54F;box-shadow:0 0 12px 3px rgba(255,213,79,.6);animation:axisFall 9s linear infinite}
+@keyframes axisFall{from{top:0}to{top:100%}}
+.artwalk__nav{position:sticky;top:18px;z-index:6;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto clamp(34px,5vw,50px);max-width:760px}
+.artwalk__nav a{font-size:.72rem;letter-spacing:.18em;text-indent:.18em;color:rgba(238,232,215,.68);border:1px solid rgba(217,180,91,.34);border-radius:999px;padding:7px 15px;text-decoration:none;background:rgba(11,8,6,.6);transition:.3s;backdrop-filter:blur(4px)}
+.artwalk__nav a:hover,.artwalk__nav a.on{color:var(--gold-bright);border-color:rgba(255,213,79,.8);box-shadow:0 0 16px rgba(255,213,79,.25);background:rgba(23,16,8,.85)}
+.era{position:relative;padding:0 0 clamp(64px,9vw,96px) clamp(52px,10vw,96px);z-index:1}
+.era__dot{position:absolute;left:clamp(10px,3vw,34px);top:clamp(6px,1vw,10px);transform:translateX(-50%);width:13px;height:13px;border-radius:50%;background:#0D0A07;border:2px solid rgba(217,180,91,.85);box-shadow:0 0 0 5px rgba(217,180,91,.12),0 0 18px rgba(255,213,79,.3);transition:.5s}
+.era.active .era__dot{background:#FFD54F;box-shadow:0 0 0 7px rgba(255,213,79,.2),0 0 26px 4px rgba(255,213,79,.65)}
+.era__head{opacity:.4;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.era.active .era__head{opacity:1;transform:none}
+.era__tag{font-size:.72rem;letter-spacing:.3em;text-indent:.3em;color:var(--gold)}
+.era__title{margin-top:10px;font-family:var(--serif);font-size:clamp(1.25rem,3vw,1.6rem);letter-spacing:.14em;color:var(--ivory);text-shadow:0 0 26px rgba(255,213,79,.16)}
+.era__desc{margin-top:12px;color:rgba(238,232,215,.72);font-size:.88rem;line-height:2;letter-spacing:.04em;max-width:680px}
+.era__works{display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,20px);margin-top:clamp(22px,3vw,32px)}
+.era__work{width:clamp(150px,26%,200px);opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.era.active .era__work{opacity:1;transform:none}
+.era.active .era__work:nth-child(1){transition-delay:.1s}
+.era.active .era__work:nth-child(2){transition-delay:.22s}
+.era.active .era__work:nth-child(3){transition-delay:.34s}
+.era.active .era__work:nth-child(4){transition-delay:.46s}
+.era__work .work__frame{aspect-ratio:auto;height:clamp(150px,20vw,210px)}
+.era__work .work__frame img{width:100%;height:100%;object-fit:cover}
+.era__cap{margin-top:9px}
+.era__cap b{display:block;font-family:var(--serif);font-size:.92rem;letter-spacing:.08em;color:var(--gold-bright)}
+.era__cap span{display:block;margin-top:4px;font-size:.72rem;letter-spacing:.06em;color:rgba(238,232,215,.6);line-height:1.7}
+.era__chronicle{margin-top:clamp(20px,3vw,28px);display:flex;flex-direction:column;gap:0}
+.ch-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px dashed rgba(217,180,91,.22)}
+.ch-row:last-child{border-bottom:none}
+.ch-year{flex:0 0 auto;min-width:64px;font-size:.72rem;letter-spacing:.2em;color:var(--gold);padding-top:3px}
+.ch-row b{font-family:var(--serif);font-size:.98rem;letter-spacing:.1em;color:var(--ivory)}
+.ch-row p{margin-top:6px;font-size:.82rem;line-height:1.9;color:rgba(238,232,215,.68)}
+@media (max-width:640px){
+  .era{padding-left:clamp(42px,12vw,54px)}
+  .era__work{width:calc(50% - 6px)}
+}
+
 </style>
 </head>
 <body>
@@ -729,22 +828,41 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
 </section>
 
 
-<!-- ===================== 三维圣殿 ===================== -->
-<section class="section" id="temple3d" aria-label="三维圣殿" style="padding-top:0">
+<!-- ===================== 画廊圣门 ===================== -->
+<section class="section" id="temple3d" aria-label="画廊圣门" style="padding-top:0">
   <div class="wrap">
     <header class="section__head reveal">
-      <p class="section__kicker">三维圣殿</p>
+      <p class="section__kicker">画廊圣门</p>
       <h2 class="section__title">圣 殿 之 门 · <em>推 开 它 ， 步 入 展 厅</em></h2>
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
-    <div class="t3d__stage reveal">
-      <div class="t3d__fallback" aria-hidden="true">
-        <svg viewBox="0 0 220 160" fill="none"><path d="M28 150 L28 66 Q28 18 110 18 Q192 18 192 66 L192 150" stroke="#C9A24B" stroke-width="1.6" opacity=".9"/><path d="M110 18 L110 6" stroke="#C9A24B" stroke-width="1.6" opacity=".9"/><rect x="82" y="66" width="26" height="84" fill="#6d5327" stroke="#C9A24B" stroke-width="1.2" opacity=".95"/><rect x="112" y="66" width="26" height="84" fill="#6d5327" stroke="#C9A24B" stroke-width="1.2" opacity=".95"/><circle cx="110" cy="112" r="15" fill="#FFD54F" opacity=".95"/><circle cx="104" cy="108" r="2" fill="#1B140A"/><circle cx="116" cy="108" r="2" fill="#1B140A"/><path d="M103 118 Q110 123 117 118" stroke="#1B140A" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
-        <p>您的设备暂不支持三维圣殿之门，<br>不妨轻触上方徽记，圣殿依旧为你而开。</p>
+    <div class="gal__stage reveal gal__drift" id="galstage">
+      <div class="gal__scene" id="galscene">
+        <div class="gal__arch" aria-hidden="true">
+          <svg viewBox="0 0 430 470" fill="none"><path d="M58 470 L58 176 Q58 26 215 26 Q372 26 372 176 L372 470" stroke="#C9A24B" stroke-width="2" opacity=".8"/><path d="M215 26 L215 6" stroke="#C9A24B" stroke-width="2" opacity=".8"/><path d="M120 470 L120 216 Q120 118 215 118 Q310 118 310 216 L310 470" stroke="#C9A24B" stroke-width="1.2" opacity=".5"/><circle cx="215" cy="470" r="10" fill="#FFD54F" opacity=".7"/><path d="M185 470 L215 430 L245 470 Z" fill="#FFD54F" opacity=".7"/><path d="M150 470 L170 448 M280 470 L260 448" stroke="#C9A24B" stroke-width="1.2" opacity=".6"/></svg>
+        </div>
+        <div class="gal__wall gal__wall--back" aria-hidden="true">
+          <img class="gal__img" src="assets/p-02.webp" alt="星月夜·奶蛙">
+          <img class="gal__img" src="assets/p-17.webp" alt="记忆永恒·奶蛙">
+        </div>
+        <div class="gal__wall gal__wall--mid" aria-hidden="true">
+          <img class="gal__img" src="assets/p-01.webp" alt="维纳斯奶蛙诞生">
+          <img class="gal__img" src="assets/p-13.webp" alt="奶蛙夜巡">
+        </div>
+        <div class="gal__wall gal__wall--near" aria-hidden="true">
+          <img class="gal__img" src="assets/f-21.webp" alt="大笑·奶蛙">
+          <img class="gal__img" src="assets/a-16.webp" alt="流光融化奶娃">
+        </div>
+        <div class="gal__floor" aria-hidden="true"></div>
+        <div class="gal__door" aria-hidden="true">
+          <span class="gal__door-l"></span>
+          <span class="gal__door-r"></span>
+          <span class="gal__door-glow"></span>
+        </div>
+        <button class="gal__cta" id="galdoor" type="button">步入展厅</button>
       </div>
-      <div id="t3d-canvas" class="t3d__canvas" role="img" aria-label="三维圣殿之门：轻触推开大门，步入展厅"></div>
+      <p class="gal__hint">移 动 光 标 · 画 廊 随 行 · 轻 触 圣 门 · 步 入 展 厅</p>
     </div>
-    <p class="t3d__hint">轻 触 推 开 圣 门 · 步 入 展 厅</p>
   </div>
 </section>
 
@@ -768,7 +886,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   <a class="portal stagger" href="#temple3d">
     <span class="portal__num">肆</span>
     <span class="portal__title">圣 殿 之 门</span>
-    <span class="portal__desc">回到上方，推开三维圣门，步入展厅</span>
+    <span class="portal__desc">回到上方，轻触画廊圣门，步入展厅</span>
   </a>
 </nav>
 </section>
@@ -1061,44 +1179,44 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
           <figcaption class="work__cap"><cite>奶家人旗手</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-09.webp" data-narrative="纯色幕前，奶蛙立正亮相。第九号圣像：站姿端正，萌得敷衍。" alt="欢颂圣像 · 09 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 09 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-09.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 09 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-09.webp" data-narrative="纯色幕前，奶蛙立正亮相。第九号圣像：站姿端正，萌得敷衍。" alt="立正亮相·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="立正亮相·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-09.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>立正亮相·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-12.webp" data-narrative="戴上圣诞帽的奶蛙，红白配色衬着黄脸。第十二号：圣诞氛围组提前上岗。" alt="欢颂圣像 · 12 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 12 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-12.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 12 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-12.webp" data-narrative="戴上圣诞帽的奶蛙，红白配色衬着黄脸。第十二号：圣诞氛围组提前上岗。" alt="圣诞帽·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="圣诞帽·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-12.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>圣诞帽·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-20.webp" data-narrative="奶蛙举起小旗，旗上写着「咱家大…」。第二十号：旗手就位，队伍跟紧。" alt="欢颂圣像 · 20 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 20 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-20.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 20 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-20.webp" data-narrative="奶蛙举起小旗，旗上写着「咱家大…」。第二十号：旗手就位，队伍跟紧。" alt="咱家大旗手· 欢颂 · 卡片圣像" loading="lazy" data-title="咱家大旗手" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-20.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>咱家大旗手</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-21.webp" data-narrative="大笑的奶蛙，露出整排小牙。第二十一号：笑是唯一无需翻译的语言。" alt="欢颂圣像 · 21 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 21 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-21.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 21 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-21.webp" data-narrative="大笑的奶蛙，露出整排小牙。第二十一号：笑是唯一无需翻译的语言。" alt="大笑·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="大笑·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-21.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>大笑·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-22.webp" data-narrative="双手抱住红心，奶蛙咧嘴笑。第二十二号：把心捧给你，不收运费。" alt="欢颂圣像 · 22 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 22 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-22.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 22 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-22.webp" data-narrative="双手抱住红心，奶蛙咧嘴笑。第二十二号：把心捧给你，不收运费。" alt="抱红心·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="抱红心·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-22.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱红心·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-23.webp" data-narrative="奶蛙亮出大脚掌，圆滚滚地抬起来。第二十三号：脚掌虽大，萌度不减。" alt="欢颂圣像 · 23 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 23 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-23.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 23 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-23.webp" data-narrative="奶蛙亮出大脚掌，圆滚滚地抬起来。第二十三号：脚掌虽大，萌度不减。" alt="露脚掌·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="露脚掌·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-23.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>露脚掌·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-24.webp" data-narrative="大笑到眯起眼的奶蛙。第二十四号：眼睛可以没有，笑必须有。" alt="欢颂圣像 · 24 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 24 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-24.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 24 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-24.webp" data-narrative="大笑到眯起眼的奶蛙。第二十四号：眼睛可以没有，笑必须有。" alt="眯眼大笑· 欢颂 · 卡片圣像" loading="lazy" data-title="眯眼大笑" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-24.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>眯眼大笑</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-25.webp" data-narrative="低头捂腹的奶蛙，笑到弯成一颗球。第二十五号：肚子是笑的共鸣箱。" alt="欢颂圣像 · 25 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 25 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-25.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 25 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-25.webp" data-narrative="低头捂腹的奶蛙，笑到弯成一颗球。第二十五号：肚子是笑的共鸣箱。" alt="捂腹大笑· 欢颂 · 卡片圣像" loading="lazy" data-title="捂腹大笑" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-25.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>捂腹大笑</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-26.webp" data-narrative="仰天大笑的奶蛙。第二十六号：笑出声，是最响亮的掌声。" alt="欢颂圣像 · 26 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 26 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-26.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 26 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-26.webp" data-narrative="仰天大笑的奶蛙。第二十六号：笑出声，是最响亮的掌声。" alt="仰天大笑· 欢颂 · 卡片圣像" loading="lazy" data-title="仰天大笑" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-26.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>仰天大笑</cite><span>欢颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/f-27.webp" data-narrative="一身圣诞服的奶蛙，红袍配黄脸。第二十七号：圣诞老人换班，快乐准时送达。" alt="欢颂圣像 · 27 号 · 欢颂 · 卡片圣像" loading="lazy" data-title="欢颂圣像 · 27 号" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-27.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>欢颂圣像 · 27 号</cite><span>欢颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/f-27.webp" data-narrative="一身圣诞服的奶蛙，红袍配黄脸。第二十七号：圣诞老人换班，快乐准时送达。" alt="圣诞服·奶蛙· 欢颂 · 卡片圣像" loading="lazy" data-title="圣诞服·奶蛙" data-hall="欢颂 · 卡片圣像" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/fullhd/nailong-27.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>圣诞服·奶蛙</cite><span>欢颂</span></figcaption>
         </figure>
       </div>
       <div class="hall__ctl">
@@ -1162,100 +1280,100 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
           <figcaption class="work__cap"><cite>二创 · 海天</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-01.webp" data-narrative="河畔水光潋滟，奶娃踩在浅水边。涟漪一圈圈荡开，像它笑出的酒窝。" alt="二创 · 奶娃·03 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·03" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_03.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·03</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-01.webp" data-narrative="河畔水光潋滟，奶娃踩在浅水边。涟漪一圈圈荡开，像它笑出的酒窝。" alt="河畔奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="河畔奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_03.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>河畔奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-02.webp" data-narrative="灶台温热，奶娃系着围裙忙碌。人间烟火升起来，快乐在锅里咕嘟咕嘟。" alt="二创 · 奶娃·06 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·06" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_06.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·06</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-02.webp" data-narrative="灶台温热，奶娃系着围裙忙碌。人间烟火升起来，快乐在锅里咕嘟咕嘟。" alt="灶台奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="灶台奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_06.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>灶台奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-03.webp" data-narrative="电子设备堆成小山，奶娃坐在屏幕光里。数据洪流，也冲不走这抹奶黄。" alt="二创 · 奶娃·07 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·07" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_07.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·07</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-03.webp" data-narrative="电子设备堆成小山，奶娃坐在屏幕光里。数据洪流，也冲不走这抹奶黄。" alt="屏幕光奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="屏幕光奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_07.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>屏幕光奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-04.webp" data-narrative="花海漫过膝盖，奶娃站在花田中央。风一吹，整片花都朝它笑。" alt="二创 · 奶娃·08 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·08" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_08.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·08</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-04.webp" data-narrative="花海漫过膝盖，奶娃站在花田中央。风一吹，整片花都朝它笑。" alt="花海奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="花海奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_08.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>花海奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-05.webp" data-narrative="泳池碧蓝，奶娃漂在水面。水花溅起，它笑成一团浮动的阳光。" alt="二创 · 奶娃·10 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·10" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_10.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·10</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-05.webp" data-narrative="泳池碧蓝，奶娃漂在水面。水花溅起，它笑成一团浮动的阳光。" alt="泳池奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="泳池奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_10.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>泳池奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-06.webp" data-narrative="高楼天台边缘，奶娃迎风而立。城市的黄昏铺开，它收下一整片灯火。" alt="二创 · 奶娃·11 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·11" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_11.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·11</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-06.webp" data-narrative="高楼天台边缘，奶娃迎风而立。城市的黄昏铺开，它收下一整片灯火。" alt="天台奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="天台奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_11.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>天台奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-07.webp" data-narrative="森林深处，奶娃倚着巨树。光从叶隙漏下，苔藓也晒得暖洋洋。" alt="二创 · 奶娃·13 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·13" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_13.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·13</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-07.webp" data-narrative="森林深处，奶娃倚着巨树。光从叶隙漏下，苔藓也晒得暖洋洋。" alt="森林奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="森林奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_13.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>森林奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-08.webp" data-narrative="镜面般的水面上，奶娃缓步走过。天地倒影成双，它踩着自己的影子笑。" alt="二创 · 奶娃·14 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·14" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_14.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·14</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-08.webp" data-narrative="镜面般的水面上，奶娃缓步走过。天地倒影成双，它踩着自己的影子笑。" alt="镜面奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="镜面奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_14.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>镜面奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-09.webp" data-narrative="云端阳台，奶娃趴在栏杆上。云朵从脚下流过，它伸手捞了一把。" alt="二创 · 奶娃·15 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·15" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_15.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·15</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-09.webp" data-narrative="云端阳台，奶娃趴在栏杆上。云朵从脚下流过，它伸手捞了一把。" alt="云端阳台奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="云端阳台奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_15.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>云端阳台奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-10.webp" data-narrative="长长的走廊尽头，奶娃背光而立。灯一盏盏亮起，影子拉得很长，笑得很亮。" alt="二创 · 奶娃·16 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·16" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_16.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·16</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-10.webp" data-narrative="长长的走廊尽头，奶娃背光而立。灯一盏盏亮起，影子拉得很长，笑得很亮。" alt="走廊奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="走廊奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_16.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>走廊奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-11.webp" data-narrative="城市夜景的高楼间，奶娃悬坐在边缘。霓虹为它打光，车流是背景音。" alt="二创 · 奶娃·17 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·17" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_17.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·17</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-11.webp" data-narrative="城市夜景的高楼间，奶娃悬坐在边缘。霓虹为它打光，车流是背景音。" alt="夜城奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="夜城奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_17.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>夜城奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-12.webp" data-narrative="破败都市的断墙前，奶娃驻足。钢筋水泥褪色，只有它那身黄不肯褪。" alt="二创 · 奶娃·18 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 奶娃·18" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_18.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 奶娃·18</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-12.webp" data-narrative="破败都市的断墙前，奶娃驻足。钢筋水泥褪色，只有它那身黄不肯褪。" alt="废都奶娃 · 艺廊 · 粉丝二创" loading="lazy" data-title="废都奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/naiwa_18.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>废都奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-13.webp" data-narrative="山野花海之间，奶娃背手而立。风翻过山脊，把一整幅春天吹到它脚边。" alt="二创 · 07 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 07" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_07.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 07</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-13.webp" data-narrative="山野花海之间，奶娃背手而立。风翻过山脊，把一整幅春天吹到它脚边。" alt="山野奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="山野奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_07.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>山野奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-14.webp" data-narrative="老旧楼道的台阶上，奶娃独自坐着。窗外的云在玻璃上滑过，寂寞也有了形状。" alt="二创 · 08 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 08" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_08.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 08</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-14.webp" data-narrative="老旧楼道的台阶上，奶娃独自坐着。窗外的云在玻璃上滑过，寂寞也有了形状。" alt="楼道奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="楼道奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_08.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>楼道奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-15.webp" data-narrative="深色草丛里，奶娃蜷进柔软的小巢。远处白色人形模糊成影，它守着这方暖和。" alt="二创 · 09 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 09" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_09.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 09</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-15.webp" data-narrative="深色草丛里，奶娃蜷进柔软的小巢。远处白色人形模糊成影，它守着这方暖和。" alt="巢中奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="巢中奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_09.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>巢中奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-16.webp" data-narrative="流光从奶娃身上溢出来，它融化成一滩亮晶晶的快乐。紫色深夜，也要发自己的光。" alt="二创 · 10 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 10" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_10.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 10</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-16.webp" data-narrative="流光从奶娃身上溢出来，它融化成一滩亮晶晶的快乐。紫色深夜，也要发自己的光。" alt="流光融化奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="流光融化奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_10.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>流光融化奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-17.webp" data-narrative="翠绿草地上，奶娃把身体摊成大字。草叶托着它，风替它摇扇。" alt="二创 · 11 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 11" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_11.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 11</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-17.webp" data-narrative="翠绿草地上，奶娃把身体摊成大字。草叶托着它，风替它摇扇。" alt="草地奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="草地奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_11.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>草地奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-18.webp" data-narrative="趴在云朵上的奶娃，在蓝天里慢慢漂。云是软床，天是天花板。" alt="二创 · 12 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 12" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_12.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 12</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-18.webp" data-narrative="趴在云朵上的奶娃，在蓝天里慢慢漂。云是软床，天是天花板。" alt="云上奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="云上奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_12.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>云上奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-19.webp" data-narrative="星野与繁花之间，奶娃的身体被撕开一道口子——光从裂口漏出来，快乐依然完整。" alt="二创 · 13 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 13" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_13.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 13</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-19.webp" data-narrative="星野与繁花之间，奶娃的身体被撕开一道口子——光从裂口漏出来，快乐依然完整。" alt="撕裂星野奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="撕裂星野奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_13.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>撕裂星野奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-20.webp" data-narrative="玻璃纹理的室内地面，奶娃蜷成一团。世界隔着玻璃看它，它隔着玻璃看世界。" alt="二创 · 14 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 14" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_14.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 14</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-20.webp" data-narrative="玻璃纹理的室内地面，奶娃蜷成一团。世界隔着玻璃看它，它隔着玻璃看世界。" alt="玻璃房奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="玻璃房奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_14.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>玻璃房奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-21.webp" data-narrative="云端立起跳台，奶娃坐在边缘晃腿。往下是云海，往前是风，它还在挑个最软的落点。" alt="二创 · 15 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 15" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_15.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 15</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-21.webp" data-narrative="云端立起跳台，奶娃坐在边缘晃腿。往下是云海，往前是风，它还在挑个最软的落点。" alt="云台奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="云台奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_15.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>云台奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-22.webp" data-narrative="奶娃被黑色线条描成镂空轮廓，站在草地花丛间。影子淡了，笑还在。" alt="二创 · 16 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 16" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_16.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 16</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-22.webp" data-narrative="奶娃被黑色线条描成镂空轮廓，站在草地花丛间。影子淡了，笑还在。" alt="镂空奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="镂空奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_16.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>镂空奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-23.webp" data-narrative="雾气漫过废弃的混凝土阳台，奶娃立在边缘。废墟之上，它是最亮的一抹黄。" alt="二创 · 17 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 17" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_17.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 17</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-23.webp" data-narrative="雾气漫过废弃的混凝土阳台，奶娃立在边缘。废墟之上，它是最亮的一抹黄。" alt="雾墟奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="雾墟奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_17.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>雾墟奶娃</cite><span>艺廊</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/a-24.webp" data-narrative="老旧居民楼的水泥平台上，奶娃盘腿而坐。晾衣绳、爬山虎，人间烟火它都收下。" alt="二创 · 18 · 艺廊 · 粉丝二创" loading="lazy" data-title="二创 · 18" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_18.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>二创 · 18</cite><span>艺廊</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/a-24.webp" data-narrative="老旧居民楼的水泥平台上，奶娃盘腿而坐。晾衣绳、爬山虎，人间烟火它都收下。" alt="旧楼奶娃· 艺廊 · 粉丝二创" loading="lazy" data-title="旧楼奶娃" data-hall="艺廊 · 粉丝二创" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/yishu_nailong_18.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>旧楼奶娃</cite><span>艺廊</span></figcaption>
         </figure>
       </div>
       <div class="hall__ctl">
@@ -1271,92 +1389,92 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       <button class="hall__enter" data-hall="5" aria-label="步入伍 · 咏 颂展厅沉浸展厅">步入展厅</button></div>
       <div class="hall__track">
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-01.webp" data-narrative="双手捂住嘴，笑意从指缝里漏出来。第一枚圣咏：笑要藏，但藏不住。" alt="《圣咏 · 表情 · 第壹枚》" loading="lazy" data-title="圣咏 · 表情 · 第壹枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-01.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第壹枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-01.webp" data-narrative="双手捂住嘴，笑意从指缝里漏出来。第一枚圣咏：笑要藏，但藏不住。" alt="《捂嘴偷乐》" loading="lazy" data-title="捂嘴偷乐" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-01.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>捂嘴偷乐</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-02.webp" data-narrative="粉色换色版同款大笑——换一种色号，快乐照常营业。" alt="《圣咏 · 表情 · 第贰枚》" loading="lazy" data-title="圣咏 · 表情 · 第贰枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-02.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第贰枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-02.webp" data-narrative="粉色换色版同款大笑——换一种色号，快乐照常营业。" alt="《粉色换色版》" loading="lazy" data-title="粉色换色版" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-02.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>粉色换色版</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-03.webp" data-narrative="双臂交叉抱于胸前，神情平静。第叁枚：不笑，也是一种态度。" alt="《圣咏 · 表情 · 第叁枚》" loading="lazy" data-title="圣咏 · 表情 · 第叁枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-03.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第叁枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-03.webp" data-narrative="双臂交叉抱于胸前，神情平静。第叁枚：不笑，也是一种态度。" alt="《抱臂淡定》" loading="lazy" data-title="抱臂淡定" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-03.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱臂淡定</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-04.webp" data-narrative="单手托腮，奶蛙陷入思考。第肆枚：它想的是明天吃几颗糖。" alt="《圣咏 · 表情 · 第肆枚》" loading="lazy" data-title="圣咏 · 表情 · 第肆枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-04.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第肆枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-04.webp" data-narrative="单手托腮，奶蛙陷入思考。第肆枚：它想的是明天吃几颗糖。" alt="《托腮思考》" loading="lazy" data-title="托腮思考" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-04.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>托腮思考</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-05.webp" data-narrative="叉腰、指路、咧嘴笑。第伍枚：快乐坐标已给出，请沿此方向领取。" alt="《圣咏 · 表情 · 第伍枚》" loading="lazy" data-title="圣咏 · 表情 · 第伍枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-05.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第伍枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-05.webp" data-narrative="叉腰、指路、咧嘴笑。第伍枚：快乐坐标已给出，请沿此方向领取。" alt="《叉腰指路》" loading="lazy" data-title="叉腰指路" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-05.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>叉腰指路</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-06.webp" data-narrative="双手抱头，嘴巴张成圆形。第陆枚：原来惊喜也会奶里奶气。" alt="《圣咏 · 表情 · 第陆枚》" loading="lazy" data-title="圣咏 · 表情 · 第陆枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-06.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第陆枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-06.webp" data-narrative="双手抱头，嘴巴张成圆形。第陆枚：原来惊喜也会奶里奶气。" alt="《抱头惊讶》" loading="lazy" data-title="抱头惊讶" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-06.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱头惊讶</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-07.webp" data-narrative="圣诞帽歪戴着，奶蛙躺靠扶手，手抚肚皮笑开怀。节日快乐，先笑为敬。" alt="《圣咏 · 表情 · 第柒枚》" loading="lazy" data-title="圣咏 · 表情 · 第柒枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-07.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第柒枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-07.webp" data-narrative="圣诞帽歪戴着，奶蛙躺靠扶手，手抚肚皮笑开怀。节日快乐，先笑为敬。" alt="《躺笑·圣诞》" loading="lazy" data-title="躺笑·圣诞" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-07.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>躺笑·圣诞</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-08.webp" data-narrative="双手抱头大笑，圣诞帽随笑声颤动。第八枚：笑到头顶冒花。" alt="《圣咏 · 表情 · 第捌枚》" loading="lazy" data-title="圣咏 · 表情 · 第捌枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-08.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第捌枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-08.webp" data-narrative="双手抱头大笑，圣诞帽随笑声颤动。第八枚：笑到头顶冒花。" alt="《抱头大笑·圣诞》" loading="lazy" data-title="抱头大笑·圣诞" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-08.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱头大笑·圣诞</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-10.webp" data-narrative="弯腰按腹，圣诞帽下笑声不止。第十枚：笑到直不起腰，是最高礼赞。" alt="《圣咏 · 表情 · 第玖枚》" loading="lazy" data-title="圣咏 · 表情 · 第玖枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-10.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第玖枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-10.webp" data-narrative="弯腰按腹，圣诞帽下笑声不止。第十枚：笑到直不起腰，是最高礼赞。" alt="《弯腰捧腹·圣诞》" loading="lazy" data-title="弯腰捧腹·圣诞" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-10.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>弯腰捧腹·圣诞</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-11.webp" data-narrative="双手交叠搁在肚皮上，圣诞帽配大笑。第十一枚：端庄两秒，破功三秒。" alt="《圣咏 · 表情 · 第拾枚》" loading="lazy" data-title="圣咏 · 表情 · 第拾枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-11.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第拾枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-11.webp" data-narrative="双手交叠搁在肚皮上，圣诞帽配大笑。第十一枚：端庄两秒，破功三秒。" alt="《交叠置腹·圣诞》" loading="lazy" data-title="交叠置腹·圣诞" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-11.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>交叠置腹·圣诞</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-12.webp" data-narrative="弯腰捧腹，圣诞帽差点笑掉。第十二枚：圣诞老人也偷瞄这枚表情。" alt="《圣咏 · 表情 · 第拾壹枚》" loading="lazy" data-title="圣咏 · 表情 · 第拾壹枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-12.jpeg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第拾壹枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-12.webp" data-narrative="弯腰捧腹，圣诞帽差点笑掉。第十二枚：圣诞老人也偷瞄这枚表情。" alt="《弯腰捧腹·圣诞》" loading="lazy" data-title="弯腰捧腹·圣诞" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-12.jpeg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>弯腰捧腹·圣诞</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-25.webp" data-narrative="没有圣诞帽，照样双手按腹大笑。第贰拾伍枚：快乐不挑装备。" alt="《圣咏 · 表情 · 第拾贰枚》" loading="lazy" data-title="圣咏 · 表情 · 第拾贰枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-25.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第拾贰枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-25.webp" data-narrative="没有圣诞帽，照样双手按腹大笑。第贰拾伍枚：快乐不挑装备。" alt="《按腹大笑》" loading="lazy" data-title="按腹大笑" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-25.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>按腹大笑</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-27.webp" data-narrative="红色圣诞服配圣诞帽，奶蛙开怀大笑。节日盛装，快乐加倍。" alt="《圣咏 · 表情 · 第拾叁枚》" loading="lazy" data-title="圣咏 · 表情 · 第拾叁枚" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-27.jpg" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 第拾叁枚</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-27.webp" data-narrative="红色圣诞服配圣诞帽，奶蛙开怀大笑。节日盛装，快乐加倍。" alt="《红衣圣诞·奶蛙》" loading="lazy" data-title="红衣圣诞·奶蛙" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-27.jpg" decoding="async"></div>
+          <figcaption class="work__cap"><cite>红衣圣诞·奶蛙</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-13.gif" data-narrative="一大一小两只奶蛙同框，大的抬手比划，小的跟着起哄。动态圣物第一件：快乐会传染。" alt="《圣咏动态圣物壹》" loading="lazy" data-title="圣咏 · 动态圣物 · 壹" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-13.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 壹</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-13.gif" data-narrative="一大一小两只奶蛙同框，大的抬手比划，小的跟着起哄。动态圣物第一件：快乐会传染。" alt="《圣咏动态圣物壹》" loading="lazy" data-title="大小奶蛙·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-13.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>大小奶蛙·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-22.gif" data-narrative="奶蛙双手捧着一颗红心，笑到发颤。动态圣物第二件：把心捧给你，还附赠笑声。" alt="《圣咏动态圣物贰》" loading="lazy" data-title="圣咏 · 动态圣物 · 贰" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-22.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 贰</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-22.gif" data-narrative="奶蛙双手捧着一颗红心，笑到发颤。动态圣物第二件：把心捧给你，还附赠笑声。" alt="《圣咏动态圣物贰》" loading="lazy" data-title="捧心狂笑·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-22.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>捧心狂笑·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--09.gif" data-narrative="绿幕前，奶蛙双手交叠搭在肚皮上大笑。动态圣物：绿幕也遮不住它的黄。" alt="圣咏 · 动态圣物 · 09 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 09" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-09.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 09</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--09.gif" data-narrative="绿幕前，奶蛙双手交叠搭在肚皮上大笑。动态圣物：绿幕也遮不住它的黄。" alt="绿幕大笑·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="绿幕大笑·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-09.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>绿幕大笑·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e-20.webp" data-narrative="手持「奶家人」小旗，表情平和又笃定。入殿即家人，旗子为证。" alt="圣咏 · 表情 · 20 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 表情 · 20" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-20.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 表情 · 20</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e-20.webp" data-narrative="手持「奶家人」小旗，表情平和又笃定。入殿即家人，旗子为证。" alt="奶家人旗手· 咏颂 · 圣咏表情" loading="lazy" data-title="奶家人旗手" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-20.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>奶家人旗手</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--21.gif" data-narrative="弯腰张嘴大笑的奶蛙，笑到整只都在抖。动态圣物：张嘴的弧度，是快乐的刻度。" alt="圣咏 · 动态圣物 · 21 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 21" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-21.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 21</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--21.gif" data-narrative="弯腰张嘴大笑的奶蛙，笑到整只都在抖。动态圣物：张嘴的弧度，是快乐的刻度。" alt="弯腰大笑·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="弯腰大笑·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-21.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>弯腰大笑·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--23.gif" data-narrative="突然露出巨大脚掌的奶蛙，表情惊讶到变形。动态圣物：脚掌是隐藏萌点。" alt="圣咏 · 动态圣物 · 23 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 23" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-23.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 23</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--23.gif" data-narrative="突然露出巨大脚掌的奶蛙，表情惊讶到变形。动态圣物：脚掌是隐藏萌点。" alt="脚掌惊讶·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="脚掌惊讶·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-23.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>脚掌惊讶·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--24.gif" data-narrative="双手抱腹，奶蛙笑到前俯后仰。动态圣物：抱紧肚皮，快乐不撒手。" alt="圣咏 · 动态圣物 · 24 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 24" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-24.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 24</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--24.gif" data-narrative="双手抱腹，奶蛙笑到前俯后仰。动态圣物：抱紧肚皮，快乐不撒手。" alt="抱腹大笑·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="抱腹大笑·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-24.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱腹大笑·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--26.gif" data-narrative="同样抱腹大笑的奶蛙，笑出重影。动态圣物：快乐太多，画面都跟不上。" alt="圣咏 · 动态圣物 · 26 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 26" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-26.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 26</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--26.gif" data-narrative="同样抱腹大笑的奶蛙，笑出重影。动态圣物：快乐太多，画面都跟不上。" alt="抱腹重影·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="抱腹重影·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-26.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>抱腹重影·动态</cite><span>咏颂</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/e--28.gif" data-narrative="大笑到模糊的奶蛙，只剩一团快乐的黄。动态圣物：笑得太用力，连轮廓都化了。" alt="圣咏 · 动态圣物 · 28 · 咏颂 · 圣咏表情" loading="lazy" data-title="圣咏 · 动态圣物 · 28" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-28.gif" decoding="async"></div>
-          <figcaption class="work__cap"><cite>圣咏 · 动态圣物 · 28</cite><span>咏颂</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/e--28.gif" data-narrative="大笑到模糊的奶蛙，只剩一团快乐的黄。动态圣物：笑得太用力，连轮廓都化了。" alt="笑到模糊·动态· 咏颂 · 圣咏表情" loading="lazy" data-title="笑到模糊·动态" data-hall="咏颂 · 圣咏表情" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/nailong-28.gif" decoding="async"></div>
+          <figcaption class="work__cap"><cite>笑到模糊·动态</cite><span>咏颂</span></figcaption>
         </figure>
       </div>
       <div class="hall__ctl">
@@ -1372,105 +1490,105 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       <button class="hall__enter" data-hall="6" aria-label="步入陆 · 竖 屏展厅沉浸展厅">步入展厅</button></div>
       <div class="hall__track">
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-05.webp" data-narrative="圣母与圣婴竖屏版——圣母子一起换成奶蛙，圣光里多了一层暖黄。" alt="《最伟大的奶蛙 · 0.5s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 0.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_0.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 0.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-05.webp" data-narrative="圣母与圣婴竖屏版——圣母子一起换成奶蛙，圣光里多了一层暖黄。" alt="《圣母与奶蛙圣婴》· 竖屏圣物" loading="lazy" data-title="圣母与奶蛙圣婴" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_0.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>圣母与奶蛙圣婴</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-2.webp" data-narrative="鸟身人首的西装绅士立在石台，礼帽压住海风。竖屏圣物：正经装束，奶黄内核。" alt="《最伟大的奶蛙 · 2s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 2s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_2s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 2s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-2.webp" data-narrative="鸟身人首的西装绅士立在石台，礼帽压住海风。竖屏圣物：正经装束，奶黄内核。" alt="《西装绅士·奶蛙》· 竖屏圣物" loading="lazy" data-title="西装绅士·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_2s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>西装绅士·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-5.webp" data-narrative="黄羽大鸟探头俯瞰，红底荒漠人群如蚁。竖屏圣物：它替整片大地笑了一声。" alt="《最伟大的奶蛙 · 5s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-5.webp" data-narrative="黄羽大鸟探头俯瞰，红底荒漠人群如蚁。竖屏圣物：它替整片大地笑了一声。" alt="《荒漠巨鸟·奶蛙》· 竖屏圣物" loading="lazy" data-title="荒漠巨鸟·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>荒漠巨鸟·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-9.webp" data-narrative="长细机械腿驮着中式亭台，红橙渐变的天地间，奶蛙缓缓走过。竖屏圣物：机械与古意，都认这抹黄。" alt="《最伟大的奶蛙 · 9s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 9s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_9s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 9s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-9.webp" data-narrative="长细机械腿驮着中式亭台，红橙渐变的天地间，奶蛙缓缓走过。竖屏圣物：机械与古意，都认这抹黄。" alt="《机械驮亭·奶蛙》· 竖屏圣物" loading="lazy" data-title="机械驮亭·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_9s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>机械驮亭·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-13.webp" data-narrative="伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。" alt="《最伟大的奶蛙 · 13s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 13s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_13s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 13s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-13.webp" data-narrative="伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。" alt="《奶蛙夜巡》· 竖屏圣物" loading="lazy" data-title="奶蛙夜巡" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_13s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>奶蛙夜巡</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-20.webp" data-narrative="浅色底上黑色人形重复排列，红顶建筑栖着黑鸟群。竖屏圣物：秩序里冒出奶黄。" alt="《最伟大的奶蛙 · 20s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 20s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_20s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 20s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-20.webp" data-narrative="浅色底上黑色人形重复排列，红顶建筑栖着黑鸟群。竖屏圣物：秩序里冒出奶黄。" alt="《人形之城·奶蛙》· 竖屏圣物" loading="lazy" data-title="人形之城·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_20s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>人形之城·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-25.webp" data-narrative="古典长袍人物立像竖屏版——暗红深色里，奶蛙披袍而立，庄重得很不熟练。" alt="《最伟大的奶蛙 · 25s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 25s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_25s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 25s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-25.webp" data-narrative="古典长袍人物立像竖屏版——暗红深色里，奶蛙披袍而立，庄重得很不熟练。" alt="《古典长袍·奶蛙》· 竖屏圣物" loading="lazy" data-title="古典长袍·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_25s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>古典长袍·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-285.webp" data-narrative="超现实室内竖屏版——明亮房间，奶蛙站在浅墙前。窗外有光，屋里有笑。" alt="《最伟大的奶蛙 · 28.5s》· 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 28.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_28.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 28.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-285.webp" data-narrative="超现实室内竖屏版——明亮房间，奶蛙站在浅墙前。窗外有光，屋里有笑。" alt="《室内超现实·奶蛙》· 竖屏圣物" loading="lazy" data-title="室内超现实·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_28.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>室内超现实·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-01.webp" data-narrative="《维纳斯的诞生》竖屏版——贝壳上的女神换成奶蛙，浪花托着它上岸，快乐乘风。" alt="最伟大的奶蛙 · 11s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 11s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_11s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 11s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-01.webp" data-narrative="《维纳斯的诞生》竖屏版——贝壳上的女神换成奶蛙，浪花托着它上岸，快乐乘风。" alt="维纳斯奶蛙诞生· 竖屏 · 竖屏圣物" loading="lazy" data-title="维纳斯奶蛙诞生" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_11s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>维纳斯奶蛙诞生</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-02.webp" data-narrative="《星月夜》竖屏版——星涡里的光点，都被换成了奶蛙。梵高的夜空，多了一只笑眼。" alt="最伟大的奶蛙 · 12s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 12s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_12s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 12s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-02.webp" data-narrative="《星月夜》竖屏版——星涡里的光点，都被换成了奶蛙。梵高的夜空，多了一只笑眼。" alt="星月夜·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="星月夜·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_12s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>星月夜·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-03.webp" data-narrative="撑伞的经典油画竖屏版——伞下人换成奶蛙，阳光沿着伞沿滑落，像为它加冕。" alt="最伟大的奶蛙 · 14s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 14s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_14s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 14s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-03.webp" data-narrative="撑伞的经典油画竖屏版——伞下人换成奶蛙，阳光沿着伞沿滑落，像为它加冕。" alt="撑伞的奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="撑伞的奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_14s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>撑伞的奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-04.webp" data-narrative="梵高自画像竖屏版——画框里的梵高换上奶蛙的脸，割耳换成捂肚大笑。" alt="最伟大的奶蛙 · 15.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 15.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_15.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 15.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-04.webp" data-narrative="梵高自画像竖屏版——画框里的梵高换上奶蛙的脸，割耳换成捂肚大笑。" alt="奶蛙自画像· 竖屏 · 竖屏圣物" loading="lazy" data-title="奶蛙自画像" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_15.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>奶蛙自画像</cite><span>竖屏</span></figcaption>
         </figure><figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-06.webp" data-narrative="《美国哥特式》竖屏版——农夫换成奶蛙，叉子换成小旗，严肃的小镇笑了。" alt="最伟大的奶蛙 · 17.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 17.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_17.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 17.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-06.webp" data-narrative="《美国哥特式》竖屏版——农夫换成奶蛙，叉子换成小旗，严肃的小镇笑了。" alt="美国哥特·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="美国哥特·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_17.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>美国哥特·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-07.webp" data-narrative="古典宫廷加冕竖屏版——皇冠戴到奶蛙头顶，百官低头，偷笑不止。" alt="最伟大的奶蛙 · 18.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 18.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_18.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 18.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-07.webp" data-narrative="古典宫廷加冕竖屏版——皇冠戴到奶蛙头顶，百官低头，偷笑不止。" alt="奶蛙加冕礼· 竖屏 · 竖屏圣物" loading="lazy" data-title="奶蛙加冕礼" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_18.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>奶蛙加冕礼</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-08.webp" data-narrative="古风仕女对弈竖屏版——棋枰两侧，奶蛙与仕女各执一子，落子无声，笑在画外。" alt="最伟大的奶蛙 · 21.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 21.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_21.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 21.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-08.webp" data-narrative="古风仕女对弈竖屏版——棋枰两侧，奶蛙与仕女各执一子，落子无声，笑在画外。" alt="仕女对弈·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="仕女对弈·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_21.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>仕女对弈·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-09.webp" data-narrative="暗黑古典宴会竖屏版——烛火摇晃的长桌，奶蛙端坐其间，阴云也被它逗亮三分。" alt="最伟大的奶蛙 · 23s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 23s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_23s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 23s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-09.webp" data-narrative="暗黑古典宴会竖屏版——烛火摇晃的长桌，奶蛙端坐其间，阴云也被它逗亮三分。" alt="暗夜盛宴·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="暗夜盛宴·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_23s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>暗夜盛宴·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-10.webp" data-narrative="克里姆特金色装饰画竖屏版——金色漩涡里，奶蛙镶成画中圣像，华贵而快乐。" alt="最伟大的奶蛙 · 24.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 24.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_24.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 24.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-10.webp" data-narrative="克里姆特金色装饰画竖屏版——金色漩涡里，奶蛙镶成画中圣像，华贵而快乐。" alt="金色圣像·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="金色圣像·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_24.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>金色圣像·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-11.webp" data-narrative="古典悲剧相拥竖屏版——血迹未干，相拥的两人都换上奶蛙的脸。悲剧落幕，先笑一场。" alt="最伟大的奶蛙 · 25.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 25.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_25.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 25.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-11.webp" data-narrative="古典悲剧相拥竖屏版——血迹未干，相拥的两人都换上奶蛙的脸。悲剧落幕，先笑一场。" alt="悲剧之吻·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="悲剧之吻·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_25.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>悲剧之吻·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-12.webp" data-narrative="点彩派户外竖屏版——光斑落满画布，奶蛙站进人群，无数色点拼成它的笑。" alt="最伟大的奶蛙 · 26.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 26.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_26.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 26.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-12.webp" data-narrative="点彩派户外竖屏版——光斑落满画布，奶蛙站进人群，无数色点拼成它的笑。" alt="光点下的奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="光点下的奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_26.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>光点下的奶蛙</cite><span>竖屏</span></figcaption>
         </figure><figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-14.webp" data-narrative="《最后的晚餐》竖屏版——十二门徒与奶蛙围坐长桌，圣餐从此改名奶宴。" alt="最伟大的奶蛙 · 27.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 27.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_27.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 27.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-14.webp" data-narrative="《最后的晚餐》竖屏版——十二门徒与奶蛙围坐长桌，圣餐从此改名奶宴。" alt="奶蛙·最后的晚餐· 竖屏 · 竖屏圣物" loading="lazy" data-title="奶蛙·最后的晚餐" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_27.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>奶蛙·最后的晚餐</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-15.webp" data-narrative="浮世绘骷髅题材竖屏版——骷髅与花之间，奶蛙探出脑袋，生死大事，先笑再说。" alt="最伟大的奶蛙 · 27s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 27s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_27s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 27s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-15.webp" data-narrative="浮世绘骷髅题材竖屏版——骷髅与花之间，奶蛙探出脑袋，生死大事，先笑再说。" alt="浮世骷髅·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="浮世骷髅·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_27s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>浮世骷髅·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-16.webp" data-narrative="线稿魔性表情竖屏版——几笔线稿勾出奶蛙，越看越魔性，越看越快乐。" alt="最伟大的奶蛙 · 28s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 28s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_28s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 28s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-16.webp" data-narrative="线稿魔性表情竖屏版——几笔线稿勾出奶蛙，越看越魔性，越看越快乐。" alt="魔性线稿·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="魔性线稿·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_28s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>魔性线稿·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-17.webp" data-narrative="达利《记忆的永恒》竖屏版——软掉的钟表趴上奶蛙，时间融化，快乐永恒。" alt="最伟大的奶蛙 · 3s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 3s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_3s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 3s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-17.webp" data-narrative="达利《记忆的永恒》竖屏版——软掉的钟表趴上奶蛙，时间融化，快乐永恒。" alt="记忆永恒·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="记忆永恒·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_3s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>记忆永恒·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-18.webp" data-narrative="暗黑末日竖屏版——巨影吞没天际，奶蛙立在废墟前，末日也要笑着过。" alt="最伟大的奶蛙 · 4s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 4s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_4s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 4s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-18.webp" data-narrative="暗黑末日竖屏版——巨影吞没天际，奶蛙立在废墟前，末日也要笑着过。" alt="末日巨蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="末日巨蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_4s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>末日巨蛙</cite><span>竖屏</span></figcaption>
         </figure>
 <figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-19.webp" data-narrative="黑袍身影旁探出黄鸟群，烛火小人仰望。竖屏圣物：暗调里藏着一窝奶黄。" alt="最伟大的奶蛙 · 6.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 6.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_6.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 6.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-19.webp" data-narrative="黑袍身影旁探出黄鸟群，烛火小人仰望。竖屏圣物：暗调里藏着一窝奶黄。" alt="黑袍与黄鸟·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="黑袍与黄鸟·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_6.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>黑袍与黄鸟·奶蛙</cite><span>竖屏</span></figcaption>
         </figure><figure class="work">
-          <div class="stagger work__frame"><img src="assets/p-21.webp" data-narrative="仿工笔花鸟竖屏版——黄羽丹顶鸟立于松竹间，奶蛙混进画里，鸟鸣都带笑腔。" alt="最伟大的奶蛙 · 9.5s · 竖屏 · 竖屏圣物" loading="lazy" data-title="最伟大的奶蛙 · 9.5s" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_9.5s.png" decoding="async"></div>
-          <figcaption class="work__cap"><cite>最伟大的奶蛙 · 9.5s</cite><span>竖屏</span></figcaption>
+          <div class="stagger work__frame"><img src="assets/p-21.webp" data-narrative="仿工笔花鸟竖屏版——黄羽丹顶鸟立于松竹间，奶蛙混进画里，鸟鸣都带笑腔。" alt="工笔花鸟·奶蛙· 竖屏 · 竖屏圣物" loading="lazy" data-title="工笔花鸟·奶蛙" data-hall="竖屏 · 竖屏圣物" data-original="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/phone/%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E9%BE%99_9.5s.png" decoding="async"></div>
+          <figcaption class="work__cap"><cite>工笔花鸟·奶蛙</cite><span>竖屏</span></figcaption>
         </figure>
       </div>
       <div class="hall__ctl">
@@ -1512,90 +1630,205 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     <span class="view__title">企 划 纪 年</span>
     <span class="view__count">殿堂大事记</span>
   </div>
-<section class="section" id="chronicle" aria-label="企划纪年">
+<section class="section artwalk__section" id="chronicle" aria-label="艺术史长河">
   <div class="wrap">
     <header class="section__head reveal">
       <p class="section__kicker">企划纪年</p>
-      <h2 class="section__title">奶 蛙 纪 · <em>身 世 与 殿 史</em></h2>
+      <h2 class="section__title">奶 蛙 纪 · <em>艺 术 史 长 河</em></h2>
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
-    <p class="chronicle__intro reveal">奶蛙者，似龙非龙、似蛙非蛙的一只民间造物。它脱胎于官方奶龙，却无公司、无企划——只有一群网友用爱发电，把它请进名画、请进圣殿。这便是奶蛙艺术宇宙的由来。以下是殿堂纪年：</p>
-    <div class="timeline reveal">
-      <span class="timeline__axis" aria-hidden="true"></span>
-      <div class="timeline__track">
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">身世 · 2024 秋 · 星野 AI</p>
-          <h3 class="epoch__title">第一只奶蛙，诞生于一次「错误输出」</h3>
-          <p class="epoch__desc">星野用户「纲手[百豪]」本想生成奶龙，早期 AI 却让头部缩小、躯干膨大、四肢纤细，吐出个似蛙非蛙的变异体。没有设计稿，没有策划案——奶蛙的出生证，只有一张歪打正着的图。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">身世 · 2024 末–2025 · 梗火出圈</p>
-          <h3 class="epoch__title">捧腹大笑，成了通用货币</h3>
-          <p class="epoch__desc">恰逢奶龙梗火爆，网友把变异体与动画奶龙关联，「大笑奶龙」「变异奶龙」的称呼传遍评论区。一张图配上魔性笑声，任何场合都能收束成「众宾欢也」。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">身世 · 2025–2026 · 考古溯源</p>
-          <h3 class="epoch__title">奶蛙之母，被考古队挖出</h3>
-          <p class="epoch__desc">奶蛙曾是无主之像、失传媒体。B 站考据者一路溯源，掘出星野用户「纲手[百豪]」2024 年的创作记录，尊其「奶蛙之母」。与此同时，奶龙官方对评论区奶蛙一律拉黑——民间与官方，自此隔屏相望。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">身世 · 2026 · 抽象新神</p>
-          <h3 class="epoch__title">从表情包，到抽象宇宙新神</h3>
-          <p class="epoch__desc">2026 年，奶蛙与「牛来」并立为抽象宇宙新神，茶饮联名也卷了进来。一只 AI 抽风吐出的黄蛙，最终成了世代人的「抽象情绪容器」。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">起源 · 画廊初立</p>
-          <h3 class="epoch__title">第一座殿堂落成</h3>
-          <p class="epoch__desc">画廊与灯箱、全家桶导航齐备——奶蛙艺术宇宙，自此有了门楣。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">壁纸分立 · 六十张</p>
-          <h3 class="epoch__title">圣像批量降临桌面</h3>
-          <p class="epoch__desc">22 张全高清与 38 张名画经典独立成仓，桌面自此有了圣光。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">特别艺术入藏 · 9+29</p>
-          <h3 class="epoch__title">圣迹与竖屏同开</h3>
-          <p class="epoch__desc">9 张超现实外传与 29 张竖屏圣物入驻，孤独与永恒皆有居所。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">二创共祭 · 三十六张</p>
-          <h3 class="epoch__title">殿堂向创作者敞开</h3>
-          <p class="epoch__desc">收录 B 站 UP 主艺术二创，奶蛙圣像从此不止一人描摹。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">画廊再临 · v2 上线</p>
-          <h3 class="epoch__title">全量圣像线上可朝拜</h3>
-          <p class="epoch__desc">子模块与缩略图、Pages 自动部署齐备，一百五十六件随时可谒。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">沉浸官网 · 逐层加冕</p>
-          <h3 class="epoch__title">圣殿气质一轮轮打磨</h3>
-          <p class="epoch__desc">视频背景、Story 漫游、背景音乐、视差叙事，层层叠出庄重。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">主题入殿 · 1.0.0</p>
-          <h3 class="epoch__title">奶蛙色走进编辑器</h3>
-          <p class="epoch__desc">Nailong Dark / Light 双主题与调色板单源，码字也是朝圣。</p>
-        </article>
-        <article class="epoch stagger">
-          <span class="epoch__dot" aria-hidden="true"></span>
-          <p class="epoch__tag">四仓合一 · 全家桶</p>
-          <h3 class="epoch__title">殿堂终成一体</h3>
-          <p class="epoch__desc">画廊 v2、VS Code 主题并入主仓，素材迁入独立素材仓——一殿，一库，一宇宙。</p>
-        </article>
-      </div>
+    <div class="artwalk reveal" id="artwalk">
+      <span class="artwalk__axis" aria-hidden="true"></span>
+      <p class="artwalk__intro">沿着这条金线顺流而下：从公元 0 世纪的第一声大笑，到二十一世纪的抽象新神——每一件圣像，都对应着一段人类美术史上的原迹。有原作的，这里原样对照；没有原作的，只当是创世者的自由发挥。</p>
+      <nav class="artwalk__nav" aria-label="纪元导航">
+        <a href="#era-0" data-i="0">创世纪</a>
+        <a href="#era-1" data-i="1">中世纪</a>
+        <a href="#era-2" data-i="2">文艺复兴</a>
+        <a href="#era-3" data-i="3">巴洛克</a>
+        <a href="#era-4" data-i="4">浪漫主义</a>
+        <a href="#era-5" data-i="5">现代主义</a>
+        <a href="#era-6" data-i="6">当代</a>
+        <a href="#era-7" data-i="7">殿史</a>
+      </nav>
+
+      <article class="era" id="era-0">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">公元 0 世纪 · 创世之初</p>
+          <h3 class="era__title">创世纪 · 奶蛙诞生</h3>
+          <p class="era__desc">创世纪之初，天地一片混沌。没有设计稿，没有策划案——第一只奶蛙在 AI 的一次「错误输出」中睁开了眼，一声捧腹大笑，劈开了四百年美术史的夜色。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/f-21.webp" alt="大笑·奶蛙" data-title="大笑·奶蛙" data-hall="艺术史长河 · 创世纪" data-narrative="创世纪第一声大笑——混沌未分，笑意已至。没有原作，只有原笑。" data-original="#era-0"></div>
+            <figcaption class="era__cap"><b>大笑·奶蛙</b><span>无原作 · 创世第一笑</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-1">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">中世纪 · 13–15 世纪</p>
+          <h3 class="era__title">圣像时代 · 庄严的奶气</h3>
+          <p class="era__desc">壁画还不会透视，圣像还在发光。奶蛙挤进圣母的怀抱、坐上最后的晚餐——庄严的黄金底，从此多了一团快乐黄。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-05.webp" alt="圣母与奶蛙圣婴" data-title="圣母与奶蛙圣婴" data-hall="艺术史长河 · 中世纪" data-narrative="圣母怀里的圣婴换成了奶蛙，庄严与奶气撞个满怀。" data-original="#era-1"></div>
+            <figcaption class="era__cap"><b>圣母与奶蛙圣婴</b><span>原作：中世纪圣母圣婴像传统</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-14.webp" alt="奶蛙·最后的晚餐" data-title="奶蛙·最后的晚餐" data-hall="艺术史长河 · 中世纪" data-narrative="十二门徒围坐长桌，主位坐着奶蛙。圣餐从此改名奶宴。" data-original="#era-1"></div>
+            <figcaption class="era__cap"><b>奶蛙 · 最后的晚餐</b><span>原作：达·芬奇《最后的晚餐》1495–1498</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-2">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">文艺复兴 · 15–16 世纪</p>
+          <h3 class="era__title">人（与蛙）的觉醒</h3>
+          <p class="era__desc">透视法登场，人体比例被反复推敲。奶蛙踩着贝壳上岸、背着行囊朝圣——它终于从圣像里走出来，成为画中人。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-01.webp" alt="维纳斯奶蛙诞生" data-title="维纳斯奶蛙诞生" data-hall="艺术史长河 · 文艺复兴" data-narrative="贝壳上的女神换成奶蛙，浪花托着它上岸，快乐乘风。" data-original="#era-2"></div>
+            <figcaption class="era__cap"><b>维纳斯奶蛙诞生</b><span>原作：波提切利《维纳斯的诞生》约1486</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/c-s15.webp" alt="奶蛙朝圣" data-title="奶蛙朝圣" data-hall="艺术史长河 · 文艺复兴" data-narrative="奶蛙背起行囊走进朝圣队伍，信仰的尽头是快乐。" data-original="#era-2"></div>
+            <figcaption class="era__cap"><b>奶蛙朝圣</b><span>原作：文艺复兴朝圣题材（乔托《三王来朝》一脉）</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/c-s11.webp" alt="奶蛙复活" data-title="奶蛙复活" data-hall="艺术史长河 · 文艺复兴" data-narrative="石棺掀开，奶蛙复活。奇迹的底色，是奶黄色。" data-original="#era-2"></div>
+            <figcaption class="era__cap"><b>奶蛙复活</b><span>原作：文艺复兴复活题材圣画</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-3">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">巴洛克 · 17 世纪</p>
+          <h3 class="era__title">光影的狂欢</h3>
+          <p class="era__desc">明暗对照让戏剧性爬满画布。奶蛙带队夜巡、赴一场暗夜盛宴，烛光为它打出一束顶光——连山上的先知都笑出了声。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-13.webp" alt="奶蛙夜巡" data-title="奶蛙夜巡" data-hall="艺术史长河 · 巴洛克" data-narrative="夜色里奶蛙带队巡夜，烛光为它打了一束顶光。" data-original="#era-3"></div>
+            <figcaption class="era__cap"><b>奶蛙夜巡</b><span>原作：伦勃朗《夜巡》1642</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-09.webp" alt="暗夜盛宴·奶蛙" data-title="暗夜盛宴·奶蛙" data-hall="艺术史长河 · 巴洛克" data-narrative="烛火摇晃的长桌，奶蛙端坐其间，阴云也被它逗亮三分。" data-original="#era-3"></div>
+            <figcaption class="era__cap"><b>暗夜盛宴 · 奶蛙</b><span>原作：卡拉瓦乔式明暗对照（1600s）</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/c-carmel.webp" alt="以利龙在迦密山" data-title="以利龙在迦密山" data-hall="艺术史长河 · 巴洛克" data-narrative="迦密山上，以利龙与先知对坐，山风都笑出声。" data-original="#era-3"></div>
+            <figcaption class="era__cap"><b>以利龙在迦密山</b><span>原作：巴洛克宗教画传统（17世纪）</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-4">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">浪漫主义与印象派 · 19 世纪</p>
+          <h3 class="era__title">情绪的风暴与光点</h3>
+          <p class="era__desc">画笔走出画室，情绪冲上画布。奶蛙扛旗领路，也躺在星空下、伞沿下、点彩里——浪漫与印象，都成了它的舞台。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/c-s24.webp" alt="自由引导奶蛙" data-title="自由引导奶蛙" data-hall="艺术史长河 · 19世纪" data-narrative="奶蛙扛旗领路，民众跟着它大步向前。" data-original="#era-4"></div>
+            <figcaption class="era__cap"><b>自由引导奶蛙</b><span>原作：德拉克洛瓦《自由引导人民》1830</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-02.webp" alt="星月夜·奶蛙" data-title="星月夜·奶蛙" data-hall="艺术史长河 · 19世纪" data-narrative="星涡里的光点，都被换成了奶蛙。梵高的夜空，多了一只笑眼。" data-original="#era-4"></div>
+            <figcaption class="era__cap"><b>星月夜 · 奶蛙</b><span>原作：梵高《星月夜》1889</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-03.webp" alt="撑伞的奶蛙" data-title="撑伞的奶蛙" data-hall="艺术史长河 · 19世纪" data-narrative="伞下人换成奶蛙，阳光沿着伞沿滑落，像为它加冕。" data-original="#era-4"></div>
+            <figcaption class="era__cap"><b>撑伞的奶蛙</b><span>原作：莫奈《撑阳伞的女人》1886</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-12.webp" alt="光点下的奶蛙" data-title="光点下的奶蛙" data-hall="艺术史长河 · 19世纪" data-narrative="无数色点拼成它的笑，点彩的尽头是奶蛙。" data-original="#era-4"></div>
+            <figcaption class="era__cap"><b>光点下的奶蛙</b><span>原作：修拉《大碗岛的星期天》1884–86</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-5">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">现代主义 · 20 世纪</p>
+          <h3 class="era__title">时间融化，永恒大笑</h3>
+          <p class="era__desc">现实被拆碎重组，钟表软成面团，金色漩涡把人卷进去。奶蛙走进这些画面，把超现实坐出了奶里奶气。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-17.webp" alt="记忆永恒·奶蛙" data-title="记忆永恒·奶蛙" data-hall="艺术史长河 · 现代主义" data-narrative="软掉的钟表趴上奶蛙，时间融化，快乐永恒。" data-original="#era-5"></div>
+            <figcaption class="era__cap"><b>记忆永恒 · 奶蛙</b><span>原作：达利《记忆的永恒》1931</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-10.webp" alt="金色圣像·奶蛙" data-title="金色圣像·奶蛙" data-hall="艺术史长河 · 现代主义" data-narrative="金色漩涡里，奶蛙镶成画中圣像，华贵而快乐。" data-original="#era-5"></div>
+            <figcaption class="era__cap"><b>金色圣像 · 奶蛙</b><span>原作：克里姆特《吻》1907–08</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-06.webp" alt="美国哥特·奶蛙" data-title="美国哥特·奶蛙" data-hall="艺术史长河 · 现代主义" data-narrative="农夫换成奶蛙，叉子换成小旗，严肃的小镇笑了。" data-original="#era-5"></div>
+            <figcaption class="era__cap"><b>美国哥特 · 奶蛙</b><span>原作：伍德《美国哥特式》1930</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-15.webp" alt="浮世骷髅·奶蛙" data-title="浮世骷髅·奶蛙" data-hall="艺术史长河 · 现代主义" data-narrative="骷髅与花之间，奶蛙探出脑袋，生死大事先笑再说。" data-original="#era-5"></div>
+            <figcaption class="era__cap"><b>浮世骷髅 · 奶蛙</b><span>原作：歌川国芳浮世绘（19世纪）</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-6">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">当代 · 21 世纪</p>
+          <h3 class="era__title">抽象新神 · 奶蛙纪元</h3>
+          <p class="era__desc">AI 作画、梗图与表情包，把圣殿搬进每个人的屏幕。奶蛙与「牛来」并立为抽象宇宙新神——这一纪没有原作，一切仍在发生。</p>
+        </div>
+        <div class="era__works">
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/a-16.webp" alt="流光融化奶娃" data-title="流光融化奶娃" data-hall="艺术史长河 · 当代" data-narrative="色彩在霓虹里融化，奶娃成了流动的光。" data-original="#era-6"></div>
+            <figcaption class="era__cap"><b>流光融化奶娃</b><span>无原作 · AI 二创纪元</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/f-24.webp" alt="眯眼大笑" data-title="眯眼大笑" data-hall="艺术史长河 · 当代" data-narrative="笑到眼睛只剩一条线——表情包的原始图腾。" data-original="#era-6"></div>
+            <figcaption class="era__cap"><b>眯眼大笑</b><span>无原作 · 梗文化纪元</span></figcaption>
+          </figure>
+          <figure class="work era__work">
+            <div class="work__frame"><img src="assets/p-285.webp" alt="室内超现实·奶蛙" data-title="室内超现实·奶蛙" data-hall="艺术史长河 · 当代" data-narrative="室内一角长出超现实，奶蛙是唯一合理的解释。" data-original="#era-6"></div>
+            <figcaption class="era__cap"><b>室内超现实 · 奶蛙</b><span>无原作 · 抽象新神纪元</span></figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="era" id="era-7">
+        <span class="era__dot" aria-hidden="true"></span>
+        <div class="era__head">
+          <p class="era__tag">殿堂纪年 · 附章</p>
+          <h3 class="era__title">奶蛙艺术宇宙的殿史</h3>
+          <p class="era__desc">画外的历史同样值得记住：从一座小画廊，到四仓合一的全家桶——这是这座殿堂自己的大事记。</p>
+        </div>
+        <div class="era__chronicle">
+          <div class="ch-row"><span class="ch-year">起源</span><div><b>第一座殿堂落成</b><p>画廊与灯箱、全家桶导航齐备——奶蛙艺术宇宙，自此有了门楣。</p></div></div>
+          <div class="ch-row"><span class="ch-year">壁纸</span><div><b>圣像批量降临桌面</b><p>22 张全高清与 38 张名画经典独立成仓，桌面自此有了圣光。</p></div></div>
+          <div class="ch-row"><span class="ch-year">入藏</span><div><b>圣迹与竖屏同开</b><p>9 张超现实外传与 29 张竖屏圣物入驻，孤独与永恒皆有居所。</p></div></div>
+          <div class="ch-row"><span class="ch-year">共祭</span><div><b>殿堂向创作者敞开</b><p>收录 B 站 UP 主艺术二创，奶蛙圣像从此不止一人描摹。</p></div></div>
+          <div class="ch-row"><span class="ch-year">v2</span><div><b>全量圣像线上可朝拜</b><p>子模块与缩略图、Pages 自动部署齐备，一百五十五件随时可谒。</p></div></div>
+          <div class="ch-row"><span class="ch-year">加冕</span><div><b>圣殿气质一轮轮打磨</b><p>视频背景、Story 漫游、背景音乐、视差叙事，层层叠出庄重。</p></div></div>
+          <div class="ch-row"><span class="ch-year">主题</span><div><b>奶蛙色走进编辑器</b><p>Nailong Dark / Light 双主题与调色板单源，码字也是朝圣。</p></div></div>
+          <div class="ch-row"><span class="ch-year">全家桶</span><div><b>殿堂终成一体</b><p>画廊 v2、VS Code 主题并入主仓，素材迁入独立素材仓——一殿，一库，一宇宙。</p></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>      </div>
     </div>
   </div>
 </section>
@@ -2073,280 +2306,95 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   }
   });
   safe(function(){
-  /* ---- 三维圣殿之门：轻触推开 · 步入展厅 ---- */
+  /* ---- 画廊之门：视差画廊 + 双开圣门（纯 CSS 3D，无 WebGL） ---- */
   (function(){
-    var stage = doc.getElementById("t3d-canvas");
+    var stage = doc.getElementById("galstage");
     if (!stage) return;
-    var stageBox = stage.parentElement;
+    var scene = doc.getElementById("galscene");
+    var cta = doc.getElementById("galdoor");
+    if (!scene || !cta) return;
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function loadScript(src){
-      return new Promise(function(res, rej){
-        var s = document.createElement("script");
-        s.src = src; s.async = true;
-        s.onload = res;
-        s.onerror = function(){ if (s.parentNode) s.parentNode.removeChild(s); rej(new Error("fail " + src)); };
-        document.head.appendChild(s);
-      });
+    var walls = scene.querySelectorAll(".gal__wall");
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    function setParallax(){
+      scene.style.transform = "rotateY(" + (tx * 2.4) + "deg) rotateX(" + (-ty * 1.6) + "deg)";
     }
-    loadScript("assets/three.min.js")
-      .then(function(){ return loadScript("assets/three-orbit.js"); })
-      .then(initT3D)
-      .catch(function(){ /* 加载失败：保留金色门形 SVG 兜底 */ });
-    function makeBadgeCanvas(cx, cy, r){
-      var cv = document.createElement("canvas");
-      cv.width = 256; cv.height = 256;
-      var g = cv.getContext("2d");
-      g.clearRect(0, 0, 256, 256);
-      g.fillStyle = "#FFD54F";
-      g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = "#D9B45B"; g.lineWidth = Math.max(3, r * .07); g.stroke();
-      g.fillStyle = "#FFF3D6";
-      g.beginPath(); g.ellipse(cx, cy + r * .48, r * .56, r * .42, 0, 0, Math.PI * 2); g.fill();
-      g.fillStyle = "#1B140A";
-      g.beginPath(); g.arc(cx - r * .34, cy - r * .24, r * .13, 0, Math.PI * 2); g.fill();
-      g.beginPath(); g.arc(cx + r * .34, cy - r * .24, r * .13, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = "#1B140A"; g.lineWidth = Math.max(3, r * .08); g.lineCap = "round";
-      g.beginPath(); g.arc(cx, cy + r * .02, r * .38, .4, Math.PI - .4); g.stroke();
-      g.fillStyle = "#5A4A33";
-      g.beginPath(); g.arc(cx - r * .5, cy + r * .42, r * .16, 0, Math.PI * 2); g.fill();
-      g.beginPath(); g.arc(cx + r * .5, cy + r * .42, r * .16, 0, Math.PI * 2); g.fill();
-      return cv;
+    function loop(){
+      setParallax();
+      raf = null;
     }
-    function makeDoorTexture(badgeCX){
-      var cv = document.createElement("canvas");
-      cv.width = 256; cv.height = 512;
-      var g = cv.getContext("2d");
-      var grd = g.createLinearGradient(0, 0, 256, 0);
-      grd.addColorStop(0, "#7A5C2B"); grd.addColorStop(.5, "#6d5327"); grd.addColorStop(1, "#7A5C2B");
-      g.fillStyle = grd; g.fillRect(0, 0, 256, 512);
-      g.strokeStyle = "#C9A24B"; g.lineWidth = 7;
-      g.strokeRect(14, 14, 228, 484);
-      g.lineWidth = 3; g.strokeRect(26, 26, 204, 460);
-      g.strokeStyle = "rgba(201,162,75,.35)"; g.lineWidth = 2;
-      g.beginPath(); g.moveTo(44, 210); g.lineTo(44, 330);
-      g.moveTo(212, 210); g.lineTo(212, 330); g.stroke();
-      g.drawImage(makeBadgeCanvas(128, 132, 78), 0, 0, 256, 256);
-      g.fillStyle = "#C9A24B";
-      g.beginPath(); g.arc(badgeCX > 128 ? 214 : 42, 404, 10, 0, Math.PI * 2); g.fill();
-      return new THREE.CanvasTexture(cv);
+    function onPointer(e){
+      var r = stage.getBoundingClientRect();
+      if (!r.width) return;
+      cx = (e.clientX - r.left) / r.width - .5;
+      cy = (e.clientY - r.top) / r.height - .5;
+      tx += (cx * 4 - tx) * .08;
+      ty += (cy * 4 - ty) * .08;
+      if (!raf) raf = requestAnimationFrame(loop);
     }
-    function initT3D(){
-      var renderer;
-      try {
-        renderer = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true, powerPreference:"high-performance"});
-      } catch(e){ return; }
-      var canvas = renderer.domElement;
-      canvas.style.display = "block";
-      stage.appendChild(canvas);
-      var w = stage.clientWidth || 720, h = stage.clientHeight || 400;
-      var dpr = Math.min(window.devicePixelRatio || 1, w < 700 ? 1.5 : 2);
-      renderer.setPixelRatio(dpr);
-      renderer.setSize(w, h, false);
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-      var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x0D0A07);
-      var camera = new THREE.PerspectiveCamera(40, w / h, .1, 40);
-      camera.position.set(2.7, 1.8, 4.6);
-      camera.lookAt(0, 1.2, 0);
+    if (!reduce){
+      stage.addEventListener("mousemove", onPointer);
+      stage.addEventListener("touchmove", onPointer, {passive:true});
+    }
+    var opened = false;
+    function openGate(){
+      if (opened) return;
+      opened = true;
+      stage.classList.add("gal__open");
+      setTimeout(function(){ location.hash = "halls"; }, 700);
+    }
+    cta.addEventListener("click", openGate);
+    cta.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openGate(); }
+    });
+  })();
+  });
 
-      var hemi = new THREE.HemisphereLight(0xFFE3B0, 0x2a1d0d, .8);
-      scene.add(hemi);
-      var sun = new THREE.DirectionalLight(0xFFDF66, 1.55);
-      sun.position.set(3.4, 4.6, 2.6);
-      sun.castShadow = true;
-      sun.shadow.mapSize.set(1024, 1024);
-      sun.shadow.camera.near = 1; sun.shadow.camera.far = 14;
-      sun.shadow.camera.left = -4; sun.shadow.camera.right = 4;
-      sun.shadow.camera.top = 4; sun.shadow.camera.bottom = -4;
-      scene.add(sun);
-      var rim = new THREE.PointLight(0xFFC866, .6, 14);
-      rim.position.set(-3.2, 2.4, -2.6);
-      scene.add(rim);
-      var innerLight = new THREE.PointLight(0xFFD97A, 0, 12, 2);
-      innerLight.position.set(0, 1.4, 1.9);
-      scene.add(innerLight);
-
-      var baseMat = new THREE.MeshStandardMaterial({color:0x2e2418, roughness:.7, metalness:.08});
-      var base = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.2, .5, 48), baseMat);
-      base.position.y = -.38; base.receiveShadow = true;
-      scene.add(base);
-      var ringMat = new THREE.MeshStandardMaterial({color:0x8a6d2f, roughness:.5, metalness:.75});
-      var ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.86, .05, 12, 48), ringMat);
-      ring1.rotation.x = Math.PI / 2; ring1.position.y = -.13;
-      scene.add(ring1);
-      var step = new THREE.Mesh(new THREE.CylinderGeometry(1.42, 1.52, .3, 48), baseMat);
-      step.position.y = -.04; step.receiveShadow = true;
-      scene.add(step);
-      var stepRing = new THREE.Mesh(new THREE.TorusGeometry(1.35, .04, 12, 48), ringMat);
-      stepRing.rotation.x = Math.PI / 2; stepRing.position.y = .1;
-      scene.add(stepRing);
-
-      var colMat = new THREE.MeshStandardMaterial({color:0x8a6d2f, roughness:.42, metalness:.78});
-      var frameMat = new THREE.MeshStandardMaterial({color:0xCBA953, roughness:.36, metalness:.82});
-      [-1.16, 1.16].forEach(function(x){
-        var col = new THREE.Mesh(new THREE.CylinderGeometry(.13, .16, 2.7, 14), colMat);
-        col.position.set(x, 1.06, 0); col.castShadow = true;
-        scene.add(col);
-        var cap = new THREE.Mesh(new THREE.CylinderGeometry(.21, .13, .2, 14), frameMat);
-        cap.position.set(x, 2.28, 0); cap.castShadow = true;
-        scene.add(cap);
-      });
-      var arch = new THREE.Mesh(new THREE.TorusGeometry(1.02, .14, 14, 30, Math.PI), frameMat);
-      arch.rotation.z = Math.PI; arch.position.set(0, 2.62, 0); arch.castShadow = true;
-      scene.add(arch);
-      var keystone = new THREE.Mesh(new THREE.BoxGeometry(.24, .52, .32), frameMat);
-      keystone.position.set(0, 3.06, 0); keystone.castShadow = true;
-      scene.add(keystone);
-      var lintel = new THREE.Mesh(new THREE.BoxGeometry(2.44, .26, .36), frameMat);
-      lintel.position.set(0, 1.98, 0); lintel.castShadow = true;
-      scene.add(lintel);
-
-      var innerSideMat = new THREE.MeshStandardMaterial({color:0x5a421f, roughness:.6, metalness:.4, emissive:0x1d1306, emissiveIntensity:.6});
-      var innerL = new THREE.Mesh(new THREE.BoxGeometry(.1, 2.0, .6), innerSideMat);
-      innerL.position.set(-1.0, 1.0, 1.3);
-      var innerR = innerL.clone();
-      innerR.position.x = 1.0;
-      var innerCeil = new THREE.Mesh(new THREE.BoxGeometry(2.2, .08, 1.4), innerSideMat);
-      innerCeil.position.set(0, 2.02, 1.25);
-      var glowMat = new THREE.MeshStandardMaterial({color:0xFFDCA0, emissive:0xFFB95E, emissiveIntensity:1.45, roughness:.9});
-      var backGlow = new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.7, .1), glowMat);
-      backGlow.position.set(0, 1.0, 2.0);
-      [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = false; scene.add(m); });
-
-      var doorMat = new THREE.MeshStandardMaterial({map: makeDoorTexture(128), roughness:.55, metalness:.6});
-      var doorMatR = new THREE.MeshStandardMaterial({map: makeDoorTexture(128), roughness:.55, metalness:.6});
-      var doorGeo = new THREE.BoxGeometry(1.04, 2.1, .09, 1, 1, 1);
-      var leftDoor = new THREE.Mesh(doorGeo, doorMat);
-      leftDoor.position.set(1.02, 1.05, 0);
-      leftDoor.castShadow = true;
-      var leftPivot = new THREE.Group();
-      leftPivot.position.set(-1.02, 0, 0);
-      leftPivot.add(leftDoor);
-      scene.add(leftPivot);
-      var rightDoor = new THREE.Mesh(doorGeo, doorMatR);
-      rightDoor.position.set(-1.02, 1.05, 0);
-      rightDoor.castShadow = true;
-      var rightPivot = new THREE.Group();
-      rightPivot.position.set(1.02, 0, 0);
-      rightPivot.add(rightDoor);
-      scene.add(rightPivot);
-
-      var seamMat = new THREE.MeshBasicMaterial({color:0xFFD97A, transparent:true, opacity:.85});
-      var seam = new THREE.Mesh(new THREE.BoxGeometry(.05, 2.0, .03), seamMat);
-      seam.position.set(0, 1.05, 0);
-      scene.add(seam);
-
-      var naiMat = new THREE.MeshStandardMaterial({color:0xFFD54F, roughness:.28, metalness:.05, emissive:0x2a1d00});
-      var nai = new THREE.Mesh(new THREE.SphereGeometry(.19, 26, 18), naiMat);
-      nai.castShadow = true;
-      var eyeMat = new THREE.MeshStandardMaterial({color:0x1B140A, roughness:.4});
-      var e1 = new THREE.Mesh(new THREE.SphereGeometry(.045, 12, 10), eyeMat);
-      e1.position.set(-.07, .02, .17);
-      var e2 = e1.clone(); e2.position.x = .07;
-      nai.add(e1); nai.add(e2);
-      scene.add(nai);
-      nai.position.set(-2.2, .35, -2.2);
-
-      var controls = new THREE.OrbitControls(camera, canvas);
-      controls.enableZoom = false; controls.enablePan = false;
-      controls.minPolarAngle = .55; controls.maxPolarAngle = 1.32;
-      controls.minAzimuthAngle = -.75; controls.maxAzimuthAngle = .75;
-      controls.minDistance = 3.6; controls.maxDistance = 8.0;
-
-      var opened = false, rafId = 0, ctaAdded = false;
-      function renderFrame(){
-        controls.update();
-        renderer.render(scene, camera);
-      }
-      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
-      function addCTA(){
-        if (ctaAdded) return;
-        ctaAdded = true;
-        var a = doc.createElement("a");
-        a.className = "t3d__cta";
-        a.href = "#halls";
-        a.textContent = "步 入 展 厅";
-        stageBox.appendChild(a);
-      }
-      function openDoors(){
-        if (opened) return;
-        opened = true;
-        stageBox.classList.add("t3d__open");
-        canvas.removeEventListener("click", onOpen);
-        canvas.removeEventListener("keydown", onKey);
-        if (reduce){
-          leftPivot.rotation.y = 1.52; rightPivot.rotation.y = -1.52;
-          seam.visible = false;
-          [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = true; });
-          innerLight.intensity = 2.6;
-          nai.position.set(1.15, .42, 1.0);
-          addCTA();
-          renderFrame();
-          return;
-        }
-        var t0 = null, DUR = 1900;
-        function step(ts){
-          if (!t0) t0 = ts;
-          var p = Math.min(1, (ts - t0) / DUR);
-          var e = easeOutCubic(p);
-          leftPivot.rotation.y = 1.52 * e;
-          rightPivot.rotation.y = -1.52 * e;
-          if (p > .45){
-            seam.visible = false;
-            [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = true; });
+  safe(function(){
+  /* ---- 艺术史长河：纪元浮现 + 导航高亮 + 平滑跳转 ---- */
+  (function(){
+    var art = doc.getElementById("artwalk");
+    if (!art) return;
+    var eras = art.querySelectorAll(".era");
+    var navLinks = art.querySelectorAll(".artwalk__nav a");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          en.target.classList.add("active");
+          var i = en.target.id ? parseInt(en.target.id.replace("era-",""), 10) : -1;
+          if (i >= 0){
+            Array.prototype.forEach.call(navLinks, function(a){
+              a.classList.toggle("on", parseInt(a.getAttribute("data-i"),10) === i);
+            });
           }
-          innerLight.intensity = Math.max(0, (p - .35) / .65) * 2.6;
-          if (p > .5){
-            var q = Math.min(1, (p - .5) / .4);
-            var qe = easeOutCubic(q);
-            nai.position.set(-2.2 + 3.4 * qe, .35 + Math.sin(qe * Math.PI) * .15, -2.2 + 3.2 * qe);
-          }
-          renderFrame();
-          if (p < 1){ rafId = requestAnimationFrame(step); }
-          else { addCTA(); renderFrame(); }
-        }
-        rafId = requestAnimationFrame(step);
-      }
-      function onOpen(){ openDoors(); }
-      function onKey(e){
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDoors(); }
-      }
-      canvas.addEventListener("click", onOpen);
-      canvas.tabIndex = 0;
-      canvas.setAttribute("aria-label", "圣殿之门：轻触或回车推开大门，步入展厅");
-      canvas.addEventListener("keydown", onKey);
-
-      if (reduce){
-        renderFrame();
-        controls.addEventListener("change", renderFrame);
-      } else {
-        (function loop(){
-          rafId = requestAnimationFrame(loop);
-          renderFrame();
-        })();
-      }
-      document.addEventListener("visibilitychange", function(){
-        if (document.hidden){
-          if (rafId){ cancelAnimationFrame(rafId); rafId = 0; }
-        } else if (!reduce && !rafId){
-          (function loop(){
-            rafId = requestAnimationFrame(loop);
-            renderFrame();
-          })();
         }
       });
-      function resize(){
-        var w2 = stage.clientWidth, h2 = stage.clientHeight;
-        if (!w2) return;
-        camera.aspect = w2 / h2;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w2, h2, false);
-        renderFrame();
-      }
-      window.addEventListener("resize", resize);
-      stageBox.classList.add("t3d__ready");
-      renderFrame();
+    }, {rootMargin:"-18% 0px -46% 0px"}) : null;
+    Array.prototype.forEach.call(eras, function(era, idx){
+      if (io) io.observe(era);
+      else if (idx === 0) era.classList.add("active");
+    });
+    if (!reduce){
+      Array.prototype.forEach.call(navLinks, function(a){
+        a.addEventListener("click", function(e){
+          var href = a.getAttribute("href");
+          if (href && href.charAt(0) === "#"){
+            e.preventDefault();
+            var target = doc.getElementById(href.slice(1));
+            if (target && target.scrollIntoView) target.scrollIntoView({behavior:"smooth", block:"start"});
+          }
+        });
+      });
+    }
+    /* 灯箱"原作"链接兜底：无真实原作时隐藏，避免死链 */
+    var lbFull = doc.getElementById("lbFull");
+    if (lbFull && lbFull.getAttribute("href") === "#") lbFull.style.display = "none";
+    if (lbFull){
+      var hideFull = function(){ lbFull.style.display = (lbFull.getAttribute("href") === "#") ? "none" : ""; };
+      var obsFull = new MutationObserver(function(){ hideFull(); });
+      obsFull.observe(lbFull, {attributes:true, attributeFilter:["href"]});
+      hideFull();
     }
   })();
   });
