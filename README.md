@@ -91,6 +91,8 @@
 | 资源治理 | 48MB → 37MB（WEBP 压缩 / 原始 gif 溯源恢复） |
 | 自动部署 | GitHub Actions：push main → Pages 自动上线 |
 
+> 目录小抄：`docs/` 官网源文件 · `palette.json` 主题调色板单源 · `themes/` 各平台主题 · `resources/ports.yml` 主题移植登记 · `site/` 旧版 Astro 画廊（仅存档，别误会成主站）
+
 ---
 
 ## 五点五、圣殿游客须知（认真脸）
