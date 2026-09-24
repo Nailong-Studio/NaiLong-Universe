@@ -7,12 +7,12 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/Nailong-Studio/NaiLong-Universe?style=for-the-badge&label=Star&color=FFD700)](https://github.com/Nailong-Studio/NaiLong-Universe/stargazers)
 [![在线圣殿](https://img.shields.io/badge/在线圣殿-GitHub%20Pages-2ea44f?style=for-the-badge)](https://nailong-studio.github.io/NaiLong-Universe/)
-[![豆包镜像](https://img.shields.io/badge/豆包镜像-直达-8A2BE2?style=for-the-badge)](https://4m2km3hh7ey1t.doubaoapps.com/app/app_17en7jm93zm/)
+[![素材仓库](https://img.shields.io/badge/素材仓库-wallpaper-FF6B6B?style=for-the-badge)](https://github.com/Nailong-Studio/wallpaper)
 [![GitHub Actions](https://img.shields.io/github/actions/workflow/status/Nailong-Studio/NaiLong-Universe/pages.yml?style=for-the-badge&label=自动部署)](https://github.com/Nailong-Studio/NaiLong-Universe/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![素材仓库](https://img.shields.io/badge/素材仓库-wallpaper-FF6B6B?style=for-the-badge)](https://github.com/Nailong-Studio/wallpaper)
 
-**喜欢就点个 ⭐ —— 每一颗星，都是圣殿门前的一盏灯。**
+> **香油钱箱（aka Star 按钮）**：圣殿不收门票，只收星星。点一下右上角的 ⭐，就是往功德箱里投了一盏灯——奶蛙会保佑你的表情包永远不缺。
 
 </div>
 
@@ -22,8 +22,8 @@
 
 | 入口 | 链接 | 说明 |
 | --- | --- | --- |
-| 官网主入口 | [nailong-studio.github.io/NaiLong-Universe](https://nailong-studio.github.io/NaiLong-Universe/) | GitHub Pages 直连，全球可达 |
-| 豆包镜像 | [4m2km3hh7ey1t.doubaoapps.com](https://4m2km3hh7ey1t.doubaoapps.com/app/app_17en7jm93zm/) | 国内访问更顺滑 |
+| 官网主入口 | [nailong-studio.github.io/NaiLong-Universe](https://nailong-studio.github.io/NaiLong-Universe/) | GitHub Pages 直连，点开即入殿 |
+| 素材仓库 | [Nailong-Studio/wallpaper](https://github.com/Nailong-Studio/wallpaper) | 全部馆藏原图与圣影 |
 
 **桌面端全景（首页 → 展厅 → 艺术史长河）**
 
@@ -93,6 +93,15 @@
 
 ---
 
+## 五点五、圣殿游客须知（认真脸）
+
+- 圣殿只供快乐，不做商业用途；奶龙形象版权归官方所有，奶蛙是民间二创，别拿去卖钱（会遭天谴，字面意义）。
+- 馆藏会不定期增加，欢迎反复回访；出门左转是 [朝圣之路](https://nailong-studio.github.io/NaiLong-Universe/#visit)，可免费领取壁纸、表情、主题。
+- 所有素材均为同好用爱发电，若你发现某件藏品侵权，请开 Issue 通知我们下架，功德无量。
+- 看不懂代码没关系，圣殿的门从不为难游客；想看懂的话，`docs/index.html` 只有一页，从头读到尾约等于读完一本《圣殿施工手册》。
+
+---
+
 ## 六、素材仓库
 
 全部馆藏原图托管于 [Nailong-Studio/wallpaper](https://github.com/Nailong-Studio/wallpaper)：
@@ -111,17 +120,22 @@
 
 ---
 
-## 七、一起建殿（贡献）
+## 七、一起建殿（贡献）——圣殿是大家的
 
-- **提交素材**：奶蛙表情 / 名画再创作 / 场景脑洞 → wallpaper 仓（规范见上）
-- **修官网**：改 `docs/index.html` 后提交 PR，Actions 自动上线
-- **写叙事**：给馆藏配更好的故事，提交同名 txt
-- **提建议**：开 [Issue](https://github.com/Nailong-Studio/NaiLong-Universe/issues/new) 告诉我们
+你不需要会写代码也能入殿。三条路，总有一条适合你：
 
-> 参与即默认遵守 [行为准则](CODE_OF_CONDUCT.md) 与 [贡献指南](CONTRIBUTING.md)。
+| 你想做的事 | 怎么开始 | 需要什么 |
+| --- | --- | --- |
+| 交一件素材（最容易） | 到 [wallpaper 仓](https://github.com/Nailong-Studio/wallpaper) 提 PR | 一张奶蛙图 + 一句话叙事，命名按规范 |
+| 改官网 bug | 改 `docs/index.html` 提 PR | 会一点 HTML/CSS/JS 就行 |
+| 写圣像的叙事 | 给素材配同名 `.txt` | 会讲笑话/会起名/会考古 |
+| 出个新主题 | 基于 `palette.json` 派生 | 会配色 |
+| 只会点赞 | 点 ⭐ + 分享给朋友 | 不需要任何技能 |
+
+> 具体规则见 [贡献指南](CONTRIBUTING.md)（读一遍只要 3 分钟，功德 +1）。
+> 提交前记得去素材仓搜一搜，别让圣殿出现两件一模一样的「奶蛙-弯腰大笑」。
 
 ---
-
 ## 八、Roadmap
 
 - [x] 八厅 185 件馆藏 + 逐件叙事
@@ -139,6 +153,8 @@
 
 **NAIWA ART UNIVERSE** · 圣殿长明，欢迎常来
 
-如果这个项目让你笑了，[点个 Star](https://github.com/Nailong-Studio/NaiLong-Universe/stargazers) 就是给圣殿添了一盏灯。
+如果这个项目让你笑了，[点个 Star](https://github.com/Nailong-Studio/NaiLong-Universe/stargazers) 给圣殿添灯；
+要是它让你笑出声了，[提交一件素材](https://github.com/Nailong-Studio/wallpaper/blob/main/CONTRIBUTING.md) 直接当圣殿股东。
+再不行，把它分享给一个笑点低的朋友——也算积德。
 
 </div>

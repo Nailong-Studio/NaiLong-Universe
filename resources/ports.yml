@@ -6,7 +6,7 @@ ports:
     name: "Wallpaper"
     category: "wallpaper"
     repo: "Nailong-Studio/wallpaper"
-    description: "奶龙素材库 134 张壁纸 + 表情包 + 品牌素材"
+    description: "奶蛙素材库 190 件馆藏（名画/大笑藏馆/表情/艺术场景/高清壁纸/视频帧图/官方圣影）"
     maintained: true
 
   vscode-theme:
