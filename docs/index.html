@@ -204,7 +204,10 @@ body::before{
 /* ============ 三维圣殿 ============ */
 .t3d__stage{position:relative;margin-top:clamp(28px,4vw,44px);border:1px solid rgba(217,180,91,.22);border-radius:14px;overflow:hidden;background:radial-gradient(120% 130% at 50% -10%,rgba(217,180,91,.10) 0%,rgba(11,8,6,0) 55%),#0D0A07}
 .t3d__canvas{position:relative;width:100%;height:clamp(300px,46vw,500px);display:block}
-.t3d__hint{text-align:center;padding:14px 0 16px;font-size:.76rem;letter-spacing:.32em;color:rgba(238,232,215,.5);text-indent:.32em}
+.t3d__hint{text-align:center;padding:14px 0 16px;font-size:.76rem;letter-spacing:.32em;color:rgba(238,232,215,.62);text-indent:.32em}
+.t3d__cta{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);letter-spacing:.3em;text-indent:.3em;font-size:.86rem;color:#FFE9B0;background:linear-gradient(120deg,rgba(217,180,91,.5),rgba(217,180,91,.18));border:1px solid rgba(217,180,91,.85);border-radius:999px;padding:11px 30px;text-decoration:none;box-shadow:0 0 26px rgba(255,213,79,.28);animation:t3dCtaIn .7s var(--ease) both;z-index:2;cursor:pointer}
+@keyframes t3dCtaIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.t3d__stage.t3d__open ~ .t3d__hint{display:none}
 .t3d__fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;color:rgba(238,232,215,.55);padding:20px}
 .t3d__fallback svg{width:min(300px,58%);height:auto;opacity:.9}
 .t3d__ready .t3d__fallback{display:none}
@@ -709,17 +712,17 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   <div class="wrap">
     <header class="section__head reveal">
       <p class="section__kicker">三维圣殿</p>
-      <h2 class="section__title">圣 殿 微 缩 · <em>可 以 把 玩 的 朝 圣 地</em></h2>
+      <h2 class="section__title">圣 殿 之 门 · <em>推 开 它 ， 步 入 展 厅</em></h2>
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
     <div class="t3d__stage reveal">
       <div class="t3d__fallback" aria-hidden="true">
-        <svg viewBox="0 0 220 160" fill="none"><path d="M20 150 L20 70 Q20 20 110 20 Q200 20 200 70 L200 150" stroke="#D9B45B" stroke-width="1.6" opacity=".85"/><path d="M64 150 L64 86 Q64 52 110 52 Q156 52 156 86 L156 150" stroke="#D9B45B" stroke-width="1.1" opacity=".6"/><path d="M44 150 L44 78 Q44 40 110 40 Q176 40 176 78 L176 150" stroke="#D9B45B" stroke-width=".7" opacity=".38"/><circle cx="110" cy="120" r="12" fill="#FFD54F" opacity=".9"/><path d="M110 122 a6 6 0 0 0 8 -4" stroke="#5D4037" stroke-width="2" fill="none"/></svg>
-        <p>您的设备暂不支持三维圣殿，<br>不妨俯身看看这枚金色徽记。</p>
+        <svg viewBox="0 0 220 160" fill="none"><path d="M28 150 L28 66 Q28 18 110 18 Q192 18 192 66 L192 150" stroke="#C9A24B" stroke-width="1.6" opacity=".9"/><path d="M110 18 L110 6" stroke="#C9A24B" stroke-width="1.6" opacity=".9"/><rect x="82" y="66" width="26" height="84" fill="#6d5327" stroke="#C9A24B" stroke-width="1.2" opacity=".95"/><rect x="112" y="66" width="26" height="84" fill="#6d5327" stroke="#C9A24B" stroke-width="1.2" opacity=".95"/><circle cx="110" cy="112" r="15" fill="#FFD54F" opacity=".95"/><circle cx="104" cy="108" r="2" fill="#1B140A"/><circle cx="116" cy="108" r="2" fill="#1B140A"/><path d="M103 118 Q110 123 117 118" stroke="#1B140A" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+        <p>您的设备暂不支持三维圣殿之门，<br>不妨轻触上方徽记，圣殿依旧为你而开。</p>
       </div>
-      <div id="t3d-canvas" class="t3d__canvas" role="img" aria-label="可拖动的三维金色圣殿微缩模型，可旋转把玩"></div>
+      <div id="t3d-canvas" class="t3d__canvas" role="img" aria-label="三维圣殿之门：轻触推开大门，步入展厅"></div>
     </div>
-    <p class="t3d__hint">拖 动 旋 转 · 触 摸 转 动 · 圣 殿 为 你 而 开</p>
+    <p class="t3d__hint">轻 触 推 开 圣 门 · 步 入 展 厅</p>
   </div>
 </section>
 
@@ -1951,7 +1954,7 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
   }
   });
   safe(function(){
-  /* ---- 三维圣殿：可把玩的微缩殿堂 ---- */
+  /* ---- 三维圣殿之门：轻触推开 · 步入展厅 ---- */
   (function(){
     var stage = doc.getElementById("t3d-canvas");
     if (!stage) return;
@@ -1969,7 +1972,45 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
     loadScript("assets/three.min.js")
       .then(function(){ return loadScript("assets/three-orbit.js"); })
       .then(initT3D)
-      .catch(function(){ /* 加载失败：保留金色 SVG 徽记兜底 */ });
+      .catch(function(){ /* 加载失败：保留金色门形 SVG 兜底 */ });
+    function makeBadgeCanvas(cx, cy, r){
+      var cv = document.createElement("canvas");
+      cv.width = 256; cv.height = 256;
+      var g = cv.getContext("2d");
+      g.clearRect(0, 0, 256, 256);
+      g.fillStyle = "#FFD54F";
+      g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = "#D9B45B"; g.lineWidth = Math.max(3, r * .07); g.stroke();
+      g.fillStyle = "#FFF3D6";
+      g.beginPath(); g.ellipse(cx, cy + r * .48, r * .56, r * .42, 0, 0, Math.PI * 2); g.fill();
+      g.fillStyle = "#1B140A";
+      g.beginPath(); g.arc(cx - r * .34, cy - r * .24, r * .13, 0, Math.PI * 2); g.fill();
+      g.beginPath(); g.arc(cx + r * .34, cy - r * .24, r * .13, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = "#1B140A"; g.lineWidth = Math.max(3, r * .08); g.lineCap = "round";
+      g.beginPath(); g.arc(cx, cy + r * .02, r * .38, .4, Math.PI - .4); g.stroke();
+      g.fillStyle = "#5A4A33";
+      g.beginPath(); g.arc(cx - r * .5, cy + r * .42, r * .16, 0, Math.PI * 2); g.fill();
+      g.beginPath(); g.arc(cx + r * .5, cy + r * .42, r * .16, 0, Math.PI * 2); g.fill();
+      return cv;
+    }
+    function makeDoorTexture(badgeCX){
+      var cv = document.createElement("canvas");
+      cv.width = 256; cv.height = 512;
+      var g = cv.getContext("2d");
+      var grd = g.createLinearGradient(0, 0, 256, 0);
+      grd.addColorStop(0, "#7A5C2B"); grd.addColorStop(.5, "#6d5327"); grd.addColorStop(1, "#7A5C2B");
+      g.fillStyle = grd; g.fillRect(0, 0, 256, 512);
+      g.strokeStyle = "#C9A24B"; g.lineWidth = 7;
+      g.strokeRect(14, 14, 228, 484);
+      g.lineWidth = 3; g.strokeRect(26, 26, 204, 460);
+      g.strokeStyle = "rgba(201,162,75,.35)"; g.lineWidth = 2;
+      g.beginPath(); g.moveTo(44, 210); g.lineTo(44, 330);
+      g.moveTo(212, 210); g.lineTo(212, 330); g.stroke();
+      g.drawImage(makeBadgeCanvas(128, 132, 78), 0, 0, 256, 256);
+      g.fillStyle = "#C9A24B";
+      g.beginPath(); g.arc(badgeCX > 128 ? 214 : 42, 404, 10, 0, Math.PI * 2); g.fill();
+      return new THREE.CanvasTexture(cv);
+    }
     function initT3D(){
       var renderer;
       try {
@@ -1986,69 +2027,177 @@ dialog.lightbox::backdrop{background:rgba(5,3,2,.9);backdrop-filter:blur(4px)}
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x0D0A07);
-      var camera = new THREE.PerspectiveCamera(42, w / h, .1, 40);
-      camera.position.set(3.0, 2.1, 4.6);
-      var hemi = new THREE.HemisphereLight(0xFFE3B0, 0x2a1d0d, .75);
+      var camera = new THREE.PerspectiveCamera(40, w / h, .1, 40);
+      camera.position.set(2.7, 1.8, 4.6);
+      camera.lookAt(0, 1.2, 0);
+
+      var hemi = new THREE.HemisphereLight(0xFFE3B0, 0x2a1d0d, .8);
       scene.add(hemi);
-      var sun = new THREE.DirectionalLight(0xFFDF66, 1.65);
-      sun.position.set(3.2, 4.5, 2.4);
+      var sun = new THREE.DirectionalLight(0xFFDF66, 1.55);
+      sun.position.set(3.4, 4.6, 2.6);
       sun.castShadow = true;
       sun.shadow.mapSize.set(1024, 1024);
       sun.shadow.camera.near = 1; sun.shadow.camera.far = 14;
       sun.shadow.camera.left = -4; sun.shadow.camera.right = 4;
       sun.shadow.camera.top = 4; sun.shadow.camera.bottom = -4;
       scene.add(sun);
-      var rim = new THREE.PointLight(0xFFC866, .65, 14);
-      rim.position.set(-3.4, 2.2, -3.0);
+      var rim = new THREE.PointLight(0xFFC866, .6, 14);
+      rim.position.set(-3.2, 2.4, -2.6);
       scene.add(rim);
-      var baseMat = new THREE.MeshStandardMaterial({color:0x3a2f22, roughness:.62, metalness:.06});
-      var base = new THREE.Mesh(new THREE.CylinderGeometry(1.55, 1.72, .32, 48), baseMat);
-      base.position.y = -.16; base.receiveShadow = true;
+      var innerLight = new THREE.PointLight(0xFFD97A, 0, 12, 2);
+      innerLight.position.set(0, 1.4, 1.9);
+      scene.add(innerLight);
+
+      var baseMat = new THREE.MeshStandardMaterial({color:0x2e2418, roughness:.7, metalness:.08});
+      var base = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.2, .5, 48), baseMat);
+      base.position.y = -.38; base.receiveShadow = true;
       scene.add(base);
-      var ringMat = new THREE.MeshStandardMaterial({color:0x8a6d2f, roughness:.5, metalness:.7});
-      var baseRing = new THREE.Mesh(new THREE.TorusGeometry(1.4, .05, 12, 48), ringMat);
-      baseRing.rotation.x = Math.PI / 2; baseRing.position.y = .0;
-      scene.add(baseRing);
-      var goldMat = new THREE.MeshStandardMaterial({color:0xDEB45C, roughness:.34, metalness:.82});
-      var goldDark = new THREE.MeshStandardMaterial({color:0xC9A24B, roughness:.4, metalness:.82});
-      var body = new THREE.Mesh(new THREE.CylinderGeometry(.92, 1.05, 1.5, 32), goldMat);
-      body.position.y = .78; body.castShadow = true;
-      scene.add(body);
-      var dome = new THREE.Mesh(new THREE.SphereGeometry(1.0, 32, 18, 0, Math.PI * 2, 0, Math.PI / 2), goldMat);
-      dome.position.y = 1.78; dome.castShadow = true;
-      scene.add(dome);
-      var spire = new THREE.Mesh(new THREE.ConeGeometry(.16, .62, 16), goldDark);
-      spire.position.y = 2.55; spire.castShadow = true;
-      scene.add(spire);
-      var arch = new THREE.Mesh(new THREE.TorusGeometry(.5, .09, 12, 28, Math.PI), goldDark);
-      arch.rotation.z = Math.PI; arch.position.set(0, .82, 1.12); arch.castShadow = true;
+      var ringMat = new THREE.MeshStandardMaterial({color:0x8a6d2f, roughness:.5, metalness:.75});
+      var ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.86, .05, 12, 48), ringMat);
+      ring1.rotation.x = Math.PI / 2; ring1.position.y = -.13;
+      scene.add(ring1);
+      var step = new THREE.Mesh(new THREE.CylinderGeometry(1.42, 1.52, .3, 48), baseMat);
+      step.position.y = -.04; step.receiveShadow = true;
+      scene.add(step);
+      var stepRing = new THREE.Mesh(new THREE.TorusGeometry(1.35, .04, 12, 48), ringMat);
+      stepRing.rotation.x = Math.PI / 2; stepRing.position.y = .1;
+      scene.add(stepRing);
+
+      var colMat = new THREE.MeshStandardMaterial({color:0x8a6d2f, roughness:.42, metalness:.78});
+      var frameMat = new THREE.MeshStandardMaterial({color:0xCBA953, roughness:.36, metalness:.82});
+      [-1.16, 1.16].forEach(function(x){
+        var col = new THREE.Mesh(new THREE.CylinderGeometry(.13, .16, 2.7, 14), colMat);
+        col.position.set(x, 1.06, 0); col.castShadow = true;
+        scene.add(col);
+        var cap = new THREE.Mesh(new THREE.CylinderGeometry(.21, .13, .2, 14), frameMat);
+        cap.position.set(x, 2.28, 0); cap.castShadow = true;
+        scene.add(cap);
+      });
+      var arch = new THREE.Mesh(new THREE.TorusGeometry(1.02, .14, 14, 30, Math.PI), frameMat);
+      arch.rotation.z = Math.PI; arch.position.set(0, 2.62, 0); arch.castShadow = true;
       scene.add(arch);
-      var pillarGeo = new THREE.CylinderGeometry(.07, .09, 1.15, 10);
-      var pillarMat = new THREE.MeshStandardMaterial({color:0xCBA953, roughness:.36, metalness:.8});
-      for (var i = 0; i < 8; i++){
-        var a = (i / 8) * Math.PI * 2;
-        var p = new THREE.Mesh(pillarGeo, pillarMat);
-        p.position.set(Math.cos(a) * 1.35, .34, Math.sin(a) * 1.35);
-        p.castShadow = true;
-        scene.add(p);
-      }
-      var naiMat = new THREE.MeshStandardMaterial({color:0xFFD54F, roughness:.24, metalness:.05, emissive:0x2a1d00});
-      var nai = new THREE.Mesh(new THREE.SphereGeometry(.16, 24, 16), naiMat);
+      var keystone = new THREE.Mesh(new THREE.BoxGeometry(.24, .52, .32), frameMat);
+      keystone.position.set(0, 3.06, 0); keystone.castShadow = true;
+      scene.add(keystone);
+      var lintel = new THREE.Mesh(new THREE.BoxGeometry(2.44, .26, .36), frameMat);
+      lintel.position.set(0, 1.98, 0); lintel.castShadow = true;
+      scene.add(lintel);
+
+      var innerSideMat = new THREE.MeshStandardMaterial({color:0x5a421f, roughness:.6, metalness:.4, emissive:0x1d1306, emissiveIntensity:.6});
+      var innerL = new THREE.Mesh(new THREE.BoxGeometry(.1, 2.0, .6), innerSideMat);
+      innerL.position.set(-1.0, 1.0, 1.3);
+      var innerR = innerL.clone();
+      innerR.position.x = 1.0;
+      var innerCeil = new THREE.Mesh(new THREE.BoxGeometry(2.2, .08, 1.4), innerSideMat);
+      innerCeil.position.set(0, 2.02, 1.25);
+      var glowMat = new THREE.MeshStandardMaterial({color:0xFFDCA0, emissive:0xFFB95E, emissiveIntensity:1.45, roughness:.9});
+      var backGlow = new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.7, .1), glowMat);
+      backGlow.position.set(0, 1.0, 2.0);
+      [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = false; scene.add(m); });
+
+      var doorMat = new THREE.MeshStandardMaterial({map: makeDoorTexture(128), roughness:.55, metalness:.6});
+      var doorMatR = new THREE.MeshStandardMaterial({map: makeDoorTexture(128), roughness:.55, metalness:.6});
+      var doorGeo = new THREE.BoxGeometry(1.04, 2.1, .09, 1, 1, 1);
+      var leftDoor = new THREE.Mesh(doorGeo, doorMat);
+      leftDoor.position.set(1.02, 1.05, 0);
+      leftDoor.castShadow = true;
+      var leftPivot = new THREE.Group();
+      leftPivot.position.set(-1.02, 0, 0);
+      leftPivot.add(leftDoor);
+      scene.add(leftPivot);
+      var rightDoor = new THREE.Mesh(doorGeo, doorMatR);
+      rightDoor.position.set(-1.02, 1.05, 0);
+      rightDoor.castShadow = true;
+      var rightPivot = new THREE.Group();
+      rightPivot.position.set(1.02, 0, 0);
+      rightPivot.add(rightDoor);
+      scene.add(rightPivot);
+
+      var seamMat = new THREE.MeshBasicMaterial({color:0xFFD97A, transparent:true, opacity:.85});
+      var seam = new THREE.Mesh(new THREE.BoxGeometry(.05, 2.0, .03), seamMat);
+      seam.position.set(0, 1.05, 0);
+      scene.add(seam);
+
+      var naiMat = new THREE.MeshStandardMaterial({color:0xFFD54F, roughness:.28, metalness:.05, emissive:0x2a1d00});
+      var nai = new THREE.Mesh(new THREE.SphereGeometry(.19, 26, 18), naiMat);
       nai.castShadow = true;
+      var eyeMat = new THREE.MeshStandardMaterial({color:0x1B140A, roughness:.4});
+      var e1 = new THREE.Mesh(new THREE.SphereGeometry(.045, 12, 10), eyeMat);
+      e1.position.set(-.07, .02, .17);
+      var e2 = e1.clone(); e2.position.x = .07;
+      nai.add(e1); nai.add(e2);
       scene.add(nai);
+      nai.position.set(-2.2, .35, -2.2);
+
       var controls = new THREE.OrbitControls(camera, canvas);
       controls.enableZoom = false; controls.enablePan = false;
-      controls.minPolarAngle = .3; controls.maxPolarAngle = 1.38;
-      controls.minDistance = 3.4; controls.maxDistance = 8.5;
-      controls.autoRotate = !reduce;
-      controls.autoRotateSpeed = .7;
-      var angle = 0, rafId = 0;
+      controls.minPolarAngle = .55; controls.maxPolarAngle = 1.32;
+      controls.minAzimuthAngle = -.75; controls.maxAzimuthAngle = .75;
+      controls.minDistance = 3.6; controls.maxDistance = 8.0;
+
+      var opened = false, rafId = 0, ctaAdded = false;
       function renderFrame(){
-        angle += .012;
-        nai.position.set(Math.cos(angle) * 1.9, .62, Math.sin(angle) * 1.9);
         controls.update();
         renderer.render(scene, camera);
       }
+      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+      function addCTA(){
+        if (ctaAdded) return;
+        ctaAdded = true;
+        var a = doc.createElement("a");
+        a.className = "t3d__cta";
+        a.href = "#halls";
+        a.textContent = "步 入 展 厅";
+        stageBox.appendChild(a);
+      }
+      function openDoors(){
+        if (opened) return;
+        opened = true;
+        stageBox.classList.add("t3d__open");
+        canvas.removeEventListener("click", onOpen);
+        canvas.removeEventListener("keydown", onKey);
+        if (reduce){
+          leftPivot.rotation.y = 1.52; rightPivot.rotation.y = -1.52;
+          seam.visible = false;
+          [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = true; });
+          innerLight.intensity = 2.6;
+          nai.position.set(1.15, .42, 1.0);
+          addCTA();
+          renderFrame();
+          return;
+        }
+        var t0 = null, DUR = 1900;
+        function step(ts){
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR);
+          var e = easeOutCubic(p);
+          leftPivot.rotation.y = 1.52 * e;
+          rightPivot.rotation.y = -1.52 * e;
+          if (p > .45){
+            seam.visible = false;
+            [innerL, innerR, innerCeil, backGlow].forEach(function(m){ m.visible = true; });
+          }
+          innerLight.intensity = Math.max(0, (p - .35) / .65) * 2.6;
+          if (p > .5){
+            var q = Math.min(1, (p - .5) / .4);
+            var qe = easeOutCubic(q);
+            nai.position.set(-2.2 + 3.4 * qe, .35 + Math.sin(qe * Math.PI) * .15, -2.2 + 3.2 * qe);
+          }
+          renderFrame();
+          if (p < 1){ rafId = requestAnimationFrame(step); }
+          else { addCTA(); renderFrame(); }
+        }
+        rafId = requestAnimationFrame(step);
+      }
+      function onOpen(){ openDoors(); }
+      function onKey(e){
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDoors(); }
+      }
+      canvas.addEventListener("click", onOpen);
+      canvas.tabIndex = 0;
+      canvas.setAttribute("aria-label", "圣殿之门：轻触或回车推开大门，步入展厅");
+      canvas.addEventListener("keydown", onKey);
+
       if (reduce){
         renderFrame();
         controls.addEventListener("change", renderFrame);
