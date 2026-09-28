@@ -93,7 +93,8 @@
 | 纯 CSS 3D 画廊之门 | 三层视差画作 + 双开金门 + 门缝圣光，无 WebGL |
 | 性能优先 | 全站 lazy 懒加载 + 28px LQIP 模糊占位淡入 + 解码完成淡入 + 邻近预载；`content-visibility` 降低长列表渲染成本 |
 | 多端适配 | ≤640px 沉浸卡片宽度 / ≥1680px 版心放宽 / 异形屏安全区 / 吸顶厅导航 |
-| 无障碍与降级 | 键盘全可达、`prefers-reduced-motion` 全部动效降级、alt 与标题一致、图片加载失败兜底 |
+| 无障碍与降级 | 键盘全可达（含 186 件作品大图 tabindex+Enter 打开说明牌、放映厅焦点圈闭/还原、skip-link）、路由驱动导航 `aria-current`、`prefers-reduced-motion` 全部动效降级、alt 与标题一致、图片加载失败兜底 |
+| 路由健壮性 | 非法 `#hall-N` 回落全部展厅不白屏；`#w-` 深链兼容 `NW-` 前缀、无效编号自动复位 `#halls`；`document.title` 随视图/单厅/作品同步（历史与分享卡片直达语境） |
 | 数据可校验 | `scripts/export_collection.py` 导出 `docs/data/collection.json` 并校验件数 / 命名 / 叙事 / 原作外链 |
 | 现代视觉层 | View Transitions 视图过渡 · 极光底幕 · 金色光幕切换 · 圣门金尘 · 首屏 Ken Burns · 玻璃导航 · 阅读进度条 · 回到顶部 · 流光标题 · 作品悬停动态 · Web Audio 教堂混响（圣咏宏大化）· `:has()` 状态样式（全部渐进增强，`prefers-reduced-motion` 整体降级） |
 | 资源治理 | 48MB → 37MB（WEBP 压缩 / 原始 gif 溯源恢复） |

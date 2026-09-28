@@ -184,8 +184,11 @@ body::before{
 }
 .nav__links a:hover,.nav__links a:focus-visible{color:var(--gold-bright)}
 .nav__links a:hover::after,.nav__links a:focus-visible::after{left:0;right:0}
+/* 当前视图高亮（路由驱动 aria-current） */
+.nav__links a.on{color:var(--gold-bright)}
+.nav__links a.on::after{left:0;right:0}
 @media (max-width:640px){
-  .nav__links a{font-size:.7rem;letter-spacing:.14em}
+  .nav__links a{font-size:.72rem;letter-spacing:.14em;padding:12px 5px}
   .nav__brand .nav__brand-text{display:none}
 }
 
@@ -511,7 +514,7 @@ body::before{
   border-bottom:1px solid rgba(217,180,91,.14);
 }
 .halls-nav::-webkit-scrollbar{display:none}
-section.hall{scroll-margin-top:clamp(120px,14vw,150px)}
+section.hall,section[id]{scroll-margin-top:clamp(120px,14vw,150px)}
 .halls-nav a{
   flex:none;color:var(--gold);text-decoration:none;
   font-family:var(--serif);font-size:.82rem;letter-spacing:.24em;text-indent:.24em;
@@ -870,6 +873,9 @@ body.hall-solo .hall__all{display:inline-flex}
 
 /* ============ 馆藏检索 ============ */
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* 键盘跳转链接：Tab 首个即现，直达主内容 */
+.skip{position:fixed;top:-60px;left:14px;z-index:130;padding:10px 18px;background:var(--gold);color:#161006;border-radius:0 0 10px 10px;font-size:.85rem;letter-spacing:.12em;text-decoration:none;transition:top .25s var(--ease)}
+.skip:focus{top:0}
 .search{display:flex;gap:10px;max-width:640px;margin:clamp(24px,4vw,38px) auto 0}
 .search input{
   flex:1;min-width:0;background:rgba(22,16,10,.62);border:1px solid var(--line);
@@ -1162,6 +1168,7 @@ html.js .work__frame.broken::after{
 </style>
 </head>
 <body>
+<a class="skip" href="#top">跳到主内容</a>
 <div class="grain" aria-hidden="true"></div>
 <div class="aurora" aria-hidden="true"></div>
 <div class="fxwipe" id="fxwipe" aria-hidden="true"></div>
@@ -1185,7 +1192,7 @@ html.js .work__frame.broken::after{
   </nav>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 <section id="view-home" class="view active" aria-label="圣殿主界面">
 <!-- ===================== 圣殿之门 ===================== -->
 <section class="hero" aria-label="圣殿之门">
@@ -2589,7 +2596,7 @@ html.js .work__frame.broken::after{
       </form>
       <div class="chips" id="searchChips" role="group" aria-label="按展厅筛选"></div>
       <div class="search__grid" id="searchGrid"></div>
-      <p class="search__empty" id="searchEmpty" hidden>没有匹配的圣像，换个词或换间展厅试试。</p>
+      <p class="search__empty" id="searchEmpty" role="status" hidden>没有匹配的圣像，换个词或换间展厅试试。</p>
     </div>
   </section>
 </section>
@@ -2631,7 +2638,7 @@ html.js .work__frame.broken::after{
     </div>
   </div>
 </dialog>
-<div class="chamber" id="chamber" hidden>
+<div class="chamber" id="chamber" role="dialog" aria-modal="true" aria-label="沉浸放映厅" tabindex="-1" hidden>
   <button class="chamber__close" id="chamberClose" aria-label="退出展厅"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></button>
   <div class="chamber__stage">
     <img class="chamber__img" id="chamberImg" alt="" decoding="async">
@@ -2699,20 +2706,51 @@ html.js .work__frame.broken::after{
     });
     body.classList.toggle("hall-solo", !!hallId);
   }
+  /* ---- 顶部导航当前态 + 文档标题同步（浏览器历史/分享卡片可见） ---- */
+  var topLinks = {};
+  Array.prototype.forEach.call(doc.querySelectorAll(".nav__links a"), function(a){
+    var id = (a.getAttribute("href") || "").replace("#", "");
+    if (id) topLinks[id] = a;
+  });
+  var BASE_TITLE = doc.title || "奶蛙艺术宇宙 · 艺术圣殿";
+  window.__baseTitle = BASE_TITLE;
+  var VIEW_TITLES = { home:"圣殿之门", halls:"常设展", chronicle:"艺术史长河", visit:"朝圣之路", search:"馆藏检索", about:"游客中心" };
+  function syncNav(v){
+    Object.keys(topLinks).forEach(function(k){
+      var on = k === v;
+      topLinks[k].classList.toggle("on", on);
+      if (on) topLinks[k].setAttribute("aria-current", "page");
+      else topLinks[k].removeAttribute("aria-current");
+    });
+  }
+  function syncTitle(v){
+    var t = VIEW_TITLES[v] || "";
+    if (v === "halls" && doc.body.classList.contains("hall-solo")){
+      var nm = doc.querySelector(".hall--solo .hall__name");
+      if (nm && nm.textContent.trim()) t = nm.textContent.trim() + " · 常设展";
+    }
+    doc.title = t ? t + " · " + BASE_TITLE : BASE_TITLE;
+  }
+  window.NW = window.NW || {};
+  window.NW.syncTitle = syncTitle;
   function navigate(){
     var h = (location.hash || "").replace(/^#/, "").replace(/%20/g, " ");
     var cur = doc.querySelector(".view.active");
     var v = cur ? cur.id.replace("view-", "") : "home";
     if (VIEWS.indexOf(h) >= 0) v = h;
-    /* 单厅视图 #hall-N：留在展厅界面，只陈列该厅 */
-    if (/^hall-\d+$/.test(h)){ v = "halls"; setSolo(h); }
+    /* 单厅视图 #hall-N：留在展厅界面，只陈列该厅（厅号不存在时回落全部展厅，避免白屏） */
+    if (/^hall-\d+$/.test(h) && doc.getElementById(h)){ v = "halls"; setSolo(h); }
+    else if (/^hall-\d+$/.test(h)){ try{ history.replaceState(null, "", "#halls"); }catch(e){} h = "halls"; setSolo(null); }
     else if (!/^w-/.test(h)){ setSolo(null); }
-    /* 作品深链 #w-<编号>：不关闭灯箱、不回滚顶部 */
+    /* 作品深链 #w-<编号>：不关闭灯箱、不回滚顶部；兼容 #w-NW-x-xxx 带前缀写法，编号不存在时清理脏 hash */
     if (/^w-/.test(h)){
       VIEWS.forEach(function(k){ if (viewEls[k]) viewEls[k].classList.toggle("active", k === "halls"); });
+      var no = decodeURIComponent(h.slice(2)).replace(/^NW-/, "");
+      var hit = false;
       if (window.NW && window.NW.openByNo){
-        try { window.NW.openByNo(decodeURIComponent(h.slice(2))); } catch(e){}
+        try { hit = !!window.NW.openByNo(no); } catch(e){}
       }
+      if (!hit){ try{ history.replaceState(null, "", "#halls"); }catch(e){} }
       return;
     }
     var deepTarget = null;
@@ -2727,6 +2765,8 @@ html.js .work__frame.broken::after{
       VIEWS.forEach(function(k){
         if (viewEls[k]) viewEls[k].classList.toggle("active", k === v);
       });
+      syncNav(v);
+      syncTitle(v);
     };
     if (!window.__firstNav && doc.startViewTransition && !window.__vtRunning){
       try{
@@ -2862,8 +2902,14 @@ html.js .work__frame.broken::after{
         originLabel: originLabel(raw),
         type: isVid ? "video" : "img"
       });
+      media.setAttribute("tabindex", "0");
+      media.setAttribute("role", "button");
+      media.setAttribute("aria-label", (media.getAttribute("data-title") || "馆藏作品") + " · 打开作品说明牌");
       media.addEventListener("click", function(){
         showWork(idx);
+      });
+      media.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){ e.preventDefault(); showWork(idx); }
       });
     });
     var cur = -1;
@@ -2908,6 +2954,8 @@ html.js .work__frame.broken::after{
       lbImg.setAttribute("alt", it.alt);
       lbTitle.textContent = it.title;
       lbHall.textContent = it.hall;
+      /* 说明牌同步文档标题：分享/历史记录直达该作品 */
+      doc.title = (it.title ? it.title + " ｜ " : "") + (window.__baseTitle || "奶蛙艺术宇宙 · 艺术圣殿");
       /* 预载相邻作品：翻页秒开 */
       [cur + 1, cur - 1].forEach(function(k){
         var n = items[(k + items.length) % items.length];
@@ -2933,6 +2981,7 @@ html.js .work__frame.broken::after{
       try {
         if ((location.hash || "").indexOf("#w-") === 0) window.history.replaceState(null, "", "#halls");
       } catch(e){}
+      if (window.NW && window.NW.syncTitle) window.NW.syncTitle("halls");
     }
     if (lbPrev) lbPrev.addEventListener("click", function(){ showWork(cur - 1); });
     if (lbNext) lbNext.addEventListener("click", function(){ showWork(cur + 1); });
@@ -2948,7 +2997,7 @@ html.js .work__frame.broken::after{
     window.NW.currentNo = function(){ return cur >= 0 && items[cur] ? items[cur].no : ""; };
     /* 首屏即为作品深链时，等其它模块就绪后打开 */
     var dm = (location.hash || "").match(/^#w-(.+)$/);
-    if (dm){ window.setTimeout(function(){ try{ window.NW.openByNo(decodeURIComponent(dm[1])); }catch(e){} }, 80); }
+    if (dm){ window.setTimeout(function(){ try{ window.NW.openByNo(decodeURIComponent(dm[1]).replace(/^NW-/, "")); }catch(e){} }, 80); }
     lbClose.addEventListener("click", lbCloseBox);
     box.addEventListener("close", restoreHash);
     box.addEventListener("click", function(e){
@@ -3199,6 +3248,7 @@ html.js .work__frame.broken::after{
       }
     }
     var chPlaying = true;
+    var chamberLastFocus = null;
     function chRestart(){
       if (chTimer) clearInterval(chTimer);
       if (reduce || !chPlaying) return;
@@ -3224,6 +3274,9 @@ html.js .work__frame.broken::after{
       chSyncPlay();
       chamber.hidden = false;
       requestAnimationFrame(function(){ chamber.classList.add("on"); });
+      /* 焦点管理：进入放映厅即聚焦容器，Tab 圈闭在厅内 */
+      chamberLastFocus = doc.activeElement;
+      try{ chamber.focus(); }catch(e){}
       chShow(0, true);
       chRestart();
     }
@@ -3234,6 +3287,8 @@ html.js .work__frame.broken::after{
       try{ chamberVid.pause(); }catch(e){}
       chamber.classList.remove("on");
       chamber.hidden = true;
+      if (chamberLastFocus && chamberLastFocus.focus){ try{ chamberLastFocus.focus(); }catch(e){} }
+      chamberLastFocus = null;
     }
     Array.prototype.forEach.call(doc.querySelectorAll(".hall__enter"), function(btn){
       btn.addEventListener("click", function(){
@@ -3254,6 +3309,15 @@ html.js .work__frame.broken::after{
       if (e.key === "Escape") chStop();
       if (e.key === "ArrowLeft") { chShow(chCur - 1, true); chRestart(); }
       if (e.key === "ArrowRight") { chShow(chCur + 1, true); chRestart(); }
+      if (e.key === "Tab"){
+        var f = Array.prototype.filter.call(chamber.querySelectorAll("button, [href], [tabindex]"), function(el){
+          return el.getAttribute("tabindex") !== "-1" && el.offsetParent !== null;
+        });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && doc.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && doc.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
     });
   }
   });
