@@ -95,7 +95,7 @@
 | 多端适配 | ≤640px 沉浸卡片宽度 / ≥1680px 版心放宽 / 异形屏安全区 / 吸顶厅导航 |
 | 无障碍与降级 | 键盘全可达、`prefers-reduced-motion` 全部动效降级、alt 与标题一致、图片加载失败兜底 |
 | 数据可校验 | `scripts/export_collection.py` 导出 `docs/data/collection.json` 并校验件数 / 命名 / 叙事 / 原作外链 |
-| 现代视觉层 | View Transitions 视图过渡 · 极光底幕 · 玻璃导航 · 阅读进度条 · 回到顶部 · 流光标题 · `:has()` 状态样式（全部渐进增强，`prefers-reduced-motion` 整体降级） |
+| 现代视觉层 | View Transitions 视图过渡 · 极光底幕 · 金色光幕切换 · 圣门金尘 · 首屏 Ken Burns · 玻璃导航 · 阅读进度条 · 回到顶部 · 流光标题 · 作品悬停动态 · Web Audio 教堂混响（圣咏宏大化）· `:has()` 状态样式（全部渐进增强，`prefers-reduced-motion` 整体降级） |
 | 资源治理 | 48MB → 37MB（WEBP 压缩 / 原始 gif 溯源恢复） |
 | 自动部署 | GitHub Actions：push main → Pages 自动上线 |
 

@@ -119,6 +119,35 @@ body::before{
 /* :has() 状态样式：加载失败的画框呈虚线警示 */
 .work__frame:has(img.err){border-style:dashed;border-color:rgba(255,140,90,.35)}
 
+/* ============ v17.2 细节点缀 / 过渡 / 画面动态 ============ */
+/* 视图切换金色光幕（不依赖 View Transitions，全浏览器可用） */
+.fxwipe{position:fixed;inset:0;z-index:115;pointer-events:none;opacity:0;
+  background:radial-gradient(120% 120% at 50% 50%,rgba(255,213,79,.16),transparent 60%);}
+.fxwipe.run{animation:fxSweep .62s var(--ease) both}
+@keyframes fxSweep{0%{opacity:0;transform:scale(.96)}25%{opacity:1}100%{opacity:0;transform:scale(1.04)}}
+/* 金色尘埃：hero 漂浮粒子（JS 注入 i 元素） */
+.dust{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.dust i{position:absolute;bottom:-12px;border-radius:50%;
+  background:rgba(255,213,79,.9);box-shadow:0 0 8px 1px rgba(255,213,79,.6);
+  animation:dustRise linear infinite;opacity:0}
+@keyframes dustRise{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:.9}88%{opacity:.6}100%{transform:translateY(-94vh) scale(.4);opacity:0}}
+/* hero 幻灯片缓推慢摇（Ken Burns） */
+.hero__slide{animation:heroCross 32s var(--ease) infinite, heroKB 18s ease-in-out infinite alternate}
+@keyframes heroKB{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.4%,-1%)}}
+/* 作品画面活着：悬停缓推 + 提亮 */
+.work__frame img,.work__frame video{transition:transform .7s var(--ease),filter .7s var(--ease)}
+.hall__track figure.work:hover .work__frame img,
+.hall__track figure.work:hover .work__frame video{transform:scale(1.09);filter:saturate(1.08) brightness(1.05)}
+/* 传送门悬停流光 */
+.portal::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,213,79,.22) 50%,transparent 70%);
+  background-size:220% 100%;animation:titleSheen 3.2s linear infinite;transition:opacity .4s}
+.portal:hover::before{opacity:1}
+/* 视频封面流光，呼应“动态影像” */
+.vid__cover::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.5;
+  background:linear-gradient(115deg,transparent 40%,rgba(255,213,79,.18) 50%,transparent 60%);
+  background-size:240% 100%;animation:titleSheen 4s linear infinite}
+
 .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,32px);position:relative;z-index:1}
 
 /* ============ 导航 ============ */
@@ -171,7 +200,7 @@ body::before{
 .hero__slide{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;
-  animation:heroCross 32s var(--ease) infinite;
+  animation:heroCross 32s var(--ease) infinite, heroKB 18s ease-in-out infinite alternate;
   will-change:transform,opacity;
 }
 .hero__slide:nth-child(1){animation-delay:0s}
@@ -274,6 +303,8 @@ body::before{
   .reveal,.stagger{opacity:1!important;transform:none!important;transition:none!important}
   .fact__num,.epoch__dot,.hall__track::after,.chamber__stage::after,.work__frame img.live{animation:none}
   .aurora,.section__title,.hero__title{animation:none!important}
+  .dust i,.fxwipe{animation:none!important;opacity:0!important}
+  .portal::before,.vid__cover::after{animation:none!important}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }
 
@@ -1133,6 +1164,7 @@ html.js .work__frame.broken::after{
 <body>
 <div class="grain" aria-hidden="true"></div>
 <div class="aurora" aria-hidden="true"></div>
+<div class="fxwipe" id="fxwipe" aria-hidden="true"></div>
 <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 <button class="totop" id="toTop" aria-label="回到顶部"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19 V5 M5 12 L12 5 L19 12"/></svg></button>
 
@@ -1165,6 +1197,7 @@ html.js .work__frame.broken::after{
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__beamwrap" aria-hidden="true"><div class="hero__beam"></div></div>
+  <div class="dust" id="dust" aria-hidden="true"></div>
   <div class="hero__inner">
     <p class="hero__eyebrow">NAIWA ART UNIVERSE</p>
     <img class="hero__logo" src="assets/naiwa-logo.jpg" alt="奶蛙艺术宇宙徽记" decoding="async">
@@ -2695,10 +2728,19 @@ html.js .work__frame.broken::after{
         if (viewEls[k]) viewEls[k].classList.toggle("active", k === v);
       });
     };
-    if (doc.startViewTransition){
-      try{ doc.startViewTransition(applyView); }catch(e){ applyView(); }
+    if (!window.__firstNav && doc.startViewTransition && !window.__vtRunning){
+      try{
+        var vt = doc.startViewTransition(applyView);
+        window.__vtRunning = true;
+        var clr = function(){ window.__vtRunning = false; };
+        ["ready","finished","updateCallbackDone"].forEach(function(k){
+          if (vt[k] && vt[k].then){ vt[k].then(clr).catch(clr); }
+        });
+      }catch(e){ applyView(); }
     } else { applyView(); }
     closeOverlays();
+    var fx = doc.getElementById("fxwipe");
+    if (fx && !reduce){ fx.classList.remove("run"); void fx.offsetWidth; fx.classList.add("run"); }
     if (deepTarget && viewEls[v] && viewEls[v].contains(deepTarget)){
       smoothTo(deepTarget);
       return;
@@ -2722,6 +2764,7 @@ html.js .work__frame.broken::after{
   }
   window.addEventListener("hashchange", navigate);
   if (!location.hash){ try{ history.replaceState(null, "", "#home"); }catch(e){} }
+  window.__firstNav = true;
   navigate();
   });
   safe(function(){
@@ -2920,18 +2963,52 @@ html.js .work__frame.broken::after{
   }
   });
   safe(function(){
-  /* ---- 圣殿琴音：默认起播；播放成功才标记，被拦则等首次交互重试 ---- */
+  /* ---- 圣殿琴音：默认起播；被拦则首次交互重试（修复“首次点按钮被自身手势静音”的冲突） ---- */
   var bgm = doc.getElementById("bgm");
   var musicBtn = doc.getElementById("musicBtn");
   var musicOn = false;
+  var actx = null, graphOK = false;
   function setBtn(on){
+    if (!musicBtn) return;
     musicBtn.setAttribute("aria-pressed", on ? "true" : "false");
     musicBtn.setAttribute("aria-label", on ? "静默圣殿" : "奏响圣殿琴音");
     musicBtn.setAttribute("title", on ? "静默圣殿" : "奏响圣殿琴音");
   }
+  /* 宏大感：合成教堂混响（ConvolverNode）+ 主增益；任何失败都回退到普通播放 */
+  function makeIR(ctx, secs, decay){
+    var rate = ctx.sampleRate, len = Math.max(1, Math.floor(rate * secs));
+    var buf = ctx.createBuffer(2, len, rate), c, d, i;
+    for (c=0;c<2;c++){
+      d = buf.getChannelData(c);
+      for (i=0;i<len;i++){ d[i] = (Math.random()*2-1) * Math.pow(1 - i/len, decay); }
+    }
+    return buf;
+  }
+  function buildGraph(){
+    if (graphOK || !bgm) return;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    try{
+      actx = new AC();
+      var src = actx.createMediaElementSource(bgm);
+      var conv = actx.createConvolver();
+      conv.buffer = makeIR(actx, 2.8, 2.2);
+      var dry = actx.createGain(); dry.gain.value = 0.82;
+      var wet = actx.createGain(); wet.gain.value = 0.42;
+      var master = actx.createGain(); master.gain.value = 1.0;
+      src.connect(dry); dry.connect(master);
+      src.connect(conv); conv.connect(wet); wet.connect(master);
+      master.connect(actx.destination);
+      bgm.volume = 1;            /* 音量交由主增益统一控制 */
+      graphOK = true;
+    }catch(e){ actx = null; graphOK = false; }
+  }
+  function resumeCtx(){
+    if (actx && actx.state === "suspended"){ try{ actx.resume(); }catch(e){} }
+  }
   function tryPlay(){
     if (musicOn || !bgm) return;
-    bgm.volume = 0.45;
+    resumeCtx();
     var pp = bgm.play();
     var done = function(){ musicOn = true; setBtn(true); if (musicBtn) musicBtn.classList.remove("hint"); };
     if (pp && pp.then){
@@ -2947,24 +3024,54 @@ html.js .work__frame.broken::after{
     setBtn(false);
   }
   if (bgm){
-    bgm.volume = 0.45;
+    bgm.volume = graphOK ? 1 : 0.5;   /* 未建图时先以普通音量起播，建图后归位 */
     if (musicBtn) musicBtn.classList.add("hint");
     bgm.load();
     tryPlay(); /* 默认即有圣殿琴音（浏览器允许时）；被拦则首次轻触/滑动即响 */
   }
   if (musicBtn) musicBtn.addEventListener("click", function(){
+    buildGraph(); resumeCtx();        /* 首次交互才建图（满足浏览器手势要求） */
     if (musicOn) tryPause(); else tryPlay();
   });
-  var firstTap = function(){
-    if (!musicOn) tryPlay();
+  /* 首次交互：建图+恢复音频上下文并起播；但点音乐按钮自身不算（交给它的 click 处理，避免“一播一停”） */
+  var cleanupFirstTap = function(){
     doc.removeEventListener("pointerdown", firstTap);
     doc.removeEventListener("keydown", firstTap);
     doc.removeEventListener("touchstart", firstTap);
     doc.removeEventListener("scroll", firstTap);
   };
-  ["pointerdown","keydown","touchstart","scroll"].forEach(function(ev){
-    doc.addEventListener(ev, firstTap, {passive:true});
+  var firstTap = function(e){
+    buildGraph(); resumeCtx();
+    if (e && e.target && e.target.closest && e.target.closest("#musicBtn")){
+      cleanupFirstTap(); return;   /* 按钮自己会处理，避免同一次手势“播了又被自己的 click 静音” */
+    }
+    if (!musicOn) tryPlay();
+    cleanupFirstTap();
+  };
+  if (musicBtn){
+    ["pointerdown","keydown","touchstart","scroll"].forEach(function(ev){
+      doc.addEventListener(ev, firstTap, {passive:true});
+    });
+  }
   });
+  safe(function(){
+  /* ---- 圣殿之门金尘：JS 注入漂浮粒子（尊重减弱动效） ---- */
+  if (!reduce){
+    var dust = doc.getElementById("dust");
+    if (dust){
+      var pc = 30;
+      for (var di=0; di<pc; di++){
+        var p = doc.createElement("i");
+        var sz = (Math.random()*3 + 1.4).toFixed(1);
+        p.style.left = (Math.random()*100).toFixed(2) + "%";
+        p.style.width = sz + "px";
+        p.style.height = sz + "px";
+        p.style.animationDuration = (Math.random()*9 + 9).toFixed(1) + "s";
+        p.style.animationDelay = (-Math.random()*18).toFixed(1) + "s";
+        dust.appendChild(p);
+      }
+    }
+  }
   });
   safe(function(){
   /* ---- 展厅页码：当前件 / 总数，随横滑实时更新（绑定原有 .hall__ctl 页码） ---- */
