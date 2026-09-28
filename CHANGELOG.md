@@ -1,5 +1,12 @@
 # 变更日志
 
+## v17.4（2026-09-28）· 扩展：PWA / 随缘一观 / 复制深链
+
+- **PWA 离线可装**：新增 `manifest.webmanifest`（名称/主题色 #0B0806/standalone）+ 由馆藏 logo 生成的 192/512/maskable 三枚图标；`sw.js` Service Worker——导航请求 network-first 离线回退外壳、同源媒体 cache-first 运行时缓存（只缓存 200 全量响应防视频 206 分片污染，上限 240 条自动淘汰）；游客中心「把圣殿装进口袋」安装按钮（`beforeinstallprompt` 捕获，已安装/不支持环境自动隐藏；`file://` 打开自动跳过注册）
+- **「随缘一观」**：检索页新增随机开馆按钮，一键随机打开任意一件馆藏说明牌（复用 `window.NW.open` 索引，与灯箱编号体系一致）
+- **「复制链接」**：灯箱说明牌新增一键复制当前作品深链（Clipboard API + `execCommand` 降级），复制成功「已复制 ✓」`role=status` 播报
+- 验证：`node --check` 通过（内联 JS + sw.js）、manifest JSON 合法、CSS 括号配平；Playwright 4 视口 × 6 视图 0 溢出 0 页面错误；随机开馆/复制无崩溃/安装按钮默认隐藏/SW 在 file:// 下正确跳过全部实测；v17.3 行为回归（白屏修复/导航态/标题/检索）全绿
+
 ## v17.3（2026-09-28）· 体验补缺（全面审计）
 
 - **路由健壮性**：非法厅号 `#hall-99` 不再白屏（原 `body.hall-solo .hall{display:none}` + 无校验导致八厅全隐藏）——回落全部展厅并清理脏 hash；作品深链兼容 `#w-NW-x-xxx` 带前缀写法，编号不存在时把地址栏复位为 `#halls`

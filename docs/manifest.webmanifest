@@ -1,0 +1,16 @@
+{
+  "name": "奶蛙艺术圣殿 · Naiwa Art Universe",
+  "short_name": "奶蛙圣殿",
+  "description": "供养四百年西方美术奶蛙版圣像的线上艺术殿堂：186 件馆藏 · 8 大展厅 · 3 卷圣影。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B0806",
+  "theme_color": "#0B0806",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

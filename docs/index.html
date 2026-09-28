@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0B0806">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>奶蛙艺术宇宙 · 艺术圣殿</title>
 <meta name="description" content="奶蛙艺术宇宙官方殿堂：一百八十六件名画圣像、八间展厅、一处不太严肃的朝圣地。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M12 58 L12 30 Q12 8 32 8 Q52 8 52 30 L52 58 Z' fill='%230B0806' stroke='%23D9B45B' stroke-width='4'/%3E%3Ccircle cx='32' cy='30' r='8' fill='%23FFD54F'/%3E%3C/svg%3E">
@@ -876,6 +878,21 @@ body.hall-solo .hall__all{display:inline-flex}
 /* 键盘跳转链接：Tab 首个即现，直达主内容 */
 .skip{position:fixed;top:-60px;left:14px;z-index:130;padding:10px 18px;background:var(--gold);color:#161006;border-radius:0 0 10px 10px;font-size:.85rem;letter-spacing:.12em;text-decoration:none;transition:top .25s var(--ease)}
 .skip:focus{top:0}
+
+/* ============ v17.4 PWA / 随缘一观 / 复制深链 ============ */
+.search__lucky,.lb-copy,.install-cta{
+  cursor:pointer;font:inherit;color:var(--gold);background:transparent;
+  border:1px solid rgba(217,180,91,.45);border-radius:9px;
+  padding:9px 16px;font-size:.8rem;letter-spacing:.14em;
+  transition:border-color .3s,color .3s,background .3s;
+}
+.search__lucky:hover,.search__lucky:focus-visible,
+.lb-copy:hover,.lb-copy:focus-visible,
+.install-cta:hover,.install-cta:focus-visible{
+  border-color:var(--gold-bright);color:var(--gold-bright);background:rgba(217,180,91,.08);
+}
+.lb-copied{margin-left:10px;font-size:.78rem;color:var(--gold-bright)}
+.install-cta{margin-top:14px;display:inline-flex;align-items:center;gap:8px}
 .search{display:flex;gap:10px;max-width:640px;margin:clamp(24px,4vw,38px) auto 0}
 .search input{
   flex:1;min-width:0;background:rgba(22,16,10,.62);border:1px solid var(--line);
@@ -2542,6 +2559,7 @@ html.js .work__frame.broken::after{
           <h3 class="about__t">关 于 这 座 圣 殿</h3>
           <p class="about__p">奶蛙，是官方奶龙角色的民间 AI 变异体：黄圆润的身体、浅米色的肚腹、碧绿的眼睛、灰扑扑的小爪。本项目把奶蛙放进西方美术史的圣殿——你不是在看画，你是在巡游一座会笑的艺术馆。</p>
           <p class="about__p">全站 186 件馆藏、8 间展厅、3 卷圣影，每件都有专属叙事；单文件自包含，离线亦可参观。</p>
+          <button class="install-cta" id="installBtn" type="button" hidden>把圣殿装进口袋 · 安装到桌面</button>
         </article>
         <article class="about__card">
           <h3 class="about__t">版 权 与 二 创</h3>
@@ -2593,6 +2611,7 @@ html.js .work__frame.broken::after{
         <label class="sr-only" for="searchInput">检索馆藏</label>
         <input id="searchInput" type="search" placeholder="输入作品名或叙事关键词，如「星月夜」「圣诞」" autocomplete="off">
         <button class="search__clear" type="button" id="searchClear" aria-label="清空检索">清空</button>
+        <button class="search__lucky" type="button" id="luckyBtn" aria-label="随机打开一件馆藏">随缘一观</button>
       </form>
       <div class="chips" id="searchChips" role="group" aria-label="按展厅筛选"></div>
       <div class="search__grid" id="searchGrid"></div>
@@ -2635,6 +2654,8 @@ html.js .work__frame.broken::after{
       <p class="story" id="lbStory"></p>
       <p class="lb-count" id="lbCount"></p>
       <a class="lightbox__full" id="lbFull" href="#" target="_blank" rel="noopener">查看仓库原图</a>
+      <button class="lb-copy" type="button" id="lbCopy" aria-label="复制本件作品链接">复制链接</button>
+      <span class="lb-copied" id="lbCopied" role="status" hidden>已复制 ✓</span>
     </div>
   </div>
 </dialog>
@@ -2995,6 +3016,36 @@ html.js .work__frame.broken::after{
       return false;
     };
     window.NW.currentNo = function(){ return cur >= 0 && items[cur] ? items[cur].no : ""; };
+    /* 复制深链：一键分享当前说明牌（地址栏已带 #w-<编号>） */
+    var lbCopy = doc.getElementById("lbCopy");
+    var lbCopied = doc.getElementById("lbCopied");
+    function copyDone(){
+      if (!lbCopied) return;
+      lbCopied.hidden = false;
+      setTimeout(function(){ lbCopied.hidden = true; }, 1800);
+    }
+    function copyFallback(text){
+      try{
+        var ta = doc.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        doc.body.appendChild(ta);
+        ta.select();
+        var ok = doc.execCommand("copy");
+        doc.body.removeChild(ta);
+        if (ok) copyDone();
+      }catch(e){}
+    }
+    if (lbCopy) lbCopy.addEventListener("click", function(){
+      var link = location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(copyDone).catch(function(){ copyFallback(link); });
+      } else {
+        copyFallback(link);
+      }
+    });
     /* 首屏即为作品深链时，等其它模块就绪后打开 */
     var dm = (location.hash || "").match(/^#w-(.+)$/);
     if (dm){ window.setTimeout(function(){ try{ window.NW.openByNo(decodeURIComponent(dm[1]).replace(/^NW-/, "")); }catch(e){} }, 80); }
@@ -3572,6 +3623,13 @@ html.js .work__frame.broken::after{
     if (clear) clear.addEventListener("click", function(){
       if (input){ input.value = ""; render(); input.focus(); }
     });
+    /* 随缘一观：随机打开一件馆藏 */
+    var lucky = doc.getElementById("luckyBtn");
+    if (lucky) lucky.addEventListener("click", function(){
+      if (!idx.length) return;
+      var pick = idx[Math.floor(Math.random() * idx.length)];
+      if (window.NW && window.NW.open) window.NW.open(pick.i);
+    });
     var form = doc.getElementById("searchForm");
     if (form) form.addEventListener("submit", function(e){ e.preventDefault(); render(); });
     render();
@@ -3588,6 +3646,29 @@ html.js .work__frame.broken::after{
         if (fr) fr.classList.add("broken");
       }, {once:true});
     });
+  });
+  safe(function(){
+  /* ---- PWA：Service Worker 注册 + 安装入口（仅 https 生效；file:// 打开自动跳过） ---- */
+  var installBtn = doc.getElementById("installBtn");
+  if ("serviceWorker" in navigator && location.protocol === "https:"){
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("sw.js").catch(function(){});
+    });
+  }
+  if (installBtn){
+    var deferredPrompt = null;
+    window.addEventListener("beforeinstallprompt", function(e){
+      e.preventDefault();
+      deferredPrompt = e;
+      if (!window.matchMedia("(display-mode: standalone)").matches) installBtn.hidden = false;
+    });
+    installBtn.addEventListener("click", function(){
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(){ deferredPrompt = null; installBtn.hidden = true; }).catch(function(){});
+    });
+    if (window.matchMedia("(display-mode: standalone)").matches) installBtn.hidden = true;
+  }
   });
 })();
 </script>
