@@ -134,6 +134,7 @@
 | **4c** | v17.2 细节点缀：金色光幕切换过渡 / 圣门金尘 / 首屏 Ken Burns / 作品悬停动态 / Web Audio 教堂混响（圣咏宏大化）/ 音频默认起播修复（消除「点音乐键却没声」双重开关 bug）/ View Transitions 加固 | ✅ |
 | **4d** | v17.3 体验补缺（全面审计）：路由健壮性（#hall-99 白屏修复 / 深链规范化）/ document.title 同步 / 顶部导航 aria-current / 作品键盘可达 / 放映厅焦点圈闭 / skip-link / scroll-margin / 移动端点击区 | ✅ |
 | **4e** | v17.4 扩展：PWA（manifest + SW 外壳/媒体缓存 + 安装入口）/ 检索「随缘一观」随机开馆 / 灯箱「复制链接」一键分享深链 | ✅ |
+| **4f** | v17.5 分享与回访：OG/Twitter 分享卡片 / noscript 无 JS 降级 / 首页「今日圣像」按日轮换 / 游客中心「参观足迹」（本机 localStorage）| ✅ |
 
 **验收标准（每阶段）**
 1. `node --check` 内联 JS 通过；CSS 括号配平。

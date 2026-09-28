@@ -1,5 +1,13 @@
 # 变更日志
 
+## v17.5（2026-09-29）· 分享与回访
+
+- **分享卡片（OG/Twitter）**：补齐 `og:title/description/url/image/site_name/alt` + `twitter:card`（此前缺失，微信/QQ/Telegram 等分享无预览卡片）
+- **无 JS 降级**：`.reveal/.stagger` 原本未做 `html.js` 门控，禁 JS 时内容停留在 `opacity:0` 不可见——新增 `<noscript>` 样式覆盖强制可见
+- **今日圣像**：首页新增「今日圣像」卡——按本地日期确定性轮换（全站每天同一件），显示日期/标题/所属厅，一键前往观展
+- **参观足迹**：游客中心新增「参观足迹」卡——最近看过的 8 件圣像（仅存本机 localStorage，隐私友好），缩略图 + 标题，点击重新打开，支持一键清空；殿史纪年补齐 v17.x 全部条目
+- 验证：`node --check` + CSS 括号 670/670；Playwright 4 视口 × 6 视图 0 溢出 0 错误；OG 7 标签/每日轮换确定性/足迹记录·重开·清空/回归项全绿
+
 ## v17.4（2026-09-28）· 扩展：PWA / 随缘一观 / 复制深链
 
 - **PWA 离线可装**：新增 `manifest.webmanifest`（名称/主题色 #0B0806/standalone）+ 由馆藏 logo 生成的 192/512/maskable 三枚图标；`sw.js` Service Worker——导航请求 network-first 离线回退外壳、同源媒体 cache-first 运行时缓存（只缓存 200 全量响应防视频 206 分片污染，上限 240 条自动淘汰）；游客中心「把圣殿装进口袋」安装按钮（`beforeinstallprompt` 捕获，已安装/不支持环境自动隐藏；`file://` 打开自动跳过注册）

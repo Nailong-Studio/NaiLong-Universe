@@ -8,6 +8,15 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>奶蛙艺术宇宙 · 艺术圣殿</title>
 <meta name="description" content="奶蛙艺术宇宙官方殿堂：一百八十六件名画圣像、八间展厅、一处不太严肃的朝圣地。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="奶蛙艺术圣殿">
+<meta property="og:title" content="奶蛙艺术圣殿 · Naiwa Art Universe">
+<meta property="og:description" content="186 件名画圣像 · 8 大展厅 · 3 卷圣影——供养四百年西方美术的奶蛙版圣像，点击即可入殿朝圣。">
+<meta property="og:url" content="https://nailong-studio.github.io/NaiLong-Universe/">
+<meta property="og:image" content="https://nailong-studio.github.io/NaiLong-Universe/icons/icon-512.png">
+<meta property="og:image:alt" content="奶蛙艺术圣殿徽记">
+<meta name="twitter:card" content="summary">
+<noscript><style>.reveal,.stagger{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M12 58 L12 30 Q12 8 32 8 Q52 8 52 30 L52 58 Z' fill='%230B0806' stroke='%23D9B45B' stroke-width='4'/%3E%3Ccircle cx='32' cy='30' r='8' fill='%23FFD54F'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -880,7 +889,7 @@ body.hall-solo .hall__all{display:inline-flex}
 .skip:focus{top:0}
 
 /* ============ v17.4 PWA / 随缘一观 / 复制深链 ============ */
-.search__lucky,.lb-copy,.install-cta{
+.search__lucky,.lb-copy,.install-cta,.daily__go{
   cursor:pointer;font:inherit;color:var(--gold);background:transparent;
   border:1px solid rgba(217,180,91,.45);border-radius:9px;
   padding:9px 16px;font-size:.8rem;letter-spacing:.14em;
@@ -893,6 +902,32 @@ body.hall-solo .hall__all{display:inline-flex}
 }
 .lb-copied{margin-left:10px;font-size:.78rem;color:var(--gold-bright)}
 .install-cta{margin-top:14px;display:inline-flex;align-items:center;gap:8px}
+
+/* ============ v17.5 今日圣像 / 参观足迹 ============ */
+.daily{
+  text-align:center;padding:clamp(30px,5vw,52px) clamp(18px,4vw,40px);
+  border:1px solid var(--line);border-radius:16px;
+  background:radial-gradient(120% 140% at 50% -20%,rgba(217,180,91,.12),rgba(11,8,6,0) 60%),var(--ash);
+}
+.daily__date{font-size:.75rem;letter-spacing:.4em;text-indent:.4em;color:var(--gold);font-family:var(--serif)}
+.daily__title{
+  margin-top:14px;font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.5rem,4vw,2.3rem);letter-spacing:.06em;
+  color:var(--ivory);text-wrap:balance;
+}
+.daily__hall{margin-top:10px;font-size:.82rem;letter-spacing:.2em;color:var(--ivory-dim)}
+.daily__go{margin-top:22px}
+.recent__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0}
+.recent__item{
+  display:flex;align-items:center;gap:8px;padding:8px 10px;
+  border:1px solid var(--line);border-radius:10px;
+  background:rgba(217,180,91,.05);cursor:pointer;text-align:left;
+  color:var(--ivory);font:inherit;font-size:.78rem;
+  transition:border-color .3s,background .3s;
+}
+.recent__item:hover,.recent__item:focus-visible{border-color:var(--gold-bright);background:rgba(217,180,91,.1)}
+.recent__item img{width:34px;height:34px;object-fit:cover;border-radius:6px;border:1px solid var(--gold-dim);flex:none}
+.recent__item b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:12em;font-weight:500}
 .search{display:flex;gap:10px;max-width:640px;margin:clamp(24px,4vw,38px) auto 0}
 .search input{
   flex:1;min-width:0;background:rgba(22,16,10,.62);border:1px solid var(--line);
@@ -1260,6 +1295,18 @@ html.js .work__frame.broken::after{
       <div class="fact stagger"><p class="fact__num">8<sup>馆</sup></p><p class="fact__label">陈列展厅</p></div>
       <div class="fact stagger"><p class="fact__num">32<sup>枚</sup></p><p class="fact__label">圣咏表情</p></div>
       <div class="fact stagger"><p class="fact__num">311<sup>MB</sup></p><p class="fact__label">典藏原图</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 今日圣像 ===================== -->
+<section class="section" aria-label="今日圣像" style="padding-top:0">
+  <div class="wrap">
+    <div class="daily reveal" id="dailyCard">
+      <p class="daily__date" id="dailyDate"></p>
+      <h2 class="daily__title" id="dailyTitle"></h2>
+      <p class="daily__hall" id="dailyHall"></p>
+      <button class="daily__go" id="dailyBtn" type="button">前往观展</button>
     </div>
   </div>
 </section>
@@ -2585,6 +2632,12 @@ html.js .work__frame.broken::after{
         <article class="about__card">
           <h3 class="about__t">殿 史 纪 年</h3>
           <ol class="about__log">
+            <li><b>v17.5</b> 分享卡片（OG/Twitter）+ 今日圣像 + 参观足迹（仅存本机）</li>
+            <li><b>v17.4</b> PWA 离线可装（manifest + Service Worker）+ 随缘一观 + 复制深链</li>
+            <li><b>v17.3</b> 全面体验补缺：路由健壮性 / 标题同步 / 导航当前态 / 键盘可达 / 焦点管理</li>
+            <li><b>v17.2</b> 细节点缀：金色光幕过渡 / 圣门金尘 / Ken Burns / 圣咏教堂混响 + 默认起播修复</li>
+            <li><b>v17.1</b> 现代视觉层：View Transitions / 极光底幕 / 玻璃导航 / 进度条 / 回顶</li>
+            <li><b>v17</b> 美术馆化改造：作品说明牌 / 检索 / 单厅 / 深链 / 游客中心 / 吸顶导航</li>
             <li><b>v16.4</b> 圣物陈列室预览修复、圣殿之门强化、README 与贡献指南重写</li>
             <li><b>v16</b> 开源化（贡献指南 / 行为准则 / 安全策略）+ 素材仓统一奶蛙命名</li>
             <li><b>v15</b> 圣影 · 一改为「圣殿巡行」</li>
@@ -2592,6 +2645,12 @@ html.js .work__frame.broken::after{
             <li><b>v13</b> 纯 CSS 画廊之门取代 3D 圣殿门；时间轴重构为「艺术史长河」</li>
             <li><b>v12</b> 八厅雏形 / 灯箱叙事 / 背景音乐 / 沉浸巡展上线</li>
           </ol>
+        </article>
+        <article class="about__card" id="recentCard" hidden>
+          <h3 class="about__t">参 观 足 迹</h3>
+          <p class="about__p">最近看过的圣像会记在这张小卡片里（仅存本机浏览器，最多 8 件，离开这台设备即消失）。</p>
+          <div class="recent__grid" id="recentGrid"></div>
+          <button class="lb-copy" id="recentClear" type="button">清空足迹</button>
         </article>
       </div>
     </div>
@@ -2977,6 +3036,7 @@ html.js .work__frame.broken::after{
       lbHall.textContent = it.hall;
       /* 说明牌同步文档标题：分享/历史记录直达该作品 */
       doc.title = (it.title ? it.title + " ｜ " : "") + (window.__baseTitle || "奶蛙艺术宇宙 · 艺术圣殿");
+      recordRecent(it);
       /* 预载相邻作品：翻页秒开 */
       [cur + 1, cur - 1].forEach(function(k){
         var n = items[(k + items.length) % items.length];
@@ -3045,6 +3105,58 @@ html.js .work__frame.broken::after{
       } else {
         copyFallback(link);
       }
+    });
+    /* 参观足迹：最近看过的圣像（仅存本机 localStorage，最多 8 件） */
+    function readRecent(){
+      try{
+        var arr = JSON.parse(window.localStorage.getItem("nwRecent") || "[]");
+        return Array.isArray(arr) ? arr.filter(function(r){ return r && r.no; }) : [];
+      }catch(e){ return []; }
+    }
+    function recordRecent(it){
+      try{
+        if (!it.no || !it.title || !window.localStorage) return;
+        var arr = readRecent().filter(function(r){ return r.no !== it.no; });
+        arr.unshift({ no: it.no, title: it.title, hall: it.hall || "", src: it.src || "" });
+        window.localStorage.setItem("nwRecent", JSON.stringify(arr.slice(0, 8)));
+        renderRecent();
+      }catch(e){}
+    }
+    function renderRecent(){
+      var grid = doc.getElementById("recentGrid");
+      var card = doc.getElementById("recentCard");
+      if (!grid || !card) return;
+      var arr = readRecent();
+      card.hidden = arr.length === 0;
+      grid.textContent = "";
+      arr.forEach(function(r){
+        var b = doc.createElement("button");
+        b.type = "button";
+        b.className = "recent__item";
+        b.setAttribute("aria-label", "重新打开《" + (r.title || r.no) + "》");
+        var isVid = /\.(mp4|webm)$/i.test(r.src || "");
+        if (r.src && !isVid){
+          var im = doc.createElement("img");
+          im.src = r.src;
+          im.alt = "";
+          im.setAttribute("loading", "lazy");
+          im.setAttribute("decoding", "async");
+          b.appendChild(im);
+        }
+        var t = doc.createElement("b");
+        t.textContent = r.title || r.no;
+        b.appendChild(t);
+        b.addEventListener("click", function(){
+          try{ location.hash = "#w-" + String(r.no).replace(/^NW-/, ""); }catch(e){}
+        });
+        grid.appendChild(b);
+      });
+    }
+    renderRecent();
+    var recentClear = doc.getElementById("recentClear");
+    if (recentClear) recentClear.addEventListener("click", function(){
+      try{ window.localStorage.removeItem("nwRecent"); }catch(e){}
+      renderRecent();
     });
     /* 首屏即为作品深链时，等其它模块就绪后打开 */
     var dm = (location.hash || "").match(/^#w-(.+)$/);
@@ -3630,6 +3742,22 @@ html.js .work__frame.broken::after{
       var pick = idx[Math.floor(Math.random() * idx.length)];
       if (window.NW && window.NW.open) window.NW.open(pick.i);
     });
+    /* 今日圣像：按日期确定性轮换，全站每天同一件 */
+    var dailyBtn = doc.getElementById("dailyBtn");
+    if (dailyBtn && idx.length){
+      var dayNo = Math.floor(new Date().setHours(0,0,0,0) / 86400000);
+      var dailyPick = idx[dayNo % idx.length];
+      var now = new Date();
+      var dD = doc.getElementById("dailyDate");
+      var dT = doc.getElementById("dailyTitle");
+      var dH = doc.getElementById("dailyHall");
+      if (dD) dD.textContent = "今 日 圣 像 · " + (now.getMonth() + 1) + " 月 " + now.getDate() + " 日";
+      if (dT) dT.textContent = "《" + (dailyPick.title || "无名圣像") + "》";
+      if (dH) dH.textContent = dailyPick.hall || "";
+      dailyBtn.addEventListener("click", function(){
+        if (window.NW && window.NW.open) window.NW.open(dailyPick.i);
+      });
+    }
     var form = doc.getElementById("searchForm");
     if (form) form.addEventListener("submit", function(e){ e.preventDefault(); render(); });
     render();
