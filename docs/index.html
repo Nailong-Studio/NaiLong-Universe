@@ -27,6 +27,10 @@
   --serif-lat:"Cormorant Garamond","Noto Serif SC",serif;
   --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --glass:rgba(17,13,9,.55);
+  color-scheme:dark;
+  accent-color:var(--gold-bright);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -57,6 +61,64 @@ body::before{
 ::selection{background:rgba(255,213,79,.25);color:#FFF8E7}
 :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 
+/* ============ v17.1 现代视觉层（渐进增强，零依赖） ============ */
+/* 极光底幕：柔和流动色域，填充视图留白形成纵深 */
+.aurora{
+  position:fixed;inset:-22%;z-index:0;pointer-events:none;filter:blur(64px);opacity:.55;
+  background:
+    radial-gradient(36% 40% at 16% 24%, rgba(217,180,91,.15), transparent 70%),
+    radial-gradient(30% 36% at 84% 16%, rgba(255,213,79,.09), transparent 70%),
+    radial-gradient(32% 38% at 70% 80%, rgba(102,187,106,.06), transparent 72%),
+    radial-gradient(26% 32% at 22% 84%, rgba(217,120,91,.05), transparent 70%);
+  animation:auroraDrift 28s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes auroraDrift{from{transform:translate3d(-1.5%,-1%,0) scale(1)}to{transform:translate3d(1.5%,1.5%,0) scale(1.05)}}
+/* 视图标题流光 */
+.section__title{
+  background:linear-gradient(100deg,var(--ivory) 10%,var(--gold-bright) 34%,#FFF6DF 50%,var(--gold-bright) 66%,var(--ivory) 90%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:titleSheen 8s linear infinite;
+  text-wrap:balance;
+}
+@keyframes titleSheen{to{background-position:220% 0}}
+.section__title em{-webkit-text-fill-color:currentColor;color:var(--gold-bright)}
+/* 主标题同款微流光 */
+.hero__title{background-size:220% 100%;animation:titleSheen 9s linear infinite}
+/* 视图头部装饰分隔：填合标题与内容之间的空档 */
+.section__head::after{
+  content:"";display:block;width:min(300px,58%);height:1px;
+  margin:clamp(22px,3.5vw,32px) auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold-dim) 28%,var(--gold-bright) 50%,var(--gold-dim) 72%,transparent);
+}
+/* 阅读进度条 */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:120;pointer-events:none}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));box-shadow:0 0 10px rgba(255,213,79,.55)}
+/* 回到顶部（玻璃圆钮） */
+.totop{
+  position:fixed;right:calc(16px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:110;width:44px;height:44px;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;color:var(--gold-bright);
+  background:var(--glass);border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 6px 22px rgba(0,0,0,.4);
+  opacity:0;transform:translateY(12px);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease),border-color .3s;
+}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover,.totop:focus-visible{border-color:var(--gold-bright);transform:translateY(-2px)}
+/* View Transitions：视图切换丝滑过渡 */
+::view-transition-old(root){animation:vtOut .3s var(--ease) both}
+::view-transition-new(root){animation:vtIn .42s var(--ease) both}
+@keyframes vtOut{to{opacity:0}}
+@keyframes vtIn{from{opacity:0;transform:translateY(10px)}}
+/* 现代滚动条 */
+*{scrollbar-width:thin;scrollbar-color:rgba(217,180,91,.35) transparent}
+/* :has() 状态样式：加载失败的画框呈虚线警示 */
+.work__frame:has(img.err){border-style:dashed;border-color:rgba(255,140,90,.35)}
+
 .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,32px);position:relative;z-index:1}
 
 /* ============ 导航 ============ */
@@ -64,6 +126,11 @@ body::before{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:18px clamp(20px,4vw,32px);
+  background:linear-gradient(180deg,rgba(11,8,6,.42),rgba(11,8,6,0));
+  -webkit-backdrop-filter:blur(14px) saturate(1.35);
+  backdrop-filter:blur(14px) saturate(1.35);
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);
+  mask-image:linear-gradient(180deg,#000 72%,transparent);
   transition:background .4s var(--ease),padding .4s var(--ease);
 }
 .nav.scrolled{background:rgba(11,8,6,.82);backdrop-filter:blur(6px);padding:12px clamp(20px,4vw,32px)}
@@ -78,11 +145,16 @@ body::before{
 }
 .nav__links{display:flex;gap:clamp(14px,3vw,34px);list-style:none}
 .nav__links a{
-  color:var(--ivory);text-decoration:none;font-size:.82rem;letter-spacing:.22em;
+  position:relative;color:var(--ivory);text-decoration:none;font-size:.82rem;letter-spacing:.22em;
   padding:4px 2px;transition:color .3s;
-  border-bottom:1px solid transparent;
 }
-.nav__links a:hover,.nav__links a:focus-visible{color:var(--gold-bright);border-bottom-color:var(--gold)}
+.nav__links a::after{
+  content:"";position:absolute;left:50%;right:50%;bottom:-3px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);
+  transition:left .35s var(--ease),right .35s var(--ease);
+}
+.nav__links a:hover,.nav__links a:focus-visible{color:var(--gold-bright)}
+.nav__links a:hover::after,.nav__links a:focus-visible::after{left:0;right:0}
 @media (max-width:640px){
   .nav__links a{font-size:.7rem;letter-spacing:.14em}
   .nav__brand .nav__brand-text{display:none}
@@ -201,6 +273,8 @@ body::before{
   .hero__inner>*{opacity:1;animation:none}
   .reveal,.stagger{opacity:1!important;transform:none!important;transition:none!important}
   .fact__num,.epoch__dot,.hall__track::after,.chamber__stage::after,.work__frame img.live{animation:none}
+  .aurora,.section__title,.hero__title{animation:none!important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }
 
 /* ============ 画廊之门（替代三维圣殿：纯 CSS 3D 视差画廊 + 双开圣门） ============ */
@@ -1058,6 +1132,9 @@ html.js .work__frame.broken::after{
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+<button class="totop" id="toTop" aria-label="回到顶部"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19 V5 M5 12 L12 5 L19 12"/></svg></button>
 
 <!-- ===================== 导航 ===================== -->
 <header class="nav" id="nav">
@@ -2613,9 +2690,14 @@ html.js .work__frame.broken::after{
         if (host) v = host.id.replace("view-", "");
       }
     }
-    VIEWS.forEach(function(k){
-      if (viewEls[k]) viewEls[k].classList.toggle("active", k === v);
-    });
+    var applyView = function(){
+      VIEWS.forEach(function(k){
+        if (viewEls[k]) viewEls[k].classList.toggle("active", k === v);
+      });
+    };
+    if (doc.startViewTransition){
+      try{ doc.startViewTransition(applyView); }catch(e){ applyView(); }
+    } else { applyView(); }
     closeOverlays();
     if (deepTarget && viewEls[v] && viewEls[v].contains(deepTarget)){
       smoothTo(deepTarget);
@@ -2645,8 +2727,22 @@ html.js .work__frame.broken::after{
   safe(function(){
   /* ---- 导航滚动状态 ---- */
   var nav = doc.getElementById("nav");
-  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  var pbar = doc.getElementById("progressBar");
+  var toTop = doc.getElementById("toTop");
+  function onScroll(){
+    var y = window.scrollY;
+    nav.classList.toggle("scrolled", y > 40);
+    if (pbar){
+      var max = doc.documentElement.scrollHeight - window.innerHeight;
+      pbar.style.width = (max > 0 ? Math.min(100, y / max * 100) : 0) + "%";
+    }
+    if (toTop) toTop.classList.toggle("show", y > 640);
+  }
   window.addEventListener("scroll", onScroll, {passive:true});
+  if (toTop) toTop.addEventListener("click", function(){
+    try{ window.scrollTo({top:0, behavior:"smooth"}); }catch(e){ window.scrollTo(0,0); }
+  });
+  onScroll();
   onScroll();
   });
   safe(function(){
