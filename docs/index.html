@@ -1137,6 +1137,16 @@ html.js .work__frame.broken::after{
 @keyframes musicPulse{0%,60%{transform:scale(1)}72%{transform:scale(1.14)}86%{transform:scale(1)}100%{transform:scale(1)}}
 @keyframes musicHint{0%,55%{opacity:0}68%,88%{opacity:1}100%{opacity:0}}
 
+/* ============ 趣味音效（喂到哈哈大笑 / 被吃噶就塞） ============ */
+.sfx{bottom:80px}
+.sfx .ic-silent{display:none}
+.sfx[aria-pressed="true"] .ic-laugh{display:none}
+.sfx[aria-pressed="true"] .ic-silent{display:block}
+@media (max-width:640px){.sfx{bottom:70px}}
+/* 说明牌大图可“再喂一口”：给出手型与焦点态提示 */
+.lightbox__img{cursor:pointer}
+.lightbox__img:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+
 /* ============ 全站噪点 ============ */
 .grain{
   position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.05;
@@ -2632,6 +2642,7 @@ html.js .work__frame.broken::after{
         <article class="about__card">
           <h3 class="about__t">殿 史 纪 年</h3>
           <ol class="about__log">
+            <li><b>v17.6</b> 趣味音效：点开作品哈哈大笑，说明牌里再喂一口=被吃，噶就塞（可关，选择存本机）</li>
             <li><b>v17.5</b> 分享卡片（OG/Twitter）+ 今日圣像 + 参观足迹（仅存本机）</li>
             <li><b>v17.4</b> PWA 离线可装（manifest + Service Worker）+ 随缘一观 + 复制深链</li>
             <li><b>v17.3</b> 全面体验补缺：路由健壮性 / 标题同步 / 导航当前态 / 键盘可达 / 焦点管理</li>
@@ -2743,6 +2754,10 @@ html.js .work__frame.broken::after{
 <button class="music" id="musicBtn" aria-pressed="false" aria-label="奏响圣殿琴音" title="奏响圣殿琴音">
   <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18 V5 L20 3 V15"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="15" r="2.5"/></svg>
   <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 L12 20"/><path d="M6 9 L3 12 L6 15"/><path d="M18 9 L21 12 L18 15"/><path d="M9 6 L15 18"/></svg>
+</button>
+<button class="music sfx" id="sfxBtn" aria-pressed="true" aria-label="趣味音效已开，点击关闭" title="趣味音效已开">
+  <svg class="ic-laugh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.2c1 1.1 2.1 1.7 3.5 1.7s2.5-.6 3.5-1.7"/><path d="M9 9.6h.01"/><path d="M15 9.6h.01"/></svg>
+  <svg class="ic-silent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 15.2h7"/><path d="M9 9.6h.01"/><path d="M15 9.6h.01"/></svg>
 </button>
 
 <script>
@@ -2922,6 +2937,79 @@ html.js .work__frame.broken::after{
     if (next) next.addEventListener("click", function(){ step(1); });
   });
   });
+  /* ---- 趣味音效：点开作品=喂到，哈哈大笑；说明牌里再喂一口=被吃，噶就塞 ----
+     issue #1（a72148508-hash）：「奶龙吃到就会哈哈大笑，被吃就是噶就塞」
+     全部用 Web Audio 现场合成，不引入任何外部音频素材；无 AudioContext 的环境静默降级。 */
+  safe(function(){
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    var btn = doc.getElementById("sfxBtn");
+    var stored = null;
+    try { stored = window.localStorage.getItem("nwSfx"); } catch(e){}
+    var on = stored !== "off";
+    var ctx = null;
+    var armed = false;   /* 浏览器自动播放策略：只有真实手势之后才发声 */
+    function arm(){ armed = true; }
+    doc.addEventListener("pointerdown", arm, true);
+    doc.addEventListener("keydown", arm, true);
+    function ensure(){
+      if (!ctx){ try { ctx = new AC(); } catch(e){ return null; } }
+      if (ctx.state === "suspended"){ try { ctx.resume(); } catch(e){} }
+      return ctx;
+    }
+    function tone(c, o){
+      var osc = c.createOscillator(), g = c.createGain(), out = g, bq = null;
+      osc.type = o.type || "triangle";
+      osc.frequency.setValueAtTime(o.f0, o.t);
+      if (o.f1 && o.f1 !== o.f0){ osc.frequency.exponentialRampToValueAtTime(Math.max(24, o.f1), o.t + o.dur); }
+      g.gain.setValueAtTime(0.0001, o.t);
+      g.gain.exponentialRampToValueAtTime(Math.max(0.001, o.peak), o.t + Math.min(0.02, o.dur * 0.25));
+      g.gain.exponentialRampToValueAtTime(0.0001, o.t + o.dur);
+      osc.connect(g);
+      if (o.filter){
+        bq = c.createBiquadFilter(); bq.type = o.filter;
+        bq.frequency.value = o.fc || 1200; bq.Q.value = o.q || 0.8;
+        g.connect(bq); out = bq;
+      }
+      out.connect(c.destination);
+      osc.start(o.t); osc.stop(o.t + o.dur + 0.03);
+    }
+    /* 哈哈大笑：6 声短促的“he he he”，音高逐级下滑，带一点高次泛音 */
+    function laugh(){
+      if (!on || !armed) return false;
+      var c = ensure(); if (!c) return false;
+      var t0 = c.currentTime + 0.01;
+      for (var i = 0; i < 6; i++){
+        var f = 700 * Math.pow(0.93, i);
+        tone(c, {t: t0 + i * 0.095, type: "triangle", f0: f * 0.82, f1: f, dur: 0.085, peak: 0.22 - i * 0.022, filter: "bandpass", fc: 1500, q: 0.7});
+        tone(c, {t: t0 + i * 0.095, type: "sine", f0: f * 1.98, f1: f * 1.9, dur: 0.07, peak: 0.045});
+      }
+      return true;
+    }
+    /* 噶就塞：先一记下滑的“噶”，再两声闷下去的“塞” */
+    function gone(){
+      if (!on || !armed) return false;
+      var c = ensure(); if (!c) return false;
+      var t0 = c.currentTime + 0.01;
+      tone(c, {t: t0,           type: "sawtooth", f0: 320, f1: 96, dur: 0.2,  peak: 0.15, filter: "lowpass", fc: 1100});
+      tone(c, {t: t0 + 0.23,    type: "sine",     f0: 196, f1: 78, dur: 0.3,  peak: 0.18});
+      tone(c, {t: t0 + 0.27,    type: "square",   f0: 120, f1: 62, dur: 0.12, peak: 0.06, filter: "lowpass", fc: 380});
+      return true;
+    }
+    function paint(){
+      if (!btn) return;
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on ? "趣味音效已开，点击关闭" : "趣味音效已关，点击开启");
+      btn.setAttribute("title", on ? "趣味音效已开" : "趣味音效已关");
+    }
+    paint();
+    if (btn) btn.addEventListener("click", function(){
+      on = !on; armed = true; paint();
+      try { window.localStorage.setItem("nwSfx", on ? "on" : "off"); } catch(e){}
+      if (on) laugh();
+    });
+    window.NWSFX = { laugh: laugh, gone: gone, enabled: function(){ return on; }, armed: function(){ return armed; } };
+  });
   safe(function(){
   /* ---- 灯箱：支持左右翻页 + 淡入过渡 ---- */
   var box = doc.getElementById("lightbox");
@@ -3001,6 +3089,17 @@ html.js .work__frame.broken::after{
       if (nw > 0 && nw < 800) lbImg.classList.add("lb-small");
       else lbImg.classList.remove("lb-small");
     });
+    /* 再喂一口：说明牌里点大图 = 它被吃了（键盘 Enter/Space 同效） */
+    lbImg.setAttribute("tabindex", "0");
+    lbImg.setAttribute("role", "button");
+    lbImg.setAttribute("aria-label", String(lbImg.getAttribute("alt") || "作品大图") + "（再喂一口试试）");
+    function feedAgain(e){
+      if (e && e.type === "keydown" && !(e.key === "Enter" || e.key === " " || e.key === "Spacebar")) return;
+      if (e && e.type === "keydown") e.preventDefault();
+      try { window.NWSFX && window.NWSFX.gone(); } catch(err){}
+    }
+    lbImg.addEventListener("click", feedAgain);
+    lbImg.addEventListener("keydown", feedAgain);
     function showWork(i){
       cur = (i + items.length) % items.length;
       var it = items[cur];
@@ -3037,6 +3136,8 @@ html.js .work__frame.broken::after{
       /* 说明牌同步文档标题：分享/历史记录直达该作品 */
       doc.title = (it.title ? it.title + " ｜ " : "") + (window.__baseTitle || "奶蛙艺术宇宙 · 艺术圣殿");
       recordRecent(it);
+      /* 趣味音效：喂到了 —— 奶娃哈哈大笑 */
+      try { window.NWSFX && window.NWSFX.laugh(); } catch(e){}
       /* 预载相邻作品：翻页秒开 */
       [cur + 1, cur - 1].forEach(function(k){
         var n = items[(k + items.length) % items.length];
