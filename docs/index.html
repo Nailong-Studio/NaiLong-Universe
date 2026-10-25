@@ -199,7 +199,7 @@ body::before{
 .nav__links a.on{color:var(--gold-bright)}
 .nav__links a.on::after{left:0;right:0}
 @media (max-width:640px){
-  .nav__links a{font-size:.72rem;letter-spacing:.14em;padding:12px 5px}
+  .nav__links a{font-size:.72rem;letter-spacing:.14em;padding:10px 4px;min-height:44px;display:inline-flex;align-items:center}
   .nav__brand .nav__brand-text{display:none}
 }
 
@@ -430,6 +430,9 @@ body::before{
   color:var(--ivory);
 }
 .section__title em{font-style:normal;color:var(--gold-bright)}
+@media (max-width:640px){
+  .section__title--chronicle{font-size:1.35rem;letter-spacing:.08em;white-space:nowrap;text-wrap:nowrap}
+}
 /* 拱形分隔符 */
 .arch{
   width:52px;height:30px;margin:22px auto 0;display:block;color:var(--gold);
@@ -525,7 +528,7 @@ body::before{
   border-bottom:1px solid rgba(217,180,91,.14);
 }
 .halls-nav::-webkit-scrollbar{display:none}
-section.hall,section[id]{scroll-margin-top:clamp(120px,14vw,150px)}
+section.hall,section[id],article[id]{scroll-margin-top:clamp(120px,14vw,150px)}
 .halls-nav a{
   flex:none;color:var(--gold);text-decoration:none;
   font-family:var(--serif);font-size:.82rem;letter-spacing:.24em;text-indent:.24em;
@@ -999,8 +1002,8 @@ html.js .work__frame.broken::after{
   .hall--phone .hall__track .work{flex:0 0 62vw}
   .hall--big .hall__track .work{flex:0 0 88vw}
   .hall--big .work__frame{height:clamp(210px,52vw,300px)}
-  .work__cap{padding:11px 12px 12px}
-  .work__cap cite{font-size:.84rem}
+  .work__cap{padding:11px 12px 12px;align-items:flex-start}
+  .work__cap cite{font-size:.84rem;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.35}
   .work__cap span{font-size:.68rem;letter-spacing:.14em}
   .hall__head{gap:10px}
   .hall__enter{padding:9px 18px;font-size:.76rem}
@@ -1124,7 +1127,9 @@ html.js .work__frame.broken::after{
 .music[aria-pressed="true"]{border-color:var(--gold-bright);color:var(--gold-bright)}
 .music[aria-pressed="true"] .ic-on{display:none}
 .music[aria-pressed="true"] .ic-off{display:block}
-@media (max-width:640px){.music{left:14px;bottom:14px;width:46px;height:46px}}
+@media (max-width:640px){
+  .music{left:auto;right:14px;bottom:14px;width:40px;height:40px;opacity:.92}
+}
 /* 待播放时的轻触奏响提示 */
 .music.hint{border-color:rgba(217,180,91,.6);animation:musicPulse 2.6s var(--ease) infinite}
 .music.hint::after{
@@ -1142,7 +1147,10 @@ html.js .work__frame.broken::after{
 .sfx .ic-silent{display:none}
 .sfx[aria-pressed="true"] .ic-laugh{display:none}
 .sfx[aria-pressed="true"] .ic-silent{display:block}
-@media (max-width:640px){.sfx{bottom:70px}}
+@media (max-width:640px){
+  .sfx{bottom:62px;width:40px;height:40px;opacity:.92}
+}
+
 /* 说明牌大图可“再喂一口”：给出手型与焦点态提示 */
 .lightbox__img{cursor:pointer}
 .lightbox__img:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
@@ -2275,7 +2283,7 @@ html.js .work__frame.broken::after{
   <div class="wrap">
     <header class="section__head reveal">
       <p class="section__kicker">企划纪年</p>
-      <h2 class="section__title">奶 蛙 纪 · <em>艺 术 史 长 河</em></h2>
+      <h2 class="section__title section__title--chronicle">奶 蛙 纪 · <em>艺 术 史 长 河</em></h2>
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
     <div class="artwalk reveal" id="artwalk">
@@ -2786,7 +2794,9 @@ html.js .work__frame.broken::after{
       if (v && v.pause) v.pause();
     }
     var box = doc.getElementById("lightbox");
-    if (box && typeof box.close === "function" && box.open){ try{ box.close(); }catch(e){} }
+    if (box && typeof box.close === "function" && box.open){
+      try{ if (window.NW && window.NW.closeSilent) window.NW.closeSilent(); else box.close(); }catch(e){}
+    }
   }
   function smoothTo(el){
     if (!el) return;
@@ -2901,6 +2911,19 @@ html.js .work__frame.broken::after{
   if (!location.hash){ try{ history.replaceState(null, "", "#home"); }catch(e){} }
   window.__firstNav = true;
   navigate();
+  /* 直接打开 #halls/#chronicle 等视图深链时，浏览器原生锚点会在视图显示后再次滚动；
+     加载完成后再归位一次，避免视图头被固定导航遮住 */
+  var initialViewHash = VIEWS.indexOf((location.hash || "").replace(/^#/, "")) >= 0;
+  if (initialViewHash) window.addEventListener("load", function(){ window.scrollTo(0, 0); });
+  /* 单厅深链 #hall-N 下按 Esc 返回全部展厅（灯箱/放映厅打开时交给各自处理） */
+  doc.addEventListener("keydown", function(e){
+    if (e.key !== "Escape") return;
+    var lb = doc.getElementById("lightbox");
+    var ch = doc.getElementById("chamber");
+    if (lb && lb.open) return;
+    if (ch && !ch.hidden) return;
+    if (doc.body.classList.contains("hall-solo")){ try{ location.hash = "#halls"; }catch(err){} }
+  });
   });
   safe(function(){
   /* ---- 导航滚动状态 ---- */
@@ -3015,8 +3038,14 @@ html.js .work__frame.broken::after{
   var box = doc.getElementById("lightbox");
   if (box) {
     var lbNative = (typeof box.showModal === "function");
+    var lbReturnHash = "#halls";
+    var lbRestore = false;
     function lbOpenBox(){ if (lbNative) box.showModal(); else { box.setAttribute("open",""); box.classList.add("shown"); } }
-    function lbCloseBox(){ if (lbNative) box.close(); else { box.removeAttribute("open"); box.classList.remove("shown"); } try{ lbVid.pause(); }catch(e){} }
+    function lbCloseBox(restore){
+      lbRestore = restore !== false;
+      if (lbNative) box.close(); else { box.removeAttribute("open"); box.classList.remove("shown"); }
+      try{ lbVid.pause(); }catch(e){}
+    }
     var lbImg = doc.getElementById("lbImg");
     var lbVid = doc.getElementById("lbVid");
     var lbTitle = doc.getElementById("lbTitle");
@@ -3101,6 +3130,10 @@ html.js .work__frame.broken::after{
     lbImg.addEventListener("click", feedAgain);
     lbImg.addEventListener("keydown", feedAgain);
     function showWork(i){
+      if (!box.open){
+        var h0 = (location.hash || "").replace(/^#/, "");
+        lbReturnHash = (h0 === "search" || /^hall-\d+$/.test(h0)) ? "#" + h0 : "#halls";
+      }
       cur = (i + items.length) % items.length;
       var it = items[cur];
       if (it.type === "video"){
@@ -3160,10 +3193,15 @@ html.js .work__frame.broken::after{
       }
     }
     function restoreHash(){
+      if (!lbRestore) return;
+      lbRestore = false;
+      var target = lbReturnHash || "#halls";
       try {
-        if ((location.hash || "").indexOf("#w-") === 0) window.history.replaceState(null, "", "#halls");
+        if ((location.hash || "").indexOf("#w-") === 0) window.history.replaceState(null, "", target);
       } catch(e){}
-      if (window.NW && window.NW.syncTitle) window.NW.syncTitle("halls");
+      var v = target.replace(/^#/, "");
+      if (/^hall-\d+$/.test(v)) v = "halls";
+      if (window.NW && window.NW.syncTitle) window.NW.syncTitle(v);
     }
     if (lbPrev) lbPrev.addEventListener("click", function(){ showWork(cur - 1); });
     if (lbNext) lbNext.addEventListener("click", function(){ showWork(cur + 1); });
@@ -3177,6 +3215,8 @@ html.js .work__frame.broken::after{
       return false;
     };
     window.NW.currentNo = function(){ return cur >= 0 && items[cur] ? items[cur].no : ""; };
+    /* 路由切换时静默关闭灯箱，避免 close 事件把地址栏又拽回原视图 */
+    window.NW.closeSilent = function(){ if (box.open) lbCloseBox(false); };
     /* 复制深链：一键分享当前说明牌（地址栏已带 #w-<编号>） */
     var lbCopy = doc.getElementById("lbCopy");
     var lbCopied = doc.getElementById("lbCopied");
@@ -3262,16 +3302,20 @@ html.js .work__frame.broken::after{
     /* 首屏即为作品深链时，等其它模块就绪后打开 */
     var dm = (location.hash || "").match(/^#w-(.+)$/);
     if (dm){ window.setTimeout(function(){ try{ window.NW.openByNo(decodeURIComponent(dm[1]).replace(/^NW-/, "")); }catch(e){} }, 80); }
-    lbClose.addEventListener("click", lbCloseBox);
+    lbClose.addEventListener("click", function(){ lbCloseBox(); });
     box.addEventListener("close", restoreHash);
+    box.addEventListener("cancel", function(e){
+      if (e.preventDefault) e.preventDefault();
+      lbCloseBox();
+    });
     box.addEventListener("click", function(e){
       if (e.target === box) lbCloseBox();
     });
     doc.addEventListener("keydown", function(e){
       if (!box.open) return;
-      if (e.key === "ArrowLeft") showWork(cur - 1);
-      if (e.key === "ArrowRight") showWork(cur + 1);
-      if (e.key === "Escape" && !lbNative) lbCloseBox();
+      if (e.key === "ArrowLeft"){ e.preventDefault(); showWork(cur - 1); }
+      if (e.key === "ArrowRight"){ e.preventDefault(); showWork(cur + 1); }
+      if (e.key === "Escape"){ e.preventDefault(); lbCloseBox(); }
     });
   }
   });
