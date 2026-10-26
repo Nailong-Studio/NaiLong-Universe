@@ -1,7 +1,7 @@
 {
   "name": "奶蛙艺术圣殿 · 素材总清单",
   "repo": "Nailong-Studio/wallpaper",
-  "sourceVersion": "2.5.0",
+  "sourceVersion": "2.6.0",
   "generated": "2026-10-26",
   "rawBase": "https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/",
   "total": 215,
@@ -72,9 +72,9 @@
       "thumb": "assets/relics/classic/奶蛙-丘比蛙唤醒普绪蛙-02.webp",
       "type": "image",
       "bytes": 198999,
+      "narrative": "丘比特的金箭换成了奶蛙的圆手，沉睡的普绪蛙被轻轻拍醒——梦醒了，笑也就醒了。",
       "width": 480,
-      "height": 270,
-      "narrative": "丘比特的金箭换成了奶蛙的圆手，沉睡的普绪蛙被轻轻拍醒——梦醒了，笑也就醒了。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-之死.jpg",
@@ -86,9 +86,9 @@
       "thumb": "assets/relics/classic/奶蛙-之死.webp",
       "type": "image",
       "bytes": 389816,
+      "narrative": "浴缸里的最后时刻，奶蛙安详闭眼，手中还攥着那封「快乐」的信。殉道，殉的是笑容。",
       "width": 480,
-      "height": 270,
-      "narrative": "浴缸里的最后时刻，奶蛙安详闭眼，手中还攥着那封「快乐」的信。殉道，殉的是笑容。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-之筏.jpg",
@@ -100,9 +100,9 @@
       "thumb": "assets/relics/classic/奶蛙-之筏.webp",
       "type": "image",
       "bytes": 521872,
+      "narrative": "漂流的木筏上，奶蛙在桅顶举起一面黄旗。绝境里的希望，是它圆滚滚的背影。",
       "width": 480,
-      "height": 270,
-      "narrative": "漂流的木筏上，奶蛙在桅顶举起一面黄旗。绝境里的希望，是它圆滚滚的背影。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-以利蛙在迦密山.jpg",
@@ -114,9 +114,9 @@
       "thumb": "assets/relics/classic/奶蛙-以利蛙在迦密山.webp",
       "type": "image",
       "bytes": 504537,
+      "narrative": "迦密山巅，烈焰自天而降。奶蛙立于火前，胸口的圣徽映出整座山的黄昏。",
       "width": 480,
-      "height": 270,
-      "narrative": "迦密山巅，烈焰自天而降。奶蛙立于火前，胸口的圣徽映出整座山的黄昏。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-创造奶蛙-02.jpg",
@@ -128,9 +128,9 @@
       "thumb": "assets/relics/classic/奶蛙-创造奶蛙-02.webp",
       "type": "image",
       "bytes": 418057,
+      "narrative": "指尖将触未触，神与奶蛙隔着光对望。宇宙的第一粒快乐，就从这里被点亮。",
       "width": 480,
-      "height": 270,
-      "narrative": "指尖将触未触，神与奶蛙隔着光对望。宇宙的第一粒快乐，就从这里被点亮。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-华盛奶在蒙茅斯-02.jpg",
@@ -142,9 +142,9 @@
       "thumb": "assets/relics/classic/奶蛙-华盛奶在蒙茅斯-02.webp",
       "type": "image",
       "bytes": 473868,
+      "narrative": "蒙茅斯的冬夜，奶蛙乘舟踏雪而来。战旗猎猎，它把出征走成了春游。",
       "width": 480,
-      "height": 270,
-      "narrative": "蒙茅斯的冬夜，奶蛙乘舟踏雪而来。战旗猎猎，它把出征走成了春游。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-变容（纯享版）.jpg",
@@ -156,9 +156,9 @@
       "thumb": "assets/relics/classic/奶蛙-变容（纯享版）.webp",
       "type": "image",
       "bytes": 522572,
+      "narrative": "奶蛙-变容（纯享版）——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-变容（纯享版）——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-召唤奶蛙.jpg",
@@ -170,9 +170,9 @@
       "thumb": "assets/relics/classic/奶蛙-召唤奶蛙.webp",
       "type": "image",
       "bytes": 316261,
+      "narrative": "长桌旁，门徒们屏息围坐。奶蛙应声而来，把晚餐摆成了家宴。圣餐从此改名「奶里奶气」。",
       "width": 480,
-      "height": 270,
-      "narrative": "长桌旁，门徒们屏息围坐。奶蛙应声而来，把晚餐摆成了家宴。圣餐从此改名「奶里奶气」。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-圣奶蛙归信.jpg",
@@ -184,9 +184,9 @@
       "thumb": "assets/relics/classic/奶蛙-圣奶蛙归信.webp",
       "type": "image",
       "bytes": 412612,
+      "narrative": "一束光从天顶倾泻，奶蛙跌进光里。归信的那一刻，连影子都成了暖黄。",
       "width": 480,
-      "height": 270,
-      "narrative": "一束光从天顶倾泻，奶蛙跌进光里。归信的那一刻，连影子都成了暖黄。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-圣母怜奶蛙.jpg",
@@ -198,9 +198,9 @@
       "thumb": "assets/relics/classic/奶蛙-圣母怜奶蛙.webp",
       "type": "image",
       "bytes": 397131,
+      "narrative": "穹顶之下，圣母怀抱着小小的奶蛙圣像。哀伤被重新裱进暖黄的光里——这一次，连怜爱也奶里奶气。",
       "width": 480,
-      "height": 270,
-      "narrative": "穹顶之下，圣母怀抱着小小的奶蛙圣像。哀伤被重新裱进暖黄的光里——这一次，连怜爱也奶里奶气。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-在塔楼阶梯上的会面.jpg",
@@ -212,9 +212,9 @@
       "thumb": "assets/relics/classic/奶蛙-在塔楼阶梯上的会面.webp",
       "type": "image",
       "bytes": 498313,
+      "narrative": "螺旋阶梯的转角，奶蛙与访客遥遥相望。台阶被它坐软，相逢被它放慢。",
       "width": 480,
-      "height": 270,
-      "narrative": "螺旋阶梯的转角，奶蛙与访客遥遥相望。台阶被它坐软，相逢被它放慢。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-复活.jpg",
@@ -226,9 +226,9 @@
       "thumb": "assets/relics/classic/奶蛙-复活.webp",
       "type": "image",
       "bytes": 420940,
+      "narrative": "墓门推开，奶蛙睁开眼。复活的第一个念头：先笑一声，告诉人间不必怕。",
       "width": 480,
-      "height": 270,
-      "narrative": "墓门推开，奶蛙睁开眼。复活的第一个念头：先笑一声，告诉人间不必怕。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-夜巡-02.jpg",
@@ -240,9 +240,9 @@
       "thumb": "assets/relics/classic/奶蛙-夜巡-02.webp",
       "type": "image",
       "bytes": 315736,
+      "narrative": "伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。",
       "width": 480,
-      "height": 270,
-      "narrative": "伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-大天使长的最后审判.jpg",
@@ -254,9 +254,9 @@
       "thumb": "assets/relics/classic/奶蛙-大天使长的最后审判.webp",
       "type": "image",
       "bytes": 202625,
+      "narrative": "末日号角吹响，烈焰中的众生换上了同款黄脸。审判长是奶蛙——最后的罪名，只有一条：不够快乐。",
       "width": 480,
-      "height": 270,
-      "narrative": "末日号角吹响，烈焰中的众生换上了同款黄脸。审判长是奶蛙——最后的罪名，只有一条：不够快乐。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-天使向奶蛙显现.jpg",
@@ -268,9 +268,9 @@
       "thumb": "assets/relics/classic/奶蛙-天使向奶蛙显现.webp",
       "type": "image",
       "bytes": 527252,
+      "narrative": "云海圣光之间，天使报来喜讯。奶蛙听完，决定把消息再咀嚼一会儿。福音，就此成立。",
       "width": 480,
-      "height": 270,
-      "narrative": "云海圣光之间，天使报来喜讯。奶蛙听完，决定把消息再咀嚼一会儿。福音，就此成立。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-天启四奶蛙.jpg",
@@ -282,9 +282,9 @@
       "thumb": "assets/relics/classic/奶蛙-天启四奶蛙.webp",
       "type": "image",
       "bytes": 485747,
+      "narrative": "雪山荒原上，四骑士策马而来。走近才看清，马背上是四只抱团取暖的奶蛙。末日，被可爱化了。",
       "width": 480,
-      "height": 270,
-      "narrative": "雪山荒原上，四骑士策马而来。走近才看清，马背上是四只抱团取暖的奶蛙。末日，被可爱化了。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶撒之死.jpg",
@@ -296,9 +296,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶撒之死.webp",
       "type": "image",
       "bytes": 416296,
+      "narrative": "元老院的长桌，最后一刀落下。奶蛙倒在白色长袍里，嘴角还留着笑——凯撒从没想过，死也能死得奶里奶气。",
       "width": 480,
-      "height": 270,
-      "narrative": "元老院的长桌，最后一刀落下。奶蛙倒在白色长袍里，嘴角还留着笑——凯撒从没想过，死也能死得奶里奶气。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶破蛙在军校.jpg",
@@ -310,9 +310,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶破蛙在军校.webp",
       "type": "image",
       "bytes": 393772,
+      "narrative": "军校课堂，奶破蛙正襟危坐。胸前的勋章黄得发亮，全班的军姿都软了几分。",
       "width": 480,
-      "height": 270,
-      "narrative": "军校课堂，奶破蛙正襟危坐。胸前的勋章黄得发亮，全班的军姿都软了几分。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶破蛙在战场.jpg",
@@ -324,9 +324,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶破蛙在战场.webp",
       "type": "image",
       "bytes": 456845,
+      "narrative": "炮火连天的山坡，奶破蛙勒马而立。硝烟滚滚，它笑着把战场看成了烟火大会。",
       "width": 480,
-      "height": 270,
-      "narrative": "炮火连天的山坡，奶破蛙勒马而立。硝烟滚滚，它笑着把战场看成了烟火大会。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶破蛙的加冕典礼.jpg",
@@ -338,9 +338,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶破蛙的加冕典礼.webp",
       "type": "image",
       "bytes": 626738,
+      "narrative": "宫廷灯火通明，贵族齐聚加冕礼。主角破例把王冠戴歪了一点——庄严，但不耽误快乐。",
       "width": 480,
-      "height": 270,
-      "narrative": "宫廷灯火通明，贵族齐聚加冕礼。主角破例把王冠戴歪了一点——庄严，但不耽误快乐。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶破蛙的诞生.jpg",
@@ -352,9 +352,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶破蛙的诞生.webp",
       "type": "image",
       "bytes": 229315,
+      "narrative": "神迹之夜，奶蛙破壳而生。星群俯身围观，第一声啼哭是奶里奶气的。",
       "width": 480,
-      "height": 270,
-      "narrative": "神迹之夜，奶蛙破壳而生。星群俯身围观，第一声啼哭是奶里奶气的。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶破蛙翻越阿尔卑斯山.jpg",
@@ -366,9 +366,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶破蛙翻越阿尔卑斯山.webp",
       "type": "image",
       "bytes": 423980,
+      "narrative": "翻越阿尔卑斯的奶蛙坐骑昂首嘶鸣。山巅风雪刺骨，它的笑自带春意。",
       "width": 480,
-      "height": 270,
-      "narrative": "翻越阿尔卑斯的奶蛙坐骑昂首嘶鸣。山巅风雪刺骨，它的笑自带春意。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-奶西分海.jpg",
@@ -380,9 +380,9 @@
       "thumb": "assets/relics/classic/奶蛙-奶西分海.webp",
       "type": "image",
       "bytes": 249548,
+      "narrative": "红海为奶蛙让路，浪墙向两侧退开。海底的鱼群探出头，看它踩着干地，一路笑到对岸。",
       "width": 480,
-      "height": 270,
-      "narrative": "红海为奶蛙让路，浪墙向两侧退开。海底的鱼群探出头，看它踩着干地，一路笑到对岸。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-帝国成立.jpg",
@@ -394,9 +394,9 @@
       "thumb": "assets/relics/classic/奶蛙-帝国成立.webp",
       "type": "image",
       "bytes": 561510,
+      "narrative": "帝国加冕，奶蛙亲手把皇冠戴到自己头上——戴歪了。庄严的史册，从此多了一页歪的快乐。",
       "width": 480,
-      "height": 270,
-      "narrative": "帝国加冕，奶蛙亲手把皇冠戴到自己头上——戴歪了。庄严的史册，从此多了一页歪的快乐。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-恋人怀中.jpg",
@@ -408,9 +408,9 @@
       "thumb": "assets/relics/classic/奶蛙-恋人怀中.webp",
       "type": "image",
       "bytes": 399236,
+      "narrative": "相拥的恋人剪影里，奶蛙依偎怀中。爱情柔软得像奶黄，甜得不肯撒手。",
       "width": 480,
-      "height": 270,
-      "narrative": "相拥的恋人剪影里，奶蛙依偎怀中。爱情柔软得像奶黄，甜得不肯撒手。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-投降.jpg",
@@ -422,9 +422,9 @@
       "thumb": "assets/relics/classic/奶蛙-投降.webp",
       "type": "image",
       "bytes": 649527,
+      "narrative": "白旗举得最高，奶蛙弯腰投降。认输也要认得体面：笑到露牙，是它唯一的战败宣言。",
       "width": 480,
-      "height": 270,
-      "narrative": "白旗举得最高，奶蛙弯腰投降。认输也要认得体面：笑到露牙，是它唯一的战败宣言。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-撑阳伞的奶蛙-02.jpg",
@@ -436,9 +436,9 @@
       "thumb": "assets/relics/classic/奶蛙-撑阳伞的奶蛙-02.webp",
       "type": "image",
       "bytes": 536457,
+      "narrative": "印象派的阳光里，奶蛙撑起阳伞。裙摆是云做的，影子是光画的。",
       "width": 480,
-      "height": 270,
-      "narrative": "印象派的阳光里，奶蛙撑起阳伞。裙摆是云做的，影子是光画的。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-最唐的晚餐-02.jpg",
@@ -450,9 +450,9 @@
       "thumb": "assets/relics/classic/奶蛙-最唐的晚餐-02.webp",
       "type": "image",
       "bytes": 320084,
+      "narrative": "奶蛙-最唐的晚餐-02——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-最唐的晚餐-02——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-朝圣.jpg",
@@ -464,9 +464,9 @@
       "thumb": "assets/relics/classic/奶蛙-朝圣.webp",
       "type": "image",
       "bytes": 182056,
+      "narrative": "朝圣路上，奶蛙背着行囊一步一拜。每一拜都笑着，像在给大地递糖。",
       "width": 480,
-      "height": 270,
-      "narrative": "朝圣路上，奶蛙背着行囊一步一拜。每一拜都笑着，像在给大地递糖。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-树荫下的奶蛙.jpg",
@@ -478,9 +478,9 @@
       "thumb": "assets/relics/classic/奶蛙-树荫下的奶蛙.webp",
       "type": "image",
       "bytes": 608875,
+      "narrative": "树荫斑驳，奶蛙仰面躺在草地上。光斑落满肚皮，它数着光点，数着数着就笑了。",
       "width": 480,
-      "height": 270,
-      "narrative": "树荫斑驳，奶蛙仰面躺在草地上。光斑落满肚皮，它数着光点，数着数着就笑了。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-渡河.jpg",
@@ -492,9 +492,9 @@
       "thumb": "assets/relics/classic/奶蛙-渡河.webp",
       "type": "image",
       "bytes": 447883,
+      "narrative": "涉水过河，水只没到奶蛙的肚皮。快乐浮在水面，它踩出一路涟漪。",
       "width": 480,
-      "height": 270,
-      "narrative": "涉水过河，水只没到奶蛙的肚皮。快乐浮在水面，它踩出一路涟漪。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-游到海水泛白.jpg",
@@ -506,9 +506,9 @@
       "thumb": "assets/relics/classic/奶蛙-游到海水泛白.webp",
       "type": "image",
       "bytes": 322587,
+      "narrative": "一头扎进海里的奶蛙，奶蛙-游到海水泛白。快乐没有岸，那就一直游下去。",
       "width": 480,
-      "height": 270,
-      "narrative": "一头扎进海里的奶蛙，奶蛙-游到海水泛白。快乐没有岸，那就一直游下去。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-直到死亡将我们分开-02.jpg",
@@ -520,9 +520,9 @@
       "thumb": "assets/relics/classic/奶蛙-直到死亡将我们分开-02.webp",
       "type": "image",
       "bytes": 188429,
+      "narrative": "婚礼誓言被改写：奶蛙-直到死亡将我们分开-02——在这之前，先笑完这一场。",
       "width": 480,
-      "height": 270,
-      "narrative": "婚礼誓言被改写：奶蛙-直到死亡将我们分开-02——在这之前，先笑完这一场。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-自由引导奶蛙.jpg",
@@ -534,9 +534,9 @@
       "thumb": "assets/relics/classic/奶蛙-自由引导奶蛙.webp",
       "type": "image",
       "bytes": 478121,
+      "narrative": "自由女神高举旗帜，奶蛙冲在最前引路。人人都是主角，快乐是唯一的纲领。",
       "width": 480,
-      "height": 270,
-      "narrative": "自由女神高举旗帜，奶蛙冲在最前引路。人人都是主角，快乐是唯一的纲领。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-赞歌就是勇气的赞歌.jpg",
@@ -548,9 +548,9 @@
       "thumb": "assets/relics/classic/奶蛙-赞歌就是勇气的赞歌.webp",
       "type": "image",
       "bytes": 330845,
+      "narrative": "奶蛙引吭高歌，声浪卷过整面画布。勇气的赞歌，原来是一首跑调的快乐。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙引吭高歌，声浪卷过整面画布。勇气的赞歌，原来是一首跑调的快乐。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-迎着阳光盛大逃亡.jpg",
@@ -562,9 +562,9 @@
       "thumb": "assets/relics/classic/奶蛙-迎着阳光盛大逃亡.webp",
       "type": "image",
       "bytes": 508752,
+      "narrative": "迎着光盛大逃亡，奶蛙把背影留给追兵，把笑留给太阳。",
       "width": 480,
-      "height": 270,
-      "narrative": "迎着光盛大逃亡，奶蛙把背影留给追兵，把笑留给太阳。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-阿齐姆与泽莉卡.jpg",
@@ -576,9 +576,9 @@
       "thumb": "assets/relics/classic/奶蛙-阿齐姆与泽莉卡.webp",
       "type": "image",
       "bytes": 194127,
+      "narrative": "海边的情侣并肩看潮，浪花替他们说完情话。奶蛙在画框外，负责笑。",
       "width": 480,
-      "height": 270,
-      "narrative": "海边的情侣并肩看潮，浪花替他们说完情话。奶蛙在画框外，负责笑。"
+      "height": 270
     },
     {
       "id": "classic/奶蛙-雷帝杀龙.jpg",
@@ -590,9 +590,9 @@
       "thumb": "assets/relics/classic/奶蛙-雷帝杀龙.webp",
       "type": "image",
       "bytes": 380977,
+      "narrative": "雷帝挥剑斩向恶龙，恶龙看见奶蛙先笑为敬。胜负未分，杀气先被可爱化解。",
       "width": 480,
-      "height": 270,
-      "narrative": "雷帝挥剑斩向恶龙，恶龙看见奶蛙先笑为敬。胜负未分，杀气先被可爱化解。"
+      "height": 270
     },
     {
       "id": "laugh-gallery/奶蛙-亮黄站姿.png",
@@ -604,9 +604,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-亮黄站姿.webp",
       "type": "image",
       "bytes": 173682,
+      "narrative": "标准的亮黄站姿，绿眼圆睁——奶蛙最本真的模样。",
       "width": 358,
-      "height": 480,
-      "narrative": "标准的亮黄站姿，绿眼圆睁——奶蛙最本真的模样。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-叉腰指点.png",
@@ -618,9 +618,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-叉腰指点.webp",
       "type": "image",
       "bytes": 126109,
+      "narrative": "叉腰指点，笑里带三分指点江山的豪气。",
       "width": 480,
-      "height": 474,
-      "narrative": "叉腰指点，笑里带三分指点江山的豪气。"
+      "height": 474
     },
     {
       "id": "laugh-gallery/奶蛙-双V大笑.png",
@@ -632,9 +632,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-双V大笑.webp",
       "type": "image",
       "bytes": 139966,
+      "narrative": "双手比出双 V，大笑的胜利者姿态。",
       "width": 480,
-      "height": 476,
-      "narrative": "双手比出双 V，大笑的胜利者姿态。"
+      "height": 476
     },
     {
       "id": "laugh-gallery/奶蛙-哪吒.png",
@@ -646,9 +646,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-哪吒.webp",
       "type": "image",
       "bytes": 170078,
+      "narrative": "哪吒发髻、火焰纹、红马甲，神话里的奶蛙合掌大笑。",
       "width": 400,
-      "height": 470,
-      "narrative": "哪吒发髻、火焰纹、红马甲，神话里的奶蛙合掌大笑。"
+      "height": 470
     },
     {
       "id": "laugh-gallery/奶蛙-四肢着地.png",
@@ -660,9 +660,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-四肢着地.webp",
       "type": "image",
       "bytes": 43474,
+      "narrative": "四肢着地大笑成一座雕塑，快乐就地生根。",
       "width": 200,
-      "height": 200,
-      "narrative": "四肢着地大笑成一座雕塑，快乐就地生根。"
+      "height": 200
     },
     {
       "id": "laugh-gallery/奶蛙-圣诞老人.png",
@@ -674,9 +674,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-圣诞老人.webp",
       "type": "image",
       "bytes": 193031,
+      "narrative": "圣诞老人装束，双手交叠，节日的快乐提前送达。",
       "width": 480,
-      "height": 478,
-      "narrative": "圣诞老人装束，双手交叠，节日的快乐提前送达。"
+      "height": 478
     },
     {
       "id": "laugh-gallery/奶蛙-弯腰大笑.png",
@@ -688,9 +688,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-弯腰大笑.webp",
       "type": "image",
       "bytes": 515683,
+      "narrative": "躬着身子笑到直不起来，快乐重到需要弯腰托住。",
       "width": 360,
-      "height": 480,
-      "narrative": "躬着身子笑到直不起来，快乐重到需要弯腰托住。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-彩虹渐变.png",
@@ -702,9 +702,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-彩虹渐变.webp",
       "type": "image",
       "bytes": 596509,
+      "narrative": "彩虹渐变潮玩款，七彩叠在黄皮肤上。",
       "width": 480,
-      "height": 416,
-      "narrative": "彩虹渐变潮玩款，七彩叠在黄皮肤上。"
+      "height": 416
     },
     {
       "id": "laugh-gallery/奶蛙-抱头大笑.png",
@@ -716,9 +716,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-抱头大笑.webp",
       "type": "image",
       "bytes": 40355,
+      "narrative": "双手抱头大笑，笑意从头顶炸开。",
       "width": 227,
-      "height": 228,
-      "narrative": "双手抱头大笑，笑意从头顶炸开。"
+      "height": 228
     },
     {
       "id": "laugh-gallery/奶蛙-抱婴大笑.png",
@@ -730,9 +730,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-抱婴大笑.webp",
       "type": "image",
       "bytes": 128661,
+      "narrative": "怀里抱着小奶蛙一起大笑，快乐会传染。",
       "width": 269,
-      "height": 448,
-      "narrative": "怀里抱着小奶蛙一起大笑，快乐会传染。"
+      "height": 448
     },
     {
       "id": "laugh-gallery/奶蛙-指你大笑.png",
@@ -744,9 +744,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-指你大笑.webp",
       "type": "image",
       "bytes": 164777,
+      "narrative": "伸出手指指向你，笑你，也笑自己。",
       "width": 476,
-      "height": 480,
-      "narrative": "伸出手指指向你，笑你，也笑自己。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-橙肤捧腹.png",
@@ -758,9 +758,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-橙肤捧腹.webp",
       "type": "image",
       "bytes": 216331,
+      "narrative": "橙色变体捧腹大笑，暖色调的快乐加倍。",
       "width": 444,
-      "height": 480,
-      "narrative": "橙色变体捧腹大笑，暖色调的快乐加倍。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-狐面和服.png",
@@ -772,9 +772,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-狐面和服.webp",
       "type": "image",
       "bytes": 453304,
+      "narrative": "狐狸面具配和服头纱，东瀛风的奶蛙也笑得端庄。",
       "width": 387,
-      "height": 480,
-      "narrative": "狐狸面具配和服头纱，东瀛风的奶蛙也笑得端庄。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-白肤捧腹.png",
@@ -786,9 +786,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-白肤捧腹.webp",
       "type": "image",
       "bytes": 156891,
+      "narrative": "白色变体捧腹大笑，奶蛙的另一副面孔。",
       "width": 480,
-      "height": 429,
-      "narrative": "白色变体捧腹大笑，奶蛙的另一副面孔。"
+      "height": 429
     },
     {
       "id": "laugh-gallery/奶蛙-眯眼张嘴.png",
@@ -800,9 +800,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-眯眼张嘴.webp",
       "type": "image",
       "bytes": 52572,
+      "narrative": "眯眼张嘴，笑成一弯快乐的月牙。",
       "width": 384,
-      "height": 216,
-      "narrative": "眯眼张嘴，笑成一弯快乐的月牙。"
+      "height": 216
     },
     {
       "id": "laugh-gallery/奶蛙-粉肤捧腹.png",
@@ -814,9 +814,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-粉肤捧腹.webp",
       "type": "image",
       "bytes": 251771,
+      "narrative": "粉色变体捧腹大笑，换个肤色，快乐不打折。",
       "width": 480,
-      "height": 460,
-      "narrative": "粉色变体捧腹大笑，换个肤色，快乐不打折。"
+      "height": 460
     },
     {
       "id": "laugh-gallery/奶蛙-红晕大笑特写.jpg",
@@ -828,9 +828,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-红晕大笑特写.webp",
       "type": "image",
       "bytes": 76234,
+      "narrative": "特写：奶蛙闭眼开怀大笑，脸鼓红晕，笑意从屏幕里溢出来。\n2560×1440 · JPEG · 来源：百度图片（i1.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 270,
-      "narrative": "特写：奶蛙闭眼开怀大笑，脸鼓红晕，笑意从屏幕里溢出来。\n2560×1440 · JPEG · 来源：百度图片（i1.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 270
     },
     {
       "id": "laugh-gallery/奶蛙-银河隐藏款.png",
@@ -842,9 +842,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-银河隐藏款.webp",
       "type": "image",
       "bytes": 128808,
+      "narrative": "星空文案的隐藏款，每 3.1415926 光年才出现一次。",
       "width": 300,
-      "height": 300,
-      "narrative": "星空文案的隐藏款，每 3.1415926 光年才出现一次。"
+      "height": 300
     },
     {
       "id": "laugh-gallery/奶蛙-雀跃.png",
@@ -856,9 +856,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-雀跃.webp",
       "type": "image",
       "bytes": 182951,
+      "narrative": "双臂张开单脚跃起，快乐到飞起来。",
       "width": 480,
-      "height": 480,
-      "narrative": "双臂张开单脚跃起，快乐到飞起来。"
+      "height": 480
     },
     {
       "id": "laugh-gallery/奶蛙-静站绿眼.png",
@@ -870,9 +870,9 @@
       "thumb": "assets/relics/laugh-gallery/奶蛙-静站绿眼.webp",
       "type": "image",
       "bytes": 113958,
+      "narrative": "安安静静站着，绿眼平静，笑藏在肚子里。",
       "width": 480,
-      "height": 470,
-      "narrative": "安安静静站着，绿眼平静，笑藏在肚子里。"
+      "height": 470
     },
     {
       "id": "emotes/奶蛙-侧立.png",
@@ -884,9 +884,9 @@
       "thumb": "assets/relics/emotes/奶蛙-侧立.webp",
       "type": "image",
       "bytes": 63459,
+      "narrative": "侧身而立，双手放在肚前，安静又圆润。\n注：本件为 `emotes/奶蛙-表情-22.gif` 的首帧静态版，两者属同一画面的静/动双态。",
       "width": 320,
-      "height": 302,
-      "narrative": "侧身而立，双手放在肚前，安静又圆润。\n注：本件为 `emotes/奶蛙-表情-22.gif` 的首帧静态版，两者属同一画面的静/动双态。"
+      "height": 302
     },
     {
       "id": "emotes/奶蛙-动图-含泪.gif",
@@ -898,9 +898,9 @@
       "thumb": "assets/relics/emotes/奶蛙-动图-含泪.webp",
       "type": "gif",
       "bytes": 559189,
+      "narrative": "动图：奶蛙眼眶含泪、泪珠滑落，委屈巴巴的循环表情。无水印、无字幕。\n640×640 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "动图：奶蛙眼眶含泪、泪珠滑落，委屈巴巴的循环表情。无水印、无字幕。\n640×640 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-动图-张口大笑.gif",
@@ -912,9 +912,9 @@
       "thumb": "assets/relics/emotes/奶蛙-动图-张口大笑.webp",
       "type": "gif",
       "bytes": 394542,
+      "narrative": "动图：奶蛙仰头张口大笑，循环播放。全网筛选出的无水印、无字幕版本。\n500×500 · GIF 动图 · 来源：新浪图床（n.sinaimg.cn） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "动图：奶蛙仰头张口大笑，循环播放。全网筛选出的无水印、无字幕版本。\n500×500 · GIF 动图 · 来源：新浪图床（n.sinaimg.cn） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-动图-西装捂脸.gif",
@@ -926,9 +926,9 @@
       "thumb": "assets/relics/emotes/奶蛙-动图-西装捂脸.webp",
       "type": "gif",
       "bytes": 1681063,
+      "narrative": "动图：西装革履的奶蛙双手捂脸，社畜式崩溃循环。无水印、无字幕。\n428×428 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 428,
-      "height": 428,
-      "narrative": "动图：西装革履的奶蛙双手捂脸，社畜式崩溃循环。无水印、无字幕。\n428×428 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 428
     },
     {
       "id": "emotes/奶蛙-双V吐舌.png",
@@ -940,9 +940,9 @@
       "thumb": "assets/relics/emotes/奶蛙-双V吐舌.webp",
       "type": "image",
       "bytes": 400510,
+      "narrative": "双 V 手势配吐舌，活泼到没边。",
       "width": 480,
-      "height": 224,
-      "narrative": "双 V 手势配吐舌，活泼到没边。"
+      "height": 224
     },
     {
       "id": "emotes/奶蛙-吐舌比心.png",
@@ -954,9 +954,9 @@
       "thumb": "assets/relics/emotes/奶蛙-吐舌比心.webp",
       "type": "image",
       "bytes": 124130,
+      "narrative": "歪头吐舌，双手比心——奶蛙的专属告白。",
       "width": 453,
-      "height": 480,
-      "narrative": "歪头吐舌，双手比心——奶蛙的专属告白。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-咬手沉思.jpg",
@@ -968,9 +968,9 @@
       "thumb": "assets/relics/emotes/奶蛙-咬手沉思.webp",
       "type": "image",
       "bytes": 187035,
+      "narrative": "表情：奶蛙啃着爪子陷入沉思，配圆角白框与深蓝底，自带表情包版式。\n2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 270,
-      "narrative": "表情：奶蛙啃着爪子陷入沉思，配圆角白框与深蓝底，自带表情包版式。\n2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 270
     },
     {
       "id": "emotes/奶蛙-姿态-侧躺.png",
@@ -982,9 +982,9 @@
       "thumb": "assets/relics/emotes/奶蛙-姿态-侧躺.webp",
       "type": "image",
       "bytes": 435187,
+      "narrative": "奶蛙-姿态-侧躺：官方预览姿态之一（原始文件名 mf-pose-lying），1024×1024 透明底裸图——奶蛙身体横向舒展地躺卧。适合二次创作与合成。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-姿态-侧躺：官方预览姿态之一（原始文件名 mf-pose-lying），1024×1024 透明底裸图——奶蛙身体横向舒展地躺卧。适合二次创作与合成。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-姿态-挥手.png",
@@ -996,9 +996,9 @@
       "thumb": "assets/relics/emotes/奶蛙-姿态-挥手.webp",
       "type": "image",
       "bytes": 439952,
+      "narrative": "奶蛙-姿态-挥手：官方预览姿态之一（原始文件名 mf-pose-wave），1024×1024 透明底裸图——奶蛙高举一侧手臂打招呼。适合二次创作与合成。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-姿态-挥手：官方预览姿态之一（原始文件名 mf-pose-wave），1024×1024 透明底裸图——奶蛙高举一侧手臂打招呼。适合二次创作与合成。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-姿态-翻滚.png",
@@ -1010,9 +1010,9 @@
       "thumb": "assets/relics/emotes/奶蛙-姿态-翻滚.webp",
       "type": "image",
       "bytes": 507226,
+      "narrative": "奶蛙-姿态-翻滚：官方预览姿态之一（原始文件名 mf-pose-rolling），1262×1262 透明底裸图——奶蛙团身翻滚的姿态。适合二次创作与合成。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-姿态-翻滚：官方预览姿态之一（原始文件名 mf-pose-rolling），1262×1262 透明底裸图——奶蛙团身翻滚的姿态。适合二次创作与合成。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-姿态-露肚.png",
@@ -1024,9 +1024,9 @@
       "thumb": "assets/relics/emotes/奶蛙-姿态-露肚.webp",
       "type": "image",
       "bytes": 568533,
+      "narrative": "奶蛙-姿态-露肚：官方预览姿态之一（原始文件名 mf-pose-belly），1024×1024 透明底裸图——奶蛙正面站姿、露出米色腹部。适合二次创作与合成。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-姿态-露肚：官方预览姿态之一（原始文件名 mf-pose-belly），1024×1024 透明底裸图——奶蛙正面站姿、露出米色腹部。适合二次创作与合成。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-微愠.png",
@@ -1038,9 +1038,9 @@
       "thumb": "assets/relics/emotes/奶蛙-微愠.webp",
       "type": "image",
       "bytes": 68105,
+      "narrative": "脸颊泛红，眉头微蹙，生气的奶蛙也可爱。",
       "width": 342,
-      "height": 224,
-      "narrative": "脸颊泛红，眉头微蹙，生气的奶蛙也可爱。"
+      "height": 224
     },
     {
       "id": "emotes/奶蛙-托腮.png",
@@ -1052,9 +1052,9 @@
       "thumb": "assets/relics/emotes/奶蛙-托腮.webp",
       "type": "image",
       "bytes": 155767,
+      "narrative": "单手托腮，微笑地看着世界。",
       "width": 480,
-      "height": 456,
-      "narrative": "单手托腮，微笑地看着世界。"
+      "height": 456
     },
     {
       "id": "emotes/奶蛙-斜眼吐舌.jpg",
@@ -1066,9 +1066,9 @@
       "thumb": "assets/relics/emotes/奶蛙-斜眼吐舌.webp",
       "type": "image",
       "bytes": 76528,
+      "narrative": "表情：奶蛙斜眼向上、吐着舌头，一副得瑟又欠揍的小表情。\n1500×1500 · JPEG · 来源：百度图片（bkimg.cdn.bcebos.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "表情：奶蛙斜眼向上、吐着舌头，一副得瑟又欠揍的小表情。\n1500×1500 · JPEG · 来源：百度图片（bkimg.cdn.bcebos.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-桌边微笑.jpg",
@@ -1080,9 +1080,9 @@
       "thumb": "assets/relics/emotes/奶蛙-桌边微笑.webp",
       "type": "image",
       "bytes": 206260,
+      "narrative": "奶蛙趴在木桌边露出眯眼微笑，像在等你投喂的居家照。\n1440×2508 · JPEG · 来源：百度图片（pic.rmb.bdstatic.com 百家号图床） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 276,
-      "height": 480,
-      "narrative": "奶蛙趴在木桌边露出眯眼微笑，像在等你投喂的居家照。\n1440×2508 · JPEG · 来源：百度图片（pic.rmb.bdstatic.com 百家号图床） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-气鼓鼓.png",
@@ -1094,9 +1094,9 @@
       "thumb": "assets/relics/emotes/奶蛙-气鼓鼓.webp",
       "type": "image",
       "bytes": 129887,
+      "narrative": "抿嘴皱眉，气鼓鼓的奶蛙。",
       "width": 480,
-      "height": 424,
-      "narrative": "抿嘴皱眉，气鼓鼓的奶蛙。"
+      "height": 424
     },
     {
       "id": "emotes/奶蛙-点鼻.png",
@@ -1108,9 +1108,9 @@
       "thumb": "assets/relics/emotes/奶蛙-点鼻.webp",
       "type": "image",
       "bytes": 150693,
+      "narrative": "手指点着鼻尖，俏皮小动作。",
       "width": 465,
-      "height": 480,
-      "narrative": "手指点着鼻尖，俏皮小动作。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-疑惑.png",
@@ -1122,9 +1122,9 @@
       "thumb": "assets/relics/emotes/奶蛙-疑惑.webp",
       "type": "image",
       "bytes": 445645,
+      "narrative": "歪头皱眉，头顶冒出一个大问号。",
       "width": 458,
-      "height": 480,
-      "narrative": "歪头皱眉，头顶冒出一个大问号。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-立绘-招手.png",
@@ -1136,9 +1136,9 @@
       "thumb": "assets/relics/emotes/奶蛙-立绘-招手.webp",
       "type": "image",
       "bytes": 5640534,
+      "narrative": "白底全身立绘：奶蛙站姿抬起右爪招手，浅米肚皮、绿眼、灰爪俱全。全网筛选的高清无字无水印版本，可作官方立绘资源使用。\n4096×4096 · PNG · 来源：百度图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "白底全身立绘：奶蛙站姿抬起右爪招手，浅米肚皮、绿眼、灰爪俱全。全网筛选的高清无字无水印版本，可作官方立绘资源使用。\n4096×4096 · PNG · 来源：百度图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-立绘-站立.png",
@@ -1150,9 +1150,9 @@
       "thumb": "assets/relics/emotes/奶蛙-立绘-站立.webp",
       "type": "image",
       "bytes": 661746,
+      "narrative": "黑底全身立绘：奶蛙正身站立、双眼平视，构图干净，适合贴纸与抠图二次创作。\n1242×1242 · PNG · 来源：百度图片（pics0.baidu.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "黑底全身立绘：奶蛙正身站立、双眼平视，构图干净，适合贴纸与抠图二次创作。\n1242×1242 · PNG · 来源：百度图片（pics0.baidu.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-立绘-雀跃.png",
@@ -1164,9 +1164,9 @@
       "thumb": "assets/relics/emotes/奶蛙-立绘-雀跃.webp",
       "type": "image",
       "bytes": 335673,
+      "narrative": "黑底全身立绘：奶蛙双臂张开腾空跃起，单脚离地的动感姿态。\n1000×1000 · PNG · 来源：必应图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 480,
-      "narrative": "黑底全身立绘：奶蛙双臂张开腾空跃起，单脚离地的动感姿态。\n1000×1000 · PNG · 来源：必应图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-红晕托颌.png",
@@ -1178,9 +1178,9 @@
       "thumb": "assets/relics/emotes/奶蛙-红晕托颌.webp",
       "type": "image",
       "bytes": 32939,
+      "narrative": "手托下巴，脸颊泛红，害羞的模样。",
       "width": 175,
-      "height": 175,
-      "narrative": "手托下巴，脸颊泛红，害羞的模样。"
+      "height": 175
     },
     {
       "id": "emotes/奶蛙-表情-01.jpeg",
@@ -1192,9 +1192,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-01.webp",
       "type": "image",
       "bytes": 46430,
+      "narrative": "奶蛙-表情-01：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。\n注：本件与 `laugh-gallery/奶蛙-粉肤捧腹.png` 为同一形象构图的不同分辨率版本，分属表情收藏与大笑藏馆两个系列。",
       "width": 480,
-      "height": 471,
-      "narrative": "奶蛙-表情-01：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。\n注：本件与 `laugh-gallery/奶蛙-粉肤捧腹.png` 为同一形象构图的不同分辨率版本，分属表情收藏与大笑藏馆两个系列。"
+      "height": 471
     },
     {
       "id": "emotes/奶蛙-表情-02.jpeg",
@@ -1206,9 +1206,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-02.webp",
       "type": "image",
       "bytes": 37375,
+      "narrative": "奶蛙-表情-02：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-表情-02：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-表情-03.jpeg",
@@ -1220,9 +1220,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-03.webp",
       "type": "image",
       "bytes": 40753,
+      "narrative": "奶蛙-表情-03：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 475,
-      "narrative": "奶蛙-表情-03：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 475
     },
     {
       "id": "emotes/奶蛙-表情-04.jpeg",
@@ -1234,9 +1234,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-04.webp",
       "type": "image",
       "bytes": 43251,
+      "narrative": "奶蛙-表情-04：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 474,
-      "narrative": "奶蛙-表情-04：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 474
     },
     {
       "id": "emotes/奶蛙-表情-05.jpeg",
@@ -1248,9 +1248,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-05.webp",
       "type": "image",
       "bytes": 44390,
+      "narrative": "奶蛙-表情-05：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 478,
-      "narrative": "奶蛙-表情-05：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 478
     },
     {
       "id": "emotes/奶蛙-表情-06.jpeg",
@@ -1262,9 +1262,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-06.webp",
       "type": "image",
       "bytes": 54614,
+      "narrative": "奶蛙-表情-06：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 477,
-      "narrative": "奶蛙-表情-06：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 477
     },
     {
       "id": "emotes/奶蛙-表情-07.jpeg",
@@ -1276,9 +1276,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-07.webp",
       "type": "image",
       "bytes": 40970,
+      "narrative": "奶蛙-表情-07：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 478,
-      "narrative": "奶蛙-表情-07：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 478
     },
     {
       "id": "emotes/奶蛙-表情-08.gif",
@@ -1290,9 +1290,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-08.webp",
       "type": "gif",
       "bytes": 4527389,
+      "narrative": "奶蛙-表情-08：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 300,
-      "height": 300,
-      "narrative": "奶蛙-表情-08：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 300
     },
     {
       "id": "emotes/奶蛙-表情-09.jpeg",
@@ -1304,9 +1304,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-09.webp",
       "type": "image",
       "bytes": 48446,
+      "narrative": "奶蛙-表情-09：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 473,
-      "narrative": "奶蛙-表情-09：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 473
     },
     {
       "id": "emotes/奶蛙-表情-10.jpeg",
@@ -1318,9 +1318,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-10.webp",
       "type": "image",
       "bytes": 47727,
+      "narrative": "奶蛙-表情-10：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 473,
-      "narrative": "奶蛙-表情-10：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 473
     },
     {
       "id": "emotes/奶蛙-表情-11.jpeg",
@@ -1332,9 +1332,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-11.webp",
       "type": "image",
       "bytes": 51154,
+      "narrative": "奶蛙-表情-11：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 472,
-      "narrative": "奶蛙-表情-11：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 472
     },
     {
       "id": "emotes/奶蛙-表情-12.gif",
@@ -1346,9 +1346,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-12.webp",
       "type": "gif",
       "bytes": 325092,
+      "narrative": "奶蛙-表情-12：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 169,
-      "height": 180,
-      "narrative": "奶蛙-表情-12：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 180
     },
     {
       "id": "emotes/奶蛙-表情-13.png",
@@ -1360,9 +1360,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-13.webp",
       "type": "image",
       "bytes": 8090,
+      "narrative": "奶蛙-表情-13：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 431,
-      "narrative": "奶蛙-表情-13：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 431
     },
     {
       "id": "emotes/奶蛙-表情-14.gif",
@@ -1374,9 +1374,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-14.webp",
       "type": "gif",
       "bytes": 714250,
+      "narrative": "奶蛙-表情-14：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 216,
-      "height": 216,
-      "narrative": "奶蛙-表情-14：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 216
     },
     {
       "id": "emotes/奶蛙-表情-15.png",
@@ -1388,9 +1388,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-15.webp",
       "type": "image",
       "bytes": 105033,
+      "narrative": "奶蛙-表情-15：奶蛙表情素材（496×504 静图；原文件误标为 .gif 且仅含单帧，v2.5 转为 PNG），馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 472,
-      "height": 480,
-      "narrative": "奶蛙-表情-15：奶蛙表情素材（496×504 静图；原文件误标为 .gif 且仅含单帧，v2.5 转为 PNG），馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-表情-16.gif",
@@ -1402,9 +1402,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-16.webp",
       "type": "gif",
       "bytes": 968974,
+      "narrative": "奶蛙-表情-16：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 399,
-      "narrative": "奶蛙-表情-16：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 399
     },
     {
       "id": "emotes/奶蛙-表情-17.gif",
@@ -1416,9 +1416,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-17.webp",
       "type": "gif",
       "bytes": 815359,
+      "narrative": "奶蛙-表情-17：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 288,
-      "height": 324,
-      "narrative": "奶蛙-表情-17：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 324
     },
     {
       "id": "emotes/奶蛙-表情-18.jpg",
@@ -1430,9 +1430,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-18.webp",
       "type": "image",
       "bytes": 7126,
+      "narrative": "奶蛙-表情-18：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 360,
-      "height": 480,
-      "narrative": "奶蛙-表情-18：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-表情-19.gif",
@@ -1444,9 +1444,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-19.webp",
       "type": "gif",
       "bytes": 922791,
+      "narrative": "奶蛙-表情-19：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 288,
-      "height": 384,
-      "narrative": "奶蛙-表情-19：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 384
     },
     {
       "id": "emotes/奶蛙-表情-20.jpg",
@@ -1458,9 +1458,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-20.webp",
       "type": "image",
       "bytes": 11800,
+      "narrative": "奶蛙-表情-20：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 480,
-      "height": 480,
-      "narrative": "奶蛙-表情-20：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-表情-21.gif",
@@ -1472,9 +1472,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-21.webp",
       "type": "gif",
       "bytes": 958275,
+      "narrative": "奶蛙-表情-21：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。",
       "width": 240,
-      "height": 240,
-      "narrative": "奶蛙-表情-21：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。"
+      "height": 240
     },
     {
       "id": "emotes/奶蛙-表情-22.gif",
@@ -1486,9 +1486,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-22.webp",
       "type": "gif",
       "bytes": 797481,
+      "narrative": "奶蛙-表情-22：200×189 / 7.2 秒循环动图，网络收集的奶蛙动图素材，用于日常斗图与情绪表达。",
       "width": 200,
-      "height": 189,
-      "narrative": "奶蛙-表情-22：200×189 / 7.2 秒循环动图，网络收集的奶蛙动图素材，用于日常斗图与情绪表达。"
+      "height": 189
     },
     {
       "id": "emotes/奶蛙-表情-23.webp",
@@ -1500,9 +1500,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-23.webp",
       "type": "image",
       "bytes": 1968,
+      "narrative": "奶蛙-表情-23：200×207 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。",
       "width": 200,
-      "height": 207,
-      "narrative": "奶蛙-表情-23：200×207 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。"
+      "height": 207
     },
     {
       "id": "emotes/奶蛙-表情-24.webp",
@@ -1514,9 +1514,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-24.webp",
       "type": "image",
       "bytes": 4024,
+      "narrative": "奶蛙-表情-24：200×200 方形静态表情（WebP），网络收集，用于日常斗图与二次创作。",
       "width": 200,
-      "height": 200,
-      "narrative": "奶蛙-表情-24：200×200 方形静态表情（WebP），网络收集，用于日常斗图与二次创作。"
+      "height": 200
     },
     {
       "id": "emotes/奶蛙-表情-25.webp",
@@ -1528,9 +1528,9 @@
       "thumb": "assets/relics/emotes/奶蛙-表情-25.webp",
       "type": "image",
       "bytes": 4718,
+      "narrative": "奶蛙-表情-25：497×504 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。\n同批另一件 200×203 版本与本件为同一图的两个分辨率（逐格比对一致），按去重原则仅入库本高清版。",
       "width": 473,
-      "height": 480,
-      "narrative": "奶蛙-表情-25：497×504 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。\n同批另一件 200×203 版本与本件为同一图的两个分辨率（逐格比对一致），按去重原则仅入库本高清版。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-蹲坐托腮.png",
@@ -1542,9 +1542,9 @@
       "thumb": "assets/relics/emotes/奶蛙-蹲坐托腮.webp",
       "type": "image",
       "bytes": 197441,
+      "narrative": "蹲坐在地，双手托腮，温顺等夸奖。",
       "width": 480,
-      "height": 480,
-      "narrative": "蹲坐在地，双手托腮，温顺等夸奖。"
+      "height": 480
     },
     {
       "id": "emotes/奶蛙-露齿大笑.png",
@@ -1556,9 +1556,9 @@
       "thumb": "assets/relics/emotes/奶蛙-露齿大笑.webp",
       "type": "image",
       "bytes": 133031,
+      "narrative": "矮胖身材，张嘴露齿，笑得很用力。",
       "width": 480,
-      "height": 433,
-      "narrative": "矮胖身材，张嘴露齿，笑得很用力。"
+      "height": 433
     },
     {
       "id": "art/奶蛙-厨师烹饪.jpg",
@@ -1570,9 +1570,9 @@
       "thumb": "assets/relics/art/奶蛙-厨师烹饪.webp",
       "type": "image",
       "bytes": 363033,
+      "narrative": "厨房场景：奶蛙戴厨师帽、握汤勺张罗翻炒，青花瓷碗与虾仁入镜，烟火气十足。AI 生成。\n2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 270,
-      "narrative": "厨房场景：奶蛙戴厨师帽、握汤勺张罗翻炒，青花瓷碗与虾仁入镜，烟火气十足。AI 生成。\n2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 270
     },
     {
       "id": "art/奶蛙-樱花都市.jpg",
@@ -1584,9 +1584,9 @@
       "thumb": "assets/relics/art/奶蛙-樱花都市.webp",
       "type": "image",
       "bytes": 569986,
+      "narrative": "都市夜景：樱花与紫藤垂落河畔，霓虹楼宇倒映水面，奶蛙站在石板路边。AI 生成。\n2560×1440 · JPEG · 来源：百度图片（i0.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）",
       "width": 480,
-      "height": 270,
-      "narrative": "都市夜景：樱花与紫藤垂落河畔，霓虹楼宇倒映水面，奶蛙站在石板路边。AI 生成。\n2560×1440 · JPEG · 来源：百度图片（i0.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）"
+      "height": 270
     },
     {
       "id": "art/奶蛙-艺术-01.png",
@@ -1598,9 +1598,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-01.webp",
       "type": "image",
       "bytes": 5970776,
+      "narrative": "奶蛙-艺术-01：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-01：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-02.png",
@@ -1612,9 +1612,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-02.webp",
       "type": "image",
       "bytes": 7441223,
+      "narrative": "奶蛙-艺术-02：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 267,
-      "height": 480,
-      "narrative": "奶蛙-艺术-02：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-03.png",
@@ -1626,9 +1626,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-03.webp",
       "type": "image",
       "bytes": 6153325,
+      "narrative": "奶蛙-艺术-03：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-03：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-04.png",
@@ -1640,9 +1640,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-04.webp",
       "type": "image",
       "bytes": 6473320,
+      "narrative": "奶蛙-艺术-04：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-04：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-05.png",
@@ -1654,9 +1654,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-05.webp",
       "type": "image",
       "bytes": 6594820,
+      "narrative": "奶蛙-艺术-05：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-05：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-06.png",
@@ -1668,9 +1668,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-06.webp",
       "type": "image",
       "bytes": 7696354,
+      "narrative": "奶蛙-艺术-06：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-06：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-07.png",
@@ -1682,9 +1682,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-07.webp",
       "type": "image",
       "bytes": 5838050,
+      "narrative": "奶蛙-艺术-07：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-07：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-08.png",
@@ -1696,9 +1696,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-08.webp",
       "type": "image",
       "bytes": 5225270,
+      "narrative": "奶蛙-艺术-08：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-08：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-09.png",
@@ -1710,9 +1710,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-09.webp",
       "type": "image",
       "bytes": 1788658,
+      "narrative": "奶蛙-艺术-09：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-09：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-10.png",
@@ -1724,9 +1724,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-10.webp",
       "type": "image",
       "bytes": 5730198,
+      "narrative": "奶蛙-艺术-10：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-10：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-11.png",
@@ -1738,9 +1738,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-11.webp",
       "type": "image",
       "bytes": 7518606,
+      "narrative": "奶蛙-艺术-11：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-11：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-12.png",
@@ -1752,9 +1752,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-12.webp",
       "type": "image",
       "bytes": 9655909,
+      "narrative": "奶蛙-艺术-12：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-12：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-13.png",
@@ -1766,9 +1766,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-13.webp",
       "type": "image",
       "bytes": 1745689,
+      "narrative": "奶蛙-艺术-13：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-13：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-14.png",
@@ -1780,9 +1780,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-14.webp",
       "type": "image",
       "bytes": 4829930,
+      "narrative": "奶蛙-艺术-14：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-14：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-15.png",
@@ -1794,9 +1794,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-15.webp",
       "type": "image",
       "bytes": 6254059,
+      "narrative": "奶蛙-艺术-15：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-15：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-16.png",
@@ -1808,9 +1808,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-16.webp",
       "type": "image",
       "bytes": 8259421,
+      "narrative": "奶蛙-艺术-16：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-16：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-17.png",
@@ -1822,9 +1822,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-17.webp",
       "type": "image",
       "bytes": 6819983,
+      "narrative": "奶蛙-艺术-17：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-17：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-18.png",
@@ -1836,9 +1836,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-18.webp",
       "type": "image",
       "bytes": 7117892,
+      "narrative": "奶蛙-艺术-18：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-18：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-19.png",
@@ -1850,9 +1850,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-19.webp",
       "type": "image",
       "bytes": 6713801,
+      "narrative": "奶蛙-艺术-19：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-19：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-20.png",
@@ -1864,9 +1864,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-20.webp",
       "type": "image",
       "bytes": 5058661,
+      "narrative": "奶蛙-艺术-20：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-20：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-21.jpg",
@@ -1878,9 +1878,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-21.webp",
       "type": "image",
       "bytes": 9672270,
+      "narrative": "奶蛙-艺术-21：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-21：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-22.png",
@@ -1892,9 +1892,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-22.webp",
       "type": "image",
       "bytes": 5000924,
+      "narrative": "奶蛙-艺术-22：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-22：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-23.png",
@@ -1906,9 +1906,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-23.webp",
       "type": "image",
       "bytes": 5791349,
+      "narrative": "奶蛙-艺术-23：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-23：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-24.png",
@@ -1920,9 +1920,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-24.webp",
       "type": "image",
       "bytes": 6051417,
+      "narrative": "奶蛙-艺术-24：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-24：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-25.jpg",
@@ -1934,9 +1934,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-25.webp",
       "type": "image",
       "bytes": 9810055,
+      "narrative": "奶蛙-艺术-25：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-25：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-26.png",
@@ -1948,9 +1948,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-26.webp",
       "type": "image",
       "bytes": 6057048,
+      "narrative": "奶蛙-艺术-26：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-26：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-27.jpg",
@@ -1962,9 +1962,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-27.webp",
       "type": "image",
       "bytes": 1242696,
+      "narrative": "奶蛙-艺术-27：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-27：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-28.png",
@@ -1976,9 +1976,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-28.webp",
       "type": "image",
       "bytes": 5615444,
+      "narrative": "奶蛙-艺术-28：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-28：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-29.jpg",
@@ -1990,9 +1990,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-29.webp",
       "type": "image",
       "bytes": 739678,
+      "narrative": "奶蛙-艺术-29：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-29：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-30.jpg",
@@ -2004,9 +2004,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-30.webp",
       "type": "image",
       "bytes": 2606467,
+      "narrative": "奶蛙-艺术-30：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-30：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-31.jpg",
@@ -2018,9 +2018,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-31.webp",
       "type": "image",
       "bytes": 3504055,
+      "narrative": "奶蛙-艺术-31：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-31：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-32.jpg",
@@ -2032,9 +2032,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-32.webp",
       "type": "image",
       "bytes": 3263572,
+      "narrative": "奶蛙-艺术-32：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-32：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-33.jpg",
@@ -2046,9 +2046,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-33.webp",
       "type": "image",
       "bytes": 3167426,
+      "narrative": "奶蛙-艺术-33：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-33：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-34.jpg",
@@ -2060,9 +2060,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-34.webp",
       "type": "image",
       "bytes": 3157118,
+      "narrative": "奶蛙-艺术-34：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-34：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-35.png",
@@ -2074,9 +2074,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-35.webp",
       "type": "image",
       "bytes": 5566717,
+      "narrative": "奶蛙-艺术-35：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-35：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "art/奶蛙-艺术-36.png",
@@ -2088,9 +2088,9 @@
       "thumb": "assets/relics/art/奶蛙-艺术-36.webp",
       "type": "image",
       "bytes": 7683804,
+      "narrative": "奶蛙-艺术-36：奶蛙 AI 艺术场景图，馆藏艺术衍生。",
       "width": 268,
-      "height": 480,
-      "narrative": "奶蛙-艺术-36：奶蛙 AI 艺术场景图，馆藏艺术衍生。"
+      "height": 480
     },
     {
       "id": "hd/奶蛙-高清-01.jpg",
@@ -2102,9 +2102,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-01.webp",
       "type": "image",
       "bytes": 109236,
+      "narrative": "奶蛙-高清-01：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-01：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-02.jpg",
@@ -2116,9 +2116,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-02.webp",
       "type": "image",
       "bytes": 108724,
+      "narrative": "奶蛙-高清-02：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-02：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-03.jpg",
@@ -2130,9 +2130,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-03.webp",
       "type": "image",
       "bytes": 83100,
+      "narrative": "奶蛙-高清-03：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-03：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-04.jpg",
@@ -2144,9 +2144,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-04.webp",
       "type": "image",
       "bytes": 98373,
+      "narrative": "奶蛙-高清-04：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-04：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-05.jpg",
@@ -2158,9 +2158,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-05.webp",
       "type": "image",
       "bytes": 103696,
+      "narrative": "奶蛙-高清-05：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-05：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-06.jpg",
@@ -2172,9 +2172,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-06.webp",
       "type": "image",
       "bytes": 106661,
+      "narrative": "奶蛙-高清-06：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-06：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-07.jpg",
@@ -2186,9 +2186,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-07.webp",
       "type": "image",
       "bytes": 121058,
+      "narrative": "奶蛙-高清-07：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-07：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-08.jpg",
@@ -2200,9 +2200,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-08.webp",
       "type": "image",
       "bytes": 100119,
+      "narrative": "奶蛙-高清-08：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-08：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-09.jpg",
@@ -2214,9 +2214,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-09.webp",
       "type": "image",
       "bytes": 117878,
+      "narrative": "奶蛙-高清-09：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-09：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-10.jpg",
@@ -2228,9 +2228,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-10.webp",
       "type": "image",
       "bytes": 105619,
+      "narrative": "奶蛙-高清-10：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-10：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-11.jpg",
@@ -2242,9 +2242,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-11.webp",
       "type": "image",
       "bytes": 108384,
+      "narrative": "奶蛙-高清-11：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-11：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-12.jpg",
@@ -2256,9 +2256,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-12.webp",
       "type": "image",
       "bytes": 115722,
+      "narrative": "奶蛙-高清-12：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-12：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-13.jpg",
@@ -2270,9 +2270,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-13.webp",
       "type": "image",
       "bytes": 177346,
+      "narrative": "奶蛙-高清-13：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-13：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-14.jpg",
@@ -2284,9 +2284,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-14.webp",
       "type": "image",
       "bytes": 91436,
+      "narrative": "奶蛙-高清-14：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-14：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-15.jpg",
@@ -2298,9 +2298,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-15.webp",
       "type": "image",
       "bytes": 123782,
+      "narrative": "奶蛙-高清-15：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-15：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-16.jpg",
@@ -2312,9 +2312,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-16.webp",
       "type": "image",
       "bytes": 139444,
+      "narrative": "奶蛙-高清-16：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-16：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-17.jpg",
@@ -2326,9 +2326,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-17.webp",
       "type": "image",
       "bytes": 249918,
+      "narrative": "奶蛙-高清-17：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-17：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-18.jpg",
@@ -2340,9 +2340,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-18.webp",
       "type": "image",
       "bytes": 168497,
+      "narrative": "奶蛙-高清-18：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-18：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-19.jpg",
@@ -2354,9 +2354,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-19.webp",
       "type": "image",
       "bytes": 95782,
+      "narrative": "奶蛙-高清-19：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-19：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-20.jpg",
@@ -2368,9 +2368,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-20.webp",
       "type": "image",
       "bytes": 161065,
+      "narrative": "奶蛙-高清-20：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-20：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-21.jpg",
@@ -2382,9 +2382,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-21.webp",
       "type": "image",
       "bytes": 121029,
+      "narrative": "奶蛙-高清-21：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-21：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "hd/奶蛙-高清-22.jpg",
@@ -2396,9 +2396,9 @@
       "thumb": "assets/relics/hd/奶蛙-高清-22.webp",
       "type": "image",
       "bytes": 309000,
+      "narrative": "奶蛙-高清-22：奶蛙高清表情壁纸，馆藏高清素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-高清-22：奶蛙高清表情壁纸，馆藏高清素材。"
+      "height": 270
     },
     {
       "id": "4k/奶蛙-4K-叉腰指点-03.jpg",
@@ -2410,9 +2410,9 @@
       "thumb": "assets/relics/4k/奶蛙-4K-叉腰指点-03.webp",
       "type": "image",
       "bytes": 428674,
+      "narrative": "叉腰指点：左手叉腰、右手指向前方，张嘴露牙大笑，全身立姿，灰爪与脚掌同色。\n奶蛙艺术圣殿 · 指点系列。这一张是奶蛙少有的「主动出击」姿态，笑得很张狂，也很像在跟谁分享刚发现的大笑点。\n分辨率：3840×3790 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材",
       "width": 480,
-      "height": 474,
-      "narrative": "叉腰指点：左手叉腰、右手指向前方，张嘴露牙大笑，全身立姿，灰爪与脚掌同色。\n奶蛙艺术圣殿 · 指点系列。这一张是奶蛙少有的「主动出击」姿态，笑得很张狂，也很像在跟谁分享刚发现的大笑点。\n分辨率：3840×3790 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材"
+      "height": 474
     },
     {
       "id": "4k/奶蛙-4K-张臂平衡-05.jpg",
@@ -2424,9 +2424,9 @@
       "thumb": "assets/relics/4k/奶蛙-4K-张臂平衡-05.webp",
       "type": "image",
       "bytes": 310995,
+      "narrative": "张臂平衡：张开双臂单腿站立，重心歪着，绿眼圆睁、露齿笑，灰爪张开。\n奶蛙艺术圣殿 · 平衡系列。竖构图 2880×3840，手机与竖屏显示器上最能撑满画面的一张。\n分辨率：2880×3840 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材",
       "width": 360,
-      "height": 480,
-      "narrative": "张臂平衡：张开双臂单腿站立，重心歪着，绿眼圆睁、露齿笑，灰爪张开。\n奶蛙艺术圣殿 · 平衡系列。竖构图 2880×3840，手机与竖屏显示器上最能撑满画面的一张。\n分辨率：2880×3840 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材"
+      "height": 480
     },
     {
       "id": "4k/奶蛙-4K-托腮沉思-04.jpg",
@@ -2438,9 +2438,9 @@
       "thumb": "assets/relics/4k/奶蛙-4K-托腮沉思-04.webp",
       "type": "image",
       "bytes": 355288,
+      "narrative": "托腮沉思：侧身单手托腮，绿眼斜视上方，抿嘴不语，浅米腹占了大半画面。\n奶蛙艺术圣殿 · 沉思系列。全仓唯一一张安静的奶蛙，手支着下巴想事情的样子，配深夜当新标签页很合适。\n分辨率：3840×3616 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材",
       "width": 480,
-      "height": 452,
-      "narrative": "托腮沉思：侧身单手托腮，绿眼斜视上方，抿嘴不语，浅米腹占了大半画面。\n奶蛙艺术圣殿 · 沉思系列。全仓唯一一张安静的奶蛙，手支着下巴想事情的样子，配深夜当新标签页很合适。\n分辨率：3840×3616 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材"
+      "height": 452
     },
     {
       "id": "4k/奶蛙-4K-抱头震惊-02.jpg",
@@ -2452,9 +2452,9 @@
       "thumb": "assets/relics/4k/奶蛙-4K-抱头震惊-02.webp",
       "type": "image",
       "bytes": 439838,
+      "narrative": "抱头震惊：双手抱头立在原地，绿眼圆睁、嘴巴微张，浅米腹圆鼓，灰爪压在头顶。\n奶蛙艺术圣殿 · 震惊系列。表情克制但眼神诚实——那种「我刚意识到事情不妙」的瞬间，被 4K 完整留住了。\n分辨率：3840×3822 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材",
       "width": 480,
-      "height": 478,
-      "narrative": "抱头震惊：双手抱头立在原地，绿眼圆睁、嘴巴微张，浅米腹圆鼓，灰爪压在头顶。\n奶蛙艺术圣殿 · 震惊系列。表情克制但眼神诚实——那种「我刚意识到事情不妙」的瞬间，被 4K 完整留住了。\n分辨率：3840×3822 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材"
+      "height": 478
     },
     {
       "id": "4k/奶蛙-4K-捶头大笑-01.jpg",
@@ -2466,9 +2466,9 @@
       "thumb": "assets/relics/4k/奶蛙-4K-捶头大笑-01.webp",
       "type": "image",
       "bytes": 405744,
+      "narrative": "捶头大笑：双手抱头、仰头张口大笑，眼睛笑成一条缝，灰爪按在脑袋上，浅米腹一起颤。\n奶蛙艺术圣殿 · 捶头大笑系列第一作。全网流传的捶笑姿势 4K 复刻，牙口完整、笑意到位，是奶蛙表情库里最有辨识度的一张。\n分辨率：3840×3826 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材",
       "width": 480,
-      "height": 478,
-      "narrative": "捶头大笑：双手抱头、仰头张口大笑，眼睛笑成一条缝，灰爪按在脑袋上，浅米腹一起颤。\n奶蛙艺术圣殿 · 捶头大笑系列第一作。全网流传的捶笑姿势 4K 复刻，牙口完整、笑意到位，是奶蛙表情库里最有辨识度的一张。\n分辨率：3840×3826 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材"
+      "height": 478
     },
     {
       "id": "frames/奶蛙-帧图-奶蛙的永恒-14s.png",
@@ -2480,9 +2480,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-奶蛙的永恒-14s.webp",
       "type": "image",
       "bytes": 1384202,
+      "narrative": "奶蛙-帧图-奶蛙的永恒-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 275,
-      "narrative": "奶蛙-帧图-奶蛙的永恒-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 275
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-10s.png",
@@ -2494,9 +2494,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-10s.webp",
       "type": "image",
       "bytes": 1457446,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-10s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-10s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-20s.png",
@@ -2508,9 +2508,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-20s.webp",
       "type": "image",
       "bytes": 1471079,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-30s.png",
@@ -2522,9 +2522,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-30s.webp",
       "type": "image",
       "bytes": 805763,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-30s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-30s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-40s.png",
@@ -2536,9 +2536,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-40s.webp",
       "type": "image",
       "bytes": 1037210,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-40s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-40s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-50s.png",
@@ -2550,9 +2550,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-50s.webp",
       "type": "image",
       "bytes": 1529359,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-50s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-50s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-60s.png",
@@ -2564,9 +2564,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-60s.webp",
       "type": "image",
       "bytes": 1156372,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-60s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-60s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-70s.png",
@@ -2578,9 +2578,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-70s.webp",
       "type": "image",
       "bytes": 1172962,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-70s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-70s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-孤独奶蛙主义-80s.png",
@@ -2592,9 +2592,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-孤独奶蛙主义-80s.webp",
       "type": "image",
       "bytes": 1199102,
+      "narrative": "奶蛙-帧图-孤独奶蛙主义-80s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 480,
-      "height": 270,
-      "narrative": "奶蛙-帧图-孤独奶蛙主义-80s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 270
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-0.5s.png",
@@ -2606,9 +2606,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-0.5s.webp",
       "type": "image",
       "bytes": 1870829,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-0.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-0.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-11s.png",
@@ -2620,9 +2620,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-11s.webp",
       "type": "image",
       "bytes": 2576241,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-11s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-11s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-12s.png",
@@ -2634,9 +2634,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-12s.webp",
       "type": "image",
       "bytes": 3781186,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-12s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-12s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-13s.png",
@@ -2648,9 +2648,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-13s.webp",
       "type": "image",
       "bytes": 1204485,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-13s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-13s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-14s.png",
@@ -2662,9 +2662,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-14s.webp",
       "type": "image",
       "bytes": 2353310,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-15.5s.png",
@@ -2676,9 +2676,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-15.5s.webp",
       "type": "image",
       "bytes": 3052870,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-15.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-15.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-16.5s.png",
@@ -2690,9 +2690,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-16.5s.webp",
       "type": "image",
       "bytes": 2696418,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-16.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-16.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-17.5s.png",
@@ -2704,9 +2704,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-17.5s.webp",
       "type": "image",
       "bytes": 2214737,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-17.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-17.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-18.5s.png",
@@ -2718,9 +2718,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-18.5s.webp",
       "type": "image",
       "bytes": 3118000,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-18.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-18.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-20s.png",
@@ -2732,9 +2732,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-20s.webp",
       "type": "image",
       "bytes": 3116407,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-21.5s.png",
@@ -2746,9 +2746,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-21.5s.webp",
       "type": "image",
       "bytes": 2219761,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-21.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-21.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-23s.png",
@@ -2760,9 +2760,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-23s.webp",
       "type": "image",
       "bytes": 1954418,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-23s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-23s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-24.5s.png",
@@ -2774,9 +2774,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-24.5s.webp",
       "type": "image",
       "bytes": 4325172,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-24.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-24.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-25.5s.png",
@@ -2788,9 +2788,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-25.5s.webp",
       "type": "image",
       "bytes": 2280478,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-25.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-25.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-25s.png",
@@ -2802,9 +2802,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-25s.webp",
       "type": "image",
       "bytes": 2857309,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-25s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-25s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-26.5s.png",
@@ -2816,9 +2816,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-26.5s.webp",
       "type": "image",
       "bytes": 3873916,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-26.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-26.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-26s.png",
@@ -2830,9 +2830,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-26s.webp",
       "type": "image",
       "bytes": 1482614,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-26s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-26s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-27.5s.png",
@@ -2844,9 +2844,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-27.5s.webp",
       "type": "image",
       "bytes": 2660331,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-27.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-27.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-27s.png",
@@ -2858,9 +2858,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-27s.webp",
       "type": "image",
       "bytes": 3141500,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-27s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-27s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-28.5s.png",
@@ -2872,9 +2872,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-28.5s.webp",
       "type": "image",
       "bytes": 1164647,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-28.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-28.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-28s.png",
@@ -2886,9 +2886,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-28s.webp",
       "type": "image",
       "bytes": 1336203,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-28s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-28s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-2s.png",
@@ -2900,9 +2900,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-2s.webp",
       "type": "image",
       "bytes": 1550070,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-2s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-2s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-3s.png",
@@ -2914,9 +2914,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-3s.webp",
       "type": "image",
       "bytes": 1765964,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-3s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-3s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-4s.png",
@@ -2928,9 +2928,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-4s.webp",
       "type": "image",
       "bytes": 1732609,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-4s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-4s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-5s.png",
@@ -2942,9 +2942,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-5s.webp",
       "type": "image",
       "bytes": 1775825,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-6.5s.png",
@@ -2956,9 +2956,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-6.5s.webp",
       "type": "image",
       "bytes": 2003744,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-6.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-6.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-7.5s.png",
@@ -2970,9 +2970,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-7.5s.webp",
       "type": "image",
       "bytes": 2081241,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-7.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-7.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-9.5s.png",
@@ -2984,9 +2984,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-9.5s.webp",
       "type": "image",
       "bytes": 2469148,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-9.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-9.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "frames/奶蛙-帧图-最伟大的奶蛙-9s.png",
@@ -2998,9 +2998,9 @@
       "thumb": "assets/relics/frames/奶蛙-帧图-最伟大的奶蛙-9s.webp",
       "type": "image",
       "bytes": 1731409,
+      "narrative": "奶蛙-帧图-最伟大的奶蛙-9s：奶蛙视频帧图/壁纸，馆藏衍生素材。",
       "width": 270,
-      "height": 480,
-      "narrative": "奶蛙-帧图-最伟大的奶蛙-9s：奶蛙视频帧图/壁纸，馆藏衍生素材。"
+      "height": 480
     },
     {
       "id": "videos/奶蛙-圣殿巡行.mp4",
@@ -3012,9 +3012,9 @@
       "thumb": "assets/relics/videos/奶蛙-圣殿巡行.webp",
       "type": "video",
       "bytes": 3605169,
+      "narrative": "官方圣影 · 一：巨型奶蛙缓步巡行圣殿——从审判大厅到圣光天际，镜头仰望它的足迹。圣殿巡行重构版，替换旧版游动形象。",
       "width": 480,
-      "height": 270,
-      "narrative": "官方圣影 · 一：巨型奶蛙缓步巡行圣殿——从审判大厅到圣光天际，镜头仰望它的足迹。圣殿巡行重构版，替换旧版游动形象。"
+      "height": 270
     },
     {
       "id": "videos/奶蛙-壁纸隧道.mp4",
@@ -3026,9 +3026,9 @@
       "thumb": "assets/relics/videos/奶蛙-壁纸隧道.webp",
       "type": "video",
       "bytes": 1570199,
+      "narrative": "官方圣影 · 二：穿过奶蛙壁纸的隧道，每一步都踩在快乐上。",
       "width": 480,
-      "height": 270,
-      "narrative": "官方圣影 · 二：穿过奶蛙壁纸的隧道，每一步都踩在快乐上。"
+      "height": 270
     },
     {
       "id": "videos/奶蛙-大笑.mp4",
@@ -3040,9 +3040,9 @@
       "thumb": "assets/relics/videos/奶蛙-大笑.webp",
       "type": "video",
       "bytes": 5568570,
+      "narrative": "15.4 秒连续大笑原片：单一奶蛙角色的连续大笑动画，1080×1474 / 30fps / 含原声。\n音频为约 5 Hz 的连续笑声音节节奏；全片无字幕、无水印，属可直接二次剪辑的裸片素材。\n规格：HEVC + AAC，5.23 MiB。sha256 前 8 位 1c05a2a8（社区流传的副本与本片字节一致，入仓前已比对去重）。",
       "width": 352,
-      "height": 480,
-      "narrative": "15.4 秒连续大笑原片：单一奶蛙角色的连续大笑动画，1080×1474 / 30fps / 含原声。\n音频为约 5 Hz 的连续笑声音节节奏；全片无字幕、无水印，属可直接二次剪辑的裸片素材。\n规格：HEVC + AAC，5.23 MiB。sha256 前 8 位 1c05a2a8（社区流传的副本与本片字节一致，入仓前已比对去重）。"
+      "height": 480
     },
     {
       "id": "videos/奶蛙-大笑藏馆巡展.mp4",
@@ -3054,9 +3054,9 @@
       "thumb": "assets/relics/videos/奶蛙-大笑藏馆巡展.webp",
       "type": "video",
       "bytes": 5382701,
+      "narrative": "巡展圣影 · 三：大笑藏馆巡展——十二幕真实圣像的 ken burns 巡礼，推拉之间，快乐全程不打烊。",
       "width": 480,
-      "height": 270,
-      "narrative": "巡展圣影 · 三：大笑藏馆巡展——十二幕真实圣像的 ken burns 巡礼，推拉之间，快乐全程不打烊。"
+      "height": 270
     },
     {
       "id": "assets/奶蛙-logo.jpg",
@@ -3068,10 +3068,9 @@
       "thumb": "assets/relics/assets/奶蛙-logo.webp",
       "type": "image",
       "bytes": 46096,
+      "narrative": "品牌标识：奶蛙捧腹大笑特写构图，黄圆润身体、浅米肚皮、绿眼灰爪，用于官网与插件角标。\n格式：JPEG · 用途：NaiLong-Universe 官网 / naiwa-wallpaper 插件品牌资产",
       "width": 480,
-      "height": 461,
-      "narrative": "品牌标识：奶蛙捧腹大笑特写构图，黄圆润身体、浅米肚皮、绿眼灰爪，用于官网与插件角标。\n格式：JPEG · 用途：NaiLong-Universe 官网 / naiwa-wallpaper 插件品牌资产"
+      "height": 461
     }
-  ],
-  "siteBase": "docs/"
+  ]
 }
