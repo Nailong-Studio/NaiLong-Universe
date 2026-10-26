@@ -1099,6 +1099,34 @@ html.js .work__frame.broken::after{
 .relic__joins .join:hover{background:var(--gold);color:#0a0a0c}
 @media(max-width:760px){.relics{grid-template-columns:1fr}.relic__grid.walls{grid-template-columns:repeat(2,1fr)}.relic__grid.emotes{grid-template-columns:repeat(3,1fr)}.relic__vids{grid-template-columns:1fr}.relic--join{grid-column:auto}}
 
+/* ============ 素材总览 · 圣物全图鉴 ============ */
+.vault{margin-top:clamp(54px,8vw,88px)}
+.section__note a{color:var(--gold-bright);border-bottom:1px solid rgba(255,213,79,.45)}
+.vault-toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:clamp(22px,3vw,32px)}
+.vault-chips{display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:240px}
+.vault-chip{padding:7px 14px;border:1px solid rgba(217,180,91,.34);border-radius:999px;background:rgba(11,8,6,.55);color:var(--ivory-dim);font-size:.72rem;letter-spacing:.12em;cursor:pointer;transition:border-color .3s,color .3s,background .3s}
+.vault-chip i{font-style:normal;color:var(--gold);margin-left:4px;font-size:.66rem}
+.vault-chip:hover,.vault-chip:focus-visible,.vault-chip.on{border-color:var(--gold);color:var(--gold-bright);background:rgba(217,180,91,.14)}
+.vault-search{flex:0 1 240px}
+.vault-search input{width:100%;padding:8px 13px;border:1px solid var(--line);background:rgba(11,8,6,.62);color:var(--ivory);font-size:.78rem;letter-spacing:.04em;outline:none}
+.vault-search input:focus{border-color:var(--gold)}
+.vault-count{margin:0;color:var(--gold);font-family:var(--serif);font-size:.78rem;letter-spacing:.18em;white-space:nowrap}
+.vault-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:clamp(10px,1.4vw,16px);margin-top:clamp(20px,3vw,28px)}
+.vault-card{position:relative;display:block;border:1px solid var(--line);background:var(--ash);color:inherit;text-decoration:none;overflow:hidden;transition:border-color .3s,transform .3s}
+.vault-card:hover,.vault-card:focus-visible{border-color:var(--gold);transform:translateY(-3px)}
+.vault-card[hidden]{display:none}
+.vault-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--ash-2)}
+.vault-card__tag{position:absolute;top:8px;left:8px;padding:3px 8px;border:1px solid rgba(255,213,79,.4);background:rgba(11,8,6,.78);color:var(--gold-bright);font-size:.62rem;letter-spacing:.14em;text-indent:.14em}
+.vault-card b{display:block;padding:9px 10px 2px;font-family:var(--serif);font-weight:400;font-size:.82rem;line-height:1.45}
+.vault-card small{display:block;padding:0 10px 10px;color:var(--ivory-dim);font-size:.64rem;letter-spacing:.1em}
+.vault-empty{text-align:center;color:var(--ivory-dim);margin-top:36px;letter-spacing:.16em;font-size:.86rem}
+.vault-cta{display:flex;width:max-content;margin:clamp(26px,4vw,38px) auto 0}
+@media (max-width:640px){
+  .vault-grid{grid-template-columns:repeat(2,1fr)}
+  .vault-search{flex:1 1 100%}
+  .vault-count{font-size:.72rem}
+}
+
 /* ============ 页脚 ============ */
 .footer{
   margin-top:clamp(80px,12vw,140px);
@@ -2492,7 +2520,7 @@ html.js .work__frame.broken::after{
   <div class="view__bar">
     <a class="view__back" href="#home">返回目录</a>
     <span class="view__title">朝 圣 之 路</span>
-    <span class="view__count">领取圣物</span>
+    <span class="view__count">领取圣物 · 215 件素材</span>
   </div>
 <section class="section" id="visit" aria-label="朝圣之路">
   <div class="wrap">
@@ -2501,7 +2529,7 @@ html.js .work__frame.broken::after{
       <h2 class="section__title">领 取 圣 物 · <em>带 奶 蛙 回 家</em></h2>
       <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
     </header>
-    <p class="section__note reveal">离殿之前，把圣物带回家：壁纸、表情、主题、圣影，皆可免费领取。</p>
+    <p class="section__note reveal">离殿之前，把圣物带回家：壁纸、表情、主题、圣影，皆可免费领取。全部 215 件素材可在下方 <a href="#relics">圣物全图鉴</a> 一次看全。</p>
     <div class="relics reveal">
       <article class="relic">
         <header class="relic__head">
@@ -2602,6 +2630,1384 @@ html.js .work__frame.broken::after{
     </div>
   </div>
 </section>
+
+<!-- 素材总览：全部 215 件资源由素材仓库同步而来 -->
+<section class="section vault" id="relics" aria-label="素材总览">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <p class="section__kicker">素材总览</p>
+      <h2 class="section__title">二 百 一 十 五 件 · <em>圣 物 全 图 鉴</em></h2>
+      <span class="arch" aria-hidden="true"><svg viewBox="0 0 52 30" fill="none"><path d="M2 30 L2 16 Q2 2 26 2 Q50 2 50 16 L50 30" stroke="currentColor" stroke-width="1.4"/><path d="M20 30 L20 18 Q20 10 26 10 Q32 10 32 18 L32 30" stroke="currentColor" stroke-width="1"/></svg></span>
+    </header>
+    <p class="section__note reveal">与素材仓库 <a href="https://github.com/Nailong-Studio/wallpaper" target="_blank" rel="noopener">Nailong-Studio/wallpaper</a> 同源：名画、大笑藏馆、表情、艺术场景、高清/4K 壁纸、视频帧图与官方圣影，一件不落。点击任意圣物查看原图。</p>
+    <div class="vault-toolbar reveal">
+      <div class="vault-chips" id="vaultChips" role="group" aria-label="按素材分类筛选">
+        <button class="vault-chip on" type="button" data-cat="all">全部 <i>215</i></button>
+        <button class="vault-chip" type="button" data-cat="classic">圣典名画 <i>38</i></button>
+        <button class="vault-chip" type="button" data-cat="laugh-gallery">大笑藏馆 <i>20</i></button>
+        <button class="vault-chip" type="button" data-cat="emotes">表情收藏 <i>49</i></button>
+        <button class="vault-chip" type="button" data-cat="art">艺术场景 <i>38</i></button>
+        <button class="vault-chip" type="button" data-cat="hd">高清壁纸 <i>22</i></button>
+        <button class="vault-chip" type="button" data-cat="4k">4K 大图 <i>5</i></button>
+        <button class="vault-chip" type="button" data-cat="frames">视频帧图 <i>38</i></button>
+        <button class="vault-chip" type="button" data-cat="videos">官方圣影 <i>4</i></button>
+        <button class="vault-chip" type="button" data-cat="assets">品牌资产 <i>1</i></button>
+      </div>
+      <div class="vault-search"><input id="vaultSearch" type="search" placeholder="搜索名称或叙事…" aria-label="搜索素材"></div>
+      <p class="vault-count" id="vaultCount" role="status">215 件</p>
+    </div>
+    <div class="vault-grid" id="vaultGrid">
+            <a class="vault-card" data-cat="classic" data-text="丘比蛙唤醒普绪蛙 02 丘比特的金箭换成了奶蛙的圆手，沉睡的普绪蛙被轻轻拍醒——梦醒了，笑也就醒了。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E4%B8%98%E6%AF%94%E8%9B%99%E5%94%A4%E9%86%92%E6%99%AE%E7%BB%AA%E8%9B%99-02.jpg" target="_blank" rel="noopener" title="丘比特的金箭换成了奶蛙的圆手，沉睡的普绪蛙被轻轻拍醒——梦醒了，笑也就醒了。" aria-label="查看《丘比蛙唤醒普绪蛙 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E4%B8%98%E6%AF%94%E8%9B%99%E5%94%A4%E9%86%92%E6%99%AE%E7%BB%AA%E8%9B%99-02.webp" alt="丘比蛙唤醒普绪蛙 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>丘比蛙唤醒普绪蛙 02</b>
+        <small>JPG · 194 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="之死 浴缸里的最后时刻，奶蛙安详闭眼，手中还攥着那封「快乐」的信。殉道，殉的是笑容。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E4%B9%8B%E6%AD%BB.jpg" target="_blank" rel="noopener" title="浴缸里的最后时刻，奶蛙安详闭眼，手中还攥着那封「快乐」的信。殉道，殉的是笑容。" aria-label="查看《之死》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E4%B9%8B%E6%AD%BB.webp" alt="之死" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>之死</b>
+        <small>JPG · 381 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="之筏 漂流的木筏上，奶蛙在桅顶举起一面黄旗。绝境里的希望，是它圆滚滚的背影。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E4%B9%8B%E7%AD%8F.jpg" target="_blank" rel="noopener" title="漂流的木筏上，奶蛙在桅顶举起一面黄旗。绝境里的希望，是它圆滚滚的背影。" aria-label="查看《之筏》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E4%B9%8B%E7%AD%8F.webp" alt="之筏" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>之筏</b>
+        <small>JPG · 510 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="以利蛙在迦密山 迦密山巅，烈焰自天而降。奶蛙立于火前，胸口的圣徽映出整座山的黄昏。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E4%BB%A5%E5%88%A9%E8%9B%99%E5%9C%A8%E8%BF%A6%E5%AF%86%E5%B1%B1.jpg" target="_blank" rel="noopener" title="迦密山巅，烈焰自天而降。奶蛙立于火前，胸口的圣徽映出整座山的黄昏。" aria-label="查看《以利蛙在迦密山》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E4%BB%A5%E5%88%A9%E8%9B%99%E5%9C%A8%E8%BF%A6%E5%AF%86%E5%B1%B1.webp" alt="以利蛙在迦密山" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>以利蛙在迦密山</b>
+        <small>JPG · 493 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="创造奶蛙 02 指尖将触未触，神与奶蛙隔着光对望。宇宙的第一粒快乐，就从这里被点亮。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%88%9B%E9%80%A0%E5%A5%B6%E8%9B%99-02.jpg" target="_blank" rel="noopener" title="指尖将触未触，神与奶蛙隔着光对望。宇宙的第一粒快乐，就从这里被点亮。" aria-label="查看《创造奶蛙 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%88%9B%E9%80%A0%E5%A5%B6%E8%9B%99-02.webp" alt="创造奶蛙 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>创造奶蛙 02</b>
+        <small>JPG · 408 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="华盛奶在蒙茅斯 02 蒙茅斯的冬夜，奶蛙乘舟踏雪而来。战旗猎猎，它把出征走成了春游。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%8D%8E%E7%9B%9B%E5%A5%B6%E5%9C%A8%E8%92%99%E8%8C%85%E6%96%AF-02.jpg" target="_blank" rel="noopener" title="蒙茅斯的冬夜，奶蛙乘舟踏雪而来。战旗猎猎，它把出征走成了春游。" aria-label="查看《华盛奶在蒙茅斯 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%8D%8E%E7%9B%9B%E5%A5%B6%E5%9C%A8%E8%92%99%E8%8C%85%E6%96%AF-02.webp" alt="华盛奶在蒙茅斯 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>华盛奶在蒙茅斯 02</b>
+        <small>JPG · 463 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="变容（纯享版） 奶蛙-变容（纯享版）——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%8F%98%E5%AE%B9%EF%BC%88%E7%BA%AF%E4%BA%AB%E7%89%88%EF%BC%89.jpg" target="_blank" rel="noopener" title="奶蛙-变容（纯享版）——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。" aria-label="查看《变容（纯享版）》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%8F%98%E5%AE%B9%EF%BC%88%E7%BA%AF%E4%BA%AB%E7%89%88%EF%BC%89.webp" alt="变容（纯享版）" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>变容（纯享版）</b>
+        <small>JPG · 510 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="召唤奶蛙 长桌旁，门徒们屏息围坐。奶蛙应声而来，把晚餐摆成了家宴。圣餐从此改名「奶里奶气」。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%8F%AC%E5%94%A4%E5%A5%B6%E8%9B%99.jpg" target="_blank" rel="noopener" title="长桌旁，门徒们屏息围坐。奶蛙应声而来，把晚餐摆成了家宴。圣餐从此改名「奶里奶气」。" aria-label="查看《召唤奶蛙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%8F%AC%E5%94%A4%E5%A5%B6%E8%9B%99.webp" alt="召唤奶蛙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>召唤奶蛙</b>
+        <small>JPG · 309 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="圣奶蛙归信 一束光从天顶倾泻，奶蛙跌进光里。归信的那一刻，连影子都成了暖黄。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E5%A5%B6%E8%9B%99%E5%BD%92%E4%BF%A1.jpg" target="_blank" rel="noopener" title="一束光从天顶倾泻，奶蛙跌进光里。归信的那一刻，连影子都成了暖黄。" aria-label="查看《圣奶蛙归信》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E5%A5%B6%E8%9B%99%E5%BD%92%E4%BF%A1.webp" alt="圣奶蛙归信" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>圣奶蛙归信</b>
+        <small>JPG · 403 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="圣母怜奶蛙 穹顶之下，圣母怀抱着小小的奶蛙圣像。哀伤被重新裱进暖黄的光里——这一次，连怜爱也奶里奶气。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E6%AF%8D%E6%80%9C%E5%A5%B6%E8%9B%99.jpg" target="_blank" rel="noopener" title="穹顶之下，圣母怀抱着小小的奶蛙圣像。哀伤被重新裱进暖黄的光里——这一次，连怜爱也奶里奶气。" aria-label="查看《圣母怜奶蛙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E6%AF%8D%E6%80%9C%E5%A5%B6%E8%9B%99.webp" alt="圣母怜奶蛙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>圣母怜奶蛙</b>
+        <small>JPG · 388 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="在塔楼阶梯上的会面 螺旋阶梯的转角，奶蛙与访客遥遥相望。台阶被它坐软，相逢被它放慢。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A8%E5%A1%94%E6%A5%BC%E9%98%B6%E6%A2%AF%E4%B8%8A%E7%9A%84%E4%BC%9A%E9%9D%A2.jpg" target="_blank" rel="noopener" title="螺旋阶梯的转角，奶蛙与访客遥遥相望。台阶被它坐软，相逢被它放慢。" aria-label="查看《在塔楼阶梯上的会面》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%9C%A8%E5%A1%94%E6%A5%BC%E9%98%B6%E6%A2%AF%E4%B8%8A%E7%9A%84%E4%BC%9A%E9%9D%A2.webp" alt="在塔楼阶梯上的会面" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>在塔楼阶梯上的会面</b>
+        <small>JPG · 487 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="复活 墓门推开，奶蛙睁开眼。复活的第一个念头：先笑一声，告诉人间不必怕。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A4%8D%E6%B4%BB.jpg" target="_blank" rel="noopener" title="墓门推开，奶蛙睁开眼。复活的第一个念头：先笑一声，告诉人间不必怕。" aria-label="查看《复活》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A4%8D%E6%B4%BB.webp" alt="复活" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>复活</b>
+        <small>JPG · 411 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="夜巡 02 伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A4%9C%E5%B7%A1-02.jpg" target="_blank" rel="noopener" title="伦勃朗《夜巡》竖屏版——夜色队伍里，奶蛙举枪站得笔直，阴影都被它照暖。" aria-label="查看《夜巡 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A4%9C%E5%B7%A1-02.webp" alt="夜巡 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>夜巡 02</b>
+        <small>JPG · 308 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="大天使长的最后审判 末日号角吹响，烈焰中的众生换上了同款黄脸。审判长是奶蛙——最后的罪名，只有一条：不够快乐。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E5%A4%A9%E4%BD%BF%E9%95%BF%E7%9A%84%E6%9C%80%E5%90%8E%E5%AE%A1%E5%88%A4.jpg" target="_blank" rel="noopener" title="末日号角吹响，烈焰中的众生换上了同款黄脸。审判长是奶蛙——最后的罪名，只有一条：不够快乐。" aria-label="查看《大天使长的最后审判》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E5%A4%A9%E4%BD%BF%E9%95%BF%E7%9A%84%E6%9C%80%E5%90%8E%E5%AE%A1%E5%88%A4.webp" alt="大天使长的最后审判" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>大天使长的最后审判</b>
+        <small>JPG · 198 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="天使向奶蛙显现 云海圣光之间，天使报来喜讯。奶蛙听完，决定把消息再咀嚼一会儿。福音，就此成立。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A9%E4%BD%BF%E5%90%91%E5%A5%B6%E8%9B%99%E6%98%BE%E7%8E%B0.jpg" target="_blank" rel="noopener" title="云海圣光之间，天使报来喜讯。奶蛙听完，决定把消息再咀嚼一会儿。福音，就此成立。" aria-label="查看《天使向奶蛙显现》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A9%E4%BD%BF%E5%90%91%E5%A5%B6%E8%9B%99%E6%98%BE%E7%8E%B0.webp" alt="天使向奶蛙显现" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>天使向奶蛙显现</b>
+        <small>JPG · 515 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="天启四奶蛙 雪山荒原上，四骑士策马而来。走近才看清，马背上是四只抱团取暖的奶蛙。末日，被可爱化了。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A9%E5%90%AF%E5%9B%9B%E5%A5%B6%E8%9B%99.jpg" target="_blank" rel="noopener" title="雪山荒原上，四骑士策马而来。走近才看清，马背上是四只抱团取暖的奶蛙。末日，被可爱化了。" aria-label="查看《天启四奶蛙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A4%A9%E5%90%AF%E5%9B%9B%E5%A5%B6%E8%9B%99.webp" alt="天启四奶蛙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>天启四奶蛙</b>
+        <small>JPG · 474 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶撒之死 元老院的长桌，最后一刀落下。奶蛙倒在白色长袍里，嘴角还留着笑——凯撒从没想过，死也能死得奶里奶气。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E6%92%92%E4%B9%8B%E6%AD%BB.jpg" target="_blank" rel="noopener" title="元老院的长桌，最后一刀落下。奶蛙倒在白色长袍里，嘴角还留着笑——凯撒从没想过，死也能死得奶里奶气。" aria-label="查看《奶撒之死》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E6%92%92%E4%B9%8B%E6%AD%BB.webp" alt="奶撒之死" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶撒之死</b>
+        <small>JPG · 407 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶破蛙在军校 军校课堂，奶破蛙正襟危坐。胸前的勋章黄得发亮，全班的军姿都软了几分。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E5%9C%A8%E5%86%9B%E6%A0%A1.jpg" target="_blank" rel="noopener" title="军校课堂，奶破蛙正襟危坐。胸前的勋章黄得发亮，全班的军姿都软了几分。" aria-label="查看《奶破蛙在军校》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E5%9C%A8%E5%86%9B%E6%A0%A1.webp" alt="奶破蛙在军校" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶破蛙在军校</b>
+        <small>JPG · 385 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶破蛙在战场 炮火连天的山坡，奶破蛙勒马而立。硝烟滚滚，它笑着把战场看成了烟火大会。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E5%9C%A8%E6%88%98%E5%9C%BA.jpg" target="_blank" rel="noopener" title="炮火连天的山坡，奶破蛙勒马而立。硝烟滚滚，它笑着把战场看成了烟火大会。" aria-label="查看《奶破蛙在战场》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E5%9C%A8%E6%88%98%E5%9C%BA.webp" alt="奶破蛙在战场" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶破蛙在战场</b>
+        <small>JPG · 446 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶破蛙的加冕典礼 宫廷灯火通明，贵族齐聚加冕礼。主角破例把王冠戴歪了一点——庄严，但不耽误快乐。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%9A%84%E5%8A%A0%E5%86%95%E5%85%B8%E7%A4%BC.jpg" target="_blank" rel="noopener" title="宫廷灯火通明，贵族齐聚加冕礼。主角破例把王冠戴歪了一点——庄严，但不耽误快乐。" aria-label="查看《奶破蛙的加冕典礼》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%9A%84%E5%8A%A0%E5%86%95%E5%85%B8%E7%A4%BC.webp" alt="奶破蛙的加冕典礼" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶破蛙的加冕典礼</b>
+        <small>JPG · 612 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶破蛙的诞生 神迹之夜，奶蛙破壳而生。星群俯身围观，第一声啼哭是奶里奶气的。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%9A%84%E8%AF%9E%E7%94%9F.jpg" target="_blank" rel="noopener" title="神迹之夜，奶蛙破壳而生。星群俯身围观，第一声啼哭是奶里奶气的。" aria-label="查看《奶破蛙的诞生》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%9A%84%E8%AF%9E%E7%94%9F.webp" alt="奶破蛙的诞生" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶破蛙的诞生</b>
+        <small>JPG · 224 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶破蛙翻越阿尔卑斯山 翻越阿尔卑斯的奶蛙坐骑昂首嘶鸣。山巅风雪刺骨，它的笑自带春意。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%BF%BB%E8%B6%8A%E9%98%BF%E5%B0%94%E5%8D%91%E6%96%AF%E5%B1%B1.jpg" target="_blank" rel="noopener" title="翻越阿尔卑斯的奶蛙坐骑昂首嘶鸣。山巅风雪刺骨，它的笑自带春意。" aria-label="查看《奶破蛙翻越阿尔卑斯山》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E7%A0%B4%E8%9B%99%E7%BF%BB%E8%B6%8A%E9%98%BF%E5%B0%94%E5%8D%91%E6%96%AF%E5%B1%B1.webp" alt="奶破蛙翻越阿尔卑斯山" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶破蛙翻越阿尔卑斯山</b>
+        <small>JPG · 414 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="奶西分海 红海为奶蛙让路，浪墙向两侧退开。海底的鱼群探出头，看它踩着干地，一路笑到对岸。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E8%A5%BF%E5%88%86%E6%B5%B7.jpg" target="_blank" rel="noopener" title="红海为奶蛙让路，浪墙向两侧退开。海底的鱼群探出头，看它踩着干地，一路笑到对岸。" aria-label="查看《奶西分海》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%A5%B6%E8%A5%BF%E5%88%86%E6%B5%B7.webp" alt="奶西分海" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>奶西分海</b>
+        <small>JPG · 244 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="帝国成立 帝国加冕，奶蛙亲手把皇冠戴到自己头上——戴歪了。庄严的史册，从此多了一页歪的快乐。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E5%B8%9D%E5%9B%BD%E6%88%90%E7%AB%8B.jpg" target="_blank" rel="noopener" title="帝国加冕，奶蛙亲手把皇冠戴到自己头上——戴歪了。庄严的史册，从此多了一页歪的快乐。" aria-label="查看《帝国成立》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E5%B8%9D%E5%9B%BD%E6%88%90%E7%AB%8B.webp" alt="帝国成立" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>帝国成立</b>
+        <small>JPG · 548 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="恋人怀中 相拥的恋人剪影里，奶蛙依偎怀中。爱情柔软得像奶黄，甜得不肯撒手。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%81%8B%E4%BA%BA%E6%80%80%E4%B8%AD.jpg" target="_blank" rel="noopener" title="相拥的恋人剪影里，奶蛙依偎怀中。爱情柔软得像奶黄，甜得不肯撒手。" aria-label="查看《恋人怀中》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%81%8B%E4%BA%BA%E6%80%80%E4%B8%AD.webp" alt="恋人怀中" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>恋人怀中</b>
+        <small>JPG · 390 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="投降 白旗举得最高，奶蛙弯腰投降。认输也要认得体面：笑到露牙，是它唯一的战败宣言。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%8A%95%E9%99%8D.jpg" target="_blank" rel="noopener" title="白旗举得最高，奶蛙弯腰投降。认输也要认得体面：笑到露牙，是它唯一的战败宣言。" aria-label="查看《投降》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%8A%95%E9%99%8D.webp" alt="投降" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>投降</b>
+        <small>JPG · 634 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="撑阳伞的奶蛙 02 印象派的阳光里，奶蛙撑起阳伞。裙摆是云做的，影子是光画的。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%92%91%E9%98%B3%E4%BC%9E%E7%9A%84%E5%A5%B6%E8%9B%99-02.jpg" target="_blank" rel="noopener" title="印象派的阳光里，奶蛙撑起阳伞。裙摆是云做的，影子是光画的。" aria-label="查看《撑阳伞的奶蛙 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%92%91%E9%98%B3%E4%BC%9E%E7%9A%84%E5%A5%B6%E8%9B%99-02.webp" alt="撑阳伞的奶蛙 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>撑阳伞的奶蛙 02</b>
+        <small>JPG · 524 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="最唐的晚餐 02 奶蛙-最唐的晚餐-02——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%9C%80%E5%94%90%E7%9A%84%E6%99%9A%E9%A4%90-02.jpg" target="_blank" rel="noopener" title="奶蛙-最唐的晚餐-02——奶蛙主演的古典名画再创作，庄严被一只奶蛙重新加冕。" aria-label="查看《最唐的晚餐 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%9C%80%E5%94%90%E7%9A%84%E6%99%9A%E9%A4%90-02.webp" alt="最唐的晚餐 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>最唐的晚餐 02</b>
+        <small>JPG · 313 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="朝圣 朝圣路上，奶蛙背着行囊一步一拜。每一拜都笑着，像在给大地递糖。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%9C%9D%E5%9C%A3.jpg" target="_blank" rel="noopener" title="朝圣路上，奶蛙背着行囊一步一拜。每一拜都笑着，像在给大地递糖。" aria-label="查看《朝圣》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%9C%9D%E5%9C%A3.webp" alt="朝圣" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>朝圣</b>
+        <small>JPG · 178 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="树荫下的奶蛙 树荫斑驳，奶蛙仰面躺在草地上。光斑落满肚皮，它数着光点，数着数着就笑了。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%A0%91%E8%8D%AB%E4%B8%8B%E7%9A%84%E5%A5%B6%E8%9B%99.jpg" target="_blank" rel="noopener" title="树荫斑驳，奶蛙仰面躺在草地上。光斑落满肚皮，它数着光点，数着数着就笑了。" aria-label="查看《树荫下的奶蛙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%A0%91%E8%8D%AB%E4%B8%8B%E7%9A%84%E5%A5%B6%E8%9B%99.webp" alt="树荫下的奶蛙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>树荫下的奶蛙</b>
+        <small>JPG · 595 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="渡河 涉水过河，水只没到奶蛙的肚皮。快乐浮在水面，它踩出一路涟漪。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%B8%A1%E6%B2%B3.jpg" target="_blank" rel="noopener" title="涉水过河，水只没到奶蛙的肚皮。快乐浮在水面，它踩出一路涟漪。" aria-label="查看《渡河》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%B8%A1%E6%B2%B3.webp" alt="渡河" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>渡河</b>
+        <small>JPG · 437 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="游到海水泛白 一头扎进海里的奶蛙，奶蛙-游到海水泛白。快乐没有岸，那就一直游下去。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E6%B8%B8%E5%88%B0%E6%B5%B7%E6%B0%B4%E6%B3%9B%E7%99%BD.jpg" target="_blank" rel="noopener" title="一头扎进海里的奶蛙，奶蛙-游到海水泛白。快乐没有岸，那就一直游下去。" aria-label="查看《游到海水泛白》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E6%B8%B8%E5%88%B0%E6%B5%B7%E6%B0%B4%E6%B3%9B%E7%99%BD.webp" alt="游到海水泛白" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>游到海水泛白</b>
+        <small>JPG · 315 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="直到死亡将我们分开 02 婚礼誓言被改写：奶蛙-直到死亡将我们分开-02——在这之前，先笑完这一场。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E7%9B%B4%E5%88%B0%E6%AD%BB%E4%BA%A1%E5%B0%86%E6%88%91%E4%BB%AC%E5%88%86%E5%BC%80-02.jpg" target="_blank" rel="noopener" title="婚礼誓言被改写：奶蛙-直到死亡将我们分开-02——在这之前，先笑完这一场。" aria-label="查看《直到死亡将我们分开 02》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E7%9B%B4%E5%88%B0%E6%AD%BB%E4%BA%A1%E5%B0%86%E6%88%91%E4%BB%AC%E5%88%86%E5%BC%80-02.webp" alt="直到死亡将我们分开 02" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>直到死亡将我们分开 02</b>
+        <small>JPG · 184 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="自由引导奶蛙 自由女神高举旗帜，奶蛙冲在最前引路。人人都是主角，快乐是唯一的纲领。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E8%87%AA%E7%94%B1%E5%BC%95%E5%AF%BC%E5%A5%B6%E8%9B%99.jpg" target="_blank" rel="noopener" title="自由女神高举旗帜，奶蛙冲在最前引路。人人都是主角，快乐是唯一的纲领。" aria-label="查看《自由引导奶蛙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E8%87%AA%E7%94%B1%E5%BC%95%E5%AF%BC%E5%A5%B6%E8%9B%99.webp" alt="自由引导奶蛙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>自由引导奶蛙</b>
+        <small>JPG · 467 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="赞歌就是勇气的赞歌 奶蛙引吭高歌，声浪卷过整面画布。勇气的赞歌，原来是一首跑调的快乐。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E8%B5%9E%E6%AD%8C%E5%B0%B1%E6%98%AF%E5%8B%87%E6%B0%94%E7%9A%84%E8%B5%9E%E6%AD%8C.jpg" target="_blank" rel="noopener" title="奶蛙引吭高歌，声浪卷过整面画布。勇气的赞歌，原来是一首跑调的快乐。" aria-label="查看《赞歌就是勇气的赞歌》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E8%B5%9E%E6%AD%8C%E5%B0%B1%E6%98%AF%E5%8B%87%E6%B0%94%E7%9A%84%E8%B5%9E%E6%AD%8C.webp" alt="赞歌就是勇气的赞歌" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>赞歌就是勇气的赞歌</b>
+        <small>JPG · 323 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="迎着阳光盛大逃亡 迎着光盛大逃亡，奶蛙把背影留给追兵，把笑留给太阳。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E8%BF%8E%E7%9D%80%E9%98%B3%E5%85%89%E7%9B%9B%E5%A4%A7%E9%80%83%E4%BA%A1.jpg" target="_blank" rel="noopener" title="迎着光盛大逃亡，奶蛙把背影留给追兵，把笑留给太阳。" aria-label="查看《迎着阳光盛大逃亡》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E8%BF%8E%E7%9D%80%E9%98%B3%E5%85%89%E7%9B%9B%E5%A4%A7%E9%80%83%E4%BA%A1.webp" alt="迎着阳光盛大逃亡" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>迎着阳光盛大逃亡</b>
+        <small>JPG · 497 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="阿齐姆与泽莉卡 海边的情侣并肩看潮，浪花替他们说完情话。奶蛙在画框外，负责笑。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E9%98%BF%E9%BD%90%E5%A7%86%E4%B8%8E%E6%B3%BD%E8%8E%89%E5%8D%A1.jpg" target="_blank" rel="noopener" title="海边的情侣并肩看潮，浪花替他们说完情话。奶蛙在画框外，负责笑。" aria-label="查看《阿齐姆与泽莉卡》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E9%98%BF%E9%BD%90%E5%A7%86%E4%B8%8E%E6%B3%BD%E8%8E%89%E5%8D%A1.webp" alt="阿齐姆与泽莉卡" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>阿齐姆与泽莉卡</b>
+        <small>JPG · 190 KB</small>
+      </a>
+      <a class="vault-card" data-cat="classic" data-text="雷帝杀龙 雷帝挥剑斩向恶龙，恶龙看见奶蛙先笑为敬。胜负未分，杀气先被可爱化解。 圣典名画" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/classic/%E5%A5%B6%E8%9B%99-%E9%9B%B7%E5%B8%9D%E6%9D%80%E9%BE%99.jpg" target="_blank" rel="noopener" title="雷帝挥剑斩向恶龙，恶龙看见奶蛙先笑为敬。胜负未分，杀气先被可爱化解。" aria-label="查看《雷帝杀龙》原图">
+        <img loading="lazy" src="assets/relics/classic/%E5%A5%B6%E8%9B%99-%E9%9B%B7%E5%B8%9D%E6%9D%80%E9%BE%99.webp" alt="雷帝杀龙" decoding="async">
+        <span class="vault-card__tag">圣典名画</span>
+        <b>雷帝杀龙</b>
+        <small>JPG · 372 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="亮黄站姿 标准的亮黄站姿，绿眼圆睁——奶蛙最本真的模样。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E4%BA%AE%E9%BB%84%E7%AB%99%E5%A7%BF.png" target="_blank" rel="noopener" title="标准的亮黄站姿，绿眼圆睁——奶蛙最本真的模样。" aria-label="查看《亮黄站姿》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E4%BA%AE%E9%BB%84%E7%AB%99%E5%A7%BF.webp" alt="亮黄站姿" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>亮黄站姿</b>
+        <small>PNG · 170 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="叉腰指点 叉腰指点，笑里带三分指点江山的豪气。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9.png" target="_blank" rel="noopener" title="叉腰指点，笑里带三分指点江山的豪气。" aria-label="查看《叉腰指点》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9.webp" alt="叉腰指点" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>叉腰指点</b>
+        <small>PNG · 123 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="双v大笑 双手比出双 v，大笑的胜利者姿态。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="双手比出双 V，大笑的胜利者姿态。" aria-label="查看《双V大笑》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%A4%A7%E7%AC%91.webp" alt="双V大笑" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>双V大笑</b>
+        <small>PNG · 137 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="哪吒 哪吒发髻、火焰纹、红马甲，神话里的奶蛙合掌大笑。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%93%AA%E5%90%92.png" target="_blank" rel="noopener" title="哪吒发髻、火焰纹、红马甲，神话里的奶蛙合掌大笑。" aria-label="查看《哪吒》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%93%AA%E5%90%92.webp" alt="哪吒" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>哪吒</b>
+        <small>PNG · 166 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="四肢着地 四肢着地大笑成一座雕塑，快乐就地生根。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%9B%9B%E8%82%A2%E7%9D%80%E5%9C%B0.png" target="_blank" rel="noopener" title="四肢着地大笑成一座雕塑，快乐就地生根。" aria-label="查看《四肢着地》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%9B%9B%E8%82%A2%E7%9D%80%E5%9C%B0.webp" alt="四肢着地" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>四肢着地</b>
+        <small>PNG · 42 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="圣诞老人 圣诞老人装束，双手交叠，节日的快乐提前送达。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E8%AF%9E%E8%80%81%E4%BA%BA.png" target="_blank" rel="noopener" title="圣诞老人装束，双手交叠，节日的快乐提前送达。" aria-label="查看《圣诞老人》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E8%AF%9E%E8%80%81%E4%BA%BA.webp" alt="圣诞老人" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>圣诞老人</b>
+        <small>PNG · 189 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="弯腰大笑 躬着身子笑到直不起来，快乐重到需要弯腰托住。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%BC%AF%E8%85%B0%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="躬着身子笑到直不起来，快乐重到需要弯腰托住。" aria-label="查看《弯腰大笑》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%BC%AF%E8%85%B0%E5%A4%A7%E7%AC%91.webp" alt="弯腰大笑" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>弯腰大笑</b>
+        <small>PNG · 504 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="彩虹渐变 彩虹渐变潮玩款，七彩叠在黄皮肤上。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%BD%A9%E8%99%B9%E6%B8%90%E5%8F%98.png" target="_blank" rel="noopener" title="彩虹渐变潮玩款，七彩叠在黄皮肤上。" aria-label="查看《彩虹渐变》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E5%BD%A9%E8%99%B9%E6%B8%90%E5%8F%98.webp" alt="彩虹渐变" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>彩虹渐变</b>
+        <small>PNG · 583 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="抱头大笑 双手抱头大笑，笑意从头顶炸开。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A4%B4%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="双手抱头大笑，笑意从头顶炸开。" aria-label="查看《抱头大笑》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A4%B4%E5%A4%A7%E7%AC%91.webp" alt="抱头大笑" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>抱头大笑</b>
+        <small>PNG · 39 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="抱婴大笑 怀里抱着小奶蛙一起大笑，快乐会传染。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A9%B4%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="怀里抱着小奶蛙一起大笑，快乐会传染。" aria-label="查看《抱婴大笑》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8A%B1%E5%A9%B4%E5%A4%A7%E7%AC%91.webp" alt="抱婴大笑" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>抱婴大笑</b>
+        <small>PNG · 126 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="指你大笑 伸出手指指向你，笑你，也笑自己。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8C%87%E4%BD%A0%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="伸出手指指向你，笑你，也笑自己。" aria-label="查看《指你大笑》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%8C%87%E4%BD%A0%E5%A4%A7%E7%AC%91.webp" alt="指你大笑" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>指你大笑</b>
+        <small>PNG · 161 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="橙肤捧腹 橙色变体捧腹大笑，暖色调的快乐加倍。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%A9%99%E8%82%A4%E6%8D%A7%E8%85%B9.png" target="_blank" rel="noopener" title="橙色变体捧腹大笑，暖色调的快乐加倍。" aria-label="查看《橙肤捧腹》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E6%A9%99%E8%82%A4%E6%8D%A7%E8%85%B9.webp" alt="橙肤捧腹" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>橙肤捧腹</b>
+        <small>PNG · 211 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="狐面和服 狐狸面具配和服头纱，东瀛风的奶蛙也笑得端庄。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%8B%90%E9%9D%A2%E5%92%8C%E6%9C%8D.png" target="_blank" rel="noopener" title="狐狸面具配和服头纱，东瀛风的奶蛙也笑得端庄。" aria-label="查看《狐面和服》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%8B%90%E9%9D%A2%E5%92%8C%E6%9C%8D.webp" alt="狐面和服" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>狐面和服</b>
+        <small>PNG · 443 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="白肤捧腹 白色变体捧腹大笑，奶蛙的另一副面孔。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%99%BD%E8%82%A4%E6%8D%A7%E8%85%B9.png" target="_blank" rel="noopener" title="白色变体捧腹大笑，奶蛙的另一副面孔。" aria-label="查看《白肤捧腹》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%99%BD%E8%82%A4%E6%8D%A7%E8%85%B9.webp" alt="白肤捧腹" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>白肤捧腹</b>
+        <small>PNG · 153 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="眯眼张嘴 眯眼张嘴，笑成一弯快乐的月牙。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%9C%AF%E7%9C%BC%E5%BC%A0%E5%98%B4.png" target="_blank" rel="noopener" title="眯眼张嘴，笑成一弯快乐的月牙。" aria-label="查看《眯眼张嘴》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%9C%AF%E7%9C%BC%E5%BC%A0%E5%98%B4.webp" alt="眯眼张嘴" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>眯眼张嘴</b>
+        <small>PNG · 51 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="粉肤捧腹 粉色变体捧腹大笑，换个肤色，快乐不打折。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%B2%89%E8%82%A4%E6%8D%A7%E8%85%B9.png" target="_blank" rel="noopener" title="粉色变体捧腹大笑，换个肤色，快乐不打折。" aria-label="查看《粉肤捧腹》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%B2%89%E8%82%A4%E6%8D%A7%E8%85%B9.webp" alt="粉肤捧腹" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>粉肤捧腹</b>
+        <small>PNG · 246 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="红晕大笑特写 特写：奶蛙闭眼开怀大笑，脸鼓红晕，笑意从屏幕里溢出来。
+2560×1440 · jpeg · 来源：百度图片（i1.hdslb.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E5%A4%A7%E7%AC%91%E7%89%B9%E5%86%99.jpg" target="_blank" rel="noopener" title="特写：奶蛙闭眼开怀大笑，脸鼓红晕，笑意从屏幕里溢出来。
+2560×1440 · JPEG · 来源：百度图片（i1.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《红晕大笑特写》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E5%A4%A7%E7%AC%91%E7%89%B9%E5%86%99.webp" alt="红晕大笑特写" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>红晕大笑特写</b>
+        <small>JPG · 74 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="银河隐藏款 星空文案的隐藏款，每 3.1415926 光年才出现一次。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%93%B6%E6%B2%B3%E9%9A%90%E8%97%8F%E6%AC%BE.png" target="_blank" rel="noopener" title="星空文案的隐藏款，每 3.1415926 光年才出现一次。" aria-label="查看《银河隐藏款》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%93%B6%E6%B2%B3%E9%9A%90%E8%97%8F%E6%AC%BE.webp" alt="银河隐藏款" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>银河隐藏款</b>
+        <small>PNG · 126 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="雀跃 双臂张开单脚跃起，快乐到飞起来。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9B%80%E8%B7%83.png" target="_blank" rel="noopener" title="双臂张开单脚跃起，快乐到飞起来。" aria-label="查看《雀跃》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9B%80%E8%B7%83.webp" alt="雀跃" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>雀跃</b>
+        <small>PNG · 179 KB</small>
+      </a>
+      <a class="vault-card" data-cat="laugh-gallery" data-text="静站绿眼 安安静静站着，绿眼平静，笑藏在肚子里。 大笑藏馆" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9D%99%E7%AB%99%E7%BB%BF%E7%9C%BC.png" target="_blank" rel="noopener" title="安安静静站着，绿眼平静，笑藏在肚子里。" aria-label="查看《静站绿眼》原图">
+        <img loading="lazy" src="assets/relics/laugh-gallery/%E5%A5%B6%E8%9B%99-%E9%9D%99%E7%AB%99%E7%BB%BF%E7%9C%BC.webp" alt="静站绿眼" decoding="async">
+        <span class="vault-card__tag">大笑藏馆</span>
+        <b>静站绿眼</b>
+        <small>PNG · 111 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="侧立 侧身而立，双手放在肚前，安静又圆润。
+注：本件为 `emotes/奶蛙-表情-22.gif` 的首帧静态版，两者属同一画面的静/动双态。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E4%BE%A7%E7%AB%8B.png" target="_blank" rel="noopener" title="侧身而立，双手放在肚前，安静又圆润。
+注：本件为 `emotes/奶蛙-表情-22.gif` 的首帧静态版，两者属同一画面的静/动双态。" aria-label="查看《侧立》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E4%BE%A7%E7%AB%8B.webp" alt="侧立" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>侧立</b>
+        <small>PNG · 62 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="动图 · 含泪 动图：奶蛙眼眶含泪、泪珠滑落，委屈巴巴的循环表情。无水印、无字幕。
+640×640 · gif 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E5%90%AB%E6%B3%AA.gif" target="_blank" rel="noopener" title="动图：奶蛙眼眶含泪、泪珠滑落，委屈巴巴的循环表情。无水印、无字幕。
+640×640 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《动图 · 含泪》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E5%90%AB%E6%B3%AA.webp" alt="动图 · 含泪" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>动图 · 含泪</b>
+        <small>动图 · 546 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="动图 · 张口大笑 动图：奶蛙仰头张口大笑，循环播放。全网筛选出的无水印、无字幕版本。
+500×500 · gif 动图 · 来源：新浪图床（n.sinaimg.cn） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E5%BC%A0%E5%8F%A3%E5%A4%A7%E7%AC%91.gif" target="_blank" rel="noopener" title="动图：奶蛙仰头张口大笑，循环播放。全网筛选出的无水印、无字幕版本。
+500×500 · GIF 动图 · 来源：新浪图床（n.sinaimg.cn） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《动图 · 张口大笑》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E5%BC%A0%E5%8F%A3%E5%A4%A7%E7%AC%91.webp" alt="动图 · 张口大笑" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>动图 · 张口大笑</b>
+        <small>动图 · 385 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="动图 · 西装捂脸 动图：西装革履的奶蛙双手捂脸，社畜式崩溃循环。无水印、无字幕。
+428×428 · gif 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E8%A5%BF%E8%A3%85%E6%8D%82%E8%84%B8.gif" target="_blank" rel="noopener" title="动图：西装革履的奶蛙双手捂脸，社畜式崩溃循环。无水印、无字幕。
+428×428 · GIF 动图 · 来源：百度图片（pic.rmb.bdstatic.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《动图 · 西装捂脸》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%8A%A8%E5%9B%BE-%E8%A5%BF%E8%A3%85%E6%8D%82%E8%84%B8.webp" alt="动图 · 西装捂脸" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>动图 · 西装捂脸</b>
+        <small>动图 · 1.6 MB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="双v吐舌 双 v 手势配吐舌，活泼到没边。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%90%90%E8%88%8C.png" target="_blank" rel="noopener" title="双 V 手势配吐舌，活泼到没边。" aria-label="查看《双V吐舌》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%8F%8CV%E5%90%90%E8%88%8C.webp" alt="双V吐舌" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>双V吐舌</b>
+        <small>PNG · 391 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="吐舌比心 歪头吐舌，双手比心——奶蛙的专属告白。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%90%90%E8%88%8C%E6%AF%94%E5%BF%83.png" target="_blank" rel="noopener" title="歪头吐舌，双手比心——奶蛙的专属告白。" aria-label="查看《吐舌比心》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%90%90%E8%88%8C%E6%AF%94%E5%BF%83.webp" alt="吐舌比心" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>吐舌比心</b>
+        <small>PNG · 121 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="咬手沉思 表情：奶蛙啃着爪子陷入沉思，配圆角白框与深蓝底，自带表情包版式。
+2560×1440 · jpeg · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%92%AC%E6%89%8B%E6%B2%89%E6%80%9D.jpg" target="_blank" rel="noopener" title="表情：奶蛙啃着爪子陷入沉思，配圆角白框与深蓝底，自带表情包版式。
+2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《咬手沉思》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%92%AC%E6%89%8B%E6%B2%89%E6%80%9D.webp" alt="咬手沉思" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>咬手沉思</b>
+        <small>JPG · 183 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="姿态 · 侧躺 奶蛙-姿态-侧躺：官方预览姿态之一（原始文件名 mf-pose-lying），1024×1024 透明底裸图——奶蛙身体横向舒展地躺卧。适合二次创作与合成。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E4%BE%A7%E8%BA%BA.png" target="_blank" rel="noopener" title="奶蛙-姿态-侧躺：官方预览姿态之一（原始文件名 mf-pose-lying），1024×1024 透明底裸图——奶蛙身体横向舒展地躺卧。适合二次创作与合成。" aria-label="查看《姿态 · 侧躺》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E4%BE%A7%E8%BA%BA.webp" alt="姿态 · 侧躺" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>姿态 · 侧躺</b>
+        <small>PNG · 425 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="姿态 · 挥手 奶蛙-姿态-挥手：官方预览姿态之一（原始文件名 mf-pose-wave），1024×1024 透明底裸图——奶蛙高举一侧手臂打招呼。适合二次创作与合成。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E6%8C%A5%E6%89%8B.png" target="_blank" rel="noopener" title="奶蛙-姿态-挥手：官方预览姿态之一（原始文件名 mf-pose-wave），1024×1024 透明底裸图——奶蛙高举一侧手臂打招呼。适合二次创作与合成。" aria-label="查看《姿态 · 挥手》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E6%8C%A5%E6%89%8B.webp" alt="姿态 · 挥手" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>姿态 · 挥手</b>
+        <small>PNG · 430 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="姿态 · 翻滚 奶蛙-姿态-翻滚：官方预览姿态之一（原始文件名 mf-pose-rolling），1262×1262 透明底裸图——奶蛙团身翻滚的姿态。适合二次创作与合成。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E7%BF%BB%E6%BB%9A.png" target="_blank" rel="noopener" title="奶蛙-姿态-翻滚：官方预览姿态之一（原始文件名 mf-pose-rolling），1262×1262 透明底裸图——奶蛙团身翻滚的姿态。适合二次创作与合成。" aria-label="查看《姿态 · 翻滚》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E7%BF%BB%E6%BB%9A.webp" alt="姿态 · 翻滚" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>姿态 · 翻滚</b>
+        <small>PNG · 495 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="姿态 · 露肚 奶蛙-姿态-露肚：官方预览姿态之一（原始文件名 mf-pose-belly），1024×1024 透明底裸图——奶蛙正面站姿、露出米色腹部。适合二次创作与合成。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E9%9C%B2%E8%82%9A.png" target="_blank" rel="noopener" title="奶蛙-姿态-露肚：官方预览姿态之一（原始文件名 mf-pose-belly），1024×1024 透明底裸图——奶蛙正面站姿、露出米色腹部。适合二次创作与合成。" aria-label="查看《姿态 · 露肚》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%A7%BF%E6%80%81-%E9%9C%B2%E8%82%9A.webp" alt="姿态 · 露肚" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>姿态 · 露肚</b>
+        <small>PNG · 555 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="微愠 脸颊泛红，眉头微蹙，生气的奶蛙也可爱。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E5%BE%AE%E6%84%A0.png" target="_blank" rel="noopener" title="脸颊泛红，眉头微蹙，生气的奶蛙也可爱。" aria-label="查看《微愠》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E5%BE%AE%E6%84%A0.webp" alt="微愠" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>微愠</b>
+        <small>PNG · 67 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="托腮 单手托腮，微笑地看着世界。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E6%89%98%E8%85%AE.png" target="_blank" rel="noopener" title="单手托腮，微笑地看着世界。" aria-label="查看《托腮》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E6%89%98%E8%85%AE.webp" alt="托腮" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>托腮</b>
+        <small>PNG · 152 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="斜眼吐舌 表情：奶蛙斜眼向上、吐着舌头，一副得瑟又欠揍的小表情。
+1500×1500 · jpeg · 来源：百度图片（bkimg.cdn.bcebos.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E6%96%9C%E7%9C%BC%E5%90%90%E8%88%8C.jpg" target="_blank" rel="noopener" title="表情：奶蛙斜眼向上、吐着舌头，一副得瑟又欠揍的小表情。
+1500×1500 · JPEG · 来源：百度图片（bkimg.cdn.bcebos.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《斜眼吐舌》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E6%96%9C%E7%9C%BC%E5%90%90%E8%88%8C.webp" alt="斜眼吐舌" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>斜眼吐舌</b>
+        <small>JPG · 75 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="桌边微笑 奶蛙趴在木桌边露出眯眼微笑，像在等你投喂的居家照。
+1440×2508 · jpeg · 来源：百度图片（pic.rmb.bdstatic.com 百家号图床） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E6%A1%8C%E8%BE%B9%E5%BE%AE%E7%AC%91.jpg" target="_blank" rel="noopener" title="奶蛙趴在木桌边露出眯眼微笑，像在等你投喂的居家照。
+1440×2508 · JPEG · 来源：百度图片（pic.rmb.bdstatic.com 百家号图床） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《桌边微笑》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E6%A1%8C%E8%BE%B9%E5%BE%AE%E7%AC%91.webp" alt="桌边微笑" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>桌边微笑</b>
+        <small>JPG · 201 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="气鼓鼓 抿嘴皱眉，气鼓鼓的奶蛙。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E6%B0%94%E9%BC%93%E9%BC%93.png" target="_blank" rel="noopener" title="抿嘴皱眉，气鼓鼓的奶蛙。" aria-label="查看《气鼓鼓》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E6%B0%94%E9%BC%93%E9%BC%93.webp" alt="气鼓鼓" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>气鼓鼓</b>
+        <small>PNG · 127 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="点鼻 手指点着鼻尖，俏皮小动作。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%82%B9%E9%BC%BB.png" target="_blank" rel="noopener" title="手指点着鼻尖，俏皮小动作。" aria-label="查看《点鼻》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%82%B9%E9%BC%BB.webp" alt="点鼻" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>点鼻</b>
+        <small>PNG · 147 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="疑惑 歪头皱眉，头顶冒出一个大问号。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%96%91%E6%83%91.png" target="_blank" rel="noopener" title="歪头皱眉，头顶冒出一个大问号。" aria-label="查看《疑惑》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%96%91%E6%83%91.webp" alt="疑惑" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>疑惑</b>
+        <small>PNG · 435 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="立绘 · 招手 白底全身立绘：奶蛙站姿抬起右爪招手，浅米肚皮、绿眼、灰爪俱全。全网筛选的高清无字无水印版本，可作官方立绘资源使用。
+4096×4096 · png · 来源：百度图片（bkimg.cdn.bcebos.com 词条图 cdn） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E6%8B%9B%E6%89%8B.png" target="_blank" rel="noopener" title="白底全身立绘：奶蛙站姿抬起右爪招手，浅米肚皮、绿眼、灰爪俱全。全网筛选的高清无字无水印版本，可作官方立绘资源使用。
+4096×4096 · PNG · 来源：百度图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《立绘 · 招手》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E6%8B%9B%E6%89%8B.webp" alt="立绘 · 招手" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>立绘 · 招手</b>
+        <small>PNG · 5.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="立绘 · 站立 黑底全身立绘：奶蛙正身站立、双眼平视，构图干净，适合贴纸与抠图二次创作。
+1242×1242 · png · 来源：百度图片（pics0.baidu.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E7%AB%99%E7%AB%8B.png" target="_blank" rel="noopener" title="黑底全身立绘：奶蛙正身站立、双眼平视，构图干净，适合贴纸与抠图二次创作。
+1242×1242 · PNG · 来源：百度图片（pics0.baidu.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《立绘 · 站立》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E7%AB%99%E7%AB%8B.webp" alt="立绘 · 站立" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>立绘 · 站立</b>
+        <small>PNG · 646 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="立绘 · 雀跃 黑底全身立绘：奶蛙双臂张开腾空跃起，单脚离地的动感姿态。
+1000×1000 · png · 来源：必应图片（bkimg.cdn.bcebos.com 词条图 cdn） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E9%9B%80%E8%B7%83.png" target="_blank" rel="noopener" title="黑底全身立绘：奶蛙双臂张开腾空跃起，单脚离地的动感姿态。
+1000×1000 · PNG · 来源：必应图片（bkimg.cdn.bcebos.com 词条图 CDN） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《立绘 · 雀跃》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%AB%8B%E7%BB%98-%E9%9B%80%E8%B7%83.webp" alt="立绘 · 雀跃" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>立绘 · 雀跃</b>
+        <small>PNG · 328 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="红晕托颌 手托下巴，脸颊泛红，害羞的模样。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E6%89%98%E9%A2%8C.png" target="_blank" rel="noopener" title="手托下巴，脸颊泛红，害羞的模样。" aria-label="查看《红晕托颌》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E7%BA%A2%E6%99%95%E6%89%98%E9%A2%8C.webp" alt="红晕托颌" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>红晕托颌</b>
+        <small>PNG · 32 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 01 奶蛙-表情-01：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。
+注：本件与 `laugh-gallery/奶蛙-粉肤捧腹.png` 为同一形象构图的不同分辨率版本，分属表情收藏与大笑藏馆两个系列。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-01.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-01：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。
+注：本件与 `laugh-gallery/奶蛙-粉肤捧腹.png` 为同一形象构图的不同分辨率版本，分属表情收藏与大笑藏馆两个系列。" aria-label="查看《表情 01》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-01.webp" alt="表情 01" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 01</b>
+        <small>JPEG · 45 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 02 奶蛙-表情-02：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-02.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-02：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 02》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-02.webp" alt="表情 02" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 02</b>
+        <small>JPEG · 36 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 03 奶蛙-表情-03：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-03.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-03：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 03》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-03.webp" alt="表情 03" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 03</b>
+        <small>JPEG · 40 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 04 奶蛙-表情-04：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-04.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-04：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 04》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-04.webp" alt="表情 04" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 04</b>
+        <small>JPEG · 42 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 05 奶蛙-表情-05：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-05.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-05：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 05》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-05.webp" alt="表情 05" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 05</b>
+        <small>JPEG · 43 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 06 奶蛙-表情-06：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-06.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-06：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 06》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-06.webp" alt="表情 06" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 06</b>
+        <small>JPEG · 53 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 07 奶蛙-表情-07：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-07.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-07：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 07》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-07.webp" alt="表情 07" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 07</b>
+        <small>JPEG · 40 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 08 奶蛙-表情-08：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-08.gif" target="_blank" rel="noopener" title="奶蛙-表情-08：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 08》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-08.webp" alt="表情 08" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 08</b>
+        <small>动图 · 4.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 09 奶蛙-表情-09：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-09.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-09：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 09》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-09.webp" alt="表情 09" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 09</b>
+        <small>JPEG · 47 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 10 奶蛙-表情-10：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-10.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-10：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 10》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-10.webp" alt="表情 10" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 10</b>
+        <small>JPEG · 47 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 11 奶蛙-表情-11：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-11.jpeg" target="_blank" rel="noopener" title="奶蛙-表情-11：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 11》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-11.webp" alt="表情 11" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 11</b>
+        <small>JPEG · 50 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 12 奶蛙-表情-12：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-12.gif" target="_blank" rel="noopener" title="奶蛙-表情-12：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 12》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-12.webp" alt="表情 12" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 12</b>
+        <small>动图 · 317 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 13 奶蛙-表情-13：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-13.png" target="_blank" rel="noopener" title="奶蛙-表情-13：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 13》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-13.webp" alt="表情 13" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 13</b>
+        <small>PNG · 8 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 14 奶蛙-表情-14：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-14.gif" target="_blank" rel="noopener" title="奶蛙-表情-14：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 14》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-14.webp" alt="表情 14" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 14</b>
+        <small>动图 · 698 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 15 奶蛙-表情-15：奶蛙表情素材（496×504 静图；原文件误标为 .gif 且仅含单帧，v2.5 转为 png），馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-15.png" target="_blank" rel="noopener" title="奶蛙-表情-15：奶蛙表情素材（496×504 静图；原文件误标为 .gif 且仅含单帧，v2.5 转为 PNG），馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 15》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-15.webp" alt="表情 15" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 15</b>
+        <small>PNG · 103 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 16 奶蛙-表情-16：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-16.gif" target="_blank" rel="noopener" title="奶蛙-表情-16：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 16》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-16.webp" alt="表情 16" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 16</b>
+        <small>动图 · 946 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 17 奶蛙-表情-17：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-17.gif" target="_blank" rel="noopener" title="奶蛙-表情-17：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 17》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-17.webp" alt="表情 17" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 17</b>
+        <small>动图 · 796 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 18 奶蛙-表情-18：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-18.jpg" target="_blank" rel="noopener" title="奶蛙-表情-18：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 18》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-18.webp" alt="表情 18" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 18</b>
+        <small>JPG · 7 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 19 奶蛙-表情-19：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-19.gif" target="_blank" rel="noopener" title="奶蛙-表情-19：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 19》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-19.webp" alt="表情 19" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 19</b>
+        <small>动图 · 901 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 20 奶蛙-表情-20：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-20.jpg" target="_blank" rel="noopener" title="奶蛙-表情-20：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 20》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-20.webp" alt="表情 20" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 20</b>
+        <small>JPG · 12 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 21 奶蛙-表情-21：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-21.gif" target="_blank" rel="noopener" title="奶蛙-表情-21：奶蛙表情素材，馆藏表情系列之一，用于日常斗图与情绪表达。" aria-label="查看《表情 21》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-21.webp" alt="表情 21" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 21</b>
+        <small>动图 · 936 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 22 奶蛙-表情-22：200×189 / 7.2 秒循环动图，网络收集的奶蛙动图素材，用于日常斗图与情绪表达。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-22.gif" target="_blank" rel="noopener" title="奶蛙-表情-22：200×189 / 7.2 秒循环动图，网络收集的奶蛙动图素材，用于日常斗图与情绪表达。" aria-label="查看《表情 22》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-22.webp" alt="表情 22" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 22</b>
+        <small>动图 · 779 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 23 奶蛙-表情-23：200×207 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 webp，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-23.webp" target="_blank" rel="noopener" title="奶蛙-表情-23：200×207 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。" aria-label="查看《表情 23》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-23.webp" alt="表情 23" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 23</b>
+        <small>WEBP · 2 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 24 奶蛙-表情-24：200×200 方形静态表情（webp），网络收集，用于日常斗图与二次创作。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-24.webp" target="_blank" rel="noopener" title="奶蛙-表情-24：200×200 方形静态表情（WebP），网络收集，用于日常斗图与二次创作。" aria-label="查看《表情 24》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-24.webp" alt="表情 24" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 24</b>
+        <small>WEBP · 4 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="表情 25 奶蛙-表情-25：497×504 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 webp，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。
+同批另一件 200×203 版本与本件为同一图的两个分辨率（逐格比对一致），按去重原则仅入库本高清版。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-25.webp" target="_blank" rel="noopener" title="奶蛙-表情-25：497×504 带透明通道的静态表情。原始下载文件后缀为 .jpg，实为 WebP，入仓已按真实格式改正。网络收集，用于日常斗图与二次创作。
+同批另一件 200×203 版本与本件为同一图的两个分辨率（逐格比对一致），按去重原则仅入库本高清版。" aria-label="查看《表情 25》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%A1%A8%E6%83%85-25.webp" alt="表情 25" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>表情 25</b>
+        <small>WEBP · 5 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="蹲坐托腮 蹲坐在地，双手托腮，温顺等夸奖。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E8%B9%B2%E5%9D%90%E6%89%98%E8%85%AE.png" target="_blank" rel="noopener" title="蹲坐在地，双手托腮，温顺等夸奖。" aria-label="查看《蹲坐托腮》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E8%B9%B2%E5%9D%90%E6%89%98%E8%85%AE.webp" alt="蹲坐托腮" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>蹲坐托腮</b>
+        <small>PNG · 193 KB</small>
+      </a>
+      <a class="vault-card" data-cat="emotes" data-text="露齿大笑 矮胖身材，张嘴露齿，笑得很用力。 表情收藏" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/emotes/%E5%A5%B6%E8%9B%99-%E9%9C%B2%E9%BD%BF%E5%A4%A7%E7%AC%91.png" target="_blank" rel="noopener" title="矮胖身材，张嘴露齿，笑得很用力。" aria-label="查看《露齿大笑》原图">
+        <img loading="lazy" src="assets/relics/emotes/%E5%A5%B6%E8%9B%99-%E9%9C%B2%E9%BD%BF%E5%A4%A7%E7%AC%91.webp" alt="露齿大笑" decoding="async">
+        <span class="vault-card__tag">表情收藏</span>
+        <b>露齿大笑</b>
+        <small>PNG · 130 KB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="厨师烹饪 厨房场景：奶蛙戴厨师帽、握汤勺张罗翻炒，青花瓷碗与虾仁入镜，烟火气十足。ai 生成。
+2560×1440 · jpeg · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E5%8E%A8%E5%B8%88%E7%83%B9%E9%A5%AA.jpg" target="_blank" rel="noopener" title="厨房场景：奶蛙戴厨师帽、握汤勺张罗翻炒，青花瓷碗与虾仁入镜，烟火气十足。AI 生成。
+2560×1440 · JPEG · 来源：百度图片（i2.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《厨师烹饪》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E5%8E%A8%E5%B8%88%E7%83%B9%E9%A5%AA.webp" alt="厨师烹饪" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>厨师烹饪</b>
+        <small>JPG · 355 KB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="樱花都市 都市夜景：樱花与紫藤垂落河畔，霓虹楼宇倒映水面，奶蛙站在石板路边。ai 生成。
+2560×1440 · jpeg · 来源：百度图片（i0.hdslb.com） · 用途：奶蛙艺术圣殿素材（nailong-studio/wallpaper） 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E6%A8%B1%E8%8A%B1%E9%83%BD%E5%B8%82.jpg" target="_blank" rel="noopener" title="都市夜景：樱花与紫藤垂落河畔，霓虹楼宇倒映水面，奶蛙站在石板路边。AI 生成。
+2560×1440 · JPEG · 来源：百度图片（i0.hdslb.com） · 用途：奶蛙艺术圣殿素材（Nailong-Studio/wallpaper）" aria-label="查看《樱花都市》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E6%A8%B1%E8%8A%B1%E9%83%BD%E5%B8%82.webp" alt="樱花都市" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>樱花都市</b>
+        <small>JPG · 557 KB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 01 奶蛙-艺术-01：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-01.png" target="_blank" rel="noopener" title="奶蛙-艺术-01：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 01》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-01.webp" alt="艺术 01" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 01</b>
+        <small>PNG · 5.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 02 奶蛙-艺术-02：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-02.png" target="_blank" rel="noopener" title="奶蛙-艺术-02：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 02》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-02.webp" alt="艺术 02" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 02</b>
+        <small>PNG · 7.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 03 奶蛙-艺术-03：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-03.png" target="_blank" rel="noopener" title="奶蛙-艺术-03：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 03》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-03.webp" alt="艺术 03" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 03</b>
+        <small>PNG · 5.9 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 04 奶蛙-艺术-04：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-04.png" target="_blank" rel="noopener" title="奶蛙-艺术-04：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 04》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-04.webp" alt="艺术 04" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 04</b>
+        <small>PNG · 6.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 05 奶蛙-艺术-05：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-05.png" target="_blank" rel="noopener" title="奶蛙-艺术-05：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 05》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-05.webp" alt="艺术 05" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 05</b>
+        <small>PNG · 6.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 06 奶蛙-艺术-06：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-06.png" target="_blank" rel="noopener" title="奶蛙-艺术-06：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 06》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-06.webp" alt="艺术 06" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 06</b>
+        <small>PNG · 7.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 07 奶蛙-艺术-07：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-07.png" target="_blank" rel="noopener" title="奶蛙-艺术-07：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 07》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-07.webp" alt="艺术 07" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 07</b>
+        <small>PNG · 5.6 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 08 奶蛙-艺术-08：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-08.png" target="_blank" rel="noopener" title="奶蛙-艺术-08：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 08》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-08.webp" alt="艺术 08" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 08</b>
+        <small>PNG · 5.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 09 奶蛙-艺术-09：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-09.png" target="_blank" rel="noopener" title="奶蛙-艺术-09：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 09》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-09.webp" alt="艺术 09" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 09</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 10 奶蛙-艺术-10：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-10.png" target="_blank" rel="noopener" title="奶蛙-艺术-10：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 10》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-10.webp" alt="艺术 10" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 10</b>
+        <small>PNG · 5.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 11 奶蛙-艺术-11：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-11.png" target="_blank" rel="noopener" title="奶蛙-艺术-11：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 11》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-11.webp" alt="艺术 11" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 11</b>
+        <small>PNG · 7.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 12 奶蛙-艺术-12：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-12.png" target="_blank" rel="noopener" title="奶蛙-艺术-12：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 12》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-12.webp" alt="艺术 12" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 12</b>
+        <small>PNG · 9.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 13 奶蛙-艺术-13：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-13.png" target="_blank" rel="noopener" title="奶蛙-艺术-13：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 13》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-13.webp" alt="艺术 13" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 13</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 14 奶蛙-艺术-14：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-14.png" target="_blank" rel="noopener" title="奶蛙-艺术-14：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 14》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-14.webp" alt="艺术 14" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 14</b>
+        <small>PNG · 4.6 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 15 奶蛙-艺术-15：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-15.png" target="_blank" rel="noopener" title="奶蛙-艺术-15：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 15》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-15.webp" alt="艺术 15" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 15</b>
+        <small>PNG · 6.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 16 奶蛙-艺术-16：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-16.png" target="_blank" rel="noopener" title="奶蛙-艺术-16：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 16》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-16.webp" alt="艺术 16" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 16</b>
+        <small>PNG · 7.9 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 17 奶蛙-艺术-17：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-17.png" target="_blank" rel="noopener" title="奶蛙-艺术-17：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 17》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-17.webp" alt="艺术 17" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 17</b>
+        <small>PNG · 6.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 18 奶蛙-艺术-18：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-18.png" target="_blank" rel="noopener" title="奶蛙-艺术-18：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 18》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-18.webp" alt="艺术 18" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 18</b>
+        <small>PNG · 6.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 19 奶蛙-艺术-19：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-19.png" target="_blank" rel="noopener" title="奶蛙-艺术-19：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 19》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-19.webp" alt="艺术 19" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 19</b>
+        <small>PNG · 6.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 20 奶蛙-艺术-20：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-20.png" target="_blank" rel="noopener" title="奶蛙-艺术-20：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 20》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-20.webp" alt="艺术 20" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 20</b>
+        <small>PNG · 4.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 21 奶蛙-艺术-21：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-21.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-21：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 21》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-21.webp" alt="艺术 21" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 21</b>
+        <small>JPG · 9.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 22 奶蛙-艺术-22：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-22.png" target="_blank" rel="noopener" title="奶蛙-艺术-22：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 22》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-22.webp" alt="艺术 22" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 22</b>
+        <small>PNG · 4.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 23 奶蛙-艺术-23：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-23.png" target="_blank" rel="noopener" title="奶蛙-艺术-23：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 23》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-23.webp" alt="艺术 23" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 23</b>
+        <small>PNG · 5.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 24 奶蛙-艺术-24：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-24.png" target="_blank" rel="noopener" title="奶蛙-艺术-24：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 24》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-24.webp" alt="艺术 24" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 24</b>
+        <small>PNG · 5.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 25 奶蛙-艺术-25：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-25.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-25：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 25》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-25.webp" alt="艺术 25" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 25</b>
+        <small>JPG · 9.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 26 奶蛙-艺术-26：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-26.png" target="_blank" rel="noopener" title="奶蛙-艺术-26：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 26》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-26.webp" alt="艺术 26" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 26</b>
+        <small>PNG · 5.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 27 奶蛙-艺术-27：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-27.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-27：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 27》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-27.webp" alt="艺术 27" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 27</b>
+        <small>JPG · 1.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 28 奶蛙-艺术-28：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-28.png" target="_blank" rel="noopener" title="奶蛙-艺术-28：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 28》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-28.webp" alt="艺术 28" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 28</b>
+        <small>PNG · 5.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 29 奶蛙-艺术-29：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-29.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-29：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 29》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-29.webp" alt="艺术 29" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 29</b>
+        <small>JPG · 722 KB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 30 奶蛙-艺术-30：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-30.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-30：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 30》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-30.webp" alt="艺术 30" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 30</b>
+        <small>JPG · 2.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 31 奶蛙-艺术-31：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-31.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-31：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 31》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-31.webp" alt="艺术 31" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 31</b>
+        <small>JPG · 3.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 32 奶蛙-艺术-32：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-32.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-32：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 32》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-32.webp" alt="艺术 32" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 32</b>
+        <small>JPG · 3.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 33 奶蛙-艺术-33：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-33.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-33：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 33》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-33.webp" alt="艺术 33" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 33</b>
+        <small>JPG · 3.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 34 奶蛙-艺术-34：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-34.jpg" target="_blank" rel="noopener" title="奶蛙-艺术-34：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 34》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-34.webp" alt="艺术 34" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 34</b>
+        <small>JPG · 3.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 35 奶蛙-艺术-35：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-35.png" target="_blank" rel="noopener" title="奶蛙-艺术-35：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 35》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-35.webp" alt="艺术 35" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 35</b>
+        <small>PNG · 5.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="art" data-text="艺术 36 奶蛙-艺术-36：奶蛙 ai 艺术场景图，馆藏艺术衍生。 艺术场景" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-36.png" target="_blank" rel="noopener" title="奶蛙-艺术-36：奶蛙 AI 艺术场景图，馆藏艺术衍生。" aria-label="查看《艺术 36》原图">
+        <img loading="lazy" src="assets/relics/art/%E5%A5%B6%E8%9B%99-%E8%89%BA%E6%9C%AF-36.webp" alt="艺术 36" decoding="async">
+        <span class="vault-card__tag">艺术场景</span>
+        <b>艺术 36</b>
+        <small>PNG · 7.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 01 奶蛙-高清-01：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-01.jpg" target="_blank" rel="noopener" title="奶蛙-高清-01：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 01》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-01.webp" alt="高清 01" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 01</b>
+        <small>JPG · 107 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 02 奶蛙-高清-02：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-02.jpg" target="_blank" rel="noopener" title="奶蛙-高清-02：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 02》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-02.webp" alt="高清 02" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 02</b>
+        <small>JPG · 106 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 03 奶蛙-高清-03：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-03.jpg" target="_blank" rel="noopener" title="奶蛙-高清-03：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 03》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-03.webp" alt="高清 03" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 03</b>
+        <small>JPG · 81 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 04 奶蛙-高清-04：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-04.jpg" target="_blank" rel="noopener" title="奶蛙-高清-04：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 04》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-04.webp" alt="高清 04" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 04</b>
+        <small>JPG · 96 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 05 奶蛙-高清-05：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-05.jpg" target="_blank" rel="noopener" title="奶蛙-高清-05：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 05》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-05.webp" alt="高清 05" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 05</b>
+        <small>JPG · 101 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 06 奶蛙-高清-06：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-06.jpg" target="_blank" rel="noopener" title="奶蛙-高清-06：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 06》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-06.webp" alt="高清 06" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 06</b>
+        <small>JPG · 104 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 07 奶蛙-高清-07：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-07.jpg" target="_blank" rel="noopener" title="奶蛙-高清-07：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 07》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-07.webp" alt="高清 07" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 07</b>
+        <small>JPG · 118 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 08 奶蛙-高清-08：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-08.jpg" target="_blank" rel="noopener" title="奶蛙-高清-08：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 08》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-08.webp" alt="高清 08" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 08</b>
+        <small>JPG · 98 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 09 奶蛙-高清-09：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-09.jpg" target="_blank" rel="noopener" title="奶蛙-高清-09：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 09》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-09.webp" alt="高清 09" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 09</b>
+        <small>JPG · 115 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 10 奶蛙-高清-10：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-10.jpg" target="_blank" rel="noopener" title="奶蛙-高清-10：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 10》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-10.webp" alt="高清 10" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 10</b>
+        <small>JPG · 103 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 11 奶蛙-高清-11：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-11.jpg" target="_blank" rel="noopener" title="奶蛙-高清-11：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 11》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-11.webp" alt="高清 11" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 11</b>
+        <small>JPG · 106 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 12 奶蛙-高清-12：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-12.jpg" target="_blank" rel="noopener" title="奶蛙-高清-12：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 12》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-12.webp" alt="高清 12" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 12</b>
+        <small>JPG · 113 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 13 奶蛙-高清-13：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-13.jpg" target="_blank" rel="noopener" title="奶蛙-高清-13：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 13》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-13.webp" alt="高清 13" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 13</b>
+        <small>JPG · 173 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 14 奶蛙-高清-14：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-14.jpg" target="_blank" rel="noopener" title="奶蛙-高清-14：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 14》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-14.webp" alt="高清 14" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 14</b>
+        <small>JPG · 89 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 15 奶蛙-高清-15：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-15.jpg" target="_blank" rel="noopener" title="奶蛙-高清-15：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 15》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-15.webp" alt="高清 15" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 15</b>
+        <small>JPG · 121 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 16 奶蛙-高清-16：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-16.jpg" target="_blank" rel="noopener" title="奶蛙-高清-16：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 16》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-16.webp" alt="高清 16" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 16</b>
+        <small>JPG · 136 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 17 奶蛙-高清-17：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-17.jpg" target="_blank" rel="noopener" title="奶蛙-高清-17：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 17》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-17.webp" alt="高清 17" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 17</b>
+        <small>JPG · 244 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 18 奶蛙-高清-18：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-18.jpg" target="_blank" rel="noopener" title="奶蛙-高清-18：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 18》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-18.webp" alt="高清 18" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 18</b>
+        <small>JPG · 165 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 19 奶蛙-高清-19：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-19.jpg" target="_blank" rel="noopener" title="奶蛙-高清-19：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 19》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-19.webp" alt="高清 19" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 19</b>
+        <small>JPG · 94 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 20 奶蛙-高清-20：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-20.jpg" target="_blank" rel="noopener" title="奶蛙-高清-20：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 20》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-20.webp" alt="高清 20" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 20</b>
+        <small>JPG · 157 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 21 奶蛙-高清-21：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-21.jpg" target="_blank" rel="noopener" title="奶蛙-高清-21：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 21》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-21.webp" alt="高清 21" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 21</b>
+        <small>JPG · 118 KB</small>
+      </a>
+      <a class="vault-card" data-cat="hd" data-text="高清 22 奶蛙-高清-22：奶蛙高清表情壁纸，馆藏高清素材。 高清壁纸" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-22.jpg" target="_blank" rel="noopener" title="奶蛙-高清-22：奶蛙高清表情壁纸，馆藏高清素材。" aria-label="查看《高清 22》原图">
+        <img loading="lazy" src="assets/relics/hd/%E5%A5%B6%E8%9B%99-%E9%AB%98%E6%B8%85-22.webp" alt="高清 22" decoding="async">
+        <span class="vault-card__tag">高清壁纸</span>
+        <b>高清 22</b>
+        <small>JPG · 302 KB</small>
+      </a>
+      <a class="vault-card" data-cat="4k" data-text="4k · 叉腰指点 03 叉腰指点：左手叉腰、右手指向前方，张嘴露牙大笑，全身立姿，灰爪与脚掌同色。
+奶蛙艺术圣殿 · 指点系列。这一张是奶蛙少有的「主动出击」姿态，笑得很张狂，也很像在跟谁分享刚发现的大笑点。
+分辨率：3840×3790 · 格式：jpeg · 用途：奶蛙壁纸浏览器新标签页插件（nailong-studio/naiwa-wallpaper）内置素材 4k 大图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/4k/%E5%A5%B6%E8%9B%99-4K-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9-03.jpg" target="_blank" rel="noopener" title="叉腰指点：左手叉腰、右手指向前方，张嘴露牙大笑，全身立姿，灰爪与脚掌同色。
+奶蛙艺术圣殿 · 指点系列。这一张是奶蛙少有的「主动出击」姿态，笑得很张狂，也很像在跟谁分享刚发现的大笑点。
+分辨率：3840×3790 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材" aria-label="查看《4K · 叉腰指点 03》原图">
+        <img loading="lazy" src="assets/relics/4k/%E5%A5%B6%E8%9B%99-4K-%E5%8F%89%E8%85%B0%E6%8C%87%E7%82%B9-03.webp" alt="4K · 叉腰指点 03" decoding="async">
+        <span class="vault-card__tag">4K 大图</span>
+        <b>4K · 叉腰指点 03</b>
+        <small>JPG · 419 KB</small>
+      </a>
+      <a class="vault-card" data-cat="4k" data-text="4k · 张臂平衡 05 张臂平衡：张开双臂单腿站立，重心歪着，绿眼圆睁、露齿笑，灰爪张开。
+奶蛙艺术圣殿 · 平衡系列。竖构图 2880×3840，手机与竖屏显示器上最能撑满画面的一张。
+分辨率：2880×3840 · 格式：jpeg · 用途：奶蛙壁纸浏览器新标签页插件（nailong-studio/naiwa-wallpaper）内置素材 4k 大图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/4k/%E5%A5%B6%E8%9B%99-4K-%E5%BC%A0%E8%87%82%E5%B9%B3%E8%A1%A1-05.jpg" target="_blank" rel="noopener" title="张臂平衡：张开双臂单腿站立，重心歪着，绿眼圆睁、露齿笑，灰爪张开。
+奶蛙艺术圣殿 · 平衡系列。竖构图 2880×3840，手机与竖屏显示器上最能撑满画面的一张。
+分辨率：2880×3840 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材" aria-label="查看《4K · 张臂平衡 05》原图">
+        <img loading="lazy" src="assets/relics/4k/%E5%A5%B6%E8%9B%99-4K-%E5%BC%A0%E8%87%82%E5%B9%B3%E8%A1%A1-05.webp" alt="4K · 张臂平衡 05" decoding="async">
+        <span class="vault-card__tag">4K 大图</span>
+        <b>4K · 张臂平衡 05</b>
+        <small>JPG · 304 KB</small>
+      </a>
+      <a class="vault-card" data-cat="4k" data-text="4k · 托腮沉思 04 托腮沉思：侧身单手托腮，绿眼斜视上方，抿嘴不语，浅米腹占了大半画面。
+奶蛙艺术圣殿 · 沉思系列。全仓唯一一张安静的奶蛙，手支着下巴想事情的样子，配深夜当新标签页很合适。
+分辨率：3840×3616 · 格式：jpeg · 用途：奶蛙壁纸浏览器新标签页插件（nailong-studio/naiwa-wallpaper）内置素材 4k 大图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/4k/%E5%A5%B6%E8%9B%99-4K-%E6%89%98%E8%85%AE%E6%B2%89%E6%80%9D-04.jpg" target="_blank" rel="noopener" title="托腮沉思：侧身单手托腮，绿眼斜视上方，抿嘴不语，浅米腹占了大半画面。
+奶蛙艺术圣殿 · 沉思系列。全仓唯一一张安静的奶蛙，手支着下巴想事情的样子，配深夜当新标签页很合适。
+分辨率：3840×3616 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材" aria-label="查看《4K · 托腮沉思 04》原图">
+        <img loading="lazy" src="assets/relics/4k/%E5%A5%B6%E8%9B%99-4K-%E6%89%98%E8%85%AE%E6%B2%89%E6%80%9D-04.webp" alt="4K · 托腮沉思 04" decoding="async">
+        <span class="vault-card__tag">4K 大图</span>
+        <b>4K · 托腮沉思 04</b>
+        <small>JPG · 347 KB</small>
+      </a>
+      <a class="vault-card" data-cat="4k" data-text="4k · 抱头震惊 02 抱头震惊：双手抱头立在原地，绿眼圆睁、嘴巴微张，浅米腹圆鼓，灰爪压在头顶。
+奶蛙艺术圣殿 · 震惊系列。表情克制但眼神诚实——那种「我刚意识到事情不妙」的瞬间，被 4k 完整留住了。
+分辨率：3840×3822 · 格式：jpeg · 用途：奶蛙壁纸浏览器新标签页插件（nailong-studio/naiwa-wallpaper）内置素材 4k 大图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/4k/%E5%A5%B6%E8%9B%99-4K-%E6%8A%B1%E5%A4%B4%E9%9C%87%E6%83%8A-02.jpg" target="_blank" rel="noopener" title="抱头震惊：双手抱头立在原地，绿眼圆睁、嘴巴微张，浅米腹圆鼓，灰爪压在头顶。
+奶蛙艺术圣殿 · 震惊系列。表情克制但眼神诚实——那种「我刚意识到事情不妙」的瞬间，被 4K 完整留住了。
+分辨率：3840×3822 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素材" aria-label="查看《4K · 抱头震惊 02》原图">
+        <img loading="lazy" src="assets/relics/4k/%E5%A5%B6%E8%9B%99-4K-%E6%8A%B1%E5%A4%B4%E9%9C%87%E6%83%8A-02.webp" alt="4K · 抱头震惊 02" decoding="async">
+        <span class="vault-card__tag">4K 大图</span>
+        <b>4K · 抱头震惊 02</b>
+        <small>JPG · 430 KB</small>
+      </a>
+      <a class="vault-card" data-cat="4k" data-text="4k · 捶头大笑 01 捶头大笑：双手抱头、仰头张口大笑，眼睛笑成一条缝，灰爪按在脑袋上，浅米腹一起颤。
+奶蛙艺术圣殿 · 捶头大笑系列第一作。全网流传的捶笑姿势 4k 复刻，牙口完整、笑意到位，是奶蛙表情库里最有辨识度的一张。
+分辨率：3840×3826 · 格式：jpeg · 用途：奶蛙壁纸浏览器新标签页插件（nailong-studio/naiwa-wallpaper）内置素材 4k 大图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/4k/%E5%A5%B6%E8%9B%99-4K-%E6%8D%B6%E5%A4%B4%E5%A4%A7%E7%AC%91-01.jpg" target="_blank" rel="noopener" title="捶头大笑：双手抱头、仰头张口大笑，眼睛笑成一条缝，灰爪按在脑袋上，浅米腹一起颤。
+奶蛙艺术圣殿 · 捶头大笑系列第一作。全网流传的捶笑姿势 4K 复刻，牙口完整、笑意到位，是奶蛙表情库里最有辨识度的一张。
+分辨率：3840×3826 · 格式：JPEG · 用途：奶蛙壁纸浏览器新标签页插件（Nailong-Studio/naiwa-wallpaper）内置素" aria-label="查看《4K · 捶头大笑 01》原图">
+        <img loading="lazy" src="assets/relics/4k/%E5%A5%B6%E8%9B%99-4K-%E6%8D%B6%E5%A4%B4%E5%A4%A7%E7%AC%91-01.webp" alt="4K · 捶头大笑 01" decoding="async">
+        <span class="vault-card__tag">4K 大图</span>
+        <b>4K · 捶头大笑 01</b>
+        <small>JPG · 396 KB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="奶蛙的永恒 · 14s 奶蛙-帧图-奶蛙的永恒-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%A5%B6%E8%9B%99%E7%9A%84%E6%B0%B8%E6%81%92-14s.png" target="_blank" rel="noopener" title="奶蛙-帧图-奶蛙的永恒-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《奶蛙的永恒 · 14s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%A5%B6%E8%9B%99%E7%9A%84%E6%B0%B8%E6%81%92-14s.webp" alt="奶蛙的永恒 · 14s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>奶蛙的永恒 · 14s</b>
+        <small>PNG · 1.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 10s 奶蛙-帧图-孤独奶蛙主义-10s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-10s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-10s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 10s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-10s.webp" alt="孤独奶蛙主义 · 10s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 10s</b>
+        <small>PNG · 1.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 20s 奶蛙-帧图-孤独奶蛙主义-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-20s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 20s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-20s.webp" alt="孤独奶蛙主义 · 20s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 20s</b>
+        <small>PNG · 1.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 30s 奶蛙-帧图-孤独奶蛙主义-30s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-30s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-30s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 30s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-30s.webp" alt="孤独奶蛙主义 · 30s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 30s</b>
+        <small>PNG · 787 KB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 40s 奶蛙-帧图-孤独奶蛙主义-40s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-40s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-40s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 40s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-40s.webp" alt="孤独奶蛙主义 · 40s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 40s</b>
+        <small>PNG · 1013 KB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 50s 奶蛙-帧图-孤独奶蛙主义-50s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-50s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-50s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 50s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-50s.webp" alt="孤独奶蛙主义 · 50s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 50s</b>
+        <small>PNG · 1.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 60s 奶蛙-帧图-孤独奶蛙主义-60s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-60s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-60s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 60s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-60s.webp" alt="孤独奶蛙主义 · 60s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 60s</b>
+        <small>PNG · 1.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 70s 奶蛙-帧图-孤独奶蛙主义-70s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-70s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-70s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 70s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-70s.webp" alt="孤独奶蛙主义 · 70s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 70s</b>
+        <small>PNG · 1.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="孤独奶蛙主义 · 80s 奶蛙-帧图-孤独奶蛙主义-80s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-80s.png" target="_blank" rel="noopener" title="奶蛙-帧图-孤独奶蛙主义-80s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《孤独奶蛙主义 · 80s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E5%AD%A4%E7%8B%AC%E5%A5%B6%E8%9B%99%E4%B8%BB%E4%B9%89-80s.webp" alt="孤独奶蛙主义 · 80s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>孤独奶蛙主义 · 80s</b>
+        <small>PNG · 1.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 0.5s 奶蛙-帧图-最伟大的奶蛙-0.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-0.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-0.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 0.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-0.5s.webp" alt="最伟大的奶蛙 · 0.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 0.5s</b>
+        <small>PNG · 1.8 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 11s 奶蛙-帧图-最伟大的奶蛙-11s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-11s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-11s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 11s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-11s.webp" alt="最伟大的奶蛙 · 11s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 11s</b>
+        <small>PNG · 2.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 12s 奶蛙-帧图-最伟大的奶蛙-12s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-12s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-12s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 12s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-12s.webp" alt="最伟大的奶蛙 · 12s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 12s</b>
+        <small>PNG · 3.6 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 13s 奶蛙-帧图-最伟大的奶蛙-13s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-13s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-13s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 13s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-13s.webp" alt="最伟大的奶蛙 · 13s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 13s</b>
+        <small>PNG · 1.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 14s 奶蛙-帧图-最伟大的奶蛙-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-14s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-14s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 14s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-14s.webp" alt="最伟大的奶蛙 · 14s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 14s</b>
+        <small>PNG · 2.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 15.5s 奶蛙-帧图-最伟大的奶蛙-15.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-15.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-15.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 15.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-15.5s.webp" alt="最伟大的奶蛙 · 15.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 15.5s</b>
+        <small>PNG · 2.9 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 16.5s 奶蛙-帧图-最伟大的奶蛙-16.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-16.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-16.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 16.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-16.5s.webp" alt="最伟大的奶蛙 · 16.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 16.5s</b>
+        <small>PNG · 2.6 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 17.5s 奶蛙-帧图-最伟大的奶蛙-17.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-17.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-17.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 17.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-17.5s.webp" alt="最伟大的奶蛙 · 17.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 17.5s</b>
+        <small>PNG · 2.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 18.5s 奶蛙-帧图-最伟大的奶蛙-18.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-18.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-18.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 18.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-18.5s.webp" alt="最伟大的奶蛙 · 18.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 18.5s</b>
+        <small>PNG · 3.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 20s 奶蛙-帧图-最伟大的奶蛙-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-20s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-20s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 20s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-20s.webp" alt="最伟大的奶蛙 · 20s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 20s</b>
+        <small>PNG · 3.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 21.5s 奶蛙-帧图-最伟大的奶蛙-21.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-21.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-21.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 21.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-21.5s.webp" alt="最伟大的奶蛙 · 21.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 21.5s</b>
+        <small>PNG · 2.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 23s 奶蛙-帧图-最伟大的奶蛙-23s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-23s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-23s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 23s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-23s.webp" alt="最伟大的奶蛙 · 23s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 23s</b>
+        <small>PNG · 1.9 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 24.5s 奶蛙-帧图-最伟大的奶蛙-24.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-24.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-24.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 24.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-24.5s.webp" alt="最伟大的奶蛙 · 24.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 24.5s</b>
+        <small>PNG · 4.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 25.5s 奶蛙-帧图-最伟大的奶蛙-25.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-25.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-25.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 25.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-25.5s.webp" alt="最伟大的奶蛙 · 25.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 25.5s</b>
+        <small>PNG · 2.2 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 25s 奶蛙-帧图-最伟大的奶蛙-25s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-25s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-25s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 25s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-25s.webp" alt="最伟大的奶蛙 · 25s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 25s</b>
+        <small>PNG · 2.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 26.5s 奶蛙-帧图-最伟大的奶蛙-26.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-26.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-26.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 26.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-26.5s.webp" alt="最伟大的奶蛙 · 26.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 26.5s</b>
+        <small>PNG · 3.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 26s 奶蛙-帧图-最伟大的奶蛙-26s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-26s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-26s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 26s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-26s.webp" alt="最伟大的奶蛙 · 26s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 26s</b>
+        <small>PNG · 1.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 27.5s 奶蛙-帧图-最伟大的奶蛙-27.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-27.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-27.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 27.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-27.5s.webp" alt="最伟大的奶蛙 · 27.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 27.5s</b>
+        <small>PNG · 2.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 27s 奶蛙-帧图-最伟大的奶蛙-27s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-27s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-27s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 27s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-27s.webp" alt="最伟大的奶蛙 · 27s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 27s</b>
+        <small>PNG · 3.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 28.5s 奶蛙-帧图-最伟大的奶蛙-28.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-28.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-28.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 28.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-28.5s.webp" alt="最伟大的奶蛙 · 28.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 28.5s</b>
+        <small>PNG · 1.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 28s 奶蛙-帧图-最伟大的奶蛙-28s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-28s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-28s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 28s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-28s.webp" alt="最伟大的奶蛙 · 28s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 28s</b>
+        <small>PNG · 1.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 2s 奶蛙-帧图-最伟大的奶蛙-2s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-2s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-2s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 2s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-2s.webp" alt="最伟大的奶蛙 · 2s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 2s</b>
+        <small>PNG · 1.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 3s 奶蛙-帧图-最伟大的奶蛙-3s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-3s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-3s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 3s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-3s.webp" alt="最伟大的奶蛙 · 3s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 3s</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 4s 奶蛙-帧图-最伟大的奶蛙-4s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-4s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-4s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 4s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-4s.webp" alt="最伟大的奶蛙 · 4s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 4s</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 5s 奶蛙-帧图-最伟大的奶蛙-5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-5s.webp" alt="最伟大的奶蛙 · 5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 5s</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 6.5s 奶蛙-帧图-最伟大的奶蛙-6.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-6.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-6.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 6.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-6.5s.webp" alt="最伟大的奶蛙 · 6.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 6.5s</b>
+        <small>PNG · 1.9 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 7.5s 奶蛙-帧图-最伟大的奶蛙-7.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-7.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-7.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 7.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-7.5s.webp" alt="最伟大的奶蛙 · 7.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 7.5s</b>
+        <small>PNG · 2.0 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 9.5s 奶蛙-帧图-最伟大的奶蛙-9.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-9.5s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-9.5s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 9.5s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-9.5s.webp" alt="最伟大的奶蛙 · 9.5s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 9.5s</b>
+        <small>PNG · 2.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="frames" data-text="最伟大的奶蛙 · 9s 奶蛙-帧图-最伟大的奶蛙-9s：奶蛙视频帧图/壁纸，馆藏衍生素材。 视频帧图" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-9s.png" target="_blank" rel="noopener" title="奶蛙-帧图-最伟大的奶蛙-9s：奶蛙视频帧图/壁纸，馆藏衍生素材。" aria-label="查看《最伟大的奶蛙 · 9s》原图">
+        <img loading="lazy" src="assets/relics/frames/%E5%A5%B6%E8%9B%99-%E5%B8%A7%E5%9B%BE-%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E5%A5%B6%E8%9B%99-9s.webp" alt="最伟大的奶蛙 · 9s" decoding="async">
+        <span class="vault-card__tag">视频帧图</span>
+        <b>最伟大的奶蛙 · 9s</b>
+        <small>PNG · 1.7 MB</small>
+      </a>
+      <a class="vault-card" data-cat="videos" data-text="圣殿巡行 官方圣影 · 一：巨型奶蛙缓步巡行圣殿——从审判大厅到圣光天际，镜头仰望它的足迹。圣殿巡行重构版，替换旧版游动形象。 官方圣影" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/videos/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E6%AE%BF%E5%B7%A1%E8%A1%8C.mp4" target="_blank" rel="noopener" title="官方圣影 · 一：巨型奶蛙缓步巡行圣殿——从审判大厅到圣光天际，镜头仰望它的足迹。圣殿巡行重构版，替换旧版游动形象。" aria-label="查看《圣殿巡行》原图">
+        <img loading="lazy" src="assets/relics/videos/%E5%A5%B6%E8%9B%99-%E5%9C%A3%E6%AE%BF%E5%B7%A1%E8%A1%8C.webp" alt="圣殿巡行" decoding="async">
+        <span class="vault-card__tag">官方圣影</span>
+        <b>圣殿巡行</b>
+        <small>视频 · 3.4 MB</small>
+      </a>
+      <a class="vault-card" data-cat="videos" data-text="壁纸隧道 官方圣影 · 二：穿过奶蛙壁纸的隧道，每一步都踩在快乐上。 官方圣影" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/videos/%E5%A5%B6%E8%9B%99-%E5%A3%81%E7%BA%B8%E9%9A%A7%E9%81%93.mp4" target="_blank" rel="noopener" title="官方圣影 · 二：穿过奶蛙壁纸的隧道，每一步都踩在快乐上。" aria-label="查看《壁纸隧道》原图">
+        <img loading="lazy" src="assets/relics/videos/%E5%A5%B6%E8%9B%99-%E5%A3%81%E7%BA%B8%E9%9A%A7%E9%81%93.webp" alt="壁纸隧道" decoding="async">
+        <span class="vault-card__tag">官方圣影</span>
+        <b>壁纸隧道</b>
+        <small>视频 · 1.5 MB</small>
+      </a>
+      <a class="vault-card" data-cat="videos" data-text="大笑 15.4 秒连续大笑原片：单一奶蛙角色的连续大笑动画，1080×1474 / 30fps / 含原声。
+音频为约 5 hz 的连续笑声音节节奏；全片无字幕、无水印，属可直接二次剪辑的裸片素材。
+规格：hevc + aac，5.23 mib。sha256 前 8 位 1c05a2a8（社区流传的副本与本片字节一致，入仓前已比对去重）。 官方圣影" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/videos/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E7%AC%91.mp4" target="_blank" rel="noopener" title="15.4 秒连续大笑原片：单一奶蛙角色的连续大笑动画，1080×1474 / 30fps / 含原声。
+音频为约 5 Hz 的连续笑声音节节奏；全片无字幕、无水印，属可直接二次剪辑的裸片素材。
+规格：HEVC + AAC，5.23 MiB。sha256 前 8 位 1c05a2a8（社区流传的副本与本片字节一致，入仓前已比对去重）。" aria-label="查看《大笑》原图">
+        <img loading="lazy" src="assets/relics/videos/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E7%AC%91.webp" alt="大笑" decoding="async">
+        <span class="vault-card__tag">官方圣影</span>
+        <b>大笑</b>
+        <small>视频 · 5.3 MB</small>
+      </a>
+      <a class="vault-card" data-cat="videos" data-text="大笑藏馆巡展 巡展圣影 · 三：大笑藏馆巡展——十二幕真实圣像的 ken burns 巡礼，推拉之间，快乐全程不打烊。 官方圣影" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/videos/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E7%AC%91%E8%97%8F%E9%A6%86%E5%B7%A1%E5%B1%95.mp4" target="_blank" rel="noopener" title="巡展圣影 · 三：大笑藏馆巡展——十二幕真实圣像的 ken burns 巡礼，推拉之间，快乐全程不打烊。" aria-label="查看《大笑藏馆巡展》原图">
+        <img loading="lazy" src="assets/relics/videos/%E5%A5%B6%E8%9B%99-%E5%A4%A7%E7%AC%91%E8%97%8F%E9%A6%86%E5%B7%A1%E5%B1%95.webp" alt="大笑藏馆巡展" decoding="async">
+        <span class="vault-card__tag">官方圣影</span>
+        <b>大笑藏馆巡展</b>
+        <small>视频 · 5.1 MB</small>
+      </a>
+      <a class="vault-card" data-cat="assets" data-text="logo 品牌标识：奶蛙捧腹大笑特写构图，黄圆润身体、浅米肚皮、绿眼灰爪，用于官网与插件角标。
+格式：jpeg · 用途：nailong-universe 官网 / naiwa-wallpaper 插件品牌资产 品牌资产" href="https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main/assets/%E5%A5%B6%E8%9B%99-logo.jpg" target="_blank" rel="noopener" title="品牌标识：奶蛙捧腹大笑特写构图，黄圆润身体、浅米肚皮、绿眼灰爪，用于官网与插件角标。
+格式：JPEG · 用途：NaiLong-Universe 官网 / naiwa-wallpaper 插件品牌资产" aria-label="查看《logo》原图">
+        <img loading="lazy" src="assets/relics/assets/%E5%A5%B6%E8%9B%99-logo.webp" alt="logo" decoding="async">
+        <span class="vault-card__tag">品牌资产</span>
+        <b>logo</b>
+        <small>JPG · 45 KB</small>
+      </a>
+    </div>
+    <p class="vault-empty" id="vaultEmpty" role="status" hidden>没有匹配的圣物，换个词或分类试试。</p>
+    <a class="relic__cta vault-cta" href="https://github.com/Nailong-Studio/wallpaper" target="_blank" rel="noopener">进入素材仓库 · 查看全部原图</a>
+  </div>
+</section>
 </section>
 
 <!-- ===================== 游客中心 ===================== -->
@@ -2626,7 +4032,7 @@ html.js .work__frame.broken::after{
         <article class="about__card">
           <h3 class="about__t">关 于 这 座 圣 殿</h3>
           <p class="about__p">奶蛙，是官方奶龙角色的民间 AI 变异体：黄圆润的身体、浅米色的肚腹、碧绿的眼睛、灰扑扑的小爪。本项目把奶蛙放进西方美术史的圣殿——你不是在看画，你是在巡游一座会笑的艺术馆。</p>
-          <p class="about__p">全站 186 件馆藏、8 间展厅、3 卷圣影，每件都有专属叙事；单文件自包含，离线亦可参观。</p>
+          <p class="about__p">全站 186 件馆藏、8 间展厅、3 卷圣影，每件都有专属叙事；另有 215 件素材全图鉴。纯静态站点，可离线安装参观。</p>
           <button class="install-cta" id="installBtn" type="button" hidden>把圣殿装进口袋 · 安装到桌面</button>
         </article>
         <article class="about__card">
@@ -2653,6 +4059,7 @@ html.js .work__frame.broken::after{
         <article class="about__card">
           <h3 class="about__t">殿 史 纪 年</h3>
           <ol class="about__log">
+            <li><b>v17.8</b> 圣物全图鉴：接入素材仓全部 215 件资源，9 类筛选 + 关键词检索 + 原图直达</li>
             <li><b>v17.7</b> 体验修复：灯箱关闭回来源 / Esc 关闭与退单厅 / 深链导航遮挡 / 原图外链修复 / 移动端布局（v17.7.2 同步 PWA 缓存版本）</li>
             <li><b>v17.6</b> 趣味音效：点开作品哈哈大笑，说明牌里再喂一口=被吃，噶就塞（可关，选择存本机）</li>
             <li><b>v17.5</b> 分享卡片（OG/Twitter）+ 今日圣像 + 参观足迹（仅存本机）</li>
@@ -3910,6 +5317,41 @@ html.js .work__frame.broken::after{
     var form = doc.getElementById("searchForm");
     if (form) form.addEventListener("submit", function(e){ e.preventDefault(); render(); });
     render();
+  });
+  /* ---- 素材总览：分类 + 关键词筛选 ---- */
+  safe(function(){
+    var grid = doc.getElementById("vaultGrid");
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".vault-card"));
+    var chips = Array.prototype.slice.call(doc.querySelectorAll("#vaultChips .vault-chip"));
+    var input = doc.getElementById("vaultSearch");
+    var count = doc.getElementById("vaultCount");
+    var empty = doc.getElementById("vaultEmpty");
+    var cat = "all", q = "";
+    function apply(){
+      var n = 0;
+      cards.forEach(function(c){
+        var okCat = cat === "all" || c.getAttribute("data-cat") === cat;
+        var okText = !q || (c.getAttribute("data-text") || "").indexOf(q) >= 0;
+        var ok = okCat && okText;
+        c.hidden = !ok;
+        if (ok) n++;
+      });
+      if (count) count.textContent = n + " 件";
+      if (empty) empty.hidden = n > 0;
+    }
+    chips.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        cat = btn.getAttribute("data-cat") || "all";
+        chips.forEach(function(b){ b.classList.toggle("on", b === btn); });
+        apply();
+      });
+    });
+    if (input) input.addEventListener("input", function(){
+      q = String(input.value || "").trim().toLowerCase();
+      apply();
+    });
+    apply();
   });
   /* ---- 图片渐进呈现：解码完成淡入，失败退回 LQIP 占位 ---- */
   safe(function(){

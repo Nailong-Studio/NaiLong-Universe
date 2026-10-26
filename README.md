@@ -68,6 +68,12 @@
   <img src="docs/readme-assets/wall-collage.jpg" width="88%" alt="素材墙 · 20 件馆藏拼图">
 </p>
 
+**圣物全图鉴（215 件素材，分类筛选 + 关键词检索）**
+
+<p align="center">
+  <img src="docs/readme-assets/vault-desktop.png" width="88%" alt="圣物全图鉴 · 215 件素材总览">
+</p>
+
 ---
 
 ## 四、圣殿体验（为什么值得逛）
@@ -79,6 +85,7 @@
 - **艺术史长河**：从创世纪到现代主义，奶蛙版的西方美术编年史，纵向沉浸滚动
 - **放映厅**：Ken Burns 巡展带进度条与播放·暂停，可停下细看某一件
 - **游客中心**：参观须知、版权与二创声明、投稿路径、无障碍说明、殿史纪年
+- **圣物全图鉴**：朝圣之路下方接入素材仓库全部 215 件资源，9 类筛选 + 名称/叙事检索 + 原图直达（`#relics`）
 - **背景音乐**：入殿即闻圣咏（`temple-choir`），可随时静音
 - **零构建**：官网为纯静态站点，`docs/index.html` 内联全部 CSS/JS，配套本地素材、PWA 图标与 Service Worker，无框架、无需构建、可离线安装
 
@@ -89,7 +96,7 @@
 | 能力 | 实现 |
 | --- | --- |
 | 静态站点 | 核心样式/脚本内联于 `docs/index.html`，配套本地素材、PWA 图标与 Service Worker，无需构建即可部署 |
-| hash 路由多视图 | `#home` / `#halls` / `#hall-N` / `#w-<编号>` / `#chronicle` / `#visit` / `#search` / `#about` |
+| hash 路由多视图 | `#home` / `#halls` / `#hall-N` / `#w-<编号>` / `#chronicle` / `#visit` / `#relics` / `#search` / `#about` |
 | 纯 CSS 3D 画廊之门 | 三层视差画作 + 双开金门 + 门缝圣光，无 WebGL |
 | 性能优先 | 全站 lazy 懒加载 + 28px LQIP 模糊占位淡入 + 解码完成淡入 + 邻近预载；`content-visibility` 降低长列表渲染成本 |
 | 多端适配 | ≤640px 沉浸卡片宽度 / ≥1680px 版心放宽 / 异形屏安全区 / 吸顶厅导航 |
@@ -97,12 +104,13 @@
 | 路由健壮性 | 非法 `#hall-N` 回落全部展厅不白屏；`#w-` 深链兼容 `NW-` 前缀、无效编号自动复位 `#halls`；`document.title` 随视图/单厅/作品同步（历史与分享卡片直达语境） |
 | PWA | `manifest.webmanifest` + Service Worker（外壳 network-first 离线回退 + 同源媒体 cache-first 运行时缓存）+ 游客中心安装入口；「随缘一观」随机开馆、说明牌一键复制深链 |
 | 分享与回访 | OG/Twitter 分享卡片；首页「今日圣像」按日轮换；游客中心「参观足迹」本机留存最近 8 件；`<noscript>` 保障禁 JS 环境内容可见 |
-| 数据可校验 | `scripts/export_collection.py` 导出 `docs/data/collection.json` 并校验件数 / 命名 / 叙事 / 原作外链 |
+| 数据可校验 | `scripts/export_collection.py` 导出 `docs/data/collection.json` 并校验件数 / 命名 / 叙事 / 原作外链；素材侧由 wallpaper `assets.json` + `Assets Check` CI 保证清单与缩略图一致 |
+| 资源总览 | `docs/data/assets.json` + `docs/assets/relics/` 与素材仓同源；215 件卡片静态渲染、缩略图懒加载，分类与关键词双筛选 |
 | 现代视觉层 | View Transitions 视图过渡 · 极光底幕 · 金色光幕切换 · 圣门金尘 · 首屏 Ken Burns · 玻璃导航 · 阅读进度条 · 回到顶部 · 流光标题 · 作品悬停动态 · Web Audio 教堂混响（圣咏宏大化）· `:has()` 状态样式（全部渐进增强，`prefers-reduced-motion` 整体降级） |
 | 资源治理 | 48MB → 37MB（WEBP 压缩 / 原始 gif 溯源恢复） |
 | 自动部署 | GitHub Actions：push main → Pages 自动上线 |
 
-> 目录小抄：`docs/index.html` 官网源文件 · `docs/data/collection.json` 藏品索引 · `scripts/` 构建与校验脚本 · `palette.json` 主题调色板单源 · `themes/` 各平台主题 · `resources/ports.yml` 主题移植登记 · `site/` 旧版 Astro 画廊（仅存档） · `PLAN.md` 改造规划
+> 目录小抄：`docs/index.html` 官网源文件 · `docs/data/collection.json` 藏品索引 · `docs/data/assets.json` 素材清单 · `docs/assets/relics/` 215 件缩略图 · `scripts/` 构建与校验脚本 · `palette.json` 主题调色板单源 · `themes/` 各平台主题 · `resources/ports.yml` 主题移植登记 · `site/` 旧版 Astro 画廊（仅存档） · `PLAN.md` 改造规划
 
 ---
 
