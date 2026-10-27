@@ -514,6 +514,7 @@ body::before{
 .hall__track{
   display:flex;gap:clamp(14px,2vw,22px);overflow-x:auto;
   scroll-snap-type:x mandatory;
+  touch-action:pan-x;
   padding:4px 2px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
   margin-top:clamp(26px,4vw,40px);
 }
@@ -535,6 +536,7 @@ body::before{
 .halls-nav{
   display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;
   justify-content:center;flex-wrap:wrap;margin:0 auto;
+  touch-action:pan-x;
   max-width:1160px;padding:12px clamp(14px,3vw,24px);
   /* 吸顶导览：浏览长廊时始终可见当前所在展厅 */
   position:sticky;top:clamp(54px,7vw,70px);z-index:60;
@@ -544,6 +546,9 @@ body::before{
 }
 .halls-nav::-webkit-scrollbar{display:none}
 section.hall,section[id],article[id]{scroll-margin-top:clamp(120px,14vw,150px)}
+/* 浏览长廊下滚时收起吸顶导览（让位给内容），上滚即回——「步入展厅」不再被盖住 */
+.halls-nav.nav-autohide{transform:translateY(-110%);opacity:0;pointer-events:none}
+.halls-nav{transition:transform .38s var(--ease),opacity .38s var(--ease)}
 .halls-nav a{
   flex:none;color:var(--gold);text-decoration:none;
   font-family:var(--serif);font-size:.82rem;letter-spacing:.24em;text-indent:.24em;
@@ -732,6 +737,7 @@ section.hall,section[id],article[id]{scroll-margin-top:clamp(120px,14vw,150px)}
 .timeline__track{
   display:flex;gap:clamp(16px,2.4vw,28px);overflow-x:auto;
   scroll-snap-type:x mandatory;scrollbar-width:none;
+  touch-action:pan-x;
   -webkit-overflow-scrolling:touch;padding:0 2px 16px;
 }
 .timeline__track::-webkit-scrollbar{display:none}
@@ -1349,6 +1355,7 @@ html.js .work__frame.broken::after{
   /* 分类 chips 横向滚动，避免多行占用首屏 */
   .vault-chips{
     flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;
+    touch-action:pan-x;
     -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);
     mask-image:linear-gradient(90deg,#000 calc(100% - 22px),transparent);
   }
@@ -4388,6 +4395,7 @@ html.js .work__frame.broken::after{
         <article class="about__card">
           <h3 class="about__t">殿 史 纪 年</h3>
           <ol class="about__log">
+            <li><b>v17.11</b> 交互体检：深链直达修复 / 横向长廊不再吞竖向滚动手势 / 吸顶导览下滚收起·停手即回</li>
             <li><b>v17.10</b> 全站体检：首屏徽记重制 / 图鉴同步库房 / 分界面首屏收紧 / 移动端分类横滑 / 失效友站下架 / 音频提示不再压住按钮</li>
             <li><b>v17.9</b> 友站星图：全网奶蛙站点分六类入库，开源项目 / 游戏 / 桌宠 / 档案馆一站直达</li>
             <li><b>v17.8</b> 圣物全图鉴：接入素材仓全量资源，分类筛选 + 关键词检索 + 原图直达</li>
@@ -4620,7 +4628,21 @@ html.js .work__frame.broken::after{
       if (window.NW && window.NW.openByNo){
         try { hit = !!window.NW.openByNo(no); } catch(e){}
       }
-      if (!hit){ try{ history.replaceState(null, "", "#halls"); }catch(e){} }
+      if (!hit){
+        /* 首屏冷加载时灯箱模块尚未就绪：保留深链，轮询等它起来；编号无效才回落 */
+        var tries = 0;
+        var iv = setInterval(function(){
+          tries++;
+          var box = doc.getElementById("lightbox");
+          if (box && box.open){ clearInterval(iv); return; }
+          var ok = false;
+          if (window.NW && window.NW.openByNo){
+            try { ok = !!window.NW.openByNo(no); } catch(e){}
+          }
+          if (ok){ clearInterval(iv); }
+          else if (tries > 40){ clearInterval(iv); try{ history.replaceState(null, "", "#halls"); }catch(e){} }
+        }, 120);
+      }
       return;
     }
     var deepTarget = null;
@@ -4703,6 +4725,20 @@ html.js .work__frame.broken::after{
       pbar.style.width = (max > 0 ? Math.min(100, y / max * 100) : 0) + "%";
     }
     if (toTop) toTop.classList.toggle("show", y > 640);
+    /* 长廊吸顶导览：下滚收起让位，停手或上滚即回 */
+    var hn = doc.querySelector(".halls-nav");
+    if (hn){
+      if (y > 420 && y > onScroll._ly + 4){
+        hn.classList.add("nav-autohide");
+        clearTimeout(onScroll._ht);
+        onScroll._ht = setTimeout(function(){ hn.classList.remove("nav-autohide"); }, 1100);
+      }
+      else if (y < onScroll._ly - 4 || y <= 420){
+        hn.classList.remove("nav-autohide");
+        clearTimeout(onScroll._ht);
+      }
+    }
+    onScroll._ly = y;
   }
   window.addEventListener("scroll", onScroll, {passive:true});
   if (toTop) toTop.addEventListener("click", function(){
