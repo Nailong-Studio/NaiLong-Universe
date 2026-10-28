@@ -1,9 +1,9 @@
 {
-  "name": "nailong-gallery",
+  "name": "nailoong-gallery",
   "type": "module",
   "version": "2.0.0",
   "private": true,
-  "description": "奶龙艺术宇宙 · 数字美术馆 (Nailong Gallery v2)",
+  "description": "奶龙艺术宇宙 · 数字美术馆 (Nailoong Gallery v2)",
   "scripts": {
     "dev": "astro dev",
     "build": "npm run content:build && npm run content:verify && astro build && node scripts/check-links.mjs",

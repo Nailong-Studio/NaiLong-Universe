@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "nailongDark": {
-    "name": "Nailong Dark",
+  "nailoongDark": {
+    "name": "Nailoong Dark",
     "emoji": "🦌",
     "order": 0,
     "dark": true,
@@ -424,8 +424,8 @@
       }
     }
   },
-  "nailongLight": {
-    "name": "Nailong Light",
+  "nailoongLight": {
+    "name": "Nailoong Light",
     "emoji": "🌼",
     "order": 1,
     "dark": false,

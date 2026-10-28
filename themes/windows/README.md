@@ -2,13 +2,13 @@
 
 奶龙主题的 Windows 桌面主题包，让微软的窗口也长出奶龙的尾巴，包含：
 
-- `NaiLong.theme` 主题文件（桌面背景 + 窗口配色）
+- `NaiLoong.theme` 主题文件（桌面背景 + 窗口配色）
 
 ## 目录说明
 
 ```
 themes/windows/
-├── NaiLong.theme        # 主题文件
+├── NaiLoong.theme        # 主题文件
 └── README.md
 ```
 
@@ -16,8 +16,8 @@ themes/windows/
 
 ## 安装步骤
 
-1. 将 `NaiLong.theme` 复制到 `C:\Windows\Resources\Themes`
-2. 双击 `NaiLong.theme` 即可自动应用
+1. 将 `NaiLoong.theme` 复制到 `C:\Windows\Resources\Themes`
+2. 双击 `NaiLoong.theme` 即可自动应用
 
 ## 说明
 

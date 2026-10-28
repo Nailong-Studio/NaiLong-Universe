@@ -24,4 +24,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy docs --project-name=nailong-universe --branch=main --commit-dirty=true
+          command: pages deploy docs --project-name=nailoong-universe --branch=main --commit-dirty=true

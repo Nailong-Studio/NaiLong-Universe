@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Nailong palette 单源生成器 - 对标 catppuccin/resources/generate/main.ts
+"""Nailoong palette 单源生成器 - 对标 catppuccin/resources/generate/main.ts
 用法:
   python3 scripts/generate.py --all
   python3 scripts/generate.py --port terminal
   python3 scripts/generate.py --check
-从 palette.json 读取 nailongDark 口味生成各 Port 配置。
+从 palette.json 读取 nailoongDark 口味生成各 Port 配置。
 原则：只改 palette.json，此脚本输出即为真值，禁止手改 themes/。
 """
 import argparse
@@ -18,8 +18,8 @@ PALETTE_PATH = ROOT / "palette.json"
 
 def load_palette():
     data = json.loads(PALETTE_PATH.read_text())
-    dark = data["nailongDark"]["colors"]
-    light = data["nailongLight"]["colors"]
+    dark = data["nailoongDark"]["colors"]
+    light = data["nailoongLight"]["colors"]
     return data, dark, light
 
 
@@ -59,12 +59,12 @@ def render_terminal():
             "terminal.ansiBrightWhite": dark["text"]["hex"],
         },
     }
-    rendered["themes/terminal/nailong-vscode-terminal.json"] = (
+    rendered["themes/terminal/nailoong-vscode-terminal.json"] = (
         json.dumps(vscode, indent=2, ensure_ascii=False) + "\n"
     )
 
     wt = {
-        "name": "NaiLong",
+        "name": "NaiLoong",
         "foreground": dark["text"]["hex"],
         "background": dark["base"]["hex"],
         "cursorColor": dark["eyeGreen"]["hex"],
@@ -92,15 +92,15 @@ def render_terminal():
         json.dumps(wt, indent=2, ensure_ascii=False) + "\n"
     )
 
-    win_content = f"""; NaiLong.theme - 奶龙 Windows 主题示例
+    win_content = f"""; NaiLoong.theme - 奶龙 Windows 主题示例
 ; 用法：复制到 C:\\Windows\\Resources\\Themes 后双击应用
 ; 由 palette.json 单源生成，请勿手改
 [Theme]
-DisplayName=NaiLong (奶龙主题)
+DisplayName=NaiLoong (奶龙主题)
 ThemeId={{8A1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}}
 
 [Control Panel\\Desktop]
-Wallpaper=%SystemRoot%\\Resources\\Themes\\NaiLong\\wallpapers\\nai-long-sleeping-01.png
+Wallpaper=%SystemRoot%\\Resources\\Themes\\NaiLoong\\wallpapers\\nai-long-sleeping-01.png
 TileWallpaper=0
 WallpaperStyle=10
 
@@ -117,7 +117,7 @@ ButtonText={hex_to_rgb_str(dark['text']['hex'])}
 Highlight={hex_to_rgb_str(dark['milkYellow']['hex'])}
 HighlightText={hex_to_rgb_str(dark['base']['hex'])}
 """
-    rendered["themes/windows/NaiLong.theme"] = win_content
+    rendered["themes/windows/NaiLoong.theme"] = win_content
     return rendered
 
 

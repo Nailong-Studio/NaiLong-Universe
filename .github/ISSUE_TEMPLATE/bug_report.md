@@ -9,7 +9,7 @@ labels: bug
 发生了什么？（哪里点不了、哪里显示错、哪里加载不出来）
 
 **复现步骤**
-1. 打开 https://nailong-studio.github.io/NaiLong-Universe/
+1. 打开 https://nailong-studio.github.io/NaiLoong-Universe/
 2. 点击 …
 3. 看到 …
 

@@ -1,12 +1,12 @@
-; NaiLong.theme - 奶龙 Windows 主题示例
+; NaiLoong.theme - 奶龙 Windows 主题示例
 ; 用法：复制到 C:\Windows\Resources\Themes 后双击应用
 ; 由 palette.json 单源生成，请勿手改
 [Theme]
-DisplayName=NaiLong (奶龙主题)
+DisplayName=NaiLoong (奶龙主题)
 ThemeId={8A1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}
 
 [Control Panel\Desktop]
-Wallpaper=%SystemRoot%\Resources\Themes\NaiLong\wallpapers\nai-long-sleeping-01.png
+Wallpaper=%SystemRoot%\Resources\Themes\NaiLoong\wallpapers\nai-long-sleeping-01.png
 TileWallpaper=0
 WallpaperStyle=10
 

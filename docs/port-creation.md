@@ -16,7 +16,7 @@ gh repo create Nailong-Studio/<port-name> --public --description "奶龙主题 �
 
 ```
 <port-name>/
-├── palette.json -> 软链或复制自 NaiLong-Universe/palette.json（定期同步）
+├── palette.json -> 软链或复制自 NaiLoong-Universe/palette.json（定期同步）
 ├── package.json / 主题文件
 ├── themes/ 或对应配置目录
 ├── README.md
@@ -25,12 +25,12 @@ gh repo create Nailong-Studio/<port-name> --public --description "奶龙主题 �
 
 ## 3. 接入 palette
 
-- 复制 `palette.json` 到新仓根目录，或 `git submodule add https://github.com/Nailong-Studio/NaiLong-Universe palette`
-- 新增 `scripts/generate.py` 或直接复用 `NaiLong-Universe/scripts/generate.py` 生成对应配置
+- 复制 `palette.json` 到新仓根目录，或 `git submodule add https://github.com/Nailong-Studio/NaiLoong-Universe palette`
+- 新增 `scripts/generate.py` 或直接复用 `NaiLoong-Universe/scripts/generate.py` 生成对应配置
 
 ## 4. 注册
 
-在 `NaiLong-Universe/resources/ports.yml` 添加条目，PR 到主仓。
+在 `NaiLoong-Universe/resources/ports.yml` 添加条目，PR 到主仓。
 
 ## 5. 发布
 

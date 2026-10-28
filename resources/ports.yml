@@ -1,4 +1,4 @@
-# Nailong ports registry - 对标 catppuccin/resources/ports.yml
+# Nailoong ports registry - 对标 catppuccin/resources/ports.yml
 # 每个 port 为一个独立仓库，统一从 palette.json 单源生成
 
 ports:
@@ -12,31 +12,31 @@ ports:
   vscode-theme:
     name: "VS Code Theme"
     category: "editor"
-    repo: "NaiLong-Universe/themes/vscode"
+    repo: "NaiLoong-Universe/themes/vscode"
     description: "奶黄主色 + 绿眼睛，暖黑底 VS Code 主题（已并入主仓）"
     maintained: true
 
   terminal:
     name: "Terminal"
     category: "terminal"
-    repo: "NaiLong-Universe/themes/terminal"
+    repo: "NaiLoong-Universe/themes/terminal"
     description: "Windows Terminal / iTerm2 / VS Code 终端三件套"
     maintained: true
     files:
       - windows-terminal.json
-      - nailong.itermcolors
-      - nailong-vscode-terminal.json
+      - nailoong.itermcolors
+      - nailoong-vscode-terminal.json
 
   windows:
     name: "Windows Theme"
     category: "os"
-    repo: "NaiLong-Universe/themes/windows"
+    repo: "NaiLoong-Universe/themes/windows"
     description: "Windows 11 .theme 桌面主题"
     maintained: true
 
   macos:
     name: "macOS Guide"
     category: "os"
-    repo: "NaiLong-Universe/themes/macos"
+    repo: "NaiLoong-Universe/themes/macos"
     description: "macOS 外观设置指南"
     maintained: true

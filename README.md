@@ -8,9 +8,9 @@
 > 本馆的职责，是为这种情绪提供一处符合美术馆消防规范的安放场所。
 > 参观免费，笑声自理。
 
-[![GitHub Stars](https://img.shields.io/github/stars/Nailong-Studio/NaiLong-Universe?style=for-the-badge&label=Star&color=FFD700)](https://github.com/Nailong-Studio/NaiLong-Universe/stargazers)
-[![在线圣殿](https://img.shields.io/badge/在线圣殿-GitHub%20Pages-2ea44f?style=for-the-badge)](https://nailong-studio.github.io/NaiLong-Universe/)
-[![Cloudflare](https://img.shields.io/badge/镜像-Cloudflare%20Pages-F38020?style=for-the-badge)](https://nailong-universe.pages.dev/)
+[![GitHub Stars](https://img.shields.io/github/stars/Nailong-Studio/NaiLoong-Universe?style=for-the-badge&label=Star&color=FFD700)](https://github.com/Nailong-Studio/NaiLoong-Universe/stargazers)
+[![在线圣殿](https://img.shields.io/badge/在线圣殿-GitHub%20Pages-2ea44f?style=for-the-badge)](https://nailong-studio.github.io/NaiLoong-Universe/)
+[![Cloudflare](https://img.shields.io/badge/镜像-Cloudflare%20Pages-F38020?style=for-the-badge)](https://nailoong-universe.pages.dev/)
 [![素材仓库](https://img.shields.io/badge/素材仓库-wallpaper-FF6B6B?style=for-the-badge)](https://github.com/Nailong-Studio/wallpaper)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
@@ -24,8 +24,8 @@
 
 | 入口 | 链接 | 说明 |
 | --- | --- | --- |
-| 主入口 · GitHub Pages | [nailong-studio.github.io/NaiLong-Universe](https://nailong-studio.github.io/NaiLong-Universe/) | 点开即入殿，无需预约 |
-| 镜像入口 · Cloudflare | [nailong-universe.pages.dev](https://nailong-universe.pages.dev/) | 同一座殿，另一条消防通道 |
+| 主入口 · GitHub Pages | [nailong-studio.github.io/NaiLoong-Universe](https://nailong-studio.github.io/NaiLoong-Universe/) | 点开即入殿，无需预约 |
+| 镜像入口 · Cloudflare | [nailoong-universe.pages.dev](https://nailoong-universe.pages.dev/) | 同一座殿，另一条消防通道 |
 | 常用门牌 | 展厅 `#halls` · 单厅 `#hall-1`…`#hall-8` · 友站 `#friends` · 检索 `#search` · 游客中心 `#about` | 均可直接分享，不会迷路 |
 | 库房 | [Nailong-Studio/wallpaper](https://github.com/Nailong-Studio/wallpaper) | 全部馆藏原图与圣影 |
 
@@ -178,7 +178,7 @@
 
 **NAIWA ART UNIVERSE** · 圣殿长明，欢迎常来
 
-如果这个项目让你笑了，[点个 Star](https://github.com/Nailong-Studio/NaiLong-Universe/stargazers) 给圣殿添灯；
+如果这个项目让你笑了，[点个 Star](https://github.com/Nailong-Studio/NaiLoong-Universe/stargazers) 给圣殿添灯；
 要是它让你笑出声了，[提交一件素材](https://github.com/Nailong-Studio/wallpaper/blob/main/CONTRIBUTING.md) 直接当圣殿股东。
 再不行，把它分享给一个笑点低的朋友——也算积德。
 
