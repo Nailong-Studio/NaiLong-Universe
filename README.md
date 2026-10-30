@@ -11,7 +11,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/Nailong-Studio/NaiLoong-Universe?style=for-the-badge&label=Star&color=FFD700)](https://github.com/Nailong-Studio/NaiLoong-Universe/stargazers)
 [![在线圣殿](https://img.shields.io/badge/在线圣殿-GitHub%20Pages-2ea44f?style=for-the-badge)](https://nailong-studio.github.io/NaiLoong-Universe/)
 [![Cloudflare](https://img.shields.io/badge/镜像-Cloudflare%20Pages-F38020?style=for-the-badge)](https://nailoong-universe.pages.dev/)
-[![素材仓库](https://img.shields.io/badge/素材仓库-wallpaper-FF6B6B?style=for-the-badge)](https://github.com/Nailong-Studio/wallpaper)
+[![素材仓库](https://img.shields.io/badge/素材仓库-wallpaper-FF6B6B?style=for-the-badge)](https://github.com/Nailong-Studio/NaiWa-Wallpaper)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
 > **香油钱箱（aka Star 按钮）**：圣殿不收门票，只收星星。点一下右上角的 ⭐，就是往功德箱里投了一盏灯——奶蛙会保佑你的表情包永远不缺。
@@ -27,7 +27,7 @@
 | 主入口 · GitHub Pages | [nailong-studio.github.io/NaiLoong-Universe](https://nailong-studio.github.io/NaiLoong-Universe/) | 点开即入殿，无需预约 |
 | 镜像入口 · Cloudflare | [nailoong-universe.pages.dev](https://nailoong-universe.pages.dev/) | 同一座殿，另一条消防通道 |
 | 常用门牌 | 展厅 `#halls` · 单厅 `#hall-1`…`#hall-8` · 友站 `#friends` · 检索 `#search` · 游客中心 `#about` | 均可直接分享，不会迷路 |
-| 库房 | [Nailong-Studio/wallpaper](https://github.com/Nailong-Studio/wallpaper) | 全部馆藏原图与圣影 |
+| 库房 | [Nailong-Studio/NaiWa-Wallpaper](https://github.com/Nailong-Studio/NaiWa-Wallpaper) | 全部馆藏原图与圣影 |
 
 **桌面端全景**
 
@@ -119,7 +119,7 @@
 
 ## 六、库房
 
-全部馆藏原图托管于 [Nailong-Studio/wallpaper](https://github.com/Nailong-Studio/wallpaper)，按厅分藏：
+全部馆藏原图托管于 [Nailong-Studio/NaiWa-Wallpaper](https://github.com/Nailong-Studio/NaiWa-Wallpaper)，按厅分藏：
 
 | 目录 | 内容 |
 | --- | --- |
@@ -133,7 +133,7 @@
 | `videos/` | 官方圣影 |
 | `audio/` | 笑声与音效 |
 
-**命名规范**：中文语义命名，每件素材配同名 `.txt` 叙事、来源与许可。想提交？先读 [库房章程](https://github.com/Nailong-Studio/wallpaper/blob/main/CONTRIBUTING.md)。
+**命名规范**：中文语义命名，每件素材配同名 `.txt` 叙事、来源与许可。想提交？先读 [库房章程](https://github.com/Nailong-Studio/NaiWa-Wallpaper/blob/main/CONTRIBUTING.md)。
 
 ---
 
@@ -150,7 +150,7 @@
 
 | 你想做的事 | 怎么开始 | 需要什么 |
 | --- | --- | --- |
-| 交一件素材 | 到 [wallpaper](https://github.com/Nailong-Studio/wallpaper) 提 PR | 一张奶蛙图 + 一句话叙事 |
+| 交一件素材 | 到 [wallpaper](https://github.com/Nailong-Studio/NaiWa-Wallpaper) 提 PR | 一张奶蛙图 + 一句话叙事 |
 | 改官网 bug | 改 `docs/index.html` 提 PR | 会一点 HTML/CSS/JS |
 | 补一段叙事 | 给素材配同名 `.txt` | 会讲笑话 / 会起名 / 会考古 |
 | 出个新主题 | 基于 `palette.json` 派生 | 会配色 |
@@ -179,7 +179,7 @@
 **NAIWA ART UNIVERSE** · 圣殿长明，欢迎常来
 
 如果这个项目让你笑了，[点个 Star](https://github.com/Nailong-Studio/NaiLoong-Universe/stargazers) 给圣殿添灯；
-要是它让你笑出声了，[提交一件素材](https://github.com/Nailong-Studio/wallpaper/blob/main/CONTRIBUTING.md) 直接当圣殿股东。
+要是它让你笑出声了，[提交一件素材](https://github.com/Nailong-Studio/NaiWa-Wallpaper/blob/main/CONTRIBUTING.md) 直接当圣殿股东。
 再不行，把它分享给一个笑点低的朋友——也算积德。
 
 </div>

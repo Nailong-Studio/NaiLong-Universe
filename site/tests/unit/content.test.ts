@@ -69,7 +69,7 @@ describe("数据质量", () => {
 
   it("原图地址指向公开的壁纸仓库", () => {
     for (const a of artworks) {
-      expect(a.full).toContain("raw.githubusercontent.com/Nailong-Studio/wallpaper/")
+      expect(a.full).toContain("raw.githubusercontent.com/Nailong-Studio/NaiWa-Wallpaper/")
       expect(a.fullSrcset).toContain("wsrv.nl")
     }
   })

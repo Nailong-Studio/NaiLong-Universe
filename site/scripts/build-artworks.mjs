@@ -30,7 +30,7 @@ const THUMB_ROOT = path.join(ROOT, "public/thumbs")
 const CACHE_DIR = path.join(ROOT, ".cache/lqip")
 
 // 原图 CDN：GitHub raw 作为唯一来源，wsrv.nl 负责按需转码
-const RAW_BASE = "https://raw.githubusercontent.com/Nailong-Studio/wallpaper/main"
+const RAW_BASE = "https://raw.githubusercontent.com/Nailong-Studio/NaiWa-Wallpaper/main"
 const CDN_BASE = "https://wsrv.nl/"
 const CDN_WIDTHS = [640, 1024, 1600, 2048]
 

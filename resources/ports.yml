@@ -5,7 +5,7 @@ ports:
   wallpaper:
     name: "Wallpaper"
     category: "wallpaper"
-    repo: "Nailong-Studio/wallpaper"
+    repo: "Nailong-Studio/NaiWa-Wallpaper"
     description: "奶蛙素材库 190 件馆藏（名画/大笑藏馆/表情/艺术场景/高清壁纸/视频帧图/官方圣影）"
     maintained: true
 

@@ -13,7 +13,7 @@
 
 | 难度 | 贡献 | 说明 |
 | --- | --- | --- |
-| 1/5 | 提交素材 | 一张奶蛙图 + 一句话叙事，PR 到 [wallpaper](https://github.com/Nailong-Studio/wallpaper) |
+| 1/5 | 提交素材 | 一张奶蛙图 + 一句话叙事，PR 到 [wallpaper](https://github.com/Nailong-Studio/NaiWa-Wallpaper) |
 | 2/5 | 写叙事 | 给已有素材配更有梗的 `.txt` |
 | 3/5 | 改官网 | `docs/index.html` 是单文件自包含，改完浏览器直接能看 |
 | 4/5 | 出新主题 | 读 `palette.json`，派生 Windows / macOS / 终端 / VS Code 主题 |

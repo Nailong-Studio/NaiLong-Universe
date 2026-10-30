@@ -93,7 +93,7 @@ def check(html, items, online=False):
                 continue
             d, f = urllib.parse.unquote(raw.split("/main/")[-1]).split("/", 1)
             if d not in cache:
-                url = "https://api.github.com/repos/Nailong-Studio/wallpaper/contents/" + d
+                url = "https://api.github.com/repos/Nailong-Studio/NaiWa-Wallpaper/contents/" + d
                 try:
                     req = urllib.request.Request(url, headers={"User-Agent": "nw-check"})
                     cache[d] = [e["name"] for e in json.load(urllib.request.urlopen(req, timeout=40))]
